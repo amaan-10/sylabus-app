@@ -29,7 +29,7 @@ const About = () => {
         <div className="flex flex-wrap flex-none place-content-center items-center gap-4 w-full h-min p-0 relative overflow-visible">
           <div className="flex-none w-auto h-auto relative">
             <Link
-              className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[rgb(19,38,27)] hover:bg-[rgb(168,86,19)] transition-colors duration-300 rounded-[37px] shadow-[rgba(24,52,36,0.15)_0px_1.20932px_1.20932px_-0.46875px,rgba(24,52,36,0.15)_0px_2.86629px_2.86629px_-0.9375px,rgba(24,52,36,0.14)_0px_5.22841px_5.22841px_-1.40625px,rgba(24,52,36,0.14)_0px_8.69222px_8.69222px_-1.875px,rgba(24,52,36,0.13)_0px_14.0372px_14.0372px_-2.34375px,rgba(24,52,36,0.12)_0px_22.9776px_22.9776px_-2.8125px,rgba(24,52,36,0.1)_0px_39.5658px_39.5658px_-3.28125px,rgba(24,52,36,0.05)_0px_72px_72px_-3.75px] opacity-100 group"
+              className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[rgb(19,38,27)] hover:bg-[rgb(168,86,19)] transition-colors duration-300 rounded-[37px] shadow-xl shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
               href="https://cal.com/"
               target="_blank"
               rel="noopener"

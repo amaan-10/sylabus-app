@@ -44,7 +44,7 @@ const Hero = () => {
             </div>
             <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full h-min p-0 relative overflow-visible">
               <div className="flex-none w-full h-auto relative">
-                <h1 className="text-[80px] text-[#193625] leading-20 text-center">
+                <h1 className="text-[80px] text-[#193625] leading-20 text-center tracking-tighter">
                   Carbon consultants for savvy SMEs
                 </h1>
               </div>

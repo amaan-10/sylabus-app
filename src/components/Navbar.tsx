@@ -66,19 +66,26 @@ const Navbar = () => {
                 <button
                   aria-label="Search Icon"
                   className="group rounded-[10px] p-0 flex items-center justify-center w-9 h-9 transition-transform duration-200 motion-safe:transition-transform
-                 hover:scale-110 focus:scale-110"
+                 hover:scale-110 focus:scale-110 cursor-pointer"
                 >
                   <svg
+                    aria-label="Magnifying Glass"
+                    display="block"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                    width={18}
+                    height={18}
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 256 256"
-                    width="18"
-                    height="18"
-                    style={{ color: "#13261b" }}
                   >
                     <path
-                      d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"
-                      fill="#13261b"
-                    ></path>
+                      d="M 19.301 18.24 L 14.607 13.547 C 17.434 10.154 17.091 5.138 13.83 2.16 C 10.569 -0.818 5.542 -0.703 2.419 2.419 C -0.703 5.542 -0.818 10.569 2.16 13.83 C 5.138 17.091 10.154 17.434 13.547 14.607 L 18.24 19.301 C 18.533 19.594 19.008 19.594 19.301 19.301 C 19.594 19.008 19.594 18.533 19.301 18.24 Z M 1.521 8.271 C 1.521 4.543 4.543 1.521 8.271 1.521 C 11.999 1.521 15.021 4.543 15.021 8.271 C 15.021 11.999 11.999 15.021 8.271 15.021 C 4.545 15.017 1.525 11.997 1.521 8.271 Z"
+                      fill="#5e6b64"
+                      height="19.521148357002613px"
+                      id="wF_eq6oUM"
+                      opacity="1"
+                      transform="translate(2.229 2.229)"
+                      width="19.52114835700349px"
+                    />
                   </svg>
                 </button>
               </div>
