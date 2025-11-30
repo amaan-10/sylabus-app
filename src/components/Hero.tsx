@@ -37,7 +37,7 @@ const Hero = () => {
                 </div>
                 <div className="flex-none w-auto h-auto relative">
                   <p className="text-sm text-[#5e6b64]">
-                    1 spot left this month
+                    Effortless Paper Setting
                   </p>
                 </div>
               </div>
@@ -45,14 +45,14 @@ const Hero = () => {
             <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full h-min p-0 relative overflow-visible">
               <div className="flex-none w-full h-auto relative">
                 <h1 className="text-[80px] text-[#193625] leading-20 text-center tracking-tighter">
-                  Carbon consultants for savvy SMEs
+                  Generate Custom Papers Instantly
                 </h1>
               </div>
               <div className="flex-none w-full max-w-[620px] h-auto relative">
                 <p className="text-[#5e6b64] text-center">
-                  We help small and growing businesses cut carbon, boost
-                  credibility, and move forward with confidence. Your low-carbon
-                  journey starts here.
+                  Create custom question papers instantly with AI. Choose
+                  chapters, marks, and difficulty levels while the system
+                  generates accurate, syllabus-aligned questions effortlessly.
                 </p>
               </div>
             </div>
@@ -68,7 +68,7 @@ const Hero = () => {
                 <div className="h-min flex flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">
                   <div className="flex-none w-auto h-auto relative">
                     <p className="text-base text-white font-semibold">
-                      Book my free consultation
+                      Experience It Yourself
                     </p>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ const About = () => {
       id="about"
     >
       <div className="flex flex-col flex-none place-content-center items-center gap-12 w-full max-w-7xl h-min p-0 relative overflow-visible">
-        <div className="z-1 flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[900px] h-min p-0 relative overflow-visible">
+        <div className="z-1 flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[950px] h-min p-0 relative overflow-visible">
           <div className="flex-none w-auto h-auto relative">
             <div className="h-min flex flex-row place-content-center items-center gap-1.5 w-min px-4 py-1.5 relative overflow-hidden rounded-4xl opacity-100 bg-[rgb(240,244,243)]">
               <div className="flex-none w-auto h-auto relative">
@@ -19,10 +19,12 @@ const About = () => {
           <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative overflow-visible">
             <h2 className="text-[#193625] text-5xl text-center">
               <span className="text-[#516359]">
-                We&apos;re a small team of passionate{" "}
+                Our platform simplifies paper setting{" "}
               </span>
-              carbon experts helping forward-thinking companies{" "}
-              <span className="text-[#516359]">prepare for the future.</span>
+              by generating syllabus-based questions{" "}
+              <span className="text-[#516359]">
+                tailored to teacher&apos;s needs.
+              </span>
             </h2>
           </div>
         </div>

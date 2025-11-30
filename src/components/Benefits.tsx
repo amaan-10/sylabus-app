@@ -4,7 +4,7 @@ import React from "react";
 const Benefits = () => {
   return (
     <div
-      className="flex flex-col flex-none place-content-center items-center gap-24 w-full max-w-7xl h-min px-12 relative overflow-hidden"
+      className="flex flex-col flex-none place-content-center items-center gap-24 w-full max-w-7xl h-min px-12 relative overflow-hidden font-poppins"
       id="benefits"
     >
       <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[600px] h-min p-0 relative overflow-hidden">
@@ -16,14 +16,15 @@ const Benefits = () => {
           </div>
         </div>
         <div className="flex-none w-full h-auto relative">
-          <h1 className="text-5xl text-[#193625] tracking-tighter">
+          <h1 className="text-5xl text-[#193625] tracking-tighter text-center">
             Why choose us?
           </h1>
         </div>
         <div className="flex-none w-full max-w-[620px] h-auto relative">
-          <p className="text-[#5e6b64]">
-            Sustainability can be a confusing space. We help you cut through the
-            noise and focus on your business.
+          <p className="text-[#5e6b64] text-center">
+            Paper setting can be time-consuming and overwhelming. We simplify
+            the process, giving teachers clarity, speed, and syllabus-accurate
+            results.
           </p>
         </div>
       </div>
@@ -31,16 +32,18 @@ const Benefits = () => {
         <div
           className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none place-content-start self-center items-start gap-2.5 w-full h-full p-6 relative"
           id="bento-1"
+          style={{ gridArea: "span 3 / span 2" }}
         >
           <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full h-min p-0 relative overflow-hidden">
             <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
               <h3 className="text-[32px] text-[#193625] tracking-tighter">
-                Get ahead of regulation
+                Improve Paper Quality
               </h3>
             </div>
             <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
               <p className="text-[#5e6b64]">
-                Future-proof your business for a low carbon economy.
+                Get structured, balanced papers with clear sections, accurate
+                marking schemes, and syllabus alignment.
               </p>
             </div>
           </div>
@@ -148,184 +151,148 @@ const Benefits = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full max-w-[512px] h-min p-0 relative overflow-hidden">
+          <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full max-w-lg h-min p-0 relative overflow-hidden">
             <div className="flex-none w-full h-auto relative">
-              <h1 className="text-5xl text-[#193625] tracking-tighter">
-                Win more contracts Why choose us?
+              <h1 className="text-[32px] text-[#193625] tracking-tighter">
+                Save Hours of Work
               </h1>
             </div>
             <div className="flex-none w-full max-w-[620px] h-auto relative">
               <p className="text-[#5e6b64]">
-                Sign new clients who are increasingly demanding sustainability.
+                Generate complete question papers in minutes instead of manually
+                compiling questions.
               </p>
             </div>
           </div>
         </div>
-        {/* <div class="framer-1j1n1xc" data-framer-name="Bento 3" id="bento-3">
-          <div class="ssr-variant hidden-1e67z0q hidden-1cfhe4s">
-            <div class="framer-bj4uk-container">
-              <div
-                class="framer-dMrJB framer-6sEQV framer-qbc2k framer-v-6dynho"
-                data-framer-name="Variant 2"
-                data-highlight="true"
-                tabindex="0"
-                style="width: 100%; opacity: 1;"
-              >
-                <div
-                  class="framer-1cjd56h"
-                  data-framer-component-type="RichTextContainer"
-                  style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; transform-origin: 50% 50% 0px;"
-                >
-                  <div
-                    class="framer-text framer-styles-preset-xaq1zr"
-                    data-styles-preset="fjL73p9pc"
-                    style="--framer-text-alignment:center"
-                  >
-                    Boost
-                  </div>
+        <div
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none place-content-center items-center gap-2.5 w-full h-full p-6 relative self-center"
+          style={{
+            backgroundColor:
+              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
+            gridArea: "span 2 / span 2",
+          }}
+          id="bento-3"
+        >
+          <div className="flex-none w-full h-auto relative">
+            <div className="cursor-pointer flex flex-wrap place-content-center items-center gap-2.5 w-full h-min p-0 relative overflow-visible">
+              <div className="whitespace-pre flex-none w-auto h-auto relative">
+                <div className="text-5xl text-[#193625] tracking-tighter text-center">
+                  Boost Teaching{" "}
                 </div>
-                <div
-                  class="framer-1djzo0o"
-                  data-framer-component-type="RichTextContainer"
-                  style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; transform-origin: 50% 50% 0px;"
-                >
+              </div>
+              <div className="flex-none w-auto h-12 relative">
+                <div className="cursor-pointer w-28 h-full relative overflow-hidden">
                   <div
-                    class="framer-text framer-styles-preset-xaq1zr"
-                    data-styles-preset="fjL73p9pc"
-                    style="--framer-text-alignment:center"
+                    className="flex-none w-12 absolute top-0 bottom-0 overflow-hidden rounded-[56px]"
+                    style={{
+                      willChange: "transform",
+                      left: "calc(50% - 24px)",
+                      mask: "radial-gradient(57% 57% at -18.3% 50%, rgba(0,0,0,0) 99.99%, rgb(0,0,0) 100%)",
+                      transform: "none",
+                      transformOrigin: "50% 50% 0px",
+                    }}
                   >
-                    your
+                    <div className="absolute rounded-[inherit] inset-0">
+                      <Image
+                        decoding="auto"
+                        width="1024"
+                        height="1024"
+                        sizes="48px"
+                        src="/p1.png"
+                        alt="Smiling young woman with curly hair sitting at a laptop, in front of a teal wall."
+                        className="block w-full h-full rounded-[inherit] object-center object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="framer-uwspo0-container"
-                  style="transform: none; transform-origin: 50% 50% 0px;"
-                >
                   <div
-                    class="framer-QvSgR framer-1iw1yc3 framer-v-1iw1yc3"
-                    data-framer-name="Open"
-                    data-highlight="true"
-                    tabindex="0"
-                    style="height: 100%; transform: none; transform-origin: 50% 50% 0px;"
+                    className="flex-none w-12 absolute top-0 bottom-0 right-0 overflow-hidden rounded-[56px]"
+                    style={{
+                      willChange: "transform",
+                      mask: "radial-gradient(57% 57% at -18.3% 50%, rgba(0,0,0,0) 99.99%, rgb(0,0,0) 100%)",
+                      transform: "none",
+                      transformOrigin: "50% 50% 0px",
+                    }}
                   >
-                    <div
-                      class="framer-11gofme"
-                      data-framer-name="Image"
-                      style="mask: radial-gradient(57% 57% at -18.3% 50%, rgba(0, 0, 0, 0) 99.99%, rgb(0, 0, 0) 100%); border-radius: 56px; transform: none; transform-origin: 50% 50% 0px;"
-                    >
-                      <div
-                        style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-                        data-framer-background-image-wrapper="true"
-                      >
-                        <Image
-                          decoding="auto"
-                          width="1024"
-                          height="1024"
-                          sizes="48px"
-                          srcset="https://framerusercontent.com/images/A3w4xqEF5H7Ab4dS4kF57om0Eg.png?scale-down-to=512 512w,https://framerusercontent.com/images/A3w4xqEF5H7Ab4dS4kF57om0Eg.png 1024w"
-                          src="https://framerusercontent.com/images/A3w4xqEF5H7Ab4dS4kF57om0Eg.png"
-                          alt="Smiling young woman with curly hair sitting at a laptop, in front of a teal wall."
-                          style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover"
-                        />
-                      </div>
+                    <div className="absolute rounded-[inherit] inset-0">
+                      <Image
+                        decoding="auto"
+                        width="992"
+                        height="992"
+                        sizes="48px"
+                        src="/p2.png"
+                        alt="A young woman with long hair smiles while standing against a green backdrop, wearing a casual dark sweater."
+                        className="block w-full h-full rounded-[inherit] object-center object-cover"
+                      />
                     </div>
-                    <div
-                      class="framer-1kvdw4u"
-                      data-framer-name="Image"
-                      style="mask: radial-gradient(57% 57% at -18.3% 50%, rgba(0, 0, 0, 0) 99.99%, rgb(0, 0, 0) 100%); border-radius: 56px; transform: none; transform-origin: 50% 50% 0px;"
-                    >
-                      <div
-                        style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-                        data-framer-background-image-wrapper="true"
-                      >
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="992"
-                          sizes="48px"
-                          srcset="https://framerusercontent.com/images/dXxdukdWufe676x8vnfDBOk12M.png?scale-down-to=512 512w,https://framerusercontent.com/images/dXxdukdWufe676x8vnfDBOk12M.png 992w"
-                          src="https://framerusercontent.com/images/dXxdukdWufe676x8vnfDBOk12M.png"
-                          alt="A young woman with long hair smiles while standing against a green backdrop, wearing a casual dark sweater."
-                          style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="framer-g2nbbn"
-                      data-framer-name="Image"
-                      style="border-radius: 56px; transform: none; transform-origin: 50% 50% 0px;"
-                    >
-                      <div
-                        style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-                        data-framer-background-image-wrapper="true"
-                      >
-                        <Image
-                          decoding="auto"
-                          width="1024"
-                          height="1024"
-                          sizes="48px"
-                          srcset="https://framerusercontent.com/images/29FbTd77MVf2iH1uxQXrb0EmWk.png?scale-down-to=512 512w,https://framerusercontent.com/images/29FbTd77MVf2iH1uxQXrb0EmWk.png 1024w"
-                          src="https://framerusercontent.com/images/29FbTd77MVf2iH1uxQXrb0EmWk.png"
-                          alt="A smiling person with curly hair sits at a desk, looking at a laptop against a dark background."
-                          style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover"
-                        />
-                      </div>
+                  </div>
+                  <div
+                    className="flex-none w-12 absolute top-0 bottom-0 left-0 overflow-hidden rounded-[56px]"
+                    style={{
+                      willChange: "transform",
+                      transform: "none",
+                      transformOrigin: "50% 50% 0px",
+                    }}
+                  >
+                    <div className="absolute rounded-[inherit] inset-0">
+                      <Image
+                        decoding="auto"
+                        width="1024"
+                        height="1024"
+                        sizes="48px"
+                        src="/p3.png"
+                        alt="A smiling person with curly hair sits at a desk, looking at a laptop against a dark background."
+                        className="block w-full h-full rounded-[inherit] object-center object-cover"
+                      />
                     </div>
                   </div>
                 </div>
-                <div
-                  class="framer-1uwln6c"
-                  data-framer-component-type="RichTextContainer"
-                  style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; transform-origin: 50% 50% 0px;"
-                >
-                  <div
-                    class="framer-text framer-styles-preset-xaq1zr"
-                    data-styles-preset="fjL73p9pc"
-                    style="--framer-text-alignment:center"
-                  >
-                    team
-                  </div>
+              </div>
+              <div className="whitespace-pre flex-none w-auto h-auto relative">
+                <div className="text-5xl text-[#193625] tracking-tighter text-center">
+                  {" "}
+                  Efficiency
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="framer-fozm67"
-            data-framer-component-type="RichTextContainer"
-            style="transform:none"
-          >
-            <p
-              class="framer-text framer-styles-preset-xqj5vo"
-              data-styles-preset="ynn6MjRHb"
-              style="--framer-text-alignment:center"
-            >
-              Think of us like your in-house carbon experts.
+
+          <div className="flex-none w-full h-auto relative">
+            <p className="text-[#5e6b64] text-center">
+              Focus on teaching, We&apos;ll handle the paperwork.
             </p>
           </div>
         </div>
-        <div class="framer-mcx8p" data-framer-name="Bento 4" id="bento-4">
-          <div
-            class="framer-5aq3dt"
-            data-framer-component-type="RichTextContainer"
-            style="transform:none"
-          >
-            <h3
-              class="framer-text framer-styles-preset-11qpdnt"
-              data-styles-preset="B3TBq1tCI"
-              style="--framer-text-alignment:left;--framer-text-color:var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-            >
-              Create real impact
+        <div
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none row-span-3 place-content-start self-center items-start gap-2.5 w-full h-full p-6 relative overflow-hidden"
+          style={{
+            backgroundColor:
+              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
+            willChange: "transform",
+          }}
+          id="bento-4"
+        >
+          <div className="whitespace-pre-wrap wrap-break-word z-1 flex-none w-[284px] h-auto relative">
+            <h3 className="text-[32px] text-[#193625] tracking-tight leading-9">
+              Ensure Accuracy & Consistency
             </h3>
           </div>
-          <div class="framer-hi3oj-container">
-            <div style="height:100%;width:100%">
+          <div
+            className="aspect-[1] z-1 flex-none w-[352px] h-[352px] absolute top-[150px] left-1/2"
+            style={{
+              filter: "brightness(.22) hue-rotate(295deg)",
+              height: "var(--framer-aspect-ratio-supported, 352px)",
+              transform: "translate(-50%)",
+            }}
+          >
+            <div className="h-full w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 360 360"
                 width="360"
                 height="360"
                 preserveAspectRatio="xMidYMid slice"
-                style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"
+                className="h-full w-full"
               >
                 <defs>
                   <clipPath id="__lottie_element_2">
@@ -336,7 +303,7 @@ const Benefits = () => {
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="1"
-                    style="display: block;"
+                    className="block"
                   >
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
@@ -349,7 +316,7 @@ const Benefits = () => {
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="0.5194413749999958"
-                    style="display: block;"
+                    className="block"
                   >
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
@@ -362,7 +329,7 @@ const Benefits = () => {
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="0.8166071428571382"
-                    style="display: block;"
+                    className="block"
                   >
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
@@ -375,7 +342,7 @@ const Benefits = () => {
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="0.0022727272727223638"
-                    style="display: none;"
+                    className="block"
                   >
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
@@ -390,179 +357,162 @@ const Benefits = () => {
             </div>
           </div>
         </div>
-        <div class="framer-171ye1o" data-framer-name="Bento 5" id="bento-5">
-          <div class="framer-sijj50" data-framer-name="Text Wrapper">
-            <div
-              class="framer-19dqym0"
-              data-framer-component-type="RichTextContainer"
-              style="transform:none"
-            >
-              <h3
-                class="framer-text framer-styles-preset-11qpdnt"
-                data-styles-preset="B3TBq1tCI"
-                style="--framer-text-alignment:center;--framer-text-color:var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-              >
-                Award winning
+        <div
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none row-span-2 place-content-start self-center items-center gap-6 w-full h-full p-6 relative overflow-hidden"
+          style={{
+            backgroundColor:
+              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
+            willChange: "transform",
+          }}
+          id="bento-5"
+        >
+          <div className="flex flex-col flex-none place-content-center items-center gap-[15px] w-full max-w-lg h-min p-0 relative overflow-hidden">
+            <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
+              <h3 className="text-[32px] text-[#193625] tracking-tight">
+                Trusted by Educators
               </h3>
             </div>
           </div>
-          <div class="ssr-variant hidden-1cfhe4s">
-            <div
-              class="framer-6j7214"
-              data-framer-name="Silver-trophy"
-              style="will-change: transform; opacity: 1; transform: translate(-50%, -50%);"
-            >
-              <div
-                style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-                data-framer-background-image-wrapper="true"
-              >
-                <Image
-                  decoding="auto"
-                  width="1510"
-                  height="2242"
-                  sizes="246px"
-                  srcset="https://framerusercontent.com/images/8Vxbo10pOeDPEsi2zWM9NFnK418.png?scale-down-to=1024&amp;width=1510&amp;height=2242 689w,https://framerusercontent.com/images/8Vxbo10pOeDPEsi2zWM9NFnK418.png?scale-down-to=2048&amp;width=1510&amp;height=2242 1379w,https://framerusercontent.com/images/8Vxbo10pOeDPEsi2zWM9NFnK418.png?width=1510&amp;height=2242 1510w"
-                  src="https://framerusercontent.com/images/8Vxbo10pOeDPEsi2zWM9NFnK418.png?scale-down-to=2048&amp;width=1510&amp;height=2242"
-                  alt="A shiny silver trophy on a black base, symbolizing achievement and victory."
-                  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover"
-                />
+          <div
+            className="aspect-[0.672131] z-1 flex-none w-[246px] h-[366px] absolute top-[119%] left-1/2 overflow-visible"
+            style={{
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <div className="absolute rounded-[inherit] inset-0">
+              <Image
+                decoding="auto"
+                width="1510"
+                height="2242"
+                sizes="246px"
+                src="/trophy.png"
+                alt="A shiny silver trophy on a black base, symbolizing achievement and victory."
+                className="block w-full h-full rounded-[inherit] object-center object-cover"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-row flex-none row-span-2 place-content-center self-center items-center gap-2.5 w-full h-full p-6 relative"
+          id="bento-6"
+        >
+          <div className="flex flex-col flex-[1_0_0] place-content-center items-center gap-[15px] w-px max-w-lg h-min p-0 relative overflow-hidden">
+            <div className="flex-none w-auto h-auto relative">
+              <div className="flex flex-row place-content-center items-center gap-[3px] w-min h-min p-0 relative overflow-visible">
+                <div className="flex-none w-5 h-5 relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 256"
+                    focusable="false"
+                    color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
+                    className="select-none w-full h-full inline-block shrink-0"
+                    style={{
+                      fill: "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                      color:
+                        "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                    }}
+                  >
+                    <g color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))">
+                      <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div className="flex-none w-5 h-5 relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 256"
+                    focusable="false"
+                    color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
+                    className="select-none w-full h-full inline-block shrink-0"
+                    style={{
+                      fill: "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                      color:
+                        "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                    }}
+                  >
+                    <g color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))">
+                      <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div className="flex-none w-5 h-5 relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 256"
+                    focusable="false"
+                    color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
+                    className="select-none w-full h-full inline-block shrink-0"
+                    style={{
+                      fill: "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                      color:
+                        "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                    }}
+                  >
+                    <g color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))">
+                      <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div className="flex-none w-5 h-5 relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 256"
+                    focusable="false"
+                    color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
+                    className="select-none w-full h-full inline-block shrink-0"
+                    style={{
+                      fill: "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                      color:
+                        "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                    }}
+                  >
+                    <g color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))">
+                      <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div className="flex-none w-5 h-5 relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 256"
+                    focusable="false"
+                    color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
+                    className="select-none w-full h-full inline-block shrink-0"
+                    style={{
+                      fill: "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                      color:
+                        "var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))",
+                    }}
+                  >
+                    <g color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))">
+                      <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div className="flex-none w-full h-auto relative">
+              <div className="flex flex-col place-content-center items-center gap-0 w-full h-min p-0 relative overflow-hidden">
+                <div className="flex-none w-auto h-auto relative">
+                  <p
+                    className="m-0 pointer-events-none select-none text-center font-normal text-[58px]"
+                    style={{
+                      letterSpacing: "-0.05em",
+                      lineHeight: "1.1em",
+                    }}
+                  >
+                    54+
+                  </p>
+                </div>
+                <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
+                  <h3 className="text-[32px] text-[#193625] tracking-tight text-center">
+                    Happy clients
+                  </h3>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="framer-1l6n113" data-framer-name="Bento 6" id="bento-6">
-          <div class="framer-1r40i5i" data-framer-name="Text Wrapper">
-            <div class="framer-odganu-container">
-              <div
-                class="framer-7b3jf framer-8rqd0a framer-v-8rqd0a"
-                data-framer-name="5"
-                style="opacity: 1;"
-              >
-                <div class="framer-1cnyw2h-container" style="opacity: 1;">
-                  <div style="display:contents">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 256"
-                      focusable="false"
-                      color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                      style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); color: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); flex-shrink: 0;"
-                    >
-                      <g
-                        color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                        weight="fill"
-                      >
-                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <div class="framer-1hdspir-container" style="opacity: 1;">
-                  <div style="display:contents">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 256"
-                      focusable="false"
-                      color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                      style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); color: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); flex-shrink: 0;"
-                    >
-                      <g
-                        color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                        weight="fill"
-                      >
-                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <div class="framer-m70w6c-container" style="opacity: 1;">
-                  <div style="display:contents">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 256"
-                      focusable="false"
-                      color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                      style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); color: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); flex-shrink: 0;"
-                    >
-                      <g
-                        color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                        weight="fill"
-                      >
-                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <div class="framer-1ig20f1-container" style="opacity: 1;">
-                  <div style="display:contents">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 256"
-                      focusable="false"
-                      color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                      style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); color: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); flex-shrink: 0;"
-                    >
-                      <g
-                        color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                        weight="fill"
-                      >
-                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <div class="framer-v9uzz7-container" style="opacity: 1;">
-                  <div style="display:contents">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 256"
-                      focusable="false"
-                      color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                      style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); color: var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19)); flex-shrink: 0;"
-                    >
-                      <g
-                        color="var(--token-0ca21bca-b7c4-4d29-a839-edfa6a8d679a, rgb(168, 86, 19))"
-                        weight="fill"
-                      >
-                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ssr-variant hidden-1e67z0q hidden-1cfhe4s">
-              <div class="framer-1p8px3y-container">
-                <div
-                  class="framer-0omUz framer-qVDXP framer-b4zYV framer-m2fs1n framer-v-19jnd49"
-                  data-framer-name="Large"
-                  style="width: 100%; opacity: 1;"
-                >
-                  <div class="framer-fnacem-container" style="opacity: 1;">
-                    <p style='margin:0;opacity:0;pointer-events:none;user-select:none;text-align:center;font-family:"Poppins", "Poppins Placeholder", sans-serif;font-size:58px;font-style:normal;font-weight:400;letter-spacing:-0.05em;line-height:1.1em'>
-                      54+
-                    </p>
-                    <p style='position:absolute;inset:0;user-select:none;margin:0;color:var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27));text-decoration:none;text-align:center;font-family:"Poppins", "Poppins Placeholder", sans-serif;font-size:58px;font-style:normal;font-weight:400;letter-spacing:-0.05em;line-height:1.1em'>
-                      54+
-                    </p>
-                  </div>
-                  <div
-                    class="framer-14hr5o8"
-                    data-framer-component-type="RichTextContainer"
-                    style="--extracted-r6o4lv: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; --extracted-a0htzi: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); transform: none; opacity: 1;"
-                  >
-                    <h3
-                      class="framer-text framer-styles-preset-11qpdnt"
-                      data-styles-preset="B3TBq1tCI"
-                      style="--framer-text-alignment:center;--framer-text-color:var(--extracted-a0htzi, var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)))"
-                    >
-                      Happy clients
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

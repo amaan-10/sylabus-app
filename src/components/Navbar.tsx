@@ -53,7 +53,7 @@ const Navbar = () => {
                       </span>
 
                       <span
-                        className="absolute left-1/2 -bottom-0.5 block h-0.5 w-0 bg-[#13261b] rounded transition-all duration-300 group-hover:left-0 group-hover:w-full motion-safe:group-hover:w-full transform -translate-x-1/2 group-hover:translate-x-0"
+                        className="absolute left-1/2 -bottom-0.5 block h-1 w-0 bg-[#13261b] rounded transition-all duration-300 group-hover:left-0 group-hover:w-full motion-safe:group-hover:w-full transform -translate-x-1/2 group-hover:translate-x-0"
                         aria-hidden="true"
                       />
                     </div>
@@ -64,29 +64,58 @@ const Navbar = () => {
               {/* search icon button (example) */}
               <div className="relative w-auto h-auto">
                 <button
-                  aria-label="Search Icon"
-                  className="group rounded-[10px] p-0 flex items-center justify-center w-9 h-9 transition-transform duration-200 motion-safe:transition-transform
-                 hover:scale-110 focus:scale-110 cursor-pointer"
+                  aria-label="Login Btn"
+                  className="group rounded-full bg-black p-2 hover:px-5 flex items-center justify-center w-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
-                  <svg
-                    aria-label="Magnifying Glass"
-                    display="block"
-                    role="presentation"
-                    viewBox="0 0 24 24"
-                    width={18}
-                    height={18}
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div className="h-min hidden group-hover:flex transition-transform duration-1000 flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">
+                    <div className="flex-none w-auto h-auto relative">
+                      <p className="text-white text-base opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                        Login
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min min-h-5 min-w-5 overflow-hidden relative -rotate-90"
+                    style={{ opacity: 1 }}
                   >
-                    <path
-                      d="M 19.301 18.24 L 14.607 13.547 C 17.434 10.154 17.091 5.138 13.83 2.16 C 10.569 -0.818 5.542 -0.703 2.419 2.419 C -0.703 5.542 -0.818 10.569 2.16 13.83 C 5.138 17.091 10.154 17.434 13.547 14.607 L 18.24 19.301 C 18.533 19.594 19.008 19.594 19.301 19.301 C 19.594 19.008 19.594 18.533 19.301 18.24 Z M 1.521 8.271 C 1.521 4.543 4.543 1.521 8.271 1.521 C 11.999 1.521 15.021 4.543 15.021 8.271 C 15.021 11.999 11.999 15.021 8.271 15.021 C 4.545 15.017 1.525 11.997 1.521 8.271 Z"
-                      fill="#5e6b64"
-                      height="19.521148357002613px"
-                      id="wF_eq6oUM"
-                      opacity="1"
-                      transform="translate(2.229 2.229)"
-                      width="19.52114835700349px"
-                    />
-                  </svg>
+                    <div className="absolute transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--token-21001bb2-95fc-4899-93cf-7cca6736a1a2, rgb(0, 0, 0))"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: "100%", height: "100%" }}
+                        className="stroke-white transition-colors duration-300"
+                      >
+                        <line x1="7" y1="7" x2="17" y2="17"></line>
+                        <polyline points="17 7 17 17 7 17"></polyline>
+                      </svg>
+                    </div>
+
+                    <div className="absolute top-[-21px] left-[-21px] w-5 h-5 transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--token-21001bb2-95fc-4899-93cf-7cca6736a1a2, rgb(0, 0, 0))"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: "100%", height: "100%" }}
+                        className=" stroke-white transition-colors duration-300"
+                      >
+                        <line x1="7" y1="7" x2="17" y2="17"></line>
+                        <polyline points="17 7 17 17 7 17"></polyline>
+                      </svg>
+                    </div>
+                  </div>
                 </button>
               </div>
             </div>

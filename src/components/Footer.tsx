@@ -39,7 +39,9 @@ const Footer = () => {
               </Link>
             </div>
             <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
-              <p className="text-white">Carbon consultants for savvy SMEs.</p>
+              <p className="text-white">
+                Effortless Paper Setting for Educators.
+              </p>
             </div>
             {/* <div className="z-2 flex flex-row flex-none place-content-center items-center gap-4 w-full h-min p-0 relative overflow-visible">
               <div className="flex-none w-auto h-auto relative">
@@ -259,10 +261,12 @@ const Footer = () => {
                 <div key={label} className="flex-none w-auto h-auto relative">
                   <Link
                     href="./#hero"
-                    className="cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
+                    className="group cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
                   >
                     <div className="whitespace-pre flex-none w-auto h-auto relative">
-                      <p className="text-white">{label}</p>
+                      <span className="text-base text-[#5e6b64] transition-colors duration-200 motion-safe:transition-transform motion-safe:duration-300 group-hover:text-[#ffffff] group-hover:-translate-y-0.5 motion-safe:group-hover:-translate-y-0.5 inline-block">
+                        {label}
+                      </span>
                     </div>
                   </Link>
                 </div>
@@ -278,10 +282,12 @@ const Footer = () => {
                 <div key={label} className="flex-none w-auto h-auto relative">
                   <Link
                     href="./#hero"
-                    className="cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
+                    className="group cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
                   >
                     <div className="whitespace-pre flex-none w-auto h-auto relative">
-                      <p className="text-white">{label}</p>
+                      <span className="text-base text-[#5e6b64] transition-colors duration-200 motion-safe:transition-transform motion-safe:duration-300 group-hover:text-[#ffffff] group-hover:-translate-y-0.5 motion-safe:group-hover:-translate-y-0.5 inline-block">
+                        {label}
+                      </span>
                     </div>
                   </Link>
                 </div>
