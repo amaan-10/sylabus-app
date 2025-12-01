@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
@@ -65,6 +66,9 @@ const Navbar = () => {
               <div className="relative w-auto h-auto">
                 <button
                   aria-label="Login Btn"
+                  onClick={() => {
+                    window.location.href = "/signin";
+                  }}
                   className="group rounded-full bg-black p-2 hover:px-5 flex items-center justify-center w-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   <div className="h-min hidden group-hover:flex transition-transform duration-1000 flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">

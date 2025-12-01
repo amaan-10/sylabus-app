@@ -8,7 +8,7 @@ const Services = () => {
       title: "AI Question Generation",
       description:
         "Create high-quality, syllabus-aligned questions instantly—customized by chapter, marks, and difficulty.",
-      imageSrc: "/placeholder.jpeg",
+      imageSrc: "/ai-paper-generator.png",
       imageAlt: "AI Question Generation",
       href: "",
     },
@@ -16,7 +16,7 @@ const Services = () => {
       title: "Automated Paper Structuring",
       description:
         "Get perfectly formatted question papers with balanced sections, marks distribution, and clear instructions.",
-      imageSrc: "/placeholder.jpeg",
+      imageSrc: "/automated-paper-structuring.png",
       imageAlt: "Automated Paper Structuring",
       href: "",
     },
@@ -24,7 +24,7 @@ const Services = () => {
       title: "Syllabus & Board Alignment",
       description:
         "Ensure every paper matches board guidelines, class levels, and subject requirements with complete accuracy.",
-      imageSrc: "/placeholder.jpeg",
+      imageSrc: "/syllabus-alignment.png",
       imageAlt: "Syllabus & Board Alignment",
       href: "",
     },
