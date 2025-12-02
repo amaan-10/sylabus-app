@@ -1,66 +1,94 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { fadeUp, fadeUpFromBottom, parentStagger } from "./animations";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const steps = [
+    {
+      title: "Log In to Your Dashboard",
+      description: "Access your dashboard and start creating papers instantly.",
+      imageSrc: "/step-1.png",
+      imageAlt: "dashboard preview",
+    },
+    {
+      title: "Choose Your Paper Requirements",
+      description: "Select class, chapters, marks, and difficulty settings.",
+      imageSrc: "/step-2.png",
+      imageAlt: "paper requirements",
+    },
+    {
+      title: "Generate Your Question Paper",
+      description:
+        "Prepares a clean, structured, syllabus-aligned paper quickly.",
+      imageSrc: "/step-3.png",
+      imageAlt: "generated questions",
+    },
+    {
+      title: "Download & Print Instantly",
+      description: "Export your ready-to-use paper in one click.",
+      imageSrc: "/step-4.png",
+      imageAlt: "download instantly",
+    },
+  ];
   return (
     <section
       className="flex flex-col flex-none place-content-center items-center gap-24 w-full h-min pt-[100px] px-12 pb-0 relative overflow-visible font-poppins"
       id="hero"
     >
-      <div className="flex flex-col flex-none place-content-center items-center gap-16 w-full max-w-7xl h-min p-0 relative overflow-visible">
-        <div className="flex flex-col flex-none place-content-center items-center gap-12 w-full max-w-[800px] h-min p-0 relative overflow-visible">
+      <motion.div
+        variants={parentStagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.3 }}
+        className="flex flex-col flex-none place-content-center items-center gap-16 w-full max-w-7xl h-min p-0 relative overflow-visible"
+      >
+        <motion.div
+          variants={parentStagger}
+          className="flex flex-col flex-none place-content-center items-center gap-12 w-full max-w-[800px] h-min p-0 relative overflow-visible"
+        >
           <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full h-min p-0 relative overflow-visible">
             <div className="flex-none w-auto h-auto relative">
-              <div className="h-min flex flex-row place-content-center items-center gap-1.5  px-4 pr-4 pl-2.5 py-1.5 relative overflow-hidden bg-[rgb(240,244,243)] opacity-100 rounded-4xl backdrop-filter-none">
-                <div className="flex-none w-auto h-auto relative">
-                  <div
-                    className="flex flex-row place-content-center items-center gap-2.5 w-[18px] h-[18px] p-0 relative overflow-hidden"
-                    data-framer-name="Start"
-                    data-highlight="true"
-                  >
-                    <div
-                      className="framer-11wwdp1"
-                      data-framer-name="Outer"
-                    ></div>
-                    <div
-                      className="aspect-square h-1.5 w-1.5 z-1 flex-none absolute top-1/2 left-1/2 overflow-hidden bg-[rgb(19,38,27)] opacity-100 rounded-full"
-                      style={{
-                        willChange: "transform",
-                        height: "var(--framer-aspect-ratio-supported, 6px)",
-                        backgroundColor:
-                          "var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19,38,27))",
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-                <div className="flex-none w-auto h-auto relative">
-                  <p className="text-sm text-[#5e6b64]">
-                    Effortless Paper Setting
-                  </p>
-                </div>
-              </div>
+              <motion.div
+                variants={fadeUp}
+                className="px-4 py-1.5 rounded-4xl bg-[#F0F4F3] flex items-center gap-2"
+              >
+                <div className="w-1.5 h-1.5 bg-[#13261B] rounded-full"></div>
+                <p className="text-sm text-[#5e6b64]">
+                  Effortless Paper Setting
+                </p>
+              </motion.div>
             </div>
             <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full h-min p-0 relative overflow-visible">
               <div className="flex-none w-full h-auto relative">
-                <h1 className="text-[80px] text-[#193625] leading-20 text-center tracking-tighter">
+                <motion.h1
+                  variants={fadeUp}
+                  className="text-[80px] text-[#193625] leading-20 text-center tracking-tighter"
+                >
                   Generate Custom Papers Instantly
-                </h1>
+                </motion.h1>
               </div>
               <div className="flex-none w-full max-w-[620px] h-auto relative">
-                <p className="text-[#5e6b64] text-center">
+                <motion.p
+                  variants={fadeUp}
+                  className="text-[#5e6b64] text-center"
+                >
                   Create custom question papers instantly with AI. Choose
                   chapters, marks, and difficulty levels while the system
                   generates accurate, syllabus-aligned questions effortlessly.
-                </p>
+                </motion.p>
               </div>
             </div>
           </div>
           <div className="flex flex-wrap flex-none place-content-center items-center gap-4 w-full h-min p-0 relative overflow-visible">
-            <div className="flex-none w-auto h-auto relative">
+            <motion.div
+              variants={fadeUp}
+              className="flex-none w-auto h-auto relative"
+            >
               <Link
-                className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[rgb(19,38,27)] hover:bg-[rgb(168,86,19)] transition-colors duration-300 rounded-[37px] shadow-xl shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
+                className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[#13261b] hover:bg-[#a85613] transition-colors duration-300 rounded-[37px] shadow-xl shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
                 href="https://cal.com/"
                 target="_blank"
                 rel="noopener"
@@ -115,72 +143,79 @@ const Hero = () => {
                   </div>
                 </div>
               </Link>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      </div>
-      <div className="rounded-[20px] flex flex-row flex-none place-content-center items-center gap-6 w-full max-w-[1600px] h-min p-0 relative overflow-visible">
-        <div className="aspect-[0.75] h-[344px] rounded-[20px] flex-[1_0_0] w-px relative overflow-hidden">
-          <div className="rounded-[20px] flex-none w-full h-full absolute top-0 left-0 overflow-hidden">
-            <div className="absolute inset-0 rounded-inherit">
-              <Image
-                decoding="auto"
-                width="992"
-                height="1200"
-                sizes="max((min(100vw - 96px, 1600px) - 72px) / 4, 1px)"
-                className="block w-full h-full rounded-inherit object-center object-cover"
-                src=""
-                alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-              />
+        </motion.div>
+      </motion.div>
+      <motion.div
+        variants={parentStagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.3 }}
+        className="grid flex-none gap-5 auto-rows-fr h-min justify-center overflow-visible p-0 relative w-full
+             grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {steps.map((step, key) => (
+          <motion.div
+            key={key}
+            variants={fadeUpFromBottom}
+            className="relative w-full h-full"
+          >
+            <div
+              className="flex flex-col items-start justify-start cursor-default gap-5 w-full rounded-[30px] h-min p-2.5 pb-[30px] relative"
+              style={{
+                backgroundColor: "#f0f4f3",
+                boxShadow:
+                  "rgba(0,0,0,0.05) 0px 1px 2px, rgba(0,0,0,0.04) 0px 3px 6px", // Light soft shadow
+              }}
+            >
+              <div
+                className="flex items-center justify-center flex-row flex-nowrap gap-2.5 h-[290px] overflow-hidden p-0 relative w-full rounded-t-[25px] rounded-b-[40px]"
+                style={{
+                  backgroundColor: "#4a4949",
+                }}
+              >
+                <div className="flex-[1_0_0px] h-[290px] overflow-visible relative w-px z-0 rounded-[20px]">
+                  <div className="absolute inset-0 rounded-[inherit]">
+                    <Image
+                      decoding="async"
+                      loading="lazy"
+                      width={1920}
+                      height={1920}
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                      src={step.imageSrc}
+                      alt={step.imageAlt}
+                      className="block w-full h-full rounded-[inherit] object-center object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* STEP LABEL */}
+              <div className="flex flex-col gap-5 w-full px-2.5">
+                <div className="flex flex-row items-center gap-2.5">
+                  <div className="flex-none">
+                    <div className="flex items-center gap-2 px-2.5 py-[5px] bg-[#e8ffe3] rounded-[10px] shadow-[rgba(0,0,0,0.04)_0px_1px_2px]">
+                      <div className="h-[5px] w-[5px] bg-[#6cd840] rounded-full shadow-[rgba(0,0,0,0.07)_0px_1px_2px]" />
+                      <p className="text-base font-medium text-[#3b4a3e]">
+                        Step {key + 1}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* HEADING */}
+                <h4 className="text-2xl font-semibold text-[#193625] leading-[1.1]">
+                  {step.title}
+                </h4>
+
+                {/* DESCRIPTION */}
+                <p className="text-base text-[#516359]">{step.description}</p>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="aspect-[0.75] h-[344px] rounded-[20px] flex-[1_0_0] w-px relative overflow-hidden">
-          <div className="rounded-[20px] flex-none w-full h-full absolute top-0 left-0 overflow-hidden">
-            <div className="absolute inset-0 rounded-inherit">
-              <Image
-                decoding="auto"
-                width="992"
-                height="1200"
-                sizes="max((min(100vw - 96px, 1600px) - 72px) / 4, 1px)"
-                className="block w-full h-full rounded-inherit object-center object-cover"
-                src=""
-                alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-              />
-            </div>
-          </div>
-        </div>
-        <div className="aspect-[0.75] h-[344px] rounded-[20px] flex-[1_0_0] w-px relative overflow-hidden">
-          <div className="rounded-[20px] flex-none w-full h-full absolute top-0 left-0 overflow-hidden">
-            <div className="absolute inset-0 rounded-inherit">
-              <Image
-                decoding="auto"
-                width="992"
-                height="1200"
-                sizes="max((min(100vw - 96px, 1600px) - 72px) / 4, 1px)"
-                className="block w-full h-full rounded-inherit object-center object-cover"
-                src=""
-                alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-              />
-            </div>
-          </div>
-        </div>
-        <div className="aspect-[0.75] h-[344px] rounded-[20px] flex-[1_0_0] w-px relative overflow-hidden">
-          <div className="rounded-[20px] flex-none w-full h-full absolute top-0 left-0 overflow-hidden">
-            <div className="absolute inset-0 rounded-inherit">
-              <Image
-                decoding="auto"
-                width="992"
-                height="1200"
-                sizes="max((min(100vw - 96px, 1600px) - 72px) / 4, 1px)"
-                className="block w-full h-full rounded-inherit object-center object-cover"
-                src=""
-                alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 };

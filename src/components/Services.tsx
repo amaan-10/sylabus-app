@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
@@ -72,15 +74,24 @@ const Services = () => {
                   <div className="aspect-[1.3] h-[400px] flex-none gap-12 w-full relative overflow-hidden rounded-xl opacity-100">
                     <div className="flex-none w-full h-full absolute top-[-0.25773%] left-0 overflow-hidden">
                       <div className="absolute inset-0 rounded-inherit">
-                        <Image
-                          decoding="auto"
-                          width="1200"
-                          height="992"
-                          sizes="max(min(100vw - 32px, 600px), 1px)"
-                          src={service.imageSrc}
-                          alt={service.imageAlt}
-                          className="block w-full h-full rounded-inherit object-center object-cover"
-                        />
+                        <motion.div
+                          initial={{ scale: 1.1 }}
+                          whileInView={{ scale: 1 }}
+                          transition={{ duration: 0.9, ease: "easeOut" }}
+                          viewport={{ once: false, amount: 0.3 }}
+                          className="w-full h-full"
+                          style={{ willChange: "transform" }}
+                        >
+                          <Image
+                            decoding="auto"
+                            width="1200"
+                            height="992"
+                            sizes="max(min(100vw - 32px, 600px), 1px)"
+                            src={service.imageSrc}
+                            alt={service.imageAlt}
+                            className="block w-full h-full rounded-inherit object-center object-cover"
+                          />
+                        </motion.div>
                       </div>
                     </div>
                     <div

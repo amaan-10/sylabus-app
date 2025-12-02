@@ -1,13 +1,70 @@
 "use client";
-import Link from "next/link";
-import React from "react";
 
-const Navbar = () => {
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
+import { easeIn, easeOut, motion } from "framer-motion";
+
+const Navbar: React.FC = () => {
+  const [visible, setVisible] = useState(true);
+  const prevY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    prevY.current = typeof window !== "undefined" ? window.scrollY : 0;
+
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      // use rAF for smoothness
+      requestAnimationFrame(() => {
+        const current = window.scrollY;
+        const delta = current - prevY.current;
+
+        // ignore tiny scrolls
+        if (Math.abs(delta) > 10) {
+          if (delta > 0 && current > 50) {
+            // scrolled down -> hide
+            setVisible(false);
+          } else if (delta < 0) {
+            // scrolled up -> show
+            setVisible(true);
+          }
+          prevY.current = current;
+        }
+
+        ticking.current = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navVariants = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.32, ease: easeOut },
+    },
+    hidden: {
+      y: -100,
+      opacity: 0,
+      transition: { duration: 0.28, ease: easeIn },
+    },
+  };
+
   return (
-    <div className="h-auto fixed z-5 flex-none top-0 left-0 right-0 font-poppins">
+    <motion.div
+      variants={navVariants}
+      initial="visible"
+      animate={visible ? "visible" : "hidden"}
+      // pointerEvents disabled while hidden so it doesn't block clicks
+      style={{ pointerEvents: visible ? "auto" : "none" }}
+      className="h-auto fixed z-50 top-0 left-0 right-0 font-poppins"
+    >
       <div className="contents">
         <nav className="flex flex-row place-content-center items-center gap-12 w-full h-min min-h-[72px] px-12 relative overflow-hidden">
-          <div className="z-0 flex-none absolute inset-0 overflow-visible bg-white"></div>
+          <div className="z-0 flex-none absolute inset-0 overflow-visible bg-white" />
           <div className="flex flex-row flex-[1_0_0] place-content-between items-center w-px max-w-7xl h-min p-0 relative overflow-visible">
             <div className="relative w-auto h-auto">
               <Link
@@ -16,6 +73,7 @@ const Navbar = () => {
                 href="./#hero"
               >
                 <div className="relative w-7 h-7">
+                  {/* svg */}
                   <svg
                     version="1.0"
                     xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +98,7 @@ const Navbar = () => {
                 </div>
               </Link>
             </div>
+
             <div className="flex flex-row flex-none place-content-center items-center gap-6 w-min h-[41px] p-0 relative overflow-hidden">
               {["Home", "Services", "About", "Blog", "Contact"].map((label) => (
                 <div key={label} className="relative w-auto h-auto">
@@ -62,14 +121,14 @@ const Navbar = () => {
                 </div>
               ))}
 
-              {/* search icon button (example) */}
+              {/* search / login icon button */}
               <div className="relative w-auto h-auto">
                 <button
                   aria-label="Login Btn"
                   onClick={() => {
                     window.location.href = "/signin";
                   }}
-                  className="group rounded-full bg-black p-2 hover:px-5 flex items-center justify-center w-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
+                  className="group rounded-full bg-[#13261b] p-2 hover:px-5 flex items-center justify-center w-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   <div className="h-min hidden group-hover:flex transition-transform duration-1000 flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">
                     <div className="flex-none w-auto h-auto relative">
@@ -78,6 +137,7 @@ const Navbar = () => {
                       </p>
                     </div>
                   </div>
+
                   <div
                     className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min min-h-5 min-w-5 overflow-hidden relative -rotate-90"
                     style={{ opacity: 1 }}
@@ -126,7 +186,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

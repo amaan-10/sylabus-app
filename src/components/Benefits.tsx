@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-
+import CountUp from "./CountUp";
+import { motion } from "framer-motion";
 const Benefits = () => {
   return (
     <div
@@ -47,7 +49,16 @@ const Benefits = () => {
               </p>
             </div>
           </div>
-          <div className="z-1 flex flex-row flex-none place-content-center items-center gap-0 w-min h-min p-0 absolute top-[150px] right-[345px] overflow-hidden">
+          <motion.div
+            initial={{ x: -200 }}
+            whileInView={{ x: 0 }}
+            transition={{
+              duration: 1.2,
+              ease: "easeOut",
+            }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="z-1 flex flex-row flex-none place-content-center items-center gap-0 w-min h-min p-0 absolute top-[150px] right-[345px] overflow-hidden"
+          >
             <div className="flex-none w-[527px] h-1.5 relative overflow-hidden bg-[#13261b]"></div>
             <div className="border-[5px] border-solid border-[#13261b] bg-[#13261b] rounded-[55px] flex-none w-12 h-12 relative overflow-hidden">
               <div
@@ -79,10 +90,16 @@ const Benefits = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            initial={{ x: -200, y: "-50%" }}
+            whileInView={{ x: 0, y: "-50%" }}
+            transition={{
+              duration: 1.2,
+              ease: "easeOut",
+            }}
+            viewport={{ once: false, amount: 0.3 }}
             className="z-1 flex flex-row flex-none place-content-center items-center gap-0 w-min h-min p-0 absolute top-[76%] right-[164px] overflow-hidden"
-            style={{ transform: "translateY(-50%)" }}
           >
             <div className="flex-none w-[623px] h-1.5 relative overflow-hidden bg-[#13261b]"></div>
             <div
@@ -124,7 +141,7 @@ const Benefits = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div
           className="rounded-[20px] flex flex-col flex-none place-content-start items-center gap-2.5 w-full h-full p-6 relative bg-[#f0f4f3] self-center"
@@ -135,11 +152,17 @@ const Benefits = () => {
           }}
           id="bento-2"
         >
-          <div
-            className="z-1 flex-none absolute w-[441px] h-[254px] aspect-[1.733] top-[65%] left-[71%] overflow-visible"
-            style={{ transform: "translate(-50%, -50%)" }}
+          <motion.div
+            initial={{ x: 0 }}
+            whileInView={{ x: -150 }}
+            transition={{
+              duration: 1.2,
+              ease: "easeOut",
+            }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="z-1 flex-none absolute w-[441px] h-[254px] aspect-[1.733] top-2/5 left-1/2 overflow-visible"
           >
-            <div className="absolute rounded-inherit inset-0">
+            <div className="absolute rounded-[inherit] inset-0">
               <Image
                 decoding="auto"
                 width="2090"
@@ -150,7 +173,8 @@ const Benefits = () => {
                 className="block w-full h-full rounded-[inherit] object-center object-cover"
               />
             </div>
-          </div>
+          </motion.div>
+
           <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full max-w-lg h-min p-0 relative overflow-hidden">
             <div className="flex-none w-full h-auto relative">
               <h1 className="text-[32px] text-[#193625] tracking-tighter">
@@ -299,7 +323,7 @@ const Benefits = () => {
                     <rect width="360" height="360" x="0" y="0"></rect>
                   </clipPath>
                 </defs>
-                <g clip-path="url(#__lottie_element_2)">
+                <g clipPath="url(#__lottie_element_2)">
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="1"
@@ -308,7 +332,7 @@ const Benefits = () => {
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
                         fill="rgb(131,155,195)"
-                        fill-opacity="1"
+                        fillOpacity="1"
                         d=" M0,-50 C27.594999313354492,-50 50,-27.594999313354492 50,0 C50,27.594999313354492 27.594999313354492,50 0,50 C-27.594999313354492,50 -50,27.594999313354492 -50,0 C-50,-27.594999313354492 -27.594999313354492,-50 0,-50z"
                       ></path>
                     </g>
@@ -321,7 +345,7 @@ const Benefits = () => {
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
                         fill="rgb(95,128,178)"
-                        fill-opacity="1"
+                        fillOpacity="1"
                         d=" M0,-106.08203125 C58.54667282104492,-106.08203125 106.08203125,-58.54667282104492 106.08203125,0 C106.08203125,58.54667282104492 58.54667282104492,106.08203125 0,106.08203125 C-58.54667282104492,106.08203125 -106.08203125,58.54667282104492 -106.08203125,0 C-106.08203125,-58.54667282104492 -58.54667282104492,-106.08203125 0,-106.08203125z"
                       ></path>
                     </g>
@@ -334,7 +358,7 @@ const Benefits = () => {
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
                         fill="rgb(110,142,190)"
-                        fill-opacity="1"
+                        fillOpacity="1"
                         d=" M0,-61.61309814453125 C34.004268646240234,-61.61309814453125 61.61309814453125,-34.004268646240234 61.61309814453125,0 C61.61309814453125,34.004268646240234 34.004268646240234,61.61309814453125 0,61.61309814453125 C-34.004268646240234,61.61309814453125 -61.61309814453125,34.004268646240234 -61.61309814453125,0 C-61.61309814453125,-34.004268646240234 -34.004268646240234,-61.61309814453125 0,-61.61309814453125z"
                       ></path>
                     </g>
@@ -347,7 +371,7 @@ const Benefits = () => {
                     <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                       <path
                         fill="rgb(131,155,195)"
-                        fill-opacity="1"
+                        fillOpacity="1"
                         d=" M0,-179.99781799316406 C99.3407974243164,-179.99781799316406 179.99781799316406,-99.3407974243164 179.99781799316406,0 C179.99781799316406,99.3407974243164 99.3407974243164,179.99781799316406 0,179.99781799316406 C-99.3407974243164,179.99781799316406 -179.99781799316406,99.3407974243164 -179.99781799316406,0 C-179.99781799316406,-99.3407974243164 -99.3407974243164,-179.99781799316406 0,-179.99781799316406z"
                       ></path>
                     </g>
@@ -373,11 +397,12 @@ const Benefits = () => {
               </h3>
             </div>
           </div>
-          <div
-            className="aspect-[0.672131] z-1 flex-none w-[246px] h-[366px] absolute top-[119%] left-1/2 overflow-visible"
-            style={{
-              transform: "translate(-50%, -50%)",
-            }}
+          <motion.div
+            initial={{ y: 75 }}
+            whileInView={{ y: -30 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.1 }}
+            className="aspect-[0.672131] z-1 flex-none w-[246px] h-[366px] absolute top-1/2 left-1/2 -translate-x-1/2 overflow-visible"
           >
             <div className="absolute rounded-[inherit] inset-0">
               <Image
@@ -390,7 +415,7 @@ const Benefits = () => {
                 className="block w-full h-full rounded-[inherit] object-center object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
         <div
           className="bg-[#f0f4f3] rounded-[20px] flex flex-row flex-none row-span-2 place-content-center self-center items-center gap-2.5 w-full h-full p-6 relative"
@@ -494,16 +519,18 @@ const Benefits = () => {
             <div className="flex-none w-full h-auto relative">
               <div className="flex flex-col place-content-center items-center gap-0 w-full h-min p-0 relative overflow-hidden">
                 <div className="flex-none w-auto h-auto relative">
-                  <p
-                    className="m-0 pointer-events-none select-none text-center font-normal text-[58px]"
-                    style={{
-                      letterSpacing: "-0.05em",
-                      lineHeight: "1.1em",
-                    }}
-                  >
-                    54+
-                  </p>
+                  <div className="flex-none w-auto h-auto relative">
+                    <CountUp
+                      from={0}
+                      to={54}
+                      duration={2}
+                      className="m-0 pointer-events-none select-none text-center font-normal text-[58px]"
+                      threshold={0.4} // optional: how much must be visible to trigger
+                      once={false} // optional: set true to whileInView only the first time
+                    />
+                  </div>
                 </div>
+
                 <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
                   <h3 className="text-[32px] text-[#193625] tracking-tight text-center">
                     Happy clients

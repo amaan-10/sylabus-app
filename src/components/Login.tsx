@@ -120,8 +120,8 @@ const Login = () => {
             willChange: "var(--framer-will-change-effect-override, transform)",
           }}
         >
-          <div className="flex flex-col flex-none place-content-center items-center gap-4 h-min overflow-hidden p-4 relative w-full">
-            <div className="flex flex-col flex-none place-content-center items-center gap-4 h-min overflow-hidden p-4 relative w-full">
+          <div className="flex flex-col flex-none place-content-center items-center gap-4 h-min overflow-hidden p-5 relative w-full">
+            <div className="flex flex-col flex-none place-content-center items-center gap-4 h-min overflow-hidden relative w-full">
               <div className="flex flex-row flex-none place-content-center items-center gap-2.5 h-min min-h-[258px] overflow-hidden p-0 relative w-full">
                 <div className="flex-1 h-auto w-px relative">
                   <div className="w-full h-full relative flex justify-center items-center">
@@ -135,7 +135,7 @@ const Login = () => {
                     >
                       <div className="flex flex-col">
                         <label
-                          className="pb-2 mb-1 rounded-none text-base font-medium leading-none tracking-[0.03em]"
+                          className="pb-2 mb-1 rounded-none text-sm font-medium leading-none tracking-[0.03em]"
                           style={{
                             background: "rgba(0, 0, 0, 0)",
                             color: "rgb(0, 0, 0)",
@@ -152,7 +152,7 @@ const Login = () => {
                           autoCorrect="off"
                           spellCheck="false"
                           value=""
-                          className="w-full h-auto outline-none border-none p-4 rounded-lg text-base font-normal leading-none tracking-[0.03em]"
+                          className="w-full h-auto outline-none border-none p-3 rounded-lg text-sm font-normal leading-none tracking-[0.03em]"
                           style={{
                             appearance: "none",
                             fontStyle: "normal",
@@ -167,7 +167,7 @@ const Login = () => {
                       </div>
                       <div className="flex flex-col">
                         <label
-                          className="pb-2 mb-1 rounded-none text-base font-medium leading-none tracking-[0.03em]"
+                          className="pb-2 mb-1 rounded-none text-sm font-medium leading-none tracking-[0.03em]"
                           style={{
                             background: "rgba(0, 0, 0, 0)",
                             color: "rgb(0, 0, 0)",
@@ -185,7 +185,7 @@ const Login = () => {
                             autoCorrect="off"
                             spellCheck="false"
                             value=""
-                            className="w-full h-auto outline-none border-none p-4 rounded-lg text-base font-normal leading-none tracking-[0.03em]"
+                            className="w-full h-auto outline-none border-none p-3 rounded-lg text-sm font-normal leading-none tracking-[0.03em]"
                             style={{
                               appearance: "none",
                               fontStyle: "normal",
@@ -219,16 +219,7 @@ const Login = () => {
                             <input
                               type="submit"
                               value="Sign In"
-                              className="w-full h-full outline-none border-none cursor-pointer p-4 rounded-full text-base font-medium leading-none tracking-[0.03em] z-10"
-                              style={{
-                                appearance: "none",
-
-                                fontStyle: "normal",
-                                background:
-                                  "var(--token-1bfc92b2-7a4b-45e2-a854-14ae137e253a, rgb(0, 0, 0))",
-                                color:
-                                  "var(--token-78fe237d-cdda-442a-941c-79e916f3254d, rgb(250, 250, 250))",
-                              }}
+                              className="w-full cursor-pointer flex flex-row place-content-center items-center gap-0 h-min p-3 text-sm font-medium no-underline relative overflow-visible bg-[#13261b] hover:bg-[#a85613] transition-colors duration-300 rounded-[37px] shadow-md shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
                             />
                           </div>
                         </div>
@@ -258,7 +249,7 @@ const Login = () => {
                   className="outline-none flex flex-col justify-start shrink-0"
                   style={{ transform: "none" }}
                 >
-                  <p className="text-[#193625] text-sm underline text-center">
+                  <p className="text-[#193625] hover:text-[#a85613] text-sm font-medium underline hover:no-underline text-center">
                     <Link href="./signup">Sign Up</Link>
                   </p>
                 </div>

@@ -1,7 +1,25 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { wordChild, wordParent } from "./animations";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const segments = [
+    {
+      text: "Our platform simplifies paper setting",
+      className: "text-[#516359]",
+    },
+    {
+      text: "by generating syllabus-based questions",
+      className: "text-[#193625]",
+    },
+    {
+      text: "tailored to teacher's needs.",
+      className: "text-[#516359]",
+    },
+  ];
+
   return (
     <section
       className="flex flex-col flex-none place-content-center items-center gap-0 w-full h-min relative overflow-visible font-poppins"
@@ -17,15 +35,28 @@ const About = () => {
             </div>
           </div>
           <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative overflow-visible">
-            <h2 className="text-[#193625] text-5xl text-center">
-              <span className="text-[#516359]">
-                Our platform simplifies paper setting{" "}
-              </span>
-              by generating syllabus-based questions{" "}
-              <span className="text-[#516359]">
-                tailored to teacher&apos;s needs.
-              </span>
-            </h2>
+            <motion.h2
+              variants={wordParent}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.3 }}
+              className="text-5xl text-center leading-[1.1] tracking-tighter"
+            >
+              {segments.map((seg, i) => (
+                <span key={i} className={seg.className}>
+                  {seg.text.split(" ").map((word, idx) => (
+                    <motion.span
+                      key={`${word}-${idx}`}
+                      variants={wordChild}
+                      className="inline-block mr-[0.32em]"
+                      style={{ willChange: "transform, filter, opacity" }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </span>
+              ))}
+            </motion.h2>
           </div>
         </div>
         <div className="flex flex-wrap flex-none place-content-center items-center gap-4 w-full h-min p-0 relative overflow-visible">

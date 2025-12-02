@@ -6,8 +6,7 @@ const Register = () => {
     <div
       className="flex flex-col flex-nowrap items-center content-center justify-start gap-0 h-min min-h-screen overflow-hidden p-0 relative w-auto font-poppins"
       style={{
-        backgroundColor:
-          "var(--token-0710fcd9-3272-4af6-82ab-d8894ab8f457, #1c1c1c)",
+        backgroundColor: "#13261b",
       }}
     >
       <article className="flex content-center items-center flex-none flex-row flex-nowrap gap-0 justify-end max-w-7xl min-h-screen overflow-hidden p-0 relative w-full z-1">
@@ -270,13 +269,7 @@ const Register = () => {
                     <input
                       type="submit"
                       value="Sign Up"
-                      className="w-full p-3 rounded-full text-sm font-medium cursor-pointer"
-                      style={{
-                        background:
-                          "var(--token-1bfc92b2-7a4b-45e2-a854-14ae137e253a, rgb(0, 0, 0))",
-                        color:
-                          "var(--token-78fe237d-cdda-442a-941c-79e916f3254d, rgb(250, 250, 250))",
-                      }}
+                      className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min p-3 text-sm font-medium no-underline relative overflow-visible bg-[#13261b] hover:bg-[#a85613] transition-colors duration-300 rounded-[37px] shadow-md shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
                     />
                   </form>
                 </div>
@@ -285,7 +278,7 @@ const Register = () => {
                   <p className="text-[#5e6b64] text-sm text-center">
                     Already have an account?
                   </p>
-                  <p className="text-[#193625] text-sm underline text-center">
+                  <p className="text-[#193625] hover:text-[#a85613] text-sm font-medium underline hover:no-underline text-center">
                     <a href="./signin">Sign In</a>
                   </p>
                 </div>
