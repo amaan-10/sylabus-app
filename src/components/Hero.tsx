@@ -10,26 +10,26 @@ const Hero = () => {
     {
       title: "Log In to Your Dashboard",
       description: "Access your dashboard and start creating papers instantly.",
-      imageSrc: "/step-1.png",
+      imageSrc: "/step1.png",
       imageAlt: "dashboard preview",
     },
     {
       title: "Choose Your Paper Requirements",
       description: "Select class, chapters, marks, and difficulty settings.",
-      imageSrc: "/step-2.png",
+      imageSrc: "/step2.png",
       imageAlt: "paper requirements",
     },
     {
       title: "Generate Your Question Paper",
       description:
         "Prepares a clean, structured, syllabus-aligned paper quickly.",
-      imageSrc: "/step-3.png",
+      imageSrc: "/step3.png",
       imageAlt: "generated questions",
     },
     {
       title: "Download & Print Instantly",
       description: "Export your ready-to-use paper in one click.",
-      imageSrc: "/step-4.png",
+      imageSrc: "/step4.png",
       imageAlt: "download instantly",
     },
   ];
@@ -172,7 +172,7 @@ const Hero = () => {
               <div
                 className="flex items-center justify-center flex-row flex-nowrap gap-2.5 h-[290px] overflow-hidden p-0 relative w-full rounded-t-[25px] rounded-b-[40px]"
                 style={{
-                  backgroundColor: "#4a4949",
+                  backgroundColor: "#d7dddc",
                 }}
               >
                 <div className="flex-[1_0_0px] h-[290px] overflow-visible relative w-px z-0 rounded-[20px]">
