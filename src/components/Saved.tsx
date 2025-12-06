@@ -5,7 +5,7 @@ import React from "react";
 
 const Saved = () => {
   return (
-    <section className="border border-[rgba(0,0,0,0.08)] bg-white rounded-2xl flex place-content-between justify-center items-center flex-[1_0_0] flex-col h-[97.5vh] overflow-hidden pt-14 px-8 pb-8 relative w-px gap-5">
+    <section className="border border-[rgba(0,0,0,0.08)] bg-white rounded-2xl flex justify-between items-center flex-[1_0_0] flex-col h-[97.5vh] overflow-hidden pt-14 px-8 pb-8 relative w-px gap-5">
       <div className="flex place-content-center items-center flex-none flex-col gap-5 h-min max-w-[1200px] overflow-hidden p-0 relative w-full">
         <div className="flex place-content-start justify-between items-start flex-none flex-row h-min overflow-hidden p-0 relative w-full">
           <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto">
@@ -18,7 +18,7 @@ const Saved = () => {
           <div className="flex-[1_0_0] h-auto relative w-px">
             <div className="flex place-content-center items-center flex-row gap-2.5 h-min overflow-hidden p-0 relative w-full">
               <div className="flex-none h-auto relative w-auto">
-                <div className="flex place-content-center items-center flex-col gap-6 h-[456px] overflow-hidden p-[84px] relative w-[552px] bg-[#f9f9f9] rounded-3xl shadow-[0_0_12px_rgba(0,0,0,0.04)_inset] opacity-100">
+                <div className="flex place-content-center items-center flex-col gap-6 overflow-hidden p-10 relative bg-[#f9f9f9] rounded-3xl shadow-[0_0_12px_rgba(0,0,0,0.04)_inset] opacity-100">
                   <div className="aspect-[1.95849/1] flex-none h-[196px] overflow-hidden relative w-full">
                     <div className="absolute inset-0 rounded-inherit">
                       <Image
@@ -40,14 +40,14 @@ const Saved = () => {
                         </p>
                       </div>
                       <div className="flex-none h-auto relative whitespace-pre-wrap w-full wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-60">
-                        <p className="text-sm text-[#193625] tracking-tight">
+                        <p className="text-sm text-[#193625] tracking-tight text-center">
                           Add papers to bookmarks to have them appear here
                         </p>
                       </div>
                     </div>
                     <div className="flex-none h-auto relative w-auto">
                       <Link
-                        href="./search"
+                        href="./courses"
                         className="flex place-content-center items-center cursor-pointer flex-row gap-2 h-min overflow-hidden px-3 py-2 relative no-underline w-min bg-[#191a20] rounded-sm opacity-100 border-0"
                       >
                         <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">

@@ -32,28 +32,29 @@ const navItems: NavItem[] = [
       </svg>
     ),
   },
-  {
-    href: "/search",
-    label: "Search",
-    icon: (active) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={active ? "#fff" : "currentColor"}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-full h-full"
-        aria-hidden="true"
-      >
-        <path d="m21 21-4.34-4.34" />
-        <circle cx="11" cy="11" r="8" />
-      </svg>
-    ),
-  },
+  // {
+  //   href: "/search",
+  //   label: "Search",
+  //   icon: (active) => (
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       width="24"
+  //       height="24"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       stroke={active ? "#fff" : "currentColor"}
+  //       strokeWidth="2"
+  //       strokeLinecap="round"
+  //       strokeLinejoin="round"
+  //       className="w-full h-full"
+  //       aria-hidden="true"
+  //     >
+  //       <path d="m21 21-4.34-4.34" />
+  //       <circle cx="11" cy="11" r="8" />
+  //     </svg>
+  //   ),
+  // },
+
   {
     href: "/courses",
     label: "Courses",
@@ -74,6 +75,33 @@ const navItems: NavItem[] = [
         <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
         <path d="M22 10v6" />
         <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+      </svg>
+    ),
+  },
+  {
+    href: "/generated-papers",
+    label: "Generated Papers",
+    icon: (active) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={active ? "#fff" : "currentColor"}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-full h-full"
+        aria-hidden="true"
+      >
+        <path d="M8 2v4" />
+        <path d="M12 2v4" />
+        <path d="M16 2v4" />
+        <rect width="16" height="18" x="4" y="4" rx="2" />
+        <path d="M8 10h6" />
+        <path d="M8 14h8" />
+        <path d="M8 18h5" />
       </svg>
     ),
   },

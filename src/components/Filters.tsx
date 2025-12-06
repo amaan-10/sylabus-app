@@ -52,7 +52,7 @@ const Filters = () => {
           <div className="flex content-start items-start flex-[1_0_0] flex-col gap-8 h-px justify-start overflow-auto py-4 px-4 pb-14 relative w-full">
             <div className="flex place-content-start items-start flex-none flex-col gap-3 h-min overflow-visible p-0 relative w-full">
               <div className="outline-none flex flex-col justify-start shrink-0 opacity-100 flex-none h-auto relative whitespace-pre w-auto">
-                <p className="text-xs text-[#191a20]">Featured</p>
+                <p className="text-xs text-[#191a20]">Saved Courses</p>
               </div>
               <div className="flex-none h-[30px] relative w-[61px]">
                 <div className="bg-[#ededed] h-full w-full rounded-2xl opacity-100 cursor-pointer overflow-visible relative">
@@ -149,7 +149,7 @@ const Filters = () => {
             <div className="border border-black bg-transparent w-full h-12 rounded-lg opacity-100 flex place-content-center items-center cursor-pointer flex-row gap-2.5 overflow-hidden py-6 px-4 relative">
               <div className="flex-[1_0_0] h-auto relative whitespace-pre-wrap w-px wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-100">
                 <p className="text-sm text-[#191a20] text-center">
-                  Reset Search
+                  Reset Filters
                 </p>
               </div>
             </div>

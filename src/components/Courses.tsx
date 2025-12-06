@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { BookOpen, MapPin, Star, Users, Bookmark } from "lucide-react";
 
-const Search = () => {
+const Courses = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
     featured: false,
@@ -17,99 +17,59 @@ const Search = () => {
   const courses = [
     {
       id: 1,
-      title: "Advanced Mathematics (CBSE)",
-      board: "CBSE",
-      class: "12th",
-      subject: "Mathematics",
-      type: "Online",
-      instructor: "Prof. Sharma",
-      location: "Delhi",
-      rating: 4.8,
-      students: 245,
-      description:
-        "Master calculus and algebra with expert guidance. Comprehensive lessons covering all board exam topics...",
-      price: "₹2,499",
-      image: "/mathematics-classroom-calculus.jpg",
+      imgSrc: "/eng-img.png",
+      imgAlt: "english",
+      title: "English",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
     },
     {
       id: 2,
-      title: "Physics Fundamentals (SSC)",
-      board: "SSC",
-      class: "10th",
-      subject: "Physics",
-      type: "Hybrid",
-      instructor: "Dr. Patel",
-      location: "Mumbai",
-      rating: 4.7,
-      students: 189,
-      description:
-        "Understand physics concepts through real-world applications. Complete course from motion to modern physics...",
-      price: "₹1,999",
-      image: "/physics-lab-experiment.jpg",
+      imgSrc: "/mar-img.png",
+      imgAlt: "marathi",
+      title: "Marathi",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
     },
     {
       id: 3,
-      title: "English Literature (ICSE)",
-      board: "ICSE",
-      class: "11th",
-      subject: "English",
-      type: "Online",
-      instructor: "Ms. Verma",
-      location: "Bangalore",
-      rating: 4.9,
-      students: 312,
-      description:
-        "Explore classic and contemporary literature. Develop critical thinking and writing skills through guided analysis...",
-      price: "₹1,799",
-      image: "/library-books-literature.jpg",
+      imgSrc: "/hin-img.png",
+      imgAlt: "hindi",
+      title: "Hindi",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
     },
     {
       id: 4,
-      title: "Chemistry Lab Course (CBSE)",
-      board: "CBSE",
-      class: "12th",
-      subject: "Chemistry",
-      type: "Hybrid",
-      instructor: "Dr. Gupta",
-      location: "Pune",
-      rating: 4.6,
-      students: 156,
-      description:
-        "Hands-on chemistry learning with laboratory experiments. Understand organic, inorganic, and physical chemistry...",
-      price: "₹2,799",
-      image: "/chemistry-lab-beakers.jpg",
+      imgSrc: "/sci-img.png",
+      imgAlt: "science",
+      title: "Science",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
     },
     {
       id: 5,
-      title: "Biology Complete (SSC/CBSE)",
-      board: "SSC",
-      class: "9th",
-      subject: "Biology",
-      type: "Online",
-      instructor: "Prof. Desai",
-      location: "Chennai",
-      rating: 4.7,
-      students: 234,
-      description:
-        "Comprehensive biology course covering cell biology, genetics, and ecology. Perfect for board exams...",
-      price: "₹1,699",
-      image: "/biology-cells-microscope.png",
+      imgSrc: "/math-img.png",
+      imgAlt: "maths",
+      title: "Maths",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
     },
     {
       id: 6,
-      title: "Social Studies (ICSE)",
-      board: "ICSE",
-      class: "8th",
-      subject: "Social Studies",
-      type: "Online",
-      instructor: "Mr. Iyer",
-      location: "Hyderabad",
-      rating: 4.5,
-      students: 178,
-      description:
-        "History, geography, and civics integrated learning. Interactive sessions with map-based learning...",
-      price: "₹1,499",
-      image: "/history-geography-maps.jpg",
+      imgSrc: "/hist-img.png",
+      imgAlt: "history",
+      title: "History",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
+    },
+    {
+      id: 7,
+      imgSrc: "/geo-img.png",
+      imgAlt: "geography",
+      title: "Geography",
+      badges: ["SSC", "Secondary"],
+      details: ["8 Chapters", "1,235 Questions"],
     },
   ];
   return (
@@ -159,17 +119,17 @@ const Search = () => {
                   <Image
                     width={512}
                     height={512}
-                    src={course.image || "/placeholder.svg"}
-                    alt={course.title}
+                    src={course.imgSrc || "/placeholder.svg"}
+                    alt={course.imgAlt || "Course Image"}
                     className="w-full h-full object-cover"
                   />
                   {/* Tags overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent flex items-end p-3 gap-2">
                     <span className="inline-block bg-white text-foreground text-xs font-medium px-3 py-1 rounded">
-                      {course.type}
+                      {/* {course.type} */} 8th
                     </span>
                     <span className="inline-block bg-white text-foreground text-xs font-medium px-3 py-1 rounded">
-                      {course.subject}
+                      {/* {course.subject} */} SSC
                     </span>
                   </div>
                   {/* Bookmark button */}
@@ -190,12 +150,12 @@ const Search = () => {
                 {/* Content */}
                 <div className="p-4 flex flex-col flex-1">
                   {/* Title */}
-                  <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">
+                  <h3 className="text-lg font-medium text-foreground mb-2 line-clamp-2">
                     {course.title}
                   </h3>
 
                   {/* Meta info - board, class, rating */}
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                  {/* <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                     <span className="flex items-center gap-1">
                       <MapPin className="w-4 h-4" />
                       {course.location}
@@ -205,15 +165,15 @@ const Search = () => {
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       {course.rating}
                     </span>
-                  </div>
+                  </div> */}
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2 flex-1">
+                  {/* <p className="text-sm text-muted-foreground mb-3 line-clamp-2 flex-1">
                     {course.description}
-                  </p>
+                  </p> */}
 
                   {/* Course details - icons */}
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 py-3 border-t border-b border-border">
+                  {/* <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 py-3 border-t border-b border-border">
                     <span className="flex items-center gap-1">
                       <BookOpen className="w-4 h-4" />
                       {course.class}
@@ -225,7 +185,7 @@ const Search = () => {
                     <span className="text-xs bg-muted px-2 py-1 rounded">
                       {course.board}
                     </span>
-                  </div>
+                  </div> */}
 
                   {/* Price */}
                   {/* <div className="text-lg font-bold text-foreground">
@@ -241,4 +201,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Courses;
