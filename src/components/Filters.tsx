@@ -1,6 +1,25 @@
 import React from "react";
+import type { FiltersState } from "@/app/courses/page";
 
-const Filters = () => {
+type FiltersProps = {
+  filters: FiltersState;
+  onToggleFeatured: () => void;
+  onToggleSubject: (subject: string) => void;
+  onToggleBoard: (board: string) => void;
+  onToggleClass: (cls: string) => void;
+  onToggleSchoolMedium: (medium: string) => void;
+  onReset: () => void;
+};
+
+const Filters: React.FC<FiltersProps> = ({
+  filters,
+  onToggleFeatured,
+  onToggleSubject,
+  onToggleBoard,
+  onToggleClass,
+  onToggleSchoolMedium,
+  onReset,
+}) => {
   const subjects = [
     {
       subject: "English",
@@ -33,127 +52,208 @@ const Filters = () => {
   ];
 
   const boards = [
-    { board: "SSC" },
+    { board: "MSBHSE" },
     { board: "CBSE" },
     { board: "ICSE" },
     { board: "Other" },
   ];
 
   const classLevels = ["8th", "9th", "10th", "11th", "12th"];
+
+  const schoolMediums = ["English", "Hindi", "Marathi", "Semi"];
+
   return (
     <div className="flex-none h-[97.5vh] relative w-[371px]">
       <div className="border border-[rgba(25,26,32,0.08)] bg-white rounded-2xl opacity-100 flex place-content-start items-start flex-col gap-0 h-full overflow-visible p-0 relative w-full">
+        {/* Header */}
         <div className="flex place-content-center justify-between items-center flex-none flex-row h-min overflow-visible py-5 px-6 relative w-full border-b border-[rgba(25,26,32,0.12)] opacity-100">
-          <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto opacity-100">
-            <h4 className="text-2xl text-[#193625] tracking-tight">Filters</h4>
-          </div>
+          <h4 className="text-2xl text-[#193625] tracking-tight">Filters</h4>
         </div>
+
+        {/* Body */}
         <div className="flex place-content-start items-start flex-[1_0_0] flex-col gap-6 h-px overflow-auto p-0 relative w-full">
           <div className="flex content-start items-start flex-[1_0_0] flex-col gap-8 h-px justify-start overflow-auto py-4 px-4 pb-14 relative w-full">
+            {/* Saved Courses */}
             <div className="flex place-content-start items-start flex-none flex-col gap-3 h-min overflow-visible p-0 relative w-full">
-              <div className="outline-none flex flex-col justify-start shrink-0 opacity-100 flex-none h-auto relative whitespace-pre w-auto">
-                <p className="text-xs text-[#191a20]">Saved Courses</p>
-              </div>
-              <div className="flex-none h-[30px] relative w-[61px]">
-                <div className="bg-[#ededed] h-full w-full rounded-2xl opacity-100 cursor-pointer overflow-visible relative">
-                  <div className="flex-none h-6 w-[25px] absolute left-[3px] top-[calc(50%-12px)] overflow-hidden bg-white rounded-2xl shadow-[0_4px_4px_rgba(0,0,0,0.08)]"></div>
-                  <div className="flex-none h-auto w-auto absolute left-1/2 top-[51%] z-1 -translate-x-1/2 -translate-y-1/2 opacity-100"></div>
-                </div>
-              </div>
+              <p className="text-xs text-[#191a20]">Saved Courses</p>
+              <button
+                type="button"
+                onClick={onToggleFeatured}
+                className={`flex-none h-[30px] relative w-[61px] rounded-2xl cursor-pointer transition-colors ${
+                  filters.featured ? "bg-[#193625]" : "bg-[#ededed]"
+                }`}
+              >
+                <div
+                  className={`flex-none h-6 w-[25px] absolute top-[calc(50%-12px)] bg-white rounded-2xl shadow-[0_4px_4px_rgba(0,0,0,0.08)] transition-all ${
+                    filters.featured ? "right-[3px]" : "left-[3px]"
+                  }`}
+                />
+              </button>
             </div>
+
+            {/* SUBJECTS */}
             <div className="flex items-start content-start flex-none flex-col gap-3 h-min justify-start overflow-visible p-0 relative w-full">
-              <div className="outline-none flex flex-col justify-start shrink-0 opacity-100 flex-none h-auto relative whitespace-pre w-auto">
-                <p className="text-xs text-[#191a20]">SUBJECTS</p>
-              </div>
+              <p className="text-xs text-[#191a20]">SUBJECTS</p>
               <div className="grid flex-none gap-2 auto-rows-fr grid-cols-[repeat(3,minmax(50px,1fr))] grid-rows-2 h-min justify-center overflow-visible p-0 relative w-full">
-                {subjects.map((item, index) => (
-                  <div
-                    key={index}
-                    className="place-self-start flex-none h-full relative w-full"
-                  >
-                    <div className="flex place-content-start justify-center items-start cursor-pointer flex-col gap-0 h-min overflow-visible p-0 relative w-full">
-                      <div className="self-stretch flex-none h-auto relative w-auto">
-                        <div className="flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border border-[rgba(25,26,32,0.12)] bg-transparent rounded-lg opacity-100">
-                          <div className="flex-none h-5 w-5 relative">
-                            <div
-                              className="w-6 h-6 text-black"
-                              dangerouslySetInnerHTML={{ __html: item.icon }}
-                            />
-                          </div>
-                          <div className="outline-none flex flex-col justify-start flex-none h-auto relative w-auto opacity-100">
-                            <p className="text-sm text-[#5e6b64]">
-                              {item.subject}
-                            </p>
-                          </div>
+                {subjects.map((item, index) => {
+                  const isActive = filters.subjects.includes(item.subject);
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      onClick={() => onToggleSubject(item.subject)}
+                      className="place-self-start flex-none h-full w-full"
+                    >
+                      <div
+                        className={`flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border rounded-lg transition-colors
+                        ${
+                          isActive
+                            ? "border-[#193625] bg-[#193625] text-white"
+                            : "border-[rgba(25,26,32,0.12)] bg-transparent"
+                        }`}
+                      >
+                        <div className="flex-none h-5 w-5 relative">
+                          <div
+                            className={`w-6 h-6 ${
+                              isActive ? "text-white" : "text-black"
+                            }`}
+                            dangerouslySetInnerHTML={{ __html: item.icon }}
+                          />
                         </div>
+                        <p
+                          className={`text-sm ${
+                            isActive ? "text-white" : "text-[#5e6b64]"
+                          }`}
+                        >
+                          {item.subject}
+                        </p>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
+            {/* BOARD */}
             <div className="flex items-start content-start flex-none flex-col gap-3 h-min justify-start overflow-visible p-0 relative w-full">
-              <div className="outline-none flex flex-col justify-start shrink-0 opacity-100 flex-none h-auto relative whitespace-pre w-auto">
-                <p className="text-xs text-[#191a20]">BOARD</p>
-              </div>
+              <p className="text-xs text-[#191a20]">BOARD</p>
               <div className="grid flex-none gap-2 auto-rows-fr grid-cols-[repeat(3,minmax(50px,1fr))] grid-rows-2 h-min justify-center overflow-visible p-0 relative w-full">
-                {boards.map((item, index) => (
-                  <div
-                    key={index}
-                    className="place-self-start flex-none h-full relative w-full"
-                  >
-                    <div className="flex place-content-start justify-center items-start cursor-pointer flex-col gap-0 h-min overflow-visible p-0 relative w-full">
-                      <div className="self-stretch flex-none h-auto relative w-auto">
-                        <div className="flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border border-[rgba(25,26,32,0.12)] bg-transparent rounded-lg opacity-100">
-                          <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto opacity-100">
-                            <p className="text-sm text-[#5e6b64]">
-                              {item.board}
-                            </p>
-                          </div>
-                        </div>
+                {boards.map((item, index) => {
+                  const isActive = filters.boards.includes(item.board);
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      onClick={() => onToggleBoard(item.board)}
+                      className="place-self-start flex-none h-full w-full"
+                    >
+                      <div
+                        className={`flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border rounded-lg transition-colors
+                        ${
+                          isActive
+                            ? "border-[#193625] bg-[#193625]"
+                            : "border-[rgba(25,26,32,0.12)] bg-transparent"
+                        }`}
+                      >
+                        <p
+                          className={`text-sm ${
+                            isActive ? "text-white" : "text-[#5e6b64]"
+                          }`}
+                        >
+                          {item.board}
+                        </p>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
+            {/* MEDIUM */}
             <div className="flex items-start content-start flex-none flex-col gap-3 h-min justify-start overflow-visible p-0 relative w-full">
-              <div className="outline-none flex flex-col justify-start shrink-0 opacity-100 flex-none h-auto relative whitespace-pre w-auto">
-                <p className="text-xs text-[#191a20]">CLASS LEVEL</p>
-              </div>
+              <p className="text-xs text-[#191a20]">MEDIUM</p>
               <div className="grid flex-none gap-2 auto-rows-fr grid-cols-[repeat(3,minmax(50px,1fr))] grid-rows-2 h-min justify-center overflow-visible p-0 relative w-full">
-                {classLevels.map((item, index) => (
-                  <div
-                    key={index}
-                    className="place-self-start flex-none h-full relative w-full"
-                  >
-                    <div className="flex place-content-start justify-center items-start cursor-pointer flex-col gap-0 h-min overflow-visible p-0 relative w-full">
-                      <div className="self-stretch flex-none h-auto relative w-auto">
-                        <div className="flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border border-[rgba(25,26,32,0.12)] bg-transparent rounded-lg opacity-100">
-                          <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto opacity-100">
-                            <p className="text-sm text-[#5e6b64]">{item}</p>
-                          </div>
-                        </div>
+                {schoolMediums.map((item, index) => {
+                  const isActive = filters.medium.includes(item);
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      onClick={() => onToggleSchoolMedium(item)}
+                      className="place-self-start flex-none h-full w-full"
+                    >
+                      <div
+                        className={`flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border rounded-lg transition-colors
+                        ${
+                          isActive
+                            ? "border-[#193625] bg-[#193625]"
+                            : "border-[rgba(25,26,32,0.12)] bg-transparent"
+                        }`}
+                      >
+                        <p
+                          className={`text-sm ${
+                            isActive ? "text-white" : "text-[#5e6b64]"
+                          }`}
+                        >
+                          {item}
+                        </p>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* CLASS LEVEL */}
+            <div className="flex items-start content-start flex-none flex-col gap-3 h-min justify-start overflow-visible p-0 relative w-full">
+              <p className="text-xs text-[#191a20]">CLASS LEVEL</p>
+              <div className="grid flex-none gap-2 auto-rows-fr grid-cols-[repeat(3,minmax(50px,1fr))] grid-rows-2 h-min justify-center overflow-visible p-0 relative w-full">
+                {classLevels.map((item, index) => {
+                  const isActive = filters.classes.includes(item);
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      onClick={() => onToggleClass(item)}
+                      className="place-self-start flex-none h-full w-full"
+                    >
+                      <div
+                        className={`flex place-content-start justify-center items-start cursor-pointer flex-col gap-6 h-min overflow-visible p-3 relative w-full border rounded-lg transition-colors
+                        ${
+                          isActive
+                            ? "border-[#193625] bg-[#193625]"
+                            : "border-[rgba(25,26,32,0.12)] bg-transparent"
+                        }`}
+                      >
+                        <p
+                          className={`text-sm ${
+                            isActive ? "text-white" : "text-[#5e6b64]"
+                          }`}
+                        >
+                          {item}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Footer - Reset */}
         <div className="flex place-content-center items-center flex-none flex-row gap-2.5 h-min overflow-hidden p-6 relative w-full border-t border-[rgba(25,26,32,0.12)] opacity-100">
-          <div className="flex-[1_0_0] h-12 relative w-px">
+          <button
+            type="button"
+            onClick={onReset}
+            className="flex-[1_0_0] h-12 relative w-px"
+          >
             <div className="border border-black bg-transparent w-full h-12 rounded-lg opacity-100 flex place-content-center items-center cursor-pointer flex-row gap-2.5 overflow-hidden py-6 px-4 relative">
-              <div className="flex-[1_0_0] h-auto relative whitespace-pre-wrap w-px wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-100">
-                <p className="text-sm text-[#191a20] text-center">
-                  Reset Filters
-                </p>
-              </div>
+              <p className="text-sm text-[#191a20] text-center">
+                Reset Filters
+              </p>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>

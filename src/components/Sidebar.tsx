@@ -157,7 +157,7 @@ const Sidebar = () => {
       <nav className="flex place-content-start items-start flex-row gap-2 overflow-visible p-2 relative w-min h-full border border-[rgba(0,0,0,0.08)] rounded-2xl opacity-100">
         <div className="flex place-content-center justify-between items-center flex-none flex-col h-full overflow-visible py-8 px-3 relative w-min bg-white rounded-xl shadow-none opacity-100">
           <Link
-            href="./"
+            href="/"
             className="flex-none h-6 relative no-underline w-8 block shrink-0 [image-rendering:pixelated] fill-black text-black opacity-100"
           >
             <div className="w-full h-full aspect-[inherit]">
