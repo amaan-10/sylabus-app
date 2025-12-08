@@ -220,8 +220,8 @@ const SubjectChaptersPage: React.FC = () => {
                 </div>
 
                 <h1 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                  {subject.name} — {board.board_name} ({getClassLabel(classKey)}
-                  )
+                  {subject.name} — {getClassLabel(classKey)} (
+                  {board.abbreviation})
                 </h1>
 
                 <p className="max-w-3xl text-sm text-slate-600">
@@ -547,6 +547,8 @@ const getQuestionTypeLabel = (type: Question["type"]): string => {
       return "True / False";
     case "fill":
       return "Fill in the Blanks";
+    case "numerical":
+      return "Numerical";
     default:
       return type;
   }

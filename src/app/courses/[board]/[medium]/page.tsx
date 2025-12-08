@@ -176,7 +176,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
               </header>
 
               {/* Summary Cards */}
-              <section className="grid gap-4 md:grid-cols-3">
+              {/* <section className="grid gap-4 md:grid-cols-3">
                 <SummaryCard
                   label="Class Range"
                   value={board.class_range}
@@ -194,7 +194,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                   value={capitalize(medium.difficulty_level)}
                   helper="Based on language and typical subject complexity."
                 />
-              </section>
+              </section> */}
 
               {/* Class Selector for this Board + Medium */}
               <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -219,7 +219,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                 {/* Left: Subjects, rules, notes */}
                 <div className="space-y-6">
                   {/* Subjects by stream */}
-                  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  {/* <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                     <h2 className="text-base font-semibold text-slate-900">
                       Subjects by Stream (8th–12th)
                     </h2>
@@ -242,6 +242,126 @@ const CoursesByBoardMediumPage: React.FC = () => {
                         subjects={medium.subjects_common.arts}
                       />
                     </div>
+                  </section> */}
+
+                  {/* Right: Switch medium/board */}
+                  <aside
+                    className={`grid gap-4 ${
+                      otherBoardsForMedium.length > 0
+                        ? "grid-cols-2"
+                        : "grid-cols-1"
+                    }`}
+                  >
+                    {/* Switch medium within this board */}
+                    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-sm text-slate-700">
+                      <h2 className="text-base font-semibold text-slate-900">
+                        Switch Medium (Same Board)
+                      </h2>
+                      <p className="mt-1 text-xs text-slate-500">
+                        Quickly change medium for {board.abbreviation}.
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {mediumsForBoard.map((m) => {
+                          // const active = m.slug === medium.slug;
+                          const baseUrl = `/courses/${encodeURIComponent(
+                            boardParam
+                          )}/${m.slug}`;
+                          return (
+                            <Link
+                              key={mediumsForBoard.indexOf(m)}
+                              href={baseUrl}
+                              className="group w-full sm:w-40 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition overflow-hidden hover:-translate-y-1 active:scale-[0.97]"
+                            >
+                              <div className="flex flex-col items-center p-4 space-y-3">
+                                <div className="h-14 w-14 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden group-hover:bg-emerald-50 transition">
+                                  {medium ? (
+                                    <Image
+                                      width={36}
+                                      height={36}
+                                      src={`/mediums/${m.slug}-med.png`}
+                                      alt={m.medium_name}
+                                      className="h-full w-full object-contain"
+                                    />
+                                  ) : (
+                                    <span className="text-2xl">📘</span>
+                                  )}
+                                </div>
+
+                                <p className="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 transition">
+                                  {m.medium_name}
+                                </p>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </section>
+
+                    {/* Other boards with same medium */}
+                    {otherBoardsForMedium.length > 0 && (
+                      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-sm text-slate-700">
+                        <h2 className="text-base font-semibold text-slate-900">
+                          Same Medium in Other Boards
+                        </h2>
+                        <p className="mt-1 text-xs text-slate-500">
+                          Explore how {medium.medium_name} looks in other
+                          boards.
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-5">
+                          {otherBoardsForMedium.map((b) => {
+                            const targetBoardParam =
+                              b.abbreviation.toLowerCase();
+                            const url = `/courses/${encodeURIComponent(
+                              targetBoardParam
+                            )}/${medium.slug}`;
+                            return (
+                              <Link
+                                key={otherBoardsForMedium.indexOf(b)}
+                                href={url}
+                              >
+                                <div className="group w-full sm:w-40 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition overflow-hidden hover:-translate-y-1 active:scale-[0.97]">
+                                  <div className="flex flex-col items-center space-y-3">
+                                    <div className="h-full w-full rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden group-hover:bg-emerald-50 transition">
+                                      {board ? (
+                                        <Image
+                                          width={360}
+                                          height={360}
+                                          src={`/boards/${b.abbreviation.toLowerCase()}.jpg`}
+                                          alt={b.abbreviation}
+                                          className="h-full w-full object-contain"
+                                        />
+                                      ) : (
+                                        <span className="text-2xl">📘</span>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                                <p className="text-sm pt-2 pl-2 w-full sm:w-40 font-semibold text-slate-800 group-hover:text-emerald-700 transition">
+                                  {b.abbreviation}
+                                </p>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </section>
+                    )}
+                  </aside>
+
+                  {/* Link back to board overview */}
+                  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-sm text-slate-700">
+                    <h2 className="text-base font-semibold text-slate-900">
+                      Board Overview
+                    </h2>
+                    <p className="mt-1 text-xs text-slate-500">
+                      View grading, evaluation system, exams and more for this
+                      board.
+                    </p>
+                    <Link
+                      href={`/boards/${encodeURIComponent(board.abbreviation)}`}
+                      className="mt-3 inline-flex rounded-full bg-slate-900 px-4 py-1.5 text-xs font-medium text-slate-50 hover:bg-slate-800"
+                    >
+                      Go to board page
+                    </Link>
                   </section>
 
                   {/* Exam language rules + textbooks */}
@@ -287,7 +407,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                   </section>
 
                   {/* Placeholder: hook your course data here */}
-                  <section className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/40 p-5">
+                  {/* <section className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/40 p-5">
                     <h2 className="text-base font-semibold text-emerald-900">
                       Your Courses / Content Area
                     </h2>
@@ -308,120 +428,8 @@ const CoursesByBoardMediumPage: React.FC = () => {
                       <code>board=&quot;{board.abbreviation}&quot;</code> and{" "}
                       <code>medium=&quot;{medium.slug}&quot;</code>.
                     </p>
-                  </section>
+                  </section> */}
                 </div>
-
-                {/* Right: Switch medium/board */}
-                <aside className="space-y-4">
-                  {/* Switch medium within this board */}
-                  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-sm text-slate-700">
-                    <h2 className="text-base font-semibold text-slate-900">
-                      Switch Medium (Same Board)
-                    </h2>
-                    <p className="mt-1 text-xs text-slate-500">
-                      Quickly change medium for {board.abbreviation}.
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {mediumsForBoard.map((m) => {
-                        // const active = m.slug === medium.slug;
-                        const baseUrl = `/courses/${encodeURIComponent(
-                          boardParam
-                        )}/${m.slug}`;
-                        return (
-                          <Link
-                            key={mediumsForBoard.indexOf(m)}
-                            href={baseUrl}
-                            className="group w-full sm:w-40 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition overflow-hidden hover:-translate-y-1 active:scale-[0.97]"
-                          >
-                            <div className="flex flex-col items-center p-4 space-y-3">
-                              <div className="h-14 w-14 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden group-hover:bg-emerald-50 transition">
-                                {medium ? (
-                                  <Image
-                                    width={36}
-                                    height={36}
-                                    src={`/mediums/${m.slug}-med.png`}
-                                    alt={m.medium_name}
-                                    className="h-full w-full object-contain"
-                                  />
-                                ) : (
-                                  <span className="text-2xl">📘</span>
-                                )}
-                              </div>
-
-                              <p className="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 transition">
-                                {m.medium_name}
-                              </p>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </section>
-
-                  {/* Other boards with same medium */}
-                  {otherBoardsForMedium.length > 0 && (
-                    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-sm text-slate-700">
-                      <h2 className="text-base font-semibold text-slate-900">
-                        Same Medium in Other Boards
-                      </h2>
-                      <p className="mt-1 text-xs text-slate-500">
-                        Explore how {medium.medium_name} looks in other boards.
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-5">
-                        {otherBoardsForMedium.map((b) => {
-                          const targetBoardParam = b.abbreviation.toLowerCase();
-                          const url = `/courses/${encodeURIComponent(
-                            targetBoardParam
-                          )}/${medium.slug}`;
-                          return (
-                            <Link
-                              key={otherBoardsForMedium.indexOf(b)}
-                              href={url}
-                            >
-                              <div className="group w-full sm:w-40 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition overflow-hidden hover:-translate-y-1 active:scale-[0.97]">
-                                <div className="flex flex-col items-center space-y-3">
-                                  <div className="h-full w-full rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden group-hover:bg-emerald-50 transition">
-                                    {board ? (
-                                      <Image
-                                        width={360}
-                                        height={360}
-                                        src={`/boards/${b.abbreviation.toLowerCase()}.jpg`}
-                                        alt={b.abbreviation}
-                                        className="h-full w-full object-contain"
-                                      />
-                                    ) : (
-                                      <span className="text-2xl">📘</span>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                              <p className="text-sm pt-2 pl-2 w-full sm:w-40 font-semibold text-slate-800 group-hover:text-emerald-700 transition">
-                                {b.abbreviation} - {b.board_name}
-                              </p>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </section>
-                  )}
-
-                  {/* Link back to board overview */}
-                  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-sm text-slate-700">
-                    <h2 className="text-base font-semibold text-slate-900">
-                      Board Overview
-                    </h2>
-                    <p className="mt-1 text-xs text-slate-500">
-                      View grading, evaluation system, exams and more for this
-                      board.
-                    </p>
-                    <Link
-                      href={`/boards/${encodeURIComponent(board.abbreviation)}`}
-                      className="mt-3 inline-flex rounded-full bg-slate-900 px-4 py-1.5 text-xs font-medium text-slate-50 hover:bg-slate-800"
-                    >
-                      Go to board page
-                    </Link>
-                  </section>
-                </aside>
               </div>
             </div>
           </div>

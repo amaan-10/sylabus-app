@@ -223,7 +223,7 @@ const ClassSubjectsPage: React.FC = () => {
               </section>
 
               {/* Placeholder: Your course mapping */}
-              <section className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/40 p-5">
+              {/* <section className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/40 p-5">
                 <h2 className="text-base font-semibold text-emerald-900">
                   Map Subjects to Your Courses
                 </h2>
@@ -246,7 +246,7 @@ const ClassSubjectsPage: React.FC = () => {
                   Use this as a filter in your DB query or API route to return
                   content per subject.
                 </p>
-              </section>
+              </section> */}
             </div>
           </div>
         </div>
@@ -343,7 +343,7 @@ const SubjectCard: React.FC<{
           {subject.isCompulsory ? "Compulsory" : "Elective"}
         </span>
 
-        {subject.stream !== "all" && (
+        {subject.stream !== undefined && (
           <span className="inline-flex items-center rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-semibold text-white">
             {getStreamLabel(subject.stream ?? "all")}
           </span>
@@ -375,13 +375,13 @@ const getClassLabel = (classKey: ClassKey): string => {
   const [std, stream] = classKey.split("-");
   const stdLabel = `Class ${std}`;
   const streamLabel = getStreamLabel(
-    stream as "science" | "commerce" | "arts" | "humanities" | "all"
+    stream as "science" | "commerce" | "arts" | "humanities" | "all" | "none"
   );
   return `${stdLabel} — ${streamLabel}`;
 };
 
 const getStreamLabel = (
-  stream: "science" | "commerce" | "arts" | "humanities" | "all"
+  stream: "science" | "commerce" | "arts" | "humanities" | "all" | "none"
 ): string => {
   switch (stream) {
     case "science":

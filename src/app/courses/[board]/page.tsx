@@ -111,6 +111,9 @@ const BoardDetailsPage = () => {
 
               {/* Top Stats */}
               <section className="grid gap-4 md:grid-cols-3">
+                <div className="col-span-2">
+                  <MediumSelector board={board} />
+                </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                   <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
                     Class Range
@@ -120,7 +123,7 @@ const BoardDetailsPage = () => {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                {/* <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                   <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
                     Mediums of Instruction
                   </p>
@@ -153,7 +156,7 @@ const BoardDetailsPage = () => {
                       countries
                     </p>
                   )}
-                </div>
+                </div> */}
               </section>
 
               {/* Medium Selector + Other Boards */}
@@ -162,7 +165,6 @@ const BoardDetailsPage = () => {
                 id="mediums"
                 className="grid gap-6 lg:grid-cols-[2fr,1fr]"
               >
-                <MediumSelector board={board} />
                 <OtherBoardsList currentAbbreviation={board.abbreviation} />
               </section>
 
