@@ -121,7 +121,7 @@ export const BOARDS: EducationBoard[] = [
     headquarters: "New Delhi, India",
     official_website: "https://cbse.gov.in",
     recognized_by: ["Ministry of Education, Government of India"],
-    class_range: "1st to 12th",
+    class_range: "8th to 12th",
     // curriculum_base: "NCERT",
     examinations: {
       class_10: {
@@ -176,7 +176,7 @@ export const BOARDS: EducationBoard[] = [
     headquarters: "New Delhi, India",
     official_website: "https://cisce.org",
     recognized_by: ["Government of India"],
-    class_range: "3rd to 12th",
+    class_range: "8th to 10th",
     examinations: {
       class_10: {
         name: "ICSE",
