@@ -443,46 +443,6 @@ export default CoursesByBoardMediumPage;
 
 // ------------ Small Helper Components ------------
 
-const SummaryCard: React.FC<{
-  label: string;
-  value: string;
-  helper?: string;
-}> = ({ label, value, helper }) => (
-  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-    <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-      {label}
-    </p>
-    <p className="mt-1 text-lg font-semibold text-slate-900">{value}</p>
-    {helper && <p className="mt-1 text-xs text-slate-500">{helper}</p>}
-  </div>
-);
-
-const StreamSubjectsCard: React.FC<{ title: string; subjects: string[] }> = ({
-  title,
-  subjects,
-}) => (
-  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-    <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
-    {subjects.length === 0 ? (
-      <p className="mt-2 text-xs text-slate-500">Not commonly offered.</p>
-    ) : (
-      <ul className="mt-2 flex flex-wrap gap-1.5">
-        {subjects.map((subject) => (
-          <li
-            key={subject}
-            className="inline-flex items-center rounded-full bg-white px-2 py-0.5 text-xs text-slate-700 shadow-sm"
-          >
-            {subject}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
-);
-
-const capitalize = (value: string) =>
-  value.charAt(0).toUpperCase() + value.slice(1);
-
 const CLASS_SELECTOR_GRID =
   "grid gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
 
