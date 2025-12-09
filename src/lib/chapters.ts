@@ -6933,7 +6933,3728 @@ Limitations: Overcrowding, delays, high maintenance costs, limited reach in hill
 }
   ]
 },
-
+  // MSBSHSE Class 10
+{
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "biology",
+  chapters: [
+    {
+  "id": "ms-12-bio-ch1",
+  "chapterNumber": 1,
+  "title": "Reproduction in Lower and Higher Plants",
+  "slug": "reproduction-in-plants",
+  "description": "Study of asexual and sexual reproduction in lower plants (algae, fungi, bryophytes, pteridophytes) and higher plants (gymnosperms and angiosperms), along with structure and development of flowers, pollen, ovules, fruits, and seeds.",
+  "topics": [
+    "Asexual Reproduction",
+    "Vegetative Propagation",
+    "Sexual Reproduction in Plants",
+    "Microsporogenesis and Megasporogenesis",
+    "Pollination Types and Mechanisms",
+    "Fertilization",
+    "Endosperm and Embryo Development",
+    "Fruit and Seed Formation"
+  ],
+  "learningObjectives": [
+    "Differentiate between asexual and sexual modes of reproduction in plants.",
+    "Understand microsporogenesis and megasporogenesis processes.",
+    "Explain types and agents of pollination.",
+    "Describe double fertilization and post-fertilization events.",
+    "Understand fruit and seed development in angiosperms."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch1-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is an asexual method of reproduction?",
+      "options": ["Gametogenesis", "Fragmentation", "Fertilization", "Pollination"],
+      "answer": "Fragmentation",
+      "tags": ["asexual"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define vegetative propagation.",
+      "answer": "Vegetative propagation is a type of asexual reproduction in which new plants develop from vegetative parts like roots, stems, or leaves.",
+      "tags": ["vegetative-propagation"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is microsporogenesis?",
+      "answer": "Microsporogenesis is the process of formation of microspores (pollen grains) from microspore mother cells through meiosis.",
+      "tags": ["microsporogenesis"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State two differences between self-pollination and cross-pollination.",
+      "answer": "Self-pollination occurs within the same flower or plant, ensures purity of race; cross-pollination occurs between different plants of the same species and increases genetic variation.",
+      "tags": ["pollination"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Double fertilization is characteristic of:",
+      "options": ["Algae", "Bryophytes", "Gymnosperms", "Angiosperms"],
+      "answer": "Angiosperms",
+      "tags": ["fertilization"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is the function of the endosperm?",
+      "answer": "Endosperm provides stored nutrients required for the growth and development of the embryo.",
+      "tags": ["endosperm"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the term megasporogenesis.",
+      "answer": "Megasporogenesis is the formation of megaspores from the megaspore mother cell inside the ovule through meiosis.",
+      "tags": ["megasporogenesis"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the process of double fertilization in angiosperms.",
+      "answer": "In double fertilization, one male gamete fuses with the egg cell to form the zygote (syngamy), while the other male gamete fuses with the two polar nuclei to form the triploid primary endosperm nucleus (triple fusion). This unique process results in simultaneous formation of embryo and endosperm.",
+      "tags": ["double-fertilization"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain post-fertilization changes occurring in a flower.",
+      "answer": "After fertilization, the ovary develops into a fruit, ovules develop into seeds, endosperm forms to nourish the embryo, integuments form the seed coat, and petals and other floral parts wither away.",
+      "tags": ["post-fertilization"]
+    },
+    {
+      "id": "ms-12-bio-ch1-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss types of asexual reproduction in lower plants with suitable examples.",
+      "answer": "Lower plants reproduce asexually through methods such as fragmentation (Spirogyra), spore formation (Rhizopus), budding (Yeast), and binary fission (Bacteria). These methods help rapid multiplication and survival under unfavorable conditions.",
+      "tags": ["lower-plants", "asexual"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch2",
+  "chapterNumber": 2,
+  "title": "Reproduction in Lower and Higher Animals",
+  "slug": "reproduction-in-animals",
+  "description": "Study of asexual and sexual reproduction in lower and higher animals, including gametogenesis, fertilization, embryonic development, reproductive health, and human reproductive systems.",
+  "topics": [
+    "Asexual Reproduction in Animals",
+    "Sexual Reproduction",
+    "Gametogenesis",
+    "Male and Female Reproductive Systems",
+    "Menstrual Cycle",
+    "Fertilization",
+    "Embryonic Development",
+    "Reproductive Health and Assisted Reproductive Technologies"
+  ],
+  "learningObjectives": [
+    "Differentiate between asexual and sexual reproduction in animals.",
+    "Understand gametogenesis and structure of human reproductive systems.",
+    "Explain the menstrual cycle and hormonal regulation.",
+    "Describe fertilization and stages of embryonic development.",
+    "Learn about reproductive health and modern reproductive technologies."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch2-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Binary fission is commonly seen in:",
+      "options": ["Amoeba", "Frog", "Earthworm", "Human"],
+      "answer": "Amoeba",
+      "tags": ["asexual"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define fertilization.",
+      "answer": "Fertilization is the fusion of male and female gametes to form a diploid zygote.",
+      "tags": ["fertilization"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is ovulation?",
+      "answer": "Ovulation is the release of a mature ovum from the ovary, typically occurring midway through the menstrual cycle.",
+      "tags": ["ovulation"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State two differences between external and internal fertilization.",
+      "answer": "External fertilization occurs outside the body and requires water; internal fertilization occurs inside the body and offers greater protection to the embryo.",
+      "tags": ["fertilization-types"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which hormone triggers ovulation?",
+      "options": ["FSH", "LH", "Progesterone", "Oxytocin"],
+      "answer": "LH",
+      "tags": ["hormones"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is spermatogenesis?",
+      "answer": "Spermatogenesis is the process of formation of sperms from spermatogonial stem cells in the testes.",
+      "tags": ["spermatogenesis"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the importance of the placenta.",
+      "answer": "The placenta facilitates exchange of nutrients, gases, and waste products between mother and fetus and secretes essential hormones.",
+      "tags": ["placenta"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the phases of the menstrual cycle.",
+      "answer": `"The menstrual cycle has four phases:  
+1. **Menstrual Phase** – Shedding of uterine lining.  
+2. **Follicular Phase** – Follicle development and increase in estrogen.  
+3. **Ovulation** – Release of ovum triggered by LH surge.  
+4. **Luteal Phase** – Corpus luteum forms and secretes progesterone; if no fertilization occurs, cycle repeats."`,
+      "tags": ["menstrual-cycle"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the process of embryonic development from zygote to blastocyst.",
+      "answer": "After fertilization, the zygote divides by mitosis into a morula, then develops into a blastocyst. The blastocyst forms a trophoblast and inner cell mass and implants into the uterine wall for further development.",
+      "tags": ["embryonic-development"]
+    },
+    {
+      "id": "ms-12-bio-ch2-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss assisted reproductive technologies (ART) such as IVF and ICSI.",
+      "answer": "ART includes methods like IVF, where fertilization occurs outside the body, and ICSI, where a single sperm is injected into an ovum. These techniques help couples with infertility and ensure embryo development before implantation.",
+      "tags": ["ART", "IVF", "ICSI"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch3",
+  "chapterNumber": 3,
+  "title": "Inheritance and Variation",
+  "slug": "inheritance-and-variation",
+  "description": "Study of Mendelian genetics, laws of inheritance, gene interactions, linkage, crossing over, chromosomal disorders, and variations in living organisms.",
+  "topics": [
+    "Mendel's Laws of Inheritance",
+    "Monohybrid and Dihybrid Crosses",
+    "Law of Segregation",
+    "Law of Independent Assortment",
+    "Incomplete Dominance",
+    "Co-dominance",
+    "Multiple Alleles",
+    "Linkage and Crossing Over",
+    "Chromosomal Disorders",
+    "Types of Variation"
+  ],
+  "learningObjectives": [
+    "Understand Mendel's experiments and laws of inheritance.",
+    "Analyze monohybrid and dihybrid crosses.",
+    "Differentiate between complete dominance, incomplete dominance, and co-dominance.",
+    "Explain linkage, crossing over, and sex-linked inheritance.",
+    "Identify chromosomal disorders and their genetic basis."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch3-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Mendel is known as the father of:",
+      "options": ["Ecology", "Genetics", "Evolution", "Taxonomy"],
+      "answer": "Genetics",
+      "tags": ["mendel"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define phenotype.",
+      "answer": "Phenotype is the observable physical or physiological trait of an organism determined by genotype and environment.",
+      "tags": ["phenotype"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State Mendel's Law of Segregation.",
+      "answer": "The Law of Segregation states that alleles of a gene separate during gamete formation so each gamete carries only one allele.",
+      "tags": ["law-of-segregation"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is incomplete dominance? Give one example.",
+      "answer": "Incomplete dominance occurs when neither allele is completely dominant, resulting in an intermediate phenotype. Example: Pink flowers in Mirabilis jalapa.",
+      "tags": ["incomplete-dominance"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "ABO blood group system shows:",
+      "options": ["Multiple alleles", "Incomplete dominance", "Linkage", "Sex-linked inheritance"],
+      "answer": "Multiple alleles",
+      "tags": ["multiple-alleles"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is crossing over?",
+      "answer": "Crossing over is the exchange of genetic material between non-sister chromatids of homologous chromosomes during meiosis, leading to recombination.",
+      "tags": ["crossing-over"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name two chromosomal disorders and state their chromosomal basis.",
+      "answer": "Down syndrome – trisomy 21; Turner syndrome – monosomy X.",
+      "tags": ["chromosomal-disorders"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain Mendel’s dihybrid cross and the Law of Independent Assortment.",
+      "answer": "Mendel crossed plants differing in two characters (e.g., yellow round × green wrinkled). The F2 generation showed a phenotypic ratio of 9:3:3:1. This demonstrated the Law of Independent Assortment, which states that alleles of different genes assort independently during gamete formation.",
+      "tags": ["dihybrid-cross"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe linkage and how it differs from independent assortment.",
+      "answer": "Linkage is the tendency of genes located on the same chromosome to be inherited together. Unlike independent assortment, linked genes do not assort independently unless crossing over separates them. Linkage reduces recombination frequency.",
+      "tags": ["linkage"]
+    },
+    {
+      "id": "ms-12-bio-ch3-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the types of variation seen in organisms and their significance.",
+      "answer": "Variations include somatic and germinal variations, continuous and discontinuous variations. They arise from mutations, recombination, and environmental factors. Variations allow natural selection, help species adapt, and contribute to evolution.",
+      "tags": ["variation"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch4",
+  "chapterNumber": 4,
+  "title": "Molecular Basis of Inheritance",
+  "slug": "molecular-basis-of-inheritance",
+  "description": "Study of DNA structure, replication, transcription, translation, gene expression, genetic code, regulation of gene activity, mutations, and concepts of genomics and proteomics.",
+  "topics": [
+    "Discovery of DNA",
+    "Structure of DNA and RNA",
+    "DNA Replication",
+    "Transcription",
+    "Translation",
+    "Genetic Code",
+    "Gene Regulation (Operon Model)",
+    "Mutations",
+    "Genomics and Proteomics"
+  ],
+  "learningObjectives": [
+    "Explain the structure and functions of DNA and RNA.",
+    "Understand DNA replication and enzymes involved.",
+    "Describe transcription and translation processes.",
+    "Interpret the genetic code and protein synthesis.",
+    "Understand gene regulation, mutations, and modern molecular biology applications."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch4-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "DNA is made up of:",
+      "options": ["Amino acids", "Nucleotides", "Monosaccharides", "Fatty acids"],
+      "answer": "Nucleotides",
+      "tags": ["dna-structure"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define a gene.",
+      "answer": "A gene is a specific segment of DNA that codes for a particular protein or functional RNA.",
+      "tags": ["gene"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is semi-conservative DNA replication?",
+      "answer": "Semi-conservative replication means each new DNA molecule consists of one parental strand and one newly synthesized strand.",
+      "tags": ["replication"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Differentiate between transcription and translation.",
+      "answer": "Transcription is the synthesis of RNA from DNA template, whereas translation is the synthesis of protein from mRNA with the help of tRNA and ribosomes.",
+      "tags": ["transcription", "translation"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which codon is a start codon?",
+      "options": ["UAG", "UGA", "AUG", "UAA"],
+      "answer": "AUG",
+      "tags": ["genetic-code"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the role of helicase enzyme in DNA replication.",
+      "answer": "Helicase unwinds and separates the two DNA strands by breaking hydrogen bonds, creating the replication fork.",
+      "tags": ["helicase"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is a mutation? Give an example.",
+      "answer": "A mutation is a sudden heritable change in DNA sequence. Example: Sickle-cell anemia caused by a point mutation in the β-globin gene.",
+      "tags": ["mutation"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the process of transcription in detail.",
+      "answer": `"Transcription involves:  
+1. **Initiation** – RNA polymerase binds to promoter and unwinds DNA.  
+2. **Elongation** – RNA nucleotides pair with complementary DNA bases forming mRNA.  
+3. **Termination** – Polymerase reaches terminator sequence and releases mRNA.  
+In eukaryotes, mRNA undergoes capping, polyadenylation, and splicing."`,
+      "tags": ["transcription"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the lac operon model of gene regulation.",
+      "answer": `"The lac operon in bacteria is regulated by lactose availability.  
+- In absence of lactose, the repressor binds operator preventing transcription.  
+- In presence of lactose, it binds repressor, inactivating it, allowing transcription of genes for lactose metabolism.  
+This demonstrates inducible gene regulation."`,
+      "tags": ["gene-regulation", "operon"]
+    },
+    {
+      "id": "ms-12-bio-ch4-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the central dogma of molecular biology.",
+      "answer": "The central dogma states that genetic information flows from DNA → RNA → Protein. DNA replicates, is transcribed into RNA, and RNA is translated into proteins, which determine phenotype. It explains gene expression at molecular level.",
+      "tags": ["central-dogma"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch5",
+  "chapterNumber": 5,
+  "title": "Origin and Evolution of Life",
+  "slug": "origin-and-evolution-of-life",
+  "description": "Study of theories of origin of life, early earth conditions, chemical evolution, biological evolution, Darwinism, Lamarckism, Hardy-Weinberg equilibrium, and evidences of evolution.",
+  "topics": [
+    "Early Earth Conditions",
+    "Chemical Evolution",
+    "Miller-Urey Experiment",
+    "Darwin's Theory of Natural Selection",
+    "Lamarckism",
+    "Modern Synthetic Theory",
+    "Hardy-Weinberg Law",
+    "Speciation",
+    "Fossil Evidence",
+    "Human Evolution"
+  ],
+  "learningObjectives": [
+    "Understand early conditions on Earth and theories of origin of life.",
+    "Explain chemical evolution and Miller-Urey's experiment.",
+    "Differentiate between Lamarckism and Darwinism.",
+    "Interpret Hardy-Weinberg equilibrium and factors affecting it.",
+    "Recognize evidences of evolution and human evolutionary stages."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch5-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which scientist performed the experiment supporting chemical evolution?",
+      "options": ["Darwin", "Mendel", "Miller and Urey", "Linnaeus"],
+      "answer": "Miller and Urey",
+      "tags": ["chemical-evolution"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define evolution.",
+      "answer": "Evolution is the gradual change in the heritable characteristics of populations over generations.",
+      "tags": ["evolution"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State any two evidences supporting evolution.",
+      "answer": "Fossil records and homologous organs are strong evidences supporting evolution.",
+      "tags": ["evidence"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is natural selection according to Darwin?",
+      "answer": "Natural selection is the process where organisms with favorable traits survive and reproduce, passing those traits to the next generation.",
+      "tags": ["darwin"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which of the following violates Hardy-Weinberg equilibrium?",
+      "options": ["Random mating", "Large population size", "No mutation", "Migration"],
+      "answer": "Migration",
+      "tags": ["hardy-weinberg"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain Lamarck’s theory with an example.",
+      "answer": "Lamarck proposed that acquired characters are inherited. Example: Giraffes developed long necks because they stretched to reach leaves, and this trait was passed to offspring.",
+      "tags": ["lamarck"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is speciation?",
+      "answer": "Speciation is the formation of new species through genetic divergence, often due to isolation and natural selection.",
+      "tags": ["speciation"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the Miller-Urey experiment and its significance.",
+      "answer": "Miller and Urey created an apparatus simulating early Earth conditions with gases like methane, ammonia, hydrogen, and water vapor. Electric sparks simulated lightning. After several days, organic molecules like amino acids formed. This supported chemical evolution and the idea that life originated from simple organic compounds.",
+      "tags": ["miller-urey"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the Hardy-Weinberg equilibrium and factors affecting it.",
+      "answer": "Hardy-Weinberg equilibrium states that allele frequencies remain constant in a population if conditions like random mating, no mutation, no migration, large population, and no selection are met. Factors disrupting equilibrium include mutation, migration, genetic drift, natural selection, and non-random mating.",
+      "tags": ["population-genetics"]
+    },
+    {
+      "id": "ms-12-bio-ch5-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the major stages in human evolution.",
+      "answer": `"Human evolution includes:  
+1. **Australopithecus** – bipedal, small brain.  
+2. **Homo habilis** – tool user.  
+3. **Homo erectus** – upright posture, fire use.  
+4. **Neanderthals** – strong build, cultural development.  
+5. **Homo sapiens** – modern humans with advanced intelligence and culture."`,
+      "tags": ["human-evolution"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch6",
+  "chapterNumber": 6,
+  "title": "Plant Water Relation",
+  "slug": "plant-water-relation",
+  "description": "Study of water absorption, water potential, diffusion, osmosis, plasmolysis, transpiration, ascent of sap, and factors regulating water movement in plants.",
+  "topics": [
+    "Diffusion",
+    "Osmosis",
+    "Water Potential",
+    "Plasmolysis",
+    "Imbibition",
+    "Absorption of Water",
+    "Pathways of Water Movement",
+    "Ascent of Sap",
+    "Transpiration",
+    "Factors Affecting Water Transport"
+  ],
+  "learningObjectives": [
+    "Understand basic principles of water movement in plants.",
+    "Explain osmosis, diffusion, imbibition, and water potential.",
+    "Describe mechanisms of absorption and conduction of water.",
+    "Understand transpiration and its significance.",
+    "Explain ascent of sap and forces involved in water transport."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch6-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Movement of molecules from higher concentration to lower concentration is called:",
+      "options": ["Osmosis", "Diffusion", "Imbibition", "Plasmolysis"],
+      "answer": "Diffusion",
+      "tags": ["diffusion"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define osmosis.",
+      "answer": "Osmosis is the movement of water molecules from a region of higher water potential to lower water potential across a semipermeable membrane.",
+      "tags": ["osmosis"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is water potential?",
+      "answer": "Water potential (Ψ) is the potential energy of water, determining the direction of its movement. Pure water has the highest water potential (Ψ = 0).",
+      "tags": ["water-potential"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain plasmolysis with an example.",
+      "answer": "Plasmolysis is the shrinkage of the cytoplasm away from the cell wall when a cell is placed in a hypertonic solution. Example: Onion peel cells in concentrated salt solution.",
+      "tags": ["plasmolysis"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which tissue is mainly responsible for upward conduction of water?",
+      "options": ["Phloem", "Xylem", "Parenchyma", "Collenchyma"],
+      "answer": "Xylem",
+      "tags": ["xylem"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is transpiration?",
+      "answer": "Transpiration is the loss of water in the form of vapor from aerial parts of plants, mainly through stomata.",
+      "tags": ["transpiration"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain imbibition.",
+      "answer": "Imbibition is the adsorption of water by hydrophilic substances like cellulose and seeds, causing them to swell.",
+      "tags": ["imbibition"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the cohesion-tension theory of ascent of sap.",
+      "answer": "The cohesion-tension theory states that water molecules stick together by cohesion and adhere to xylem vessels. Transpiration pull creates negative pressure, which pulls water upward through the plant from roots to leaves.",
+      "tags": ["ascent-of-sap"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the apoplast and symplast pathways of water movement.",
+      "answer": "In the apoplast pathway, water moves through cell walls and intercellular spaces. In the symplast pathway, water moves from cell to cell through the cytoplasm via plasmodesmata. The endodermis forces water into the symplast before entering the xylem.",
+      "tags": ["water-pathways"]
+    },
+    {
+      "id": "ms-12-bio-ch6-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the significance of transpiration in plants.",
+      "answer": "Transpiration helps in cooling the plant, maintaining turgor, absorption and upward movement of water, mineral transport, and creating transpiration pull for ascent of sap.",
+      "tags": ["transpiration-significance"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch7",
+  "chapterNumber": 7,
+  "title": "Plant Growth and Mineral Nutrition",
+  "slug": "plant-growth-and-mineral-nutrition",
+  "description": "Study of plant growth phases, growth regulators, mineral absorption, essential elements, deficiency symptoms, nitrogen cycle, and role of macronutrients and micronutrients.",
+  "topics": [
+    "Phases of Growth",
+    "Growth Curve",
+    "Plant Growth Regulators",
+    "Essential Mineral Elements",
+    "Macronutrients and Micronutrients",
+    "Mineral Absorption",
+    "Nitrogen Metabolism and Nitrogen Cycle",
+    "Deficiency Symptoms in Plants"
+  ],
+  "learningObjectives": [
+    "Understand phases and characteristics of plant growth.",
+    "Identify essential mineral nutrients and their functions.",
+    "Explain mechanisms of mineral absorption.",
+    "Describe nitrogen cycle and nitrogen fixation.",
+    "Recognize deficiency symptoms of various nutrients."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch7-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a micronutrient?",
+      "options": ["Nitrogen", "Potassium", "Iron", "Calcium"],
+      "answer": "Iron",
+      "tags": ["micronutrients"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define meristematic growth.",
+      "answer": "Meristematic growth refers to growth due to continuous cell division in meristematic tissues.",
+      "tags": ["growth"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name any two plant growth regulators and state their functions.",
+      "answer": "Auxins promote cell elongation; cytokinins promote cell division.",
+      "tags": ["growth-regulators"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is the significance of nitrogen in plant nutrition?",
+      "answer": "Nitrogen is essential for synthesis of proteins, nucleic acids, chlorophyll, and enzymes.",
+      "tags": ["nitrogen"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Chlorosis is caused due to deficiency of:",
+      "options": ["Calcium", "Iron", "Sulphur", "Manganese"],
+      "answer": "Iron",
+      "tags": ["chlorosis"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Differentiate between macronutrients and micronutrients.",
+      "answer": "Macronutrients are required in large amounts (e.g., N, P, K), whereas micronutrients are needed in trace amounts (e.g., Fe, Zn, Cu).",
+      "tags": ["nutrients"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is biological nitrogen fixation?",
+      "answer": "Biological nitrogen fixation is conversion of atmospheric nitrogen into ammonia by microorganisms like Rhizobium.",
+      "tags": ["nitrogen-fixation"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the sigmoid (S-shaped) growth curve in plants.",
+      "answer": "The sigmoid growth curve consists of lag phase (slow growth), log phase (rapid exponential growth), and stationary phase (growth slows due to limited resources). It represents the typical growth pattern of plant tissues.",
+      "tags": ["growth-curve"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain passive and active absorption of minerals by plants.",
+      "answer": "Passive absorption occurs without energy expenditure through diffusion. Active absorption requires ATP and involves carrier proteins moving ions against concentration gradients.",
+      "tags": ["mineral-absorption"]
+    },
+    {
+      "id": "ms-12-bio-ch7-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the nitrogen cycle and its significance in plant growth.",
+      "answer": "The nitrogen cycle includes nitrogen fixation, ammonification, nitrification, and denitrification. It converts atmospheric nitrogen into usable forms like nitrates. This maintains soil fertility and supports plant growth.",
+      "tags": ["nitrogen-cycle"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch8",
+  "chapterNumber": 8,
+  "title": "Respiration and Circulation",
+  "slug": "respiration-and-circulation",
+  "description": "Study of respiratory mechanisms in humans, exchange and transport of gases, structure and working of the heart, cardiac cycle, blood vessels, and regulation of circulation.",
+  "topics": [
+    "Human Respiratory System",
+    "Mechanism of Breathing",
+    "Exchange of Gases",
+    "Transport of Oxygen and Carbon Dioxide",
+    "Circulatory System",
+    "Structure and Function of Heart",
+    "Cardiac Cycle",
+    "Blood Pressure",
+    "Double Circulation"
+  ],
+  "learningObjectives": [
+    "Understand the structure and mechanism of human respiration.",
+    "Explain gaseous exchange at lungs and tissues.",
+    "Describe oxygen and carbon dioxide transport in blood.",
+    "Understand structure of the heart and working of cardiac cycle.",
+    "Explain blood circulation routes and blood pressure regulation."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch8-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which pigment is responsible for transport of oxygen in humans?",
+      "options": ["Chlorophyll", "Hemoglobin", "Myosin", "Keratin"],
+      "answer": "Hemoglobin",
+      "tags": ["oxygen-transport"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define tidal volume.",
+      "answer": "Tidal volume is the amount of air inhaled or exhaled during normal quiet breathing, approximately 500 mL.",
+      "tags": ["tidal-volume"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is double circulation?",
+      "answer": "Double circulation refers to the separate pulmonary and systemic circuits in which blood passes through the heart twice during one complete circulation.",
+      "tags": ["double-circulation"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name the stages of the cardiac cycle.",
+      "answer": "Atrial systole, ventricular systole, and joint diastole.",
+      "tags": ["cardiac-cycle"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which blood vessel carries oxygenated blood from lungs to heart?",
+      "options": ["Pulmonary artery", "Pulmonary vein", "Aorta", "Vena cava"],
+      "answer": "Pulmonary vein",
+      "tags": ["blood-vessels"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain Bohr effect.",
+      "answer": "Bohr effect refers to the decrease in hemoglobin's affinity for oxygen due to increased CO₂ concentration or lowered pH, enhancing oxygen release in tissues.",
+      "tags": ["bohr-effect"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is systolic and diastolic blood pressure?",
+      "answer": "Systolic pressure is the pressure in arteries during ventricular contraction; diastolic pressure is the pressure during ventricular relaxation.",
+      "tags": ["blood-pressure"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the mechanism of breathing in humans.",
+      "answer": `"Breathing involves inspiration and expiration.  
+During inspiration, diaphragm contracts and flattens, external intercostal muscles raise ribs, increasing thoracic volume, causing air to flow into lungs.  
+During expiration, diaphragm relaxes, ribs move down, thoracic volume decreases, forcing air out."`,
+      "tags": ["breathing"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the exchange of gases at alveoli and tissues.",
+      "answer": `"At alveoli: O₂ diffuses from alveolar air to blood due to higher partial pressure, while CO₂ diffuses from blood to alveoli.  
+At tissues: O₂ diffuses from blood to cells and CO₂ diffuses from cells to blood due to concentration gradients."`,
+      "tags": ["gas-exchange"]
+    },
+    {
+      "id": "ms-12-bio-ch8-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the structure of the human heart and its working.",
+      "answer": "The heart has four chambers: right and left atria, right and left ventricles. Valves ensure one-way flow. Deoxygenated blood enters right atrium → right ventricle → lungs. Oxygenated blood from lungs enters left atrium → left ventricle → pumped to body. Heart functions through rhythmic contraction and relaxation known as the cardiac cycle.",
+      "tags": ["heart-structure", "cardiac-cycle"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch9",
+  "chapterNumber": 9,
+  "title": "Control and Coordination",
+  "slug": "control-and-coordination",
+  "description": "Study of the nervous system, endocrine system, neurons, synapses, reflex action, hormones, and regulation of physiological processes in animals.",
+  "topics": [
+    "Structure and Functions of Neurons",
+    "Transmission of Nerve Impulse",
+    "Central and Peripheral Nervous System",
+    "Autonomic Nervous System",
+    "Reflex Action and Reflex Arc",
+    "Endocrine Glands and Hormones",
+    "Feedback Mechanisms",
+    "Coordination Between Nervous and Endocrine Systems"
+  ],
+  "learningObjectives": [
+    "Understand the structure of neurons and the mechanism of nerve impulse transmission.",
+    "Differentiate between CNS, PNS, and ANS.",
+    "Explain reflex action and reflex arc.",
+    "Describe endocrine glands and hormone functions.",
+    "Understand feedback systems and coordination between nervous and endocrine systems."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch9-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The structural and functional unit of the nervous system is:",
+      "options": ["Axon", "Neuron", "Dendrite", "Synapse"],
+      "answer": "Neuron",
+      "tags": ["neuron"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "What is a synapse?",
+      "answer": "A synapse is a junction between two neurons where nerve impulses are transmitted chemically or electrically.",
+      "tags": ["synapse"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the term reflex action.",
+      "answer": "Reflex action is an automatic, immediate response to a stimulus, controlled by the spinal cord without involvement of the brain.",
+      "tags": ["reflex"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State any two functions of the autonomic nervous system.",
+      "answer": "The autonomic nervous system regulates involuntary activities such as heartbeat, digestion, glandular secretion, and smooth muscle contraction.",
+      "tags": ["ans"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which gland is known as the master gland?",
+      "options": ["Thyroid", "Adrenal", "Pituitary", "Pancreas"],
+      "answer": "Pituitary",
+      "tags": ["pituitary"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is the role of myelin sheath in neurons?",
+      "answer": "The myelin sheath insulates axons, increases speed of nerve impulse conduction, and prevents signal loss.",
+      "tags": ["myelin"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name two hormones secreted by the adrenal gland and state their functions.",
+      "answer": "Adrenaline – prepares body for 'fight or flight'; Aldosterone – regulates sodium and potassium balance.",
+      "tags": ["hormones"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the mechanism of nerve impulse transmission across a synapse.",
+      "answer": "When an impulse reaches the axon terminal, calcium ions enter, causing synaptic vesicles to release neurotransmitters into the synaptic cleft. These bind to receptors on the postsynaptic membrane, generating a new impulse. Neurotransmitters are then broken down or reabsorbed.",
+      "tags": ["nerve-impulse"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the endocrine system with examples of glands and hormones they secrete.",
+      "answer": "The endocrine system consists of glands that secrete hormones directly into the bloodstream. Examples: Thyroid secretes thyroxine; Pancreas secretes insulin and glucagon; Pituitary secretes growth hormone; Adrenal secretes adrenaline and aldosterone.",
+      "tags": ["endocrine-system"]
+    },
+    {
+      "id": "ms-12-bio-ch9-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss coordination between the nervous and endocrine systems with an example.",
+      "answer": "Both systems work together to maintain homeostasis. Example: Stress triggers hypothalamus, which stimulates adrenal glands via neural signals to release adrenaline, increasing heart rate and respiration. This illustrates neuroendocrine coordination.",
+      "tags": ["coordination"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch10",
+  "chapterNumber": 10,
+  "title": "Human Health and Diseases",
+  "slug": "human-health-and-diseases",
+  "description": "Study of infectious and non-infectious diseases, immunity, vaccines, immune response, AIDS, cancer, addiction, and strategies for disease prevention.",
+  "topics": [
+    "Concept of Health and Disease",
+    "Types of Diseases",
+    "Pathogens and Transmission",
+    "Immune System",
+    "Innate and Acquired Immunity",
+    "Vaccination and Immunization",
+    "AIDS and HIV",
+    "Cancer",
+    "Drug and Alcohol Addiction"
+  ],
+  "learningObjectives": [
+    "Differentiate between infectious and non-infectious diseases.",
+    "Understand the structure and functioning of the immune system.",
+    "Explain types of immunity and principles of vaccination.",
+    "Recognize major diseases such as AIDS, cancer, and their causes.",
+    "Understand causes and consequences of drug and alcohol abuse."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch10-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The pathogen that causes tuberculosis is:",
+      "options": ["HIV", "Plasmodium", "Mycobacterium tuberculosis", "Salmonella typhi"],
+      "answer": "Mycobacterium tuberculosis",
+      "tags": ["diseases"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define immunity.",
+      "answer": "Immunity is the ability of the body to resist and fight infections through defense mechanisms.",
+      "tags": ["immunity"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is the difference between innate and acquired immunity?",
+      "answer": "Innate immunity is present from birth and provides immediate defense, while acquired immunity develops after exposure to pathogens and is highly specific.",
+      "tags": ["innate-vs-acquired"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name any two sexually transmitted diseases (STDs).",
+      "answer": "AIDS and syphilis are two sexually transmitted diseases.",
+      "tags": ["std"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which cells produce antibodies?",
+      "options": ["T-lymphocytes", "B-lymphocytes", "Macrophages", "Neutrophils"],
+      "answer": "B-lymphocytes",
+      "tags": ["antibodies"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the term vaccination.",
+      "answer": "Vaccination is the process of administering weakened or inactive pathogens to stimulate immunity without causing disease.",
+      "tags": ["vaccination"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is AIDS? How is it transmitted?",
+      "answer": "AIDS is Acquired Immunodeficiency Syndrome caused by HIV. It is transmitted through unprotected sex, contaminated needles, infected blood, and mother-to-child transmission.",
+      "tags": ["aids"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the structure of the human immune system.",
+      "answer": "The immune system consists of lymphoid organs such as thymus, spleen, lymph nodes, bone marrow, and circulating immune cells like T-cells, B-cells, macrophages, and antigen-presenting cells. These organs and cells coordinate to detect, attack, and eliminate pathogens.",
+      "tags": ["immune-system"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the causes and symptoms of cancer.",
+      "answer": "Cancer is caused by uncontrolled cell division due to mutations, carcinogens, radiation, viruses, or genetic factors. Symptoms include formation of tumors, weight loss, fatigue, abnormal bleeding, and organ dysfunction.",
+      "tags": ["cancer"]
+    },
+    {
+      "id": "ms-12-bio-ch10-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the effects of drug and alcohol addiction on human health.",
+      "answer": "Drug and alcohol addiction affect the nervous system, cause liver damage, impair judgment, weaken immunity, lead to mental disorders, social problems, accidents, and long-term physiological damage.",
+      "tags": ["addiction"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch11",
+  "chapterNumber": 11,
+  "title": "Enhancement of Food Production",
+  "slug": "enhancement-of-food-production",
+  "description": "Study of crop improvement, plant breeding, animal husbandry, dairy and poultry management, fisheries, biofortification, tissue culture, and modern agricultural technologies.",
+  "topics": [
+    "Plant Breeding",
+    "Hybridization",
+    "Mutation Breeding",
+    "Tissue Culture and Micropropagation",
+    "Animal Husbandry",
+    "Dairy and Poultry Management",
+    "Fisheries and Aquaculture",
+    "Biofortification",
+    "Single Cell Protein (SCP)",
+    "Apiculture"
+  ],
+  "learningObjectives": [
+    "Understand methods of improving crop yield and quality.",
+    "Explain plant breeding techniques like hybridization and mutation breeding.",
+    "Recognize the importance of animal husbandry and fisheries.",
+    "Understand biofortification and its role in nutrition.",
+    "Explain tissue culture and modern biotechnological tools in food production."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch11-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Single-cell protein (SCP) is obtained from:",
+      "options": ["Algae", "Bacteria and fungi", "Cereals", "Animals"],
+      "answer": "Bacteria and fungi",
+      "tags": ["scp"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define plant breeding.",
+      "answer": "Plant breeding is the purposeful manipulation of plant species to create desired varieties with improved yield, quality, and resistance.",
+      "tags": ["plant-breeding"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is biofortification?",
+      "answer": "Biofortification is the process of increasing the nutritional value of crops through breeding, genetic engineering, or agronomic practices.",
+      "tags": ["biofortification"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name two applications of tissue culture in agriculture.",
+      "answer": "Micropropagation for mass production of disease-free plants and production of somaclones with desirable traits.",
+      "tags": ["tissue-culture"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which of the following is a high-yielding variety (HYV) crop?",
+      "options": ["IR-8 rice", "Wild rice", "Traditional wheat", "Basmati"],
+      "answer": "IR-8 rice",
+      "tags": ["hyv"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is animal husbandry?",
+      "answer": "Animal husbandry is the science of breeding, feeding, and caring for domestic animals to obtain useful products like milk, eggs, meat, and wool.",
+      "tags": ["animal-husbandry"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the importance of fishery development.",
+      "answer": "Fishery provides protein-rich food, employment, foreign exchange, and supports rural economies through aquaculture and marine fishing.",
+      "tags": ["fisheries"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the steps involved in hybridization in plants.",
+      "answer": "Steps include selection of parents, emasculation, bagging, pollination, tagging, and collection of hybrid seeds. The resulting hybrids show improved traits such as yield, disease resistance, and stress tolerance.",
+      "tags": ["hybridization"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain mutation breeding and give an example.",
+      "answer": "Mutation breeding involves exposing seeds or tissues to chemicals or radiation to induce mutations, followed by selection of desirable mutants. Example: Sharbati Sonora wheat variety developed through gamma radiation.",
+      "tags": ["mutation-breeding"]
+    },
+    {
+      "id": "ms-12-bio-ch11-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss the role of biotechnology in enhancing food production.",
+      "answer": "Biotechnology helps increase yield and nutritional value through genetic modification, tissue culture, microbial fermentation (SCP), pest-resistant GM crops, improved varieties through marker-assisted selection, and biofertilizers improving soil fertility.",
+      "tags": ["biotechnology"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch12",
+  "chapterNumber": 12,
+  "title": "Biotechnology",
+  "slug": "biotechnology",
+  "description": "Study of principles, tools, and applications of biotechnology including recombinant DNA technology, plasmids, restriction enzymes, PCR, transgenic organisms, and ethical issues.",
+  "topics": [
+    "Principles of Biotechnology",
+    "Restriction Enzymes",
+    "Plasmids and Vectors",
+    "Recombinant DNA Technology",
+    "PCR and Gel Electrophoresis",
+    "Cloning",
+    "Applications in Agriculture and Medicine",
+    "GM Crops",
+    "Ethical Issues and Biosafety"
+  ],
+  "learningObjectives": [
+    "Understand the principles and steps of recombinant DNA technology.",
+    "Explain the role of restriction enzymes and vectors.",
+    "Describe PCR, cloning, and electrophoresis techniques.",
+    "Explore applications of biotechnology in various fields.",
+    "Understand ethical concerns and biosafety measures."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch12-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The enzyme used to cut DNA at specific sites is called:",
+      "options": ["Ligase", "Polymerase", "Restriction endonuclease", "Helicase"],
+      "answer": "Restriction endonuclease",
+      "tags": ["restriction-enzymes"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define biotechnology.",
+      "answer": "Biotechnology is the use of living organisms, cells, or biological systems to develop products or processes for human welfare.",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is a cloning vector? Give an example.",
+      "answer": "A cloning vector is a DNA molecule that carries foreign DNA into a host cell for replication. Example: Plasmid pBR322.",
+      "tags": ["vectors"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain the function of DNA ligase.",
+      "answer": "DNA ligase joins DNA fragments by forming phosphodiester bonds, sealing nicks in the sugar-phosphate backbone.",
+      "tags": ["ligase"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Which technique is used to amplify DNA fragments?",
+      "options": ["PCR", "Gel electrophoresis", "Blotting", "Centrifugation"],
+      "answer": "PCR",
+      "tags": ["pcr"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is recombinant DNA?",
+      "answer": "Recombinant DNA is artificially created DNA formed by combining DNA from two different organisms or sources.",
+      "tags": ["rdna"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Name two applications of biotechnology in medicine.",
+      "answer": "Production of insulin using recombinant DNA technology and development of vaccines.",
+      "tags": ["applications"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the steps involved in recombinant DNA technology.",
+      "answer": `"Steps include:  
+1. Isolation of DNA.  
+2. Cutting DNA with restriction enzymes.  
+3. Insertion into a cloning vector.  
+4. Introduction of recombinant DNA into host cells.  
+5. Selection of transformed cells.  
+6. Expression of the inserted gene to obtain the desired product."`,
+      "tags": ["rdna-steps"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the process and significance of gel electrophoresis.",
+      "answer": "Gel electrophoresis separates DNA fragments based on size. DNA samples are loaded into agarose gel and subjected to electric current. Smaller fragments move faster towards the positive electrode. It is used in DNA fingerprinting, PCR analysis, and gene cloning.",
+      "tags": ["electrophoresis"]
+    },
+    {
+      "id": "ms-12-bio-ch12-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss ethical issues related to genetic engineering and GM crops.",
+      "answer": "Concerns include ecological risks, gene transfer to wild species, loss of biodiversity, food safety issues, labeling requirements, and ethical debate over manipulating life forms. Biosafety regulations are necessary to prevent misuse.",
+      "tags": ["gmo-ethics"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch13",
+  "chapterNumber": 13,
+  "title": "Organisms and Populations",
+  "slug": "organisms-and-populations",
+  "description": "Study of ecological levels, abiotic factors, adaptations, population attributes, population interactions, and growth models.",
+  "topics": [
+    "Levels of Ecological Organization",
+    "Abiotic Factors (Temperature, Water, Light, Soil)",
+    "Adaptations in Organisms",
+    "Population Attributes",
+    "Natality and Mortality",
+    "Population Age Pyramids",
+    "Population Growth Models",
+    "Population Interactions (Competition, Predation, Parasitism, Commensalism, Mutualism)"
+  ],
+  "learningObjectives": [
+    "Understand how organisms interact with their environment.",
+    "Explain adaptations to various abiotic factors.",
+    "Analyze population attributes such as size, density, and age structure.",
+    "Differentiate population interactions and their ecological significance.",
+    "Interpret population growth curves and survivorship patterns."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch13-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The study of interaction between organisms and their environment is called:",
+      "options": ["Taxonomy", "Ecology", "Genetics", "Evolution"],
+      "answer": "Ecology",
+      "tags": ["ecology"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define habitat.",
+      "answer": "Habitat is the natural living place of an organism where it obtains food, shelter, and reproduces.",
+      "tags": ["habitat"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is acclimatization? Give an example.",
+      "answer": "Acclimatization is the reversible adjustment of an organism to a change in its environment. Example: Humans adjusting to high altitudes.",
+      "tags": ["acclimatization"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Differentiate between natality and mortality.",
+      "answer": "Natality is the birth rate of a population, whereas mortality is the death rate.",
+      "tags": ["population"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "The logistic growth curve is:",
+      "options": ["J-shaped", "S-shaped", "Linear", "Exponential"],
+      "answer": "S-shaped",
+      "tags": ["growth"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain mutualism with an example.",
+      "answer": "Mutualism is an interaction where both species benefit. Example: Lichens consist of algae and fungi living together.",
+      "tags": ["mutualism"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What are age pyramids? Name their types.",
+      "answer": "Age pyramids show the age distribution of a population. Types: Expanding, stable, and declining.",
+      "tags": ["age-pyramid"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the exponential growth model.",
+      "answer": "In exponential growth, resources are unlimited and population grows at its maximum rate, forming a J-shaped curve. The growth rate is proportional to the existing population, represented by the equation dN/dt = rN.",
+      "tags": ["exponential-growth"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain predation and its ecological importance.",
+      "answer": "Predation is the interaction where one organism (predator) kills and consumes another (prey). It maintains population balance, drives evolution through natural selection, and regulates energy flow in ecosystems.",
+      "tags": ["predation"]
+    },
+    {
+      "id": "ms-12-bio-ch13-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss adaptations of organisms to extreme environments.",
+      "answer": "Adaptations include morphological (thick fur in polar animals), physiological (heat tolerance in desert plants), and behavioral (burrowing in rodents). These enable survival under extreme temperature, salinity, pressure, or light conditions.",
+      "tags": ["adaptations"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch14",
+  "chapterNumber": 14,
+  "title": "Ecosystems and Energy Flow",
+  "slug": "ecosystems-and-energy-flow",
+  "description": "Study of ecosystem structure, biotic and abiotic components, food chains and food webs, ecological pyramids, productivity, energy flow, and nutrient cycles.",
+  "topics": [
+    "Components of Ecosystems",
+    "Food Chains and Food Webs",
+    "Ecological Pyramids",
+    "Energy Flow in Ecosystems",
+    "Trophic Levels",
+    "GPP, NPP, Productivity",
+    "Biogeochemical Cycles (Water, Carbon, Nitrogen)",
+    "Decomposition"
+  ],
+  "learningObjectives": [
+    "Understand the structure and components of ecosystems.",
+    "Differentiate between food chains and food webs.",
+    "Interpret ecological pyramids and energy flow models.",
+    "Explain primary and secondary productivity.",
+    "Understand the importance of nutrient cycles."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch14-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The primary source of energy in an ecosystem is:",
+      "options": ["Moon", "Soil", "Sunlight", "Wind"],
+      "answer": "Sunlight",
+      "tags": ["energy"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define ecosystem.",
+      "answer": "An ecosystem is a functional unit consisting of living organisms interacting with each other and with the physical environment.",
+      "tags": ["ecosystem"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is a food web?",
+      "answer": "A food web is a network of interconnected food chains that shows multiple feeding relationships in an ecosystem.",
+      "tags": ["food-web"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain Gross Primary Productivity (GPP).",
+      "answer": "GPP is the total amount of energy captured by producers through photosynthesis in a given time.",
+      "tags": ["gpp"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Ecological pyramids represent:",
+      "options": ["Only number of organisms", "Only biomass", "Only energy", "Number, biomass, or energy"],
+      "answer": "Number, biomass, or energy",
+      "tags": ["ecological-pyramids"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is decomposition?",
+      "answer": "Decomposition is the breakdown of organic matter by microorganisms, releasing nutrients back into the environment.",
+      "tags": ["decomposition"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State the 10% law of energy transfer.",
+      "answer": "According to the 10% law, only about 10% of energy is transferred from one trophic level to the next; the rest is lost as heat.",
+      "tags": ["energy-flow"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the nitrogen cycle in an ecosystem.",
+      "answer": "The nitrogen cycle includes nitrogen fixation (conversion of N₂ to ammonia), nitrification (ammonia to nitrates), assimilation by plants, ammonification (decomposition releasing ammonia), and denitrification (conversion of nitrates back to N₂). This cycle maintains soil fertility.",
+      "tags": ["nitrogen-cycle"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain the flow of energy in an ecosystem.",
+      "answer": "Energy flows unidirectionally from the sun to producers and then to consumers and decomposers. At each trophic level, most energy is lost as heat, making the energy pyramid always upright.",
+      "tags": ["energy-flow"]
+    },
+    {
+      "id": "ms-12-bio-ch14-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss differences between food chains and food webs.",
+      "answer": "A food chain shows a single linear pathway of energy flow. A food web consists of multiple interconnected chains, offering greater stability to the ecosystem by providing alternative feeding routes.",
+      "tags": ["food-chain-vs-web"]
+    }
+  ]
+}, {
+  "id": "ms-12-bio-ch15",
+  "chapterNumber": 15,
+  "title": "Biodiversity, Conservation and Environmental Issues",
+  "slug": "biodiversity-conservation-environmental-issues",
+  "description": "Study of biodiversity levels, importance of biodiversity, threats to biodiversity, conservation strategies, pollution, global warming, ozone depletion, and sustainable development.",
+  "topics": [
+    "Levels of Biodiversity",
+    "Importance of Biodiversity",
+    "Threats to Biodiversity",
+    "Endangered and Endemic Species",
+    "In-situ and Ex-situ Conservation",
+    "Wildlife Protection and Policies",
+    "Environmental Pollution",
+    "Global Warming and Climate Change",
+    "Ozone Depletion",
+    "Sustainable Development"
+  ],
+  "learningObjectives": [
+    "Understand biodiversity at genetic, species, and ecosystem levels.",
+    "Recognize the importance and value of biodiversity.",
+    "Identify major threats such as habitat loss, poaching, pollution, and climate change.",
+    "Differentiate between in-situ and ex-situ conservation.",
+    "Understand environmental issues and the need for sustainable development."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-bio-ch15-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Biosphere reserves, national parks, and wildlife sanctuaries are examples of:",
+      "options": ["Ex-situ conservation", "In-situ conservation", "Cryopreservation", "Captive breeding"],
+      "answer": "In-situ conservation",
+      "tags": ["conservation"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Define biodiversity.",
+      "answer": "Biodiversity refers to the variety of life forms at genetic, species, and ecosystem levels.",
+      "tags": ["biodiversity"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "State two major threats to biodiversity.",
+      "answer": "Habitat loss and fragmentation, and poaching of wildlife are major threats to biodiversity.",
+      "tags": ["threats"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is global warming? Mention one cause.",
+      "answer": "Global warming is the rise in Earth's average temperature due to increased greenhouse gases such as CO₂.",
+      "tags": ["global-warming"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Ozone depletion is mainly caused by:",
+      "options": ["CO₂", "CFCs", "SO₂", "CH₄"],
+      "answer": "CFCs",
+      "tags": ["ozone"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Explain ex-situ conservation with an example.",
+      "answer": "Ex-situ conservation involves protecting species outside their natural habitats. Example: Botanical gardens and seed banks.",
+      "tags": ["ex-situ"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "What is eutrophication?",
+      "answer": "Eutrophication is nutrient enrichment of water bodies causing excessive algal growth, depletion of oxygen, and damage to aquatic life.",
+      "tags": ["pollution"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Describe the major types of biodiversity.",
+      "answer": `"Types include:  
+1. **Genetic diversity** – variation in genes within a species.  
+2. **Species diversity** – variety of species within a region.  
+3. **Ecosystem diversity** – diversity of ecosystems such as forests, deserts, wetlands.  
+These levels reflect complexity and stability of life on Earth."`,
+      "tags": ["biodiversity-types"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Explain how climate change affects biodiversity.",
+      "answer": "Climate change alters temperature and rainfall patterns, causing habitat shifts, species migration, coral bleaching, extinction of sensitive species, and disruption of ecological interactions like pollination and migration.",
+      "tags": ["climate-change"]
+    },
+    {
+      "id": "ms-12-bio-ch15-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 5,
+      "text": "Discuss sustainable development and its importance.",
+      "answer": "Sustainable development meets present needs without compromising future generations by balancing economic growth, environmental protection, and social well-being. It promotes conservation of resources, renewable energy use, and pollution control.",
+      "tags": ["sustainable-development"]
+    }
+  ]
+}
+  ]
+}, {
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "chemistry",
+  chapters: [
+    {
+  "id": "ms-12-chem-ch1",
+  "chapterNumber": 1,
+  "title": "Solid State",
+  "slug": "solid-state",
+  "description": "Classification of solids, crystal lattices, unit cells, packing efficiency, voids, imperfections, electrical and magnetic properties.",
+  "topics": [
+    "Classification of Solids",
+    "Crystalline and Amorphous Solids",
+    "Unit Cell and Lattice Parameters",
+    "Packing Efficiency",
+    "Tetrahedral and Octahedral Voids",
+    "Point Defects",
+    "Electrical and Magnetic Properties"
+  ],
+  "learningObjectives": [
+    "Differentiate between crystalline and amorphous solids.",
+    "Understand types of unit cells and lattice parameters.",
+    "Calculate packing efficiency and number of voids.",
+    "Explain point defects in ionic and non-ionic solids.",
+    "Describe electrical, magnetic, and dielectric properties of solids."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch1-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is an amorphous solid?",
+      "options": ["Quartz", "Glass", "Diamond", "Ice"],
+      "answer": "Glass",
+      "tags": ["amorphous"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q2",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "In a simple cubic unit cell, the number of atoms present is:",
+      "options": ["1", "2", "3", "4"],
+      "answer": "1",
+      "tags": ["unit-cell"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define packing efficiency. What is the packing efficiency of a bcc lattice?",
+      "answer": "Packing efficiency is the percentage of space occupied by particles in a unit cell. For bcc, it is 68%.",
+      "tags": ["packing-efficiency"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is a Schottky defect? How does it affect the density of a crystal?",
+      "answer": "Schottky defect occurs when equal number of cations and anions are missing, creating vacancies. It reduces the density.",
+      "tags": ["defects"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q5",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Coordination number of fcc lattice is:",
+      "options": ["4", "6", "8", "12"],
+      "answer": "12",
+      "tags": ["coordination-number"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the difference between crystalline and amorphous solids with any three points.",
+      "answer": "Crystalline solids have long-range order, sharp melting point, anisotropic properties; amorphous solids have short-range order, soften over a range, isotropic properties.",
+      "tags": ["crystalline-vs-amorphous"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q7",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Calculate the number of octahedral voids in 0.5 mol of a hcp metal.",
+      "answer": "Number of octahedral voids = number of atoms = 0.5 × NA = 3.011×10^23 voids.",
+      "tags": ["voids"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is isomorphism? Give one example.",
+      "answer": "Two compounds having the same crystal structure are isomorphous. Example: NaNO3 and CaCO3.",
+      "tags": ["isomorphism"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q9",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following defects does NOT change the density of the crystal?",
+      "options": ["Schottky defect", "Vacancy defect", "Frenkel defect", "Substitution impurity defect"],
+      "answer": "Frenkel defect",
+      "tags": ["defects"]
+    },
+    {
+      "id": "ms-12-chem-ch1-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain tetrahedral and octahedral voids with diagrams and coordination numbers.",
+      "answer": "Tetrahedral voids are surrounded by 4 atoms; octahedral voids by 6 atoms. Two tetrahedral voids form per atom; one octahedral void per atom.",
+      "tags": ["voids"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch2",
+  "chapterNumber": 2,
+  "title": "Solutions",
+  "slug": "solutions",
+  "description": "Types of solutions, concentration terms, solubility, vapor pressure of solutions, Raoult’s law, ideal and non-ideal solutions, colligative properties and abnormal molar mass.",
+  "topics": [
+    "Types of Solutions",
+    "Concentration Terms (molarity, molality, mole fraction)",
+    "Solubility and Factors Affecting Solubility",
+    "Vapour Pressure of Solutions",
+    "Raoult's Law and Ideal Solutions",
+    "Non-ideal Solutions and Azeotropes",
+    "Colligative Properties",
+    "Abnormal Molar Mass and van’t Hoff Factor"
+  ],
+  "learningObjectives": [
+    "Classify solutions based on physical state and concentration.",
+    "Use different concentration units to express composition of solutions.",
+    "Explain Raoult’s law and distinguish between ideal and non-ideal solutions.",
+    "Define and apply various colligative properties to determine molar mass.",
+    "Explain abnormal molar mass using van’t Hoff factor."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch2-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which concentration term is temperature independent?",
+      "options": ["Molarity", "Molality", "Normality", "Formality"],
+      "answer": "Molality",
+      "tags": ["concentration"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State Raoult’s law for a solution of volatile liquids.",
+      "answer": "Raoult’s law states that the partial vapour pressure of each component in an ideal solution is directly proportional to its mole fraction in the solution.",
+      "tags": ["raoults-law"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q3",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Calculate the molality of a solution prepared by dissolving 18 g of glucose (M = 180 g mol⁻¹) in 90 g of water.",
+      "answer": "Moles of glucose = 18/180 = 0.1 mol; mass of solvent = 0.090 kg; molality = 0.1 / 0.090 ≈ 1.11 m.",
+      "tags": ["molality"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a colligative property?",
+      "options": ["Viscosity", "Surface tension", "Relative lowering of vapour pressure", "Refractive index"],
+      "answer": "Relative lowering of vapour pressure",
+      "tags": ["colligative-properties"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Differentiate between ideal and non-ideal solutions on the basis of enthalpy change of mixing.",
+      "answer": "In ideal solutions, enthalpy of mixing (ΔHmix) is zero, whereas in non-ideal solutions ΔHmix is not zero (it may be positive or negative).",
+      "tags": ["ideal-solutions"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q6",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "A solution containing 1.0 g of a non-volatile solute in 100 g of water boils at 100.15°C. Calculate the molar mass of the solute. (Kb for water = 0.52 K kg mol⁻¹).",
+      "answer": "ΔTb = 0.15 K; molality = ΔTb / Kb = 0.15 / 0.52 ≈ 0.288 m. Moles of solute = 0.288 × 0.100 = 0.0288 mol. Molar mass = 1.0 / 0.0288 ≈ 34.7 g mol⁻¹.",
+      "tags": ["elevation-boiling-point"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define solubility. How does temperature affect solubility of solids in liquids?",
+      "answer": "Solubility is the maximum amount of solute that can dissolve in a given amount of solvent at a specific temperature. Generally, solubility of solids in liquids increases with increase in temperature.",
+      "tags": ["solubility"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q8",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "For a solution showing positive deviation from Raoult’s law:",
+      "options": [
+        "ΔHmix = 0 and ΔVmix = 0",
+        "ΔHmix < 0 and ΔVmix < 0",
+        "ΔHmix > 0 and ΔVmix > 0",
+        "ΔHmix < 0 and ΔVmix > 0"
+      ],
+      "answer": "ΔHmix > 0 and ΔVmix > 0",
+      "tags": ["non-ideal-solutions"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is van’t Hoff factor? How is it related to abnormal molar mass?",
+      "answer": "van’t Hoff factor (i) is the ratio of the observed colligative property to the calculated colligative property for a nonelectrolyte. Due to association or dissociation, the effective number of particles changes, giving abnormal molar mass, which is corrected by using i.",
+      "tags": ["vant-hoff-factor"]
+    },
+    {
+      "id": "ms-12-chem-ch2-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the concept of azeotropes. Distinguish between minimum boiling and maximum boiling azeotropes with suitable examples.",
+      "answer": "Azeotropes are constant boiling mixtures whose composition in liquid and vapour phase is the same. Minimum boiling azeotropes show positive deviation and boil at a temperature lower than that of either component (e.g. ethanol–water). Maximum boiling azeotropes show negative deviation and boil at a temperature higher than either component (e.g. HNO₃–water).",
+      "tags": ["azeotropes"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch3",
+  "chapterNumber": 3,
+  "title": "Ionic Equilibria",
+  "slug": "ionic-equilibria",
+  "description": "Concept of acids and bases, ionization of weak electrolytes, Ostwald’s dilution law, pH scale, buffer solutions, solubility product and common ion effect.",
+  "topics": [
+    "Arrhenius, Bronsted–Lowry and Lewis Acids and Bases",
+    "Ionization of Weak Electrolytes",
+    "Ostwald’s Dilution Law",
+    "pH, pOH and Ionic Product of Water",
+    "Buffer Solutions and Henderson–Hasselbalch Equation",
+    "Hydrolysis of Salts",
+    "Solubility Product (Ksp)",
+    "Common Ion Effect"
+  ],
+  "learningObjectives": [
+    "Compare different concepts of acids and bases.",
+    "Derive and apply Ostwald’s dilution law for weak electrolytes.",
+    "Calculate pH of strong and weak acid/base solutions.",
+    "Explain the working of buffer solutions using Henderson–Hasselbalch equation.",
+    "Use solubility product to predict precipitation and solubility."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch3-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a Lewis acid?",
+      "options": ["NH₃", "BF₃", "OH⁻", "H₂O"],
+      "answer": "BF₃",
+      "tags": ["acids-bases"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State Ostwald’s dilution law for a weak electrolyte.",
+      "answer": "Ostwald’s dilution law states that the degree of dissociation of a weak electrolyte is inversely proportional to the square root of its concentration and relates dissociation constant K to concentration c and degree of dissociation α by K = cα² / (1 − α).",
+      "tags": ["ostwalds-law"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q3",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Calculate the pH of 0.001 M HCl solution.",
+      "answer": "HCl is a strong acid and fully ionizes. [H⁺] = 0.001 M = 10⁻³ M; pH = −log[H⁺] = 3.",
+      "tags": ["ph-calculation"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The ionic product of water (Kw) at 25°C is approximately:",
+      "options": ["1 × 10⁻¹⁰", "1 × 10⁻¹²", "1 × 10⁻¹⁴", "1 × 10⁻¹⁶"],
+      "answer": "1 × 10⁻¹⁴",
+      "tags": ["kw"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is a buffer solution? Give one example each of acidic and basic buffer.",
+      "answer": "A buffer solution resists change in pH on addition of small amounts of acid or base. Example of acidic buffer: CH₃COOH and CH₃COO⁻Na⁺; basic buffer: NH₄OH and NH₄Cl.",
+      "tags": ["buffers"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write Henderson–Hasselbalch equation for an acidic buffer and explain each term.",
+      "answer": "For an acidic buffer, pH = pKa + log([salt]/[acid]), where pKa is −log Ka, [salt] is concentration of conjugate base and [acid] is concentration of weak acid.",
+      "tags": ["henderson-hasselbalch"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q7",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "The solubility product of AgCl at 25°C is 1.6 × 10⁻¹⁰. Calculate its solubility in mol L⁻¹ in pure water.",
+      "answer": "For AgCl ⇌ Ag⁺ + Cl⁻, Ksp = s²; s = √(1.6 × 10⁻¹⁰) ≈ 1.26 × 10⁻⁵ mol L⁻¹.",
+      "tags": ["solubility-product"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q8",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Common ion effect is observed when:",
+      "options": [
+        "A weak electrolyte is mixed with a strong electrolyte having a common ion",
+        "Two strong electrolytes are mixed",
+        "Two weak electrolytes are mixed",
+        "A salt is added to a non-aqueous solvent"
+      ],
+      "answer": "A weak electrolyte is mixed with a strong electrolyte having a common ion",
+      "tags": ["common-ion-effect"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain hydrolysis of salts formed from (i) strong acid and weak base, (ii) weak acid and strong base with suitable examples.",
+      "answer": "i) Salts of strong acid and weak base (e.g. NH₄Cl) hydrolyse to give acidic solution because the cation reacts with water to produce H⁺. ii) Salts of weak acid and strong base (e.g. CH₃COONa) hydrolyse to give basic solution because the anion reacts with water to produce OH⁻.",
+      "tags": ["hydrolysis"]
+    },
+    {
+      "id": "ms-12-chem-ch3-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Derive the expression for pH of a weak acid solution using its dissociation constant (Ka) and concentration.",
+      "answer": "For weak acid HA of initial concentration C, degree of dissociation α is small. Ka = Cα²/(1−α) ≈ Cα². [H⁺] = Cα = √(CKa). Hence pH = −log[H⁺] = −log(√(C Ka)) = 1/2 (pKa − log C).",
+      "tags": ["ph-weak-acid"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch4",
+  "chapterNumber": 4,
+  "title": "Chemical Thermodynamics",
+  "slug": "chemical-thermodynamics",
+  "description": "Basic thermodynamic terms, first law, enthalpy changes, Hess’s law, spontaneity, entropy, Gibbs free energy and criteria for equilibrium.",
+  "topics": [
+    "System, Surroundings and Types of Systems",
+    "State Functions and Thermodynamic Processes",
+    "First Law of Thermodynamics",
+    "Internal Energy and Enthalpy",
+    "Heat of Reaction and Hess’s Law",
+    "Second Law, Entropy and Spontaneity",
+    "Gibbs Free Energy and Work Function",
+    "Relationship between ΔG, ΔH and ΔS"
+  ],
+  "learningObjectives": [
+    "Define system, surroundings and types of thermodynamic systems.",
+    "Apply first law of thermodynamics to physical and chemical processes.",
+    "Explain enthalpy changes and use Hess’s law for calculation.",
+    "Describe entropy and spontaneity in terms of second law.",
+    "Use ΔG = ΔH − TΔS to predict feasibility of reactions."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch4-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is an extensive property?",
+      "options": ["Temperature", "Density", "Enthalpy", "Pressure"],
+      "answer": "Enthalpy",
+      "tags": ["state-functions"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State the first law of thermodynamics.",
+      "answer": "The first law of thermodynamics states that energy can neither be created nor destroyed; it can only be converted from one form to another. Mathematically, ΔU = q + w.",
+      "tags": ["first-law"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q3",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "An ideal gas absorbs 500 J of heat and does 200 J of work. Calculate the change in internal energy of the system.",
+      "answer": "ΔU = q + w = 500 J + (−200 J) = 300 J.",
+      "tags": ["internal-energy"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q4",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State Hess’s law of constant heat summation.",
+      "answer": "Hess’s law states that the enthalpy change of a reaction is the same whether it occurs in one step or in a series of steps.",
+      "tags": ["hess-law"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q5",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "For a spontaneous process at constant temperature and pressure:",
+      "options": ["ΔG > 0", "ΔG = 0", "ΔG < 0", "ΔH = 0"],
+      "answer": "ΔG < 0",
+      "tags": ["gibbs-free-energy"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define entropy. What is its SI unit?",
+      "answer": "Entropy is a measure of randomness or disorder of a system. Its SI unit is J K⁻¹ mol⁻¹.",
+      "tags": ["entropy"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q7",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Calculate ΔG for a reaction at 298 K if ΔH = −40 kJ mol⁻¹ and ΔS = −50 J K⁻¹ mol⁻¹. Comment on spontaneity.",
+      "answer": "Convert ΔS to kJ: −50 J K⁻¹ mol⁻¹ = −0.050 kJ K⁻¹ mol⁻¹. ΔG = ΔH − TΔS = −40 − 298(−0.050) = −40 + 14.9 = −25.1 kJ mol⁻¹. Since ΔG < 0, the reaction is spontaneous.",
+      "tags": ["delta-g"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q8",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which of the following processes has ΔS > 0?",
+      "options": [
+        "Freezing of water",
+        "Condensation of steam",
+        "Dissolution of a salt in water",
+        "Formation of ionic solid from gaseous ions"
+      ],
+      "answer": "Dissolution of a salt in water",
+      "tags": ["entropy-change"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Distinguish between reversible and irreversible processes with suitable examples.",
+      "answer": "Reversible processes occur infinitely slowly through a series of equilibrium states and can be reversed by an infinitesimal change (e.g. isothermal reversible expansion of an ideal gas). Irreversible processes occur spontaneously in a finite time with driving force; they cannot be exactly reversed (e.g. free expansion of gas, natural heat flow from hot to cold body).",
+      "tags": ["reversible-irreversible"]
+    },
+    {
+      "id": "ms-12-chem-ch4-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the relationship ΔG = −nFE and its significance in electrochemical cells.",
+      "answer": "ΔG is the maximum non-expansion work obtainable from a galvanic cell. For a cell involving n moles of electrons and emf E, ΔG = −nFE (F is Faraday constant). A negative ΔG corresponds to positive E and a spontaneous cell reaction.",
+      "tags": ["delta-g-cell"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch5",
+  "chapterNumber": 5,
+  "title": "Electrochemistry",
+  "slug": "electrochemistry",
+  "description": "Electrolytic and galvanic cells, electrode potential, Nernst equation, electrochemical series, conductance of electrolytes, Kohlrausch’s law and applications.",
+  "topics": [
+    "Electrolytes and Conductance",
+    "Molar and Equivalent Conductance",
+    "Electrolytic and Galvanic Cells",
+    "Standard Electrode Potential",
+    "Nernst Equation",
+    "Electrochemical Series",
+    "Primary and Secondary Cells",
+    "Fuel Cells and Corrosion"
+  ],
+  "learningObjectives": [
+    "Differentiate between electrolytic and galvanic cells.",
+    "Explain electrode potential and its measurement.",
+    "Apply Nernst equation to calculate cell potential.",
+    "Use electrochemical series to predict feasibility and EMF.",
+    "Describe working of important electrochemical cells and corrosion."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch5-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Unit of molar conductance is:",
+      "options": ["S cm", "S cm² mol⁻¹", "S mol⁻¹", "S cm⁻¹"],
+      "answer": "S cm² mol⁻¹",
+      "tags": ["conductance"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define standard electrode potential.",
+      "answer": "Standard electrode potential is the potential difference between a metal/metal ion electrode and standard hydrogen electrode when the ionic concentration is 1 M, gas pressure 1 bar and temperature 298 K.",
+      "tags": ["electrode-potential"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q3",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Calculate the EMF of a cell: Zn | Zn²⁺ (0.1 M) || Cu²⁺ (1.0 M) | Cu. Given E°cell = 1.10 V, n = 2.",
+      "answer": "E = E° − (0.0591/2) log([Zn²⁺]/[Cu²⁺]) = 1.10 − 0.02955 log(0.1/1) = 1.10 − 0.02955(−1) ≈ 1.13 V.",
+      "tags": ["nernst-equation"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "In an electrolytic cell, the electrode at which oxidation occurs is called:",
+      "options": ["Anode", "Cathode", "Salt bridge", "Diaphragm"],
+      "answer": "Anode",
+      "tags": ["electrolysis"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State Kohlrausch’s law of independent migration of ions.",
+      "answer": "Kohlrausch’s law states that at infinite dilution, the limiting molar conductance of an electrolyte is equal to the sum of the individual contributions of its cation and anion.",
+      "tags": ["kohlrausch-law"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q6",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "The limiting molar conductance of NaCl, HCl and NaAc are 126.4, 426.2 and 91.0 S cm² mol⁻¹ respectively. Calculate the limiting molar conductance of CH₃COOH.",
+      "answer": "Λ°(CH₃COOH) = Λ°(HCl) + Λ°(NaAc) − Λ°(NaCl) = 426.2 + 91.0 − 126.4 = 390.8 S cm² mol⁻¹.",
+      "tags": ["lambda-m-zero"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is a fuel cell? Give one example.",
+      "answer": "A fuel cell converts the chemical energy of a fuel directly into electrical energy by an electrochemical reaction. Example: Hydrogen–oxygen fuel cell.",
+      "tags": ["fuel-cells"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q8",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Rusting of iron is an example of:",
+      "options": ["Electrolysis", "Electroplating", "Galvanic corrosion", "Passivation"],
+      "answer": "Galvanic corrosion",
+      "tags": ["corrosion"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the construction and working of a lead storage battery.",
+      "answer": "A lead storage battery consists of lead anode and lead dioxide cathode dipped in aqueous H₂SO₄. During discharge, Pb is oxidized to PbSO₄ and PbO₂ is reduced to PbSO₄, producing electrical energy. On charging, these reactions are reversed, regenerating Pb and PbO₂.",
+      "tags": ["lead-battery"]
+    },
+    {
+      "id": "ms-12-chem-ch5-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "What is electrochemical series? Give any three applications.",
+      "answer": "Electrochemical series is an arrangement of elements in order of their standard reduction potentials. Applications: predicting feasibility of redox reactions, calculating EMF of cells, determining the oxidizing/reducing strength of species and metal displacement reactions.",
+      "tags": ["electrochemical-series"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch6",
+  "chapterNumber": 6,
+  "title": "Chemical Kinetics",
+  "slug": "chemical-kinetics",
+  "description": "Rate of reaction, factors affecting rate, rate laws, order and molecularity, integrated rate equations, half-life, collision theory and catalysis.",
+  "topics": [
+    "Average and Instantaneous Rate of Reaction",
+    "Rate Law and Rate Constant",
+    "Order and Molecularity",
+    "Integrated Rate Equations for Zero and First Order",
+    "Half-life Period",
+    "Temperature Dependence of Rate (Arrhenius Equation)",
+    "Collision Theory",
+    "Catalysis and Activation Energy"
+  ],
+  "learningObjectives": [
+    "Define rate of reaction and express it mathematically.",
+    "Determine order and rate constant from experimental data.",
+    "Use integrated rate equations for zero and first order reactions.",
+    "Explain effect of temperature on rate using Arrhenius equation.",
+    "Describe collision theory and role of catalyst."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch6-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The unit of rate constant for a first-order reaction is:",
+      "options": ["mol L⁻¹ s⁻¹", "L mol⁻¹ s⁻¹", "s⁻¹", "L² mol⁻² s⁻¹"],
+      "answer": "s⁻¹",
+      "tags": ["rate-constant"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define order of a reaction. How is it different from molecularity?",
+      "answer": "Order is the sum of powers of concentration terms in the rate law and is an experimental quantity. Molecularity is the number of molecules colliding in a single step and is a theoretical concept defined only for elementary reactions.",
+      "tags": ["order-molecularity"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q3",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "For a first order reaction, the rate constant is 0.693 min⁻¹. Calculate its half-life.",
+      "answer": "For first order, t½ = 0.693 / k = 0.693 / 0.693 = 1 min.",
+      "tags": ["half-life"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "According to Arrhenius equation, rate constant k is related to temperature T as:",
+      "options": ["k = Ae^(−Eₐ/RT)", "k = A/RT", "k = Eₐ e^(−RT)", "k = A + EₐT"],
+      "answer": "k = Ae^(−Eₐ/RT)",
+      "tags": ["arrhenius"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is activation energy? How does a catalyst affect it?",
+      "answer": "Activation energy is the minimum extra energy that reacting molecules must possess to undergo a chemical reaction. A catalyst lowers the activation energy by providing an alternative pathway.",
+      "tags": ["activation-energy"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q6",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "A zero order reaction has a rate constant of 2.0 × 10⁻³ mol L⁻¹ s⁻¹. How long will it take for the concentration of reactant to fall from 0.10 mol L⁻¹ to 0.04 mol L⁻¹?",
+      "answer": "For zero order: [A]t = [A]0 − kt. So t = ([A]0 − [A]t)/k = (0.10 − 0.04)/(2.0 × 10⁻³) = 0.06 / 2.0×10⁻³ = 30 s.",
+      "tags": ["zero-order"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write integrated rate law for first order reaction and explain the terms.",
+      "answer": "For A → products, ln[A]t = ln[A]0 − kt or [A]t = [A]0 e^(−kt); [A]0 is initial concentration, [A]t is concentration at time t, k is rate constant.",
+      "tags": ["integrated-rate-law"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q8",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which factor does NOT affect rate of a chemical reaction?",
+      "options": ["Temperature", "Concentration", "Nature of reactants", "Avogadro number"],
+      "answer": "Avogadro number",
+      "tags": ["rate-factors"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain collision theory of bimolecular reactions.",
+      "answer": "According to collision theory, molecules must collide with sufficient energy (≥ activation energy) and proper orientation to react. Rate is proportional to the number of effective collisions per unit time. Temperature increases kinetic energy and collision frequency, increasing rate.",
+      "tags": ["collision-theory"]
+    },
+    {
+      "id": "ms-12-chem-ch6-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Discuss the effect of temperature on rate constant using Arrhenius equation and explain how activation energy can be determined graphically.",
+      "answer": "Arrhenius equation k = Ae^(−Eₐ/RT) shows that k increases with temperature. Taking log gives ln k = ln A − Eₐ/RT. A plot of ln k versus 1/T is a straight line with slope −Eₐ/R from which activation energy Eₐ is calculated.",
+      "tags": ["arrhenius-graph"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch7",
+  "chapterNumber": 7,
+  "title": "Elements of Groups 16, 17 and 18",
+  "slug": "elements-groups-16-17-18",
+  "description": "Study of p-block elements of groups 16, 17 and 18, their electronic configurations, trends, important compounds and anomalous behaviour of oxygen and fluorine.",
+  "topics": [
+    "Electronic Configuration and General Trends",
+    "Group 16 Elements: O, S and Their Compounds",
+    "Oxyacids of Sulphur",
+    "Group 17 Elements: Halogens",
+    "Hydrogen Halides and Oxyacids of Halogens",
+    "Interhalogen Compounds",
+    "Group 18 Elements: Noble Gases",
+    "Compounds of Xenon"
+  ],
+  "learningObjectives": [
+    "Write electronic configurations of group 16, 17 and 18 elements.",
+    "Explain trends in physical and chemical properties down the groups.",
+    "Describe preparation and properties of important compounds like O₂, O₃, SO₂, H₂SO₄, Cl₂ and HCl.",
+    "Draw structures of oxyacids of sulphur and halogens.",
+    "Explain formation and structure of xenon compounds."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch7-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a group 16 element?",
+      "options": ["Nitrogen", "Oxygen", "Fluorine", "Neon"],
+      "answer": "Oxygen",
+      "tags": ["group-16"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Why is O–O bond weaker than S–S bond?",
+      "answer": "Due to small size of oxygen atoms, electron–electron repulsions in O–O bond are higher, weakening the bond, whereas sulphur has larger size and less repulsion in S–S bond.",
+      "tags": ["anomalous-oxygen"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write any two uses of sulphuric acid.",
+      "answer": "Used in manufacture of fertilizers like ammonium sulphate and superphosphate; used in petroleum refining, dyes, paints and as a dehydrating agent.",
+      "tags": ["h2so4"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which hydrogen halide is the strongest acid in aqueous solution?",
+      "options": ["HF", "HCl", "HBr", "HI"],
+      "answer": "HI",
+      "tags": ["hydrogen-halides"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What are interhalogen compounds? Give one example.",
+      "answer": "Compounds formed between different halogen atoms are called interhalogen compounds, e.g. ClF₃, ICl.",
+      "tags": ["interhalogens"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the structure and bonding in ozone (O₃).",
+      "answer": "Ozone is angular with O–O–O bond angle about 117°. It shows resonance between two equivalent structures with one O–O single bond and one O=O double bond, giving equalized bond order of 1.5.",
+      "tags": ["ozone"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q7",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Why are noble gases chemically inert?",
+      "answer": "They have stable ns²np⁶ configuration (except He: 1s²) with completely filled valence shell and high ionization energy, so they do not easily gain or lose electrons.",
+      "tags": ["noble-gases"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q8",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which xenon compound has square planar geometry around xenon?",
+      "options": ["XeF₂", "XeF₄", "XeF₆", "XeO₃"],
+      "answer": "XeF₄",
+      "tags": ["xenon-compounds"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe contact process for manufacture of sulphuric acid with reactions.",
+      "answer": "Steps: (i) Burning S or FeS₂ in air to form SO₂. (ii) Catalytic oxidation of SO₂ to SO₃ using V₂O₅ at 720–770 K and 1–2 bar: 2SO₂ + O₂ ⇌ 2SO₃. (iii) Absorption of SO₃ in conc. H₂SO₄ to form oleum, then dilution with water to get desired concentration of H₂SO₄.",
+      "tags": ["contact-process"]
+    },
+    {
+      "id": "ms-12-chem-ch7-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain anomalous behaviour of fluorine compared to other halogens.",
+      "answer": "Fluorine is most electronegative, smallest in size and has no d-orbitals. It forms only one oxidation state (−1), shows high reactivity, forms strong hydrogen bonds, low bond dissociation energy of F–F and does not form oxyacids like other halogens.",
+      "tags": ["fluorine-anomaly"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch8",
+  "chapterNumber": 8,
+  "title": "Transition and Inner Transition Elements",
+  "slug": "transition-inner-transition-elements",
+  "description": "Study of d-block and f-block elements, general properties, variable oxidation states, complex formation, magnetic behaviour and lanthanoid contraction.",
+  "topics": [
+    "Electronic Configuration of d-block Elements",
+    "General Characteristics of Transition Metals",
+    "Variable Oxidation States and Colour",
+    "Magnetic Properties and Alloy Formation",
+    "Preparation and Properties of Important Compounds",
+    "f-block Elements: Lanthanoids and Actinoids",
+    "Lanthanoid Contraction",
+    "Comparison between Lanthanoids and Actinoids"
+  ],
+  "learningObjectives": [
+    "Write electronic configurations of transition and inner transition elements.",
+    "Explain general properties like variable oxidation state, catalytic activity and complex formation.",
+    "Interpret magnetic properties and colour on the basis of unpaired electrons.",
+    "Describe lanthanoid contraction and its consequences.",
+    "Differentiate between lanthanoids and actinoids."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch8-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a d-block element?",
+      "options": ["Na", "Mg", "Fe", "Ne"],
+      "answer": "Fe",
+      "tags": ["d-block"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Why do transition metals show variable oxidation states?",
+      "answer": "Because of small energy difference between (n−1)d and ns orbitals, both can participate in bonding, giving multiple oxidation states.",
+      "tags": ["variable-oxidation-state"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Explain why most transition metal salts are coloured.",
+      "answer": "Presence of partially filled d-orbitals allows d–d transitions of electrons under ligand field, absorbing certain wavelengths and giving colour.",
+      "tags": ["colour-transition-metals"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which property generally increases with number of unpaired electrons?",
+      "options": ["Diamagnetism", "Paramagnetism", "Boiling point", "Atomic radius"],
+      "answer": "Paramagnetism",
+      "tags": ["magnetic-properties"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is lanthanoid contraction?",
+      "answer": "It is the steady decrease in atomic and ionic radii of lanthanoids (from La³⁺ to Lu³⁺) with increasing atomic number due to poor shielding by 4f electrons.",
+      "tags": ["lanthanoid-contraction"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Give any three consequences of lanthanoid contraction.",
+      "answer": "i) Similarity in size of Zr and Hf and their similar properties. ii) Difficulty in separation of lanthanoids due to close radii. iii) Higher basicity of early lanthanoid hydroxides compared to later ones.",
+      "tags": ["lanthanoid-consequences"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q7",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which of the following is an actinoid element?",
+      "options": ["Ce", "Eu", "Th", "Zn"],
+      "answer": "Th",
+      "tags": ["actinoids"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Transition metals form alloys easily. Why?",
+      "answer": "Because their atomic sizes are similar and crystal structures are compatible, atoms of one metal can replace those of another in the lattice to form alloys.",
+      "tags": ["alloy-formation"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Compare lanthanoids and actinoids with respect to (i) oxidation states, (ii) radioactivity, (iii) complex formation.",
+      "answer": "i) Lanthanoids mainly show +3 state with few exceptions; actinoids show wider range from +3 to +6. ii) Most lanthanoids are non-radioactive (except promethium); almost all actinoids are radioactive. iii) Actinoids show stronger tendency for complex formation due to higher charge and larger size.",
+      "tags": ["lanthanoids-vs-actinoids"]
+    },
+    {
+      "id": "ms-12-chem-ch8-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "An aqueous solution of a metal ion M²⁺ has three unpaired electrons. Calculate its magnetic moment (spin-only formula).",
+      "answer": "n = 3; μ = √(n(n+2)) BM = √(3×5) = √15 ≈ 3.87 BM.",
+      "tags": ["magnetic-moment"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch9",
+  "chapterNumber": 9,
+  "title": "Coordination Compounds",
+  "slug": "coordination-compounds",
+  "description": "Werner’s theory, nomenclature, isomerism, valence bond theory, crystal field theory, stability and applications of coordination compounds.",
+  "topics": [
+    "Basic Terms: Ligand, Coordination Number, Coordination Sphere",
+    "Werner’s Theory and EAN Rule",
+    "Nomenclature of Coordination Compounds",
+    "Types of Ligands and Denticity",
+    "Isomerism in Coordination Compounds",
+    "Valence Bond Theory (VBT)",
+    "Crystal Field Theory (CFT)",
+    "Applications of Coordination Compounds"
+  ],
+  "learningObjectives": [
+    "Use IUPAC rules to name coordination compounds.",
+    "Classify ligands and determine coordination number.",
+    "Identify and explain different kinds of isomerism in complexes.",
+    "Apply VBT and CFT to predict geometry and magnetic properties.",
+    "Explain stability and uses of coordination compounds."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch9-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "In the complex [Co(NH₃)₆]Cl₃, the coordination number of Co is:",
+      "options": ["3", "4", "5", "6"],
+      "answer": "6",
+      "tags": ["coordination-number"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define ligand and give one example each of monodentate and bidentate ligand.",
+      "answer": "Ligand is an ion or molecule capable of donating a pair of electrons to central metal atom/ion. Monodentate: Cl⁻; Bidentate: ethane-1,2-diamine (en).",
+      "tags": ["ligands"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write IUPAC name of [Fe(CN)₆]⁴⁻.",
+      "answer": "Hexacyanidoferrate(II) ion.",
+      "tags": ["nomenclature"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which type of isomerism is shown by [Co(NH₃)₄Cl₂]Cl and [Co(NH₃)₄ClCl₂]?",
+      "options": ["Ionization isomerism", "Linkage isomerism", "Coordination isomerism", "Geometrical isomerism"],
+      "answer": "Ionization isomerism",
+      "tags": ["isomerism"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain geometrical isomerism in square planar complex [Pt(NH₃)₂Cl₂].",
+      "answer": "In square planar [Pt(NH₃)₂Cl₂], ligands can be arranged as cis (two Cl⁻ adjacent) and trans (two Cl⁻ opposite). These isomers differ in physical and chemical properties; cis is more reactive and used as anticancer drug (cis-platin).",
+      "tags": ["geometrical-isomerism"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is effective atomic number (EAN)? State its significance.",
+      "answer": "EAN is the total number of electrons present around the central metal ion including those donated by ligands. Complexes with EAN equal to nearest noble gas configuration are often more stable.",
+      "tags": ["ean-rule"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q7",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "A complex with d²sp³ hybridization has which geometry?",
+      "options": ["Tetrahedral", "Square planar", "Octahedral (inner orbital)", "Octahedral (outer orbital)"],
+      "answer": "Octahedral (inner orbital)",
+      "tags": ["vbt"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain high-spin and low-spin complexes with reference to crystal field splitting.",
+      "answer": "In octahedral field, Δo may be small or large. For weak-field ligands (small Δo), electrons occupy higher energy t2g and eg orbitals singly, giving more unpaired electrons (high-spin complex). For strong-field ligands (large Δo), electrons pair in lower t2g orbitals before occupying eg, giving fewer unpaired electrons (low-spin complex).",
+      "tags": ["cft"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Give any two applications of coordination compounds in daily life or industry.",
+      "answer": "Used in metallurgy for extraction (e.g., cyanide complexes in gold extraction), as catalysts (e.g., Wilkinson’s catalyst), in medicine (e.g., cis-platin), and as complexometric indicators (EDTA in water hardness estimation).",
+      "tags": ["applications"]
+    },
+    {
+      "id": "ms-12-chem-ch9-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Calculate the oxidation state of cobalt in the complex [Co(NH₃)₅Cl]Cl₂.",
+      "answer": "Let oxidation state of Co be x. NH₃ is neutral, Cl⁻ ligand is −1, two counter Cl⁻ are −2: x + (−1) + 0 = +2 (overall charge of complex cation). So x = +3.",
+      "tags": ["oxidation-state"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch10",
+  "chapterNumber": 10,
+  "title": "Halogen Derivatives",
+  "slug": "halogen-derivatives",
+  "description": "Classification, nomenclature, methods of preparation and reactions of haloalkanes and haloarenes, mechanism of nucleophilic substitution and elimination reactions.",
+  "topics": [
+    "Classification and Nomenclature of Haloalkanes and Haloarenes",
+    "Nature of C–X Bond",
+    "Preparation of Haloalkanes and Haloarenes",
+    "SN1 and SN2 Mechanisms",
+    "Elimination (E1 and E2) Reactions",
+    "Reactivity and Selectivity",
+    "Polyhalogen Compounds and Uses",
+    "Environmental Effects (CFCs)"
+  ],
+  "learningObjectives": [
+    "Write IUPAC names and classify haloalkanes and haloarenes.",
+    "Describe methods of preparation and properties of halogen derivatives.",
+    "Differentiate between SN1 and SN2 mechanisms.",
+    "Explain elimination reactions and Saytzeff rule.",
+    "Discuss uses and environmental hazards of important polyhalogen compounds."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch10-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a primary haloalkane?",
+      "options": ["2-bromopropane", "1-bromopropane", "2-bromobutane", "tert-butyl chloride"],
+      "answer": "1-bromopropane",
+      "tags": ["classification"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write IUPAC name of CH₃–CH(Br)–CH₂–CH₃.",
+      "answer": "2-bromobutane.",
+      "tags": ["nomenclature"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is Walden inversion?",
+      "answer": "In SN2 reactions at a chiral carbon, the configuration inverts due to backside attack of nucleophile; this is called Walden inversion.",
+      "tags": ["sn2"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "SN1 reactions are favoured by:",
+      "options": ["Primary halides in polar protic solvents", "Tertiary halides in polar protic solvents", "Tertiary halides in non-polar solvents", "Primary halides in polar aprotic solvents"],
+      "answer": "Tertiary halides in polar protic solvents",
+      "tags": ["sn1"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State Saytzeff’s rule with an example.",
+      "answer": "In dehydrohalogenation of haloalkanes, the major alkene formed is the one with greater number of alkyl substituents on doubly bonded carbon atoms. Example: 2-bromobutane gives mainly 2-butene.",
+      "tags": ["elimination"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the electrophilic substitution reactions of chlorobenzene.",
+      "answer": "Chlorobenzene undergoes substitution such as nitration, sulphonation and halogenation. Cl is deactivating but o,p-directing. Reaction conditions are harsher than benzene due to −I effect of Cl.",
+      "tags": ["haloarenes"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of these is a polyhalogen compound used as a refrigerant?",
+      "options": ["Chloroform", "Carbon tetrachloride", "Freon-12", "Iodoform"],
+      "answer": "Freon-12",
+      "tags": ["polyhalogen"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Why are aryl halides less reactive towards nucleophilic substitution than alkyl halides?",
+      "answer": "Due to partial double bond character of C–X bond because of resonance and because the carbon in ring is sp²-hybridized and holds halogen more strongly.",
+      "tags": ["aryl-halides"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Differentiate between SN1 and SN2 mechanisms (any three points).",
+      "answer": "SN1: two-step, carbocation intermediate, first order, favoured by tertiary halides and polar protic solvents, racemization at chiral centre. SN2: one-step, backside attack, second order, favoured by primary halides and polar aprotic solvents, Walden inversion.",
+      "tags": ["sn1-vs-sn2"]
+    },
+    {
+      "id": "ms-12-chem-ch10-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "A chiral haloalkane undergoes SN1 reaction. If the initial optical rotation is +20°, what will be the observed rotation if complete racemization occurs?",
+      "answer": "For complete racemization, equal amounts of enantiomers are formed; net optical rotation becomes 0°.",
+      "tags": ["optical-activity"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch11",
+  "chapterNumber": 11,
+  "title": "Alcohols, Phenols and Ethers",
+  "slug": "alcohols-phenols-ethers",
+  "description": "Nomenclature, preparation, physical and chemical properties of alcohols, phenols and ethers; acidity of alcohols and phenols; Williamson ether synthesis.",
+  "topics": [
+    "Classification and Nomenclature",
+    "Preparation of Alcohols and Phenols",
+    "Physical Properties and Hydrogen Bonding",
+    "Reactions of Alcohols",
+    "Acidity of Alcohols and Phenols",
+    "Electrophilic Substitution in Phenols",
+    "Structure and Reactions of Ethers",
+    "Williamson Ether Synthesis"
+  ],
+  "learningObjectives": [
+    "Name and classify alcohols, phenols and ethers.",
+    "Describe methods of preparation of these compounds.",
+    "Explain acidity of phenols and compare with alcohols.",
+    "Discuss important reactions such as dehydration, oxidation and electrophilic substitution.",
+    "Explain Williamson synthesis and cleavage of ethers."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch11-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following will show highest boiling point?",
+      "options": ["Ethanol", "Dimethyl ether", "Propane", "Chloroethane"],
+      "answer": "Ethanol",
+      "tags": ["physical-properties"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Give IUPAC name of (CH₃)₃C–OH.",
+      "answer": "2-methylpropan-2-ol.",
+      "tags": ["nomenclature"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Explain why phenol is more acidic than ethanol.",
+      "answer": "Phenoxide ion formed after deprotonation is resonance-stabilized, whereas ethoxide ion is not; this makes phenol more acidic.",
+      "tags": ["acidity"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Dehydration of ethanol with conc. H₂SO₄ at 443 K gives mainly:",
+      "options": ["Ethane", "Ethene", "Diethyl ether", "Acetaldehyde"],
+      "answer": "Ethene",
+      "tags": ["dehydration"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write equation for Williamson synthesis of ethoxybenzene (phenetole).",
+      "answer": "C₂H₅Br + C₆H₅O⁻Na⁺ → C₆H₅–O–C₂H₅ + NaBr.",
+      "tags": ["williamson"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe electrophilic substitution reactions of phenol.",
+      "answer": "Phenol undergoes nitration, halogenation and sulphonation more readily than benzene due to +M effect of –OH. It is o,p-directing: nitration gives o- and p-nitrophenols; bromination gives 2,4,6-tribromophenol in absence of solvent.",
+      "tags": ["phenol-reactions"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which reagent is used to distinguish primary, secondary and tertiary alcohols?",
+      "options": ["Lucas reagent", "Tollen’s reagent", "Fehling’s solution", "Bromine water"],
+      "answer": "Lucas reagent",
+      "tags": ["tests"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What happens when anisole reacts with HI?",
+      "answer": "Anisole undergoes cleavage to give phenol and iodomethane: C₆H₅–O–CH₃ + HI → C₆H₅–OH + CH₃I.",
+      "tags": ["ether-cleavage"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain oxidation reactions of primary and secondary alcohols.",
+      "answer": "Primary alcohols oxidize to aldehydes and further to acids (e.g., ethanol → ethanal → ethanoic acid). Secondary alcohols oxidize to ketones (e.g., isopropanol → acetone). Tertiary alcohols resist oxidation under mild conditions.",
+      "tags": ["oxidation"]
+    },
+    {
+      "id": "ms-12-chem-ch11-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "0.92 g of ethanol is completely burned. Calculate moles of CO₂ formed. (Molar mass of ethanol = 46 g mol⁻¹).",
+      "answer": "Moles of ethanol = 0.92/46 = 0.02 mol. Combustion: C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O. Moles of CO₂ = 2 × 0.02 = 0.04 mol.",
+      "tags": ["stoichiometry"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch12",
+  "chapterNumber": 12,
+  "title": "Aldehydes, Ketones and Carboxylic acids",
+  "slug": "aldehydes-ketones-carboxylic-acids",
+  "description": "Nomenclature, preparation and reactions of aldehydes, ketones and carboxylic acids; nucleophilic addition, oxidation–reduction and strength of acids.",
+  "topics": [
+    "Nomenclature and Structure of Carbonyl Group",
+    "Preparation of Aldehydes and Ketones",
+    "Nucleophilic Addition Reactions",
+    "Oxidation and Reduction",
+    "Reactivity of Aldehydes versus Ketones",
+    "Preparation and Properties of Carboxylic Acids",
+    "Acidity of Carboxylic Acids",
+    "Important Reactions (esterification, decarboxylation)"
+  ],
+  "learningObjectives": [
+    "Write IUPAC names and structures of aldehydes, ketones and carboxylic acids.",
+    "Explain nucleophilic addition reactions of carbonyl compounds.",
+    "Compare reactivity of aldehydes and ketones.",
+    "Describe methods of preparation and reactions of carboxylic acids.",
+    "Explain factors affecting acidity of carboxylic acids."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch12-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The functional group present in aldehydes is:",
+      "options": ["–CO–", "–CHO", "–COOH", "–COOR"],
+      "answer": "–CHO",
+      "tags": ["functional-groups"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Give IUPAC name of CH₃–CO–CH₃.",
+      "answer": "Propan-2-one (acetone).",
+      "tags": ["nomenclature"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two differences between aldehydes and ketones.",
+      "answer": "Aldehydes have –CHO group at end of chain while ketones have >C=O within chain; aldehydes are generally more reactive and are easily oxidized to acids, whereas ketones resist oxidation.",
+      "tags": ["aldehyde-vs-ketone"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Benedict’s solution is used to distinguish:",
+      "options": ["Alcohols and phenols", "Aldehydes and ketones", "Acids and esters", "Primary and secondary alcohols"],
+      "answer": "Aldehydes and ketones",
+      "tags": ["tests"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write the reaction of acetaldehyde with hydrogen cyanide.",
+      "answer": "CH₃–CHO + HCN → CH₃–CH(OH)–CN (cyanohydrin).",
+      "tags": ["nucleophilic-addition"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the mechanism of nucleophilic addition to the carbonyl group.",
+      "answer": "First, nucleophile attacks electrophilic carbon of C=O, forming a tetrahedral intermediate. Then protonation of oxygen (or deprotonation of nucleophile) occurs to give addition product. Polarization of C=O makes carbon susceptible to nucleophilic attack.",
+      "tags": ["mechanism"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The reaction of carboxylic acid with alcohol in presence of conc. H₂SO₄ is called:",
+      "options": ["Hydrolysis", "Esterification", "Decarboxylation", "Reduction"],
+      "answer": "Esterification",
+      "tags": ["esterification"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Why are carboxylic acids stronger acids than alcohols?",
+      "answer": "Carboxylate ion is resonance-stabilized with negative charge delocalized over two oxygen atoms, whereas alkoxide ion is not; this stabilizes conjugate base and increases acidity.",
+      "tags": ["acid-strength"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain Hell–Volhard–Zelinsky (HVZ) reaction.",
+      "answer": "HVZ reaction is α-halogenation of carboxylic acids. Carboxylic acid is converted to its acyl halide with PCl₃/Cl₂, then halogen substitutes α-hydrogen, followed by hydrolysis to give α-halo acid.",
+      "tags": ["hvz"]
+    },
+    {
+      "id": "ms-12-chem-ch12-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "0.1 mol of acetic acid is neutralized by NaOH releasing 5.7 kJ heat. Calculate molar enthalpy of neutralization.",
+      "answer": "ΔHneutralization = −5.7 kJ / 0.1 mol = −57 kJ mol⁻¹.",
+      "tags": ["enthalpy"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch13",
+  "chapterNumber": 13,
+  "title": "Amines",
+  "slug": "amines",
+  "description": "Classification, nomenclature, methods of preparation, basic character, reactions and identification of primary, secondary and tertiary amines.",
+  "topics": [
+    "Classification and Nomenclature of Amines",
+    "Preparation of Amines",
+    "Physical Properties",
+    "Basicity of Amines and Factors Affecting It",
+    "Reactions: Alkylation, Acylation, Carbylamine, Diazotization",
+    "Aromatic Diazonium Salts and Their Reactions",
+    "Distinction between Primary, Secondary and Tertiary Amines"
+  ],
+  "learningObjectives": [
+    "Classify and name aliphatic and aromatic amines.",
+    "Describe various methods of preparation of amines.",
+    "Explain basic nature of amines and compare strengths.",
+    "Discuss important reactions including diazotization and coupling.",
+    "Use chemical tests to distinguish different classes of amines."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch13-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a secondary amine?",
+      "options": ["CH₃NH₂", "(CH₃)₂NH", "(CH₃)₃N", "C₆H₅NH₂"],
+      "answer": "(CH₃)₂NH",
+      "tags": ["classification"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Write IUPAC name of aniline.",
+      "answer": "Benzenamine.",
+      "tags": ["nomenclature"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State carbylamine reaction.",
+      "answer": "Primary amines on heating with chloroform and alcoholic KOH form isocyanides (carbylamines) with foul smell; used as a test for primary amines.",
+      "tags": ["carbylamine"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which amine is most basic in aqueous solution?",
+      "options": ["NH₃", "C₂H₅NH₂", "(C₂H₅)₂NH", "Aniline"],
+      "answer": "(C₂H₅)₂NH",
+      "tags": ["basicity"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is diazotization? Write equation for diazotization of aniline.",
+      "answer": "Conversion of primary aromatic amine into diazonium salt with nitrous acid at low temperature. C₆H₅NH₂ + HNO₂ + HCl → C₆H₅N₂⁺Cl⁻ + 2H₂O.",
+      "tags": ["diazotization"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain why aniline is less basic than ethylamine.",
+      "answer": "In aniline, lone pair on nitrogen is delocalized into benzene ring by resonance, reducing availability for protonation. In ethylamine, lone pair is localized and +I effect of ethyl group increases electron density, making it more basic.",
+      "tags": ["basicity-comparison"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which reagent is used to distinguish primary, secondary and tertiary amines?",
+      "options": ["HNO₂", "Grignard reagent", "Lucas reagent", "FeCl₃"],
+      "answer": "HNO₂",
+      "tags": ["distinction"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is coupling reaction of diazonium salts?",
+      "answer": "Aromatic diazonium salts react with phenols or aromatic amines to form azo compounds with –N=N– linkage, often coloured dyes.",
+      "tags": ["coupling"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain Gabriel phthalimide synthesis for preparation of primary amines.",
+      "answer": "Phthalimide reacts with alcoholic KOH to form potassium salt, which undergoes nucleophilic substitution with alkyl halide to form N-alkyl phthalimide. Hydrolysis of this gives primary amine and phthalic acid.",
+      "tags": ["gabriel"]
+    },
+    {
+      "id": "ms-12-chem-ch13-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "0.93 g of an amine neutralizes 0.1 mol of HCl. Determine molar mass of the amine assuming it is monobasic.",
+      "answer": "If it neutralizes 0.1 mol HCl, moles of amine = 0.1 mol. Molar mass = 0.93 / 0.1 = 9.3 g mol⁻¹ (hypothetical example for calculation practice).",
+      "tags": ["stoichiometry"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch14",
+  "chapterNumber": 14,
+  "title": "Biomolecules",
+  "slug": "biomolecules",
+  "description": "Carbohydrates, amino acids, proteins, vitamins and nucleic acids – their classification, structure and biological importance.",
+  "topics": [
+    "Classification of Carbohydrates",
+    "Monosaccharides: Glucose and Fructose",
+    "Disaccharides and Polysaccharides",
+    "Amino Acids and Peptides",
+    "Structure and Levels of Proteins",
+    "Vitamins and Their Deficiency Diseases",
+    "Nucleic Acids: DNA and RNA",
+    "Enzymes as Biocatalysts"
+  ],
+  "learningObjectives": [
+    "Classify carbohydrates and represent monosaccharides using Fischer and Haworth projections.",
+    "Explain structure of amino acids and formation of peptides.",
+    "Describe different levels of protein structure.",
+    "Differentiate between DNA and RNA in structure and function.",
+    "Explain role of vitamins and enzymes in biological systems."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch14-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Glucose is an example of:",
+      "options": ["Monosaccharide", "Disaccharide", "Polysaccharide", "Oligosaccharide"],
+      "answer": "Monosaccharide",
+      "tags": ["carbohydrates"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is an essential amino acid?",
+      "answer": "Amino acid that cannot be synthesized by the human body and must be supplied through diet is called essential amino acid.",
+      "tags": ["amino-acids"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define peptide bond.",
+      "answer": "Peptide bond is an amide linkage formed between –COOH group of one amino acid and –NH₂ group of another with elimination of water (–CO–NH–).",
+      "tags": ["peptides"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which of the following is a storage polysaccharide in animals?",
+      "options": ["Cellulose", "Starch", "Glycogen", "Chitin"],
+      "answer": "Glycogen",
+      "tags": ["polysaccharides"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain primary, secondary and tertiary structure of proteins.",
+      "answer": "Primary: linear sequence of amino acids. Secondary: regular folding into α-helix or β-pleated sheet due to hydrogen bonding. Tertiary: further folding into specific 3D shape stabilized by H-bonds, disulphide bonds, hydrophobic interactions and ionic interactions.",
+      "tags": ["protein-structure"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Name the vitamin whose deficiency causes scurvy and give its chemical name.",
+      "answer": "Vitamin C; chemical name ascorbic acid.",
+      "tags": ["vitamins"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The sugar present in RNA is:",
+      "options": ["Glucose", "Deoxyribose", "Ribose", "Fructose"],
+      "answer": "Ribose",
+      "tags": ["rna"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Differentiate between DNA and RNA (any three points).",
+      "answer": "DNA has deoxyribose sugar, RNA has ribose. DNA contains bases A, G, C, T while RNA has A, G, C, U. DNA is double stranded helix, RNA usually single stranded. DNA is genetic material; RNA involved in protein synthesis.",
+      "tags": ["dna-vs-rna"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is an enzyme? Mention any one characteristic.",
+      "answer": "Enzymes are biocatalysts which speed up biochemical reactions. They are highly specific for substrate and work under mild conditions.",
+      "tags": ["enzymes"]
+    },
+    {
+      "id": "ms-12-chem-ch14-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "If a tripeptide is made from three different amino acids A, B and C, how many different sequences are possible?",
+      "answer": "Number of permutations of 3 different amino acids = 3! = 6 sequences.",
+      "tags": ["combinatorics"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch15",
+  "chapterNumber": 15,
+  "title": "Introduction to Polymer Chemistry",
+  "slug": "polymer-chemistry",
+  "description": "Classification of polymers, addition and condensation polymerization, natural and synthetic polymers, properties and uses of important polymers and biodegradable polymers.",
+  "topics": [
+    "Definition and Classification of Polymers",
+    "Types Based on Source and Structure",
+    "Addition and Condensation Polymerization",
+    "Natural Rubber and Vulcanization",
+    "Synthetic Fibres and Plastics",
+    "Thermoplastics and Thermosetting Polymers",
+    "Copolymers and Biodegradable Polymers"
+  ],
+  "learningObjectives": [
+    "Classify polymers on different bases such as source, structure and mode of polymerization.",
+    "Differentiate between addition and condensation polymerization.",
+    "Explain preparation and properties of important polymers like PVC, teflon, nylon and bakelite.",
+    "Describe vulcanization of rubber and its advantages.",
+    "Discuss significance of biodegradable polymers."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch15-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "The polymer of tetrafluoroethene is known as:",
+      "options": ["PVC", "Polystyrene", "Teflon", "Bakelite"],
+      "answer": "Teflon",
+      "tags": ["polymers"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define monomer and give one example.",
+      "answer": "Monomer is a small molecule that combines with similar molecules to form a polymer; e.g., ethene is monomer of polyethene.",
+      "tags": ["monomer"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Differentiate between thermoplastics and thermosetting plastics.",
+      "answer": "Thermoplastics soften on heating and can be reshaped; thermosetting plastics harden permanently on heating and cannot be remoulded.",
+      "tags": ["plastics"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which of the following is a condensation polymer?",
+      "options": ["Polyethene", "Teflon", "Nylon-6,6", "Polystyrene"],
+      "answer": "Nylon-6,6",
+      "tags": ["condensation-polymer"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain vulcanization of rubber.",
+      "answer": "Natural rubber is heated with sulphur and accelerators. Sulphur forms cross-links between polyisoprene chains, increasing elasticity, tensile strength and resistance to temperature changes.",
+      "tags": ["vulcanization"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is a copolymer? Give one example.",
+      "answer": "Polymer formed from two or more different monomers is copolymer; e.g., Buna-S from butadiene and styrene.",
+      "tags": ["copolymer"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a biodegradable polymer?",
+      "options": ["PVC", "PHBV", "Teflon", "Bakelite"],
+      "answer": "PHBV",
+      "tags": ["biodegradable"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two disadvantages of synthetic polymers.",
+      "answer": "They are often non-biodegradable causing environmental pollution; burning them may release toxic gases.",
+      "tags": ["environment"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe the preparation and uses of bakelite.",
+      "answer": "Bakelite is formed by condensation polymerization of phenol and formaldehyde in presence of acid or base catalyst, followed by cross-linking. It is a thermosetting plastic used in electrical switches, plugs, handles of utensils etc.",
+      "tags": ["bakelite"]
+    },
+    {
+      "id": "ms-12-chem-ch15-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "If the average degree of polymerization of a polymer sample is 1000 and molecular mass of its monomer is 28 g mol⁻¹, calculate the approximate molecular mass of the polymer.",
+      "answer": "Molecular mass of polymer ≈ 1000 × 28 = 2.8 × 10⁴ g mol⁻¹.",
+      "tags": ["degree-polymerization"]
+    }
+  ]
+}, {
+  "id": "ms-12-chem-ch16",
+  "chapterNumber": 16,
+  "title": "Green Chemistry and Nanochemistry",
+  "slug": "green-chemistry-nanochemistry",
+  "description": "Principles of green chemistry, sustainable development, introduction to nanoscience and nanomaterials, methods of synthesis and applications.",
+  "topics": [
+    "Concept and Need of Green Chemistry",
+    "Twelve Principles of Green Chemistry",
+    "Alternative Green Solvents and Catalysts",
+    "Atom Economy and Waste Minimization",
+    "Introduction to Nanochemistry and Nanomaterials",
+    "Top-down and Bottom-up Approaches",
+    "Properties of Nanomaterials",
+    "Applications and Risks of Nanotechnology"
+  ],
+  "learningObjectives": [
+    "Explain the concept and importance of green chemistry.",
+    "State and illustrate twelve principles of green chemistry.",
+    "Describe atom economy and its calculation.",
+    "Explain basic methods for synthesis of nanomaterials.",
+    "Discuss unique properties and applications of nanomaterials with awareness of safety aspects."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-chem-ch16-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Green chemistry aims primarily at:",
+      "options": [
+        "Maximizing profit only",
+        "Minimizing use and generation of hazardous substances",
+        "Increasing complexity of reactions",
+        "Using more toxic reagents"
+      ],
+      "answer": "Minimizing use and generation of hazardous substances",
+      "tags": ["green-chemistry"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is atom economy?",
+      "answer": "Atom economy is the percentage of reactant atoms that are incorporated into the desired product; it is calculated as (molar mass of desired product / sum of molar masses of all reactants) × 100.",
+      "tags": ["atom-economy"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Name any two green solvents.",
+      "answer": "Water, supercritical CO₂, ionic liquids (any two).",
+      "tags": ["green-solvents"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which of the following is a bottom-up approach in nanomaterial synthesis?",
+      "options": ["Ball milling", "Lithography", "Sol–gel method", "Mechanical grinding"],
+      "answer": "Sol–gel method",
+      "tags": ["nanochemistry"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Write any four principles of green chemistry and explain them briefly.",
+      "answer": "Examples: (i) Prevention: better to prevent waste than treat it. (ii) Atom economy: design processes maximizing incorporation of materials into product. (iii) Use of safer solvents and auxiliaries. (iv) Energy efficiency: conduct reactions at ambient temperature and pressure when possible.",
+      "tags": ["principles"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What are nanomaterials? Give typical size range.",
+      "answer": "Materials with at least one dimension in the nanometer range, typically 1–100 nm, are called nanomaterials.",
+      "tags": ["nanomaterials"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Unique properties of nanomaterials are mainly due to:",
+      "options": ["Lower density", "Higher atomic mass", "Large surface area to volume ratio and quantum effects", "High melting point"],
+      "answer": "Large surface area to volume ratio and quantum effects",
+      "tags": ["nano-properties"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q8",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain any three applications of nanomaterials.",
+      "answer": "Applications: (i) In medicine for targeted drug delivery and imaging. (ii) In electronics for smaller, faster devices using nanotubes and quantum dots. (iii) In catalysis, nanoparticles offer high surface area and improved activity in environmental remediation.",
+      "tags": ["nano-applications"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Give one example of a green chemistry practice in industry.",
+      "answer": "Use of supercritical CO₂ as a solvent instead of organic solvents in dry cleaning or extraction processes is a green practice.",
+      "tags": ["green-practice"]
+    },
+    {
+      "id": "ms-12-chem-ch16-q10",
+      "type": "numerical",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "In a reaction A + 2B → C + D, total molar mass of reactants is 150 g and that of desired product C is 90 g. Calculate atom economy.",
+      "answer": "Atom economy = (90 / 150) × 100 = 60%.",
+      "tags": ["atom-economy"]
+    }
+  ]
+}
+  ]
+},
 
   // MSBSHSE Class 11 – Science – Physics
   {
