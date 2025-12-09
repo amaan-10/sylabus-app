@@ -105,7 +105,7 @@ const Dashboard = () => {
   const boards = [
     {
       id: 1,
-      imgSrc: "/msbshse.jpg",
+      imgSrc: "/boards/msbshse.jpg",
       imgAlt: "msbshse board",
       title: "Maharashtra Board (MSBHSE)",
       badges: ["Popular", "Recommended"],
@@ -114,7 +114,7 @@ const Dashboard = () => {
     },
     {
       id: 2,
-      imgSrc: "/cbse.jpg",
+      imgSrc: "/boards/cbse.jpg",
       imgAlt: "cbse board",
       title: "CBSE Board",
       badges: ["Popular", "Recommended"],
@@ -123,7 +123,7 @@ const Dashboard = () => {
     },
     {
       id: 3,
-      imgSrc: "/icse.jpg",
+      imgSrc: "/boards/icse.jpg",
       imgAlt: "icse board",
       title: "ICSE Board",
       badges: ["Popular", "Recommended"],
