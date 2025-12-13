@@ -44,7 +44,7 @@ const toSlug = (name: string) =>
 const core = (
   code: string,
   name: string,
-  shortName?: string,
+  shortName: string,
   description?: string,
   stream: Subject["stream"] = undefined,
   isCompulsory = true
@@ -62,7 +62,7 @@ const core = (
 const elective = (
   code: string,
   name: string,
-  shortName?: string,
+  shortName: string,
   description?: string,
   stream: Subject["stream"] = undefined,
   isCompulsory = false
@@ -80,13 +80,13 @@ const elective = (
 const lang = (
   code: string,
   name: string,
-  shortName?: string,
+  shortName: string,
   description?: string
 ): Subject => ({
   code,
   name,
   shortName,
-  slug: toSlug(name),        // 👈 NEW
+  slug: toSlug(shortName),        // 👈 NEW
   category: "language",
   isCompulsory: true,
   stream: undefined,
@@ -164,7 +164,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "8",
     subjects: [
-      lang("eng", "English Balbharti", "English"),
+      lang("eng", "English Balbharati", "English"),
       lang("mar", "Marathi Sulabhbharati", "Marathi"),
       lang("hin", "Hindi Sulabhbharati", "Hindi"),
       core("maths", "Mathematics", "Maths"),

@@ -1,9 +1,9 @@
 // lib/chapters.ts
 
-import type { BoardSlug, MediumSlug, ClassKey, Subject } from "./subjects";
+import type { BoardSlug, MediumSlug, ClassKey } from "./subjects";
 
 // Basic question types for your platform
-export type QuestionType = "mcq" | "short" | "long" | "true-false" | "fill" | "numerical";
+export type QuestionType = "mcq" | "short" | "long" | "true-false" | "fill" | "numerical" | "activity";
 
 // Difficulty levels
 export type Difficulty = "easy" | "medium" | "hard";
@@ -179,6761 +179,8 @@ export const SUBJECT_CHAPTERS: SubjectChapters[] = [
   // ===========================================================================
 
   // MSBSHSE Class 10
-  {
-  board: "msbshse",
-  medium: "english",
-  classKey: "10",
-  subjectSlug: "science-technology-1",
-  chapters: [
-    {
-      id: "ms-10-sci-ch1",
-      chapterNumber: 1,
-      title: "Gravitation",
-      "slug": "gravitation",
-      "description": "Concept of gravitational force, Newton’s law of gravitation, Kepler’s laws, free fall, acceleration due to gravity, escape velocity, and weightlessness.",
-      "topics": [
-        "Newton’s Law of Gravitation",
-        "Kepler's Laws",
-        "Centripetal Force",
-        "Acceleration due to Gravity",
-        "Free Fall",
-        "Escape Velocity",
-        "Weight vs Mass",
-        "Gravitational Potential Energy"
-      ],
-      "learningObjectives": [
-        "Explain Newton’s universal law of gravitation.",
-        "Apply Kepler’s laws to planetary motion.",
-        "Differentiate between mass and weight.",
-        "Solve numerical problems based on gravitational force and free fall.",
-        "Define escape velocity and weightlessness."
-      ],
-      "questions": [
-        {
-          "id": "ms-10-sci-ch1-q1",
-          "type": "short",
-          "difficulty": "easy",
-          "marks": 2,
-          "text": "State Newton’s universal law of gravitation.",
-          "answer": "According to the law, every object in the universe attracts every other object with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them.",
-          "tags": ["definition", "gravitation"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q2",
-          "type": "mcq",
-          "difficulty": "easy",
-          "marks": 1,
-          "text": "Which force is responsible for circular motion of a stone tied to a string rotating in a horizontal circle?",
-          "options": ["Centrifugal force", "Gravitational force", "Centripetal force", "Frictional force"],
-          "answer": "Centripetal force",
-          "tags": ["centripetal-force"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q3",
-          "type": "short",
-          "difficulty": "medium",
-          "marks": 3,
-          "text": "State Kepler’s second law of planetary motion and explain its meaning.",
-          "answer": "Kepler’s second law states that the line joining a planet and the Sun sweeps out equal areas in equal intervals of time. This means planets move faster when closer to the Sun and slower when farther away.",
-          "tags": ["kepler-laws"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q4",
-          "type": "numerical",
-          "difficulty": "medium",
-          "marks": 3,
-          "text": "Two masses of 10 kg and 20 kg are placed 2 m apart. Calculate the gravitational force between them. Take G = 6.67 × 10⁻¹¹ Nm²/kg².",
-          "answer": "F = Gm₁m₂ / r² = (6.67×10⁻¹¹ × 10 × 20) / 4 = 3.335 × 10⁻⁹ N.",
-          "tags": ["numerical", "gravitation"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q5",
-          "type": "long",
-          "difficulty": "hard",
-          "marks": 5,
-          "text": "Explain how Kepler’s third law helped Newton derive the inverse square law of gravitation.",
-          "answer": "Kepler’s third law states that T² ∝ r³. Using circular motion, centripetal force F = mv²/r and v = 2πr/T. Substituting these into the equation shows that F ∝ 1/r², indicating that the gravitational force decreases with the square of distance.",
-          "tags": ["kepler-laws", "derivation"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q6",
-          "type": "mcq",
-          "difficulty": "medium",
-          "marks": 1,
-          "text": "The value of acceleration due to gravity ‘g’ is highest at:",
-          "options": ["Equator", "Poles", "Mount Everest", "Centre of the Earth"],
-          "answer": "Poles",
-          "tags": ["acceleration-due-to-gravity"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q7",
-          "type": "short",
-          "difficulty": "easy",
-          "marks": 2,
-          "text": "What is free fall?",
-          "answer": "When an object moves only under the influence of gravitational force, it is said to be in free fall.",
-          "tags": ["free-fall"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q8",
-          "type": "numerical",
-          "difficulty": "medium",
-          "marks": 3,
-          "text": "A stone is dropped from a height of 80 m. Calculate the time taken to reach the ground. (g = 10 m/s²)",
-          "answer": "Using s = ½gt² → 80 = 5t² → t² = 16 → t = 4 s.",
-          "tags": ["numerical", "free-fall"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q9",
-          "type": "short",
-          "difficulty": "medium",
-          "marks": 3,
-          "text": "Define escape velocity and state its value on Earth.",
-          "answer": "Escape velocity is the minimum velocity required for an object to escape Earth’s gravitational pull without falling back. For Earth, it is 11.2 km/s.",
-          "tags": ["escape-velocity"]
-        },
-        {
-          "id": "ms-10-sci-ch1-q10",
-          "type": "long",
-          "difficulty": "hard",
-          "marks": 5,
-          "text": "Explain the concept of weightlessness in spacecraft.",
-          "answer": "Space travellers appear weightless because spacecraft and everything inside it are in free fall under Earth's gravity. Since all fall with the same acceleration, no normal force acts on the astronauts, making them feel weightless.",
-          "tags": ["weightlessness", "gravity"]
-        }
-      ]
-    },
-    {
-  "id": "ms-10-sci-ch2",
-  "chapterNumber": 2,
-  "title": "Periodic Classification of Elements",
-  "slug": "periodic-classification-of-elements",
-  "description": "Classification of elements, Dobereiner’s triads, Newlands’ law of octaves, Mendeleev’s periodic table, and the evolution of modern periodic classification.",
-  "topics": [
-    "Need for classification",
-    "Dobereiner’s Triads",
-    "Newlands’ Law of Octaves",
-    "Mendeleev’s Periodic Table",
-    "Periodic Law",
-    "Limitations of early classification methods"
-  ],
-  "learningObjectives": [
-    "Explain why elements are classified.",
-    "Describe Dobereiner's triads with examples.",
-    "State Newlands’ law of octaves and identify its limitations.",
-    "Explain the construction and advantages of Mendeleev’s periodic table.",
-    "Apply periodic classification to compare element properties."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch2-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What were Dobereiner’s triads? Give one example.",
-      "answer": "Dobereiner classified elements into groups of three with similar properties, where the atomic mass of the middle element was approximately the mean of the other two. Example: Li (6.9), Na (23), K (39.1).",
-      "tags": ["triads", "classification"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "According to Newlands’ law of octaves, the properties of elements repeat after:",
-      "options": ["Every 5th element", "Every 7th element", "Every 8th element", "Every 10th element"],
-      "answer": "Every 8th element",
-      "tags": ["octaves"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State Newlands’ law of octaves and mention one limitation.",
-      "answer": "Newlands stated that when elements are arranged in increasing order of atomic mass, every eighth element shows properties similar to the first. Limitation: The law was applicable only up to calcium and could not accommodate newly discovered elements.",
-      "tags": ["octaves", "limitations"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain how Mendeleev arranged the elements in his periodic table.",
-      "answer": "Mendeleev arranged 63 elements in increasing order of atomic mass and grouped them based on similarities in the chemical and physical properties of their oxides and hydrides.",
-      "tags": ["mendeleev"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which property did Mendeleev consider fundamental while preparing the periodic table?",
-      "options": ["Atomic number", "Atomic mass", "Density", "Electronegativity"],
-      "answer": "Atomic mass",
-      "tags": ["mendeleev"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Write two achievements of Mendeleev’s periodic table.",
-      "answer": "1. It predicted the existence and properties of undiscovered elements. 2. It grouped elements with similar properties together and corrected wrong atomic masses.",
-      "tags": ["mendeleev", "achievements"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why could Newlands not include noble gases in his law of octaves?",
-      "answer": "Noble gases had not been discovered at the time, and their later inclusion disturbed the arrangement because they appeared after every seven elements.",
-      "tags": ["octaves", "limitations"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the limitations of Mendeleev’s periodic table.",
-      "answer": "1. Position of hydrogen was uncertain as it resembled both alkali metals and halogens. 2. Increasing atomic mass did not always match with chemical properties, causing element reversal (e.g., Co and Ni). 3. No place for isotopes since they have identical properties but different masses. 4. The table could not fully explain the structure of atoms.",
-      "tags": ["limitations", "mendeleev"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Compare Dobereiner’s triads, Newlands’ octaves, and Mendeleev’s periodic table.",
-      "answer": "Dobereiner grouped elements in triads based on atomic mass mean values. Newlands arranged elements in increasing atomic mass and observed repetition every eighth element. Mendeleev arranged elements by atomic mass but grouped them by chemical properties, predicting new elements and correcting atomic masses.",
-      "tags": ["comparison", "classification"]
-    },
-    {
-      "id": "ms-10-sci-ch2-q10",
-      "type": "short",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "Explain how Mendeleev predicted the existence of undiscovered elements.",
-      "answer": "While arranging elements, Mendeleev noticed gaps where no known element fit the expected chemical properties. He left these gaps and predicted elements like eka-silicon and eka-aluminium, describing their properties accurately before their discovery.",
-      "tags": ["mendeleev", "prediction"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch3",
-  "chapterNumber": 3,
-  "title": "Chemical Reactions and Equations",
-  "slug": "chemical-reactions-and-equations",
-  "description": "Types of chemical reactions, balancing equations, oxidation-reduction, and identification of chemical change.",
-  "topics": [
-    "Chemical equations",
-    "Balancing equations",
-    "Types of chemical reactions",
-    "Oxidation and reduction",
-    "Displacement & double displacement reactions",
-    "Neutralization and precipitation"
-  ],
-  "learningObjectives": [
-    "Write and balance chemical equations.",
-    "Differentiate between various types of chemical reactions.",
-    "Identify oxidation and reduction processes.",
-    "Explain displacement, decomposition, and combination reactions.",
-    "Interpret chemical change through observations."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch3-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define a chemical reaction with one example.",
-      "answer": "A chemical reaction is a process in which reactants convert into products with new chemical properties. Example: 2H₂ + O₂ → 2H₂O.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a decomposition reaction?",
-      "options": ["2Mg + O₂ → 2MgO", "CaCO₃ → CaO + CO₂", "Zn + CuSO₄ → ZnSO₄ + Cu", "HCl + NaOH → NaCl + H₂O"],
-      "answer": "CaCO₃ → CaO + CO₂",
-      "tags": ["types-of-reaction"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why do chemical equations need to be balanced?",
-      "answer": "Chemical equations must be balanced to follow the law of conservation of mass, which states that matter cannot be created or destroyed in a chemical reaction.",
-      "tags": ["balancing"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q4",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which of the following reactions is a redox reaction?",
-      "options": [
-        "Zn + CuSO₄ → ZnSO₄ + Cu",
-        "AgNO₃ + NaCl → AgCl + NaNO₃",
-        "HCl + NaOH → NaCl + H₂O",
-        "CaO + H₂O → Ca(OH)₂"
-      ],
-      "answer": "Zn + CuSO₄ → ZnSO₄ + Cu",
-      "tags": ["oxidation-reduction"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q5",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two observations that indicate a chemical reaction is taking place.",
-      "answer": "1. Formation of precipitate. 2. Change in color. 3. Evolution of gas. 4. Change in temperature.",
-      "tags": ["observations"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Write the balanced equation for the reaction between aluminium and oxygen.",
-      "answer": "4Al + 3O₂ → 2Al₂O₃",
-      "tags": ["balancing"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is oxidation? Give one example.",
-      "answer": "Oxidation is the process in which a substance gains oxygen or loses electrons. Example: 2Mg + O₂ → 2MgO.",
-      "tags": ["oxidation"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain displacement and double displacement reactions with suitable examples.",
-      "answer": "In displacement reactions, a more reactive element displaces a less reactive element from its compound. Example: Zn + CuSO₄ → ZnSO₄ + Cu. In double displacement reactions, ions of two compounds exchange places to form new compounds. Example: AgNO₃ + NaCl → AgCl (ppt) + NaNO₃.",
-      "tags": ["displacement"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the various types of chemical reactions with one example each.",
-      "answer": "1. Combination: 2Mg + O₂ → 2MgO. 2. Decomposition: CaCO₃ → CaO + CO₂. 3. Displacement: Fe + CuSO₄ → FeSO₄ + Cu. 4. Double displacement: BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl. 5. Redox reactions: Zn + CuSO₄ → ZnSO₄ + Cu.",
-      "tags": ["types-of-reaction"]
-    },
-    {
-      "id": "ms-10-sci-ch3-q10",
-      "type": "short",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "Explain reduction with an example.",
-      "answer": "Reduction is the process in which a substance loses oxygen or gains electrons. Example: CuO + H₂ → Cu + H₂O, where CuO is reduced to Cu.",
-      "tags": ["reduction"]
-    }
-  ]
-}, 
-{
-  "id": "ms-10-sci-ch4",
-  "chapterNumber": 4,
-  "title": "Effects of Electric Current",
-  "slug": "effects-of-electric-current",
-  "description": "Heating, magnetic and chemical effects of electric current, electric power, electric circuits and applications.",
-  "topics": [
-    "Heating effect of current",
-    "Joule’s law",
-    "Magnetic effect of electric current",
-    "Right-hand thumb rule",
-    "Electromagnet and its applications",
-    "Chemical effect of electric current",
-    "Electric power and energy"
-  ],
-  "learningObjectives": [
-    "Explain heating, magnetic, and chemical effects of electric current.",
-    "Apply Joule’s law to calculate heat produced.",
-    "Describe working of electromagnets and electric motors.",
-    "Interpret magnetic field patterns around conductors.",
-    "Solve numericals based on electric power and electrical energy."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch4-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "State Joule’s law of heating.",
-      "answer": "Joule’s law states that the heat produced in a conductor is directly proportional to the square of the current, resistance of the conductor, and time: H ∝ I²Rt.",
-      "tags": ["joules-law", "heating-effect"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "What happens when an electric current flows through a conductor?",
-      "options": [
-        "Only heat is produced",
-        "Only magnetic field is produced",
-        "Both heat and magnetic field are produced",
-        "Nothing happens"
-      ],
-      "answer": "Both heat and magnetic field are produced",
-      "tags": ["effects-of-current"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q3",
-      "type": "numerical",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Calculate the heat produced when a 2 A current flows through a 5 Ω resistor for 10 seconds.",
-      "answer": "Using H = I²Rt → H = (2²)(5)(10) = 200 J.",
-      "tags": ["numerical", "joules-law"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the right-hand thumb rule.",
-      "answer": "If the right-hand thumb points in the direction of current, the curled fingers show the direction of the magnetic field around the conductor.",
-      "tags": ["magnetic-field"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "An electromagnet is stronger when:",
-      "options": [
-        "The current is reduced",
-        "A soft iron core is used",
-        "The coil has fewer turns",
-        "It is kept in a wooden frame"
-      ],
-      "answer": "A soft iron core is used",
-      "tags": ["electromagnet"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the chemical effect of electric current? Give one application.",
-      "answer": "When an electric current passes through a conducting solution, chemical reactions occur. Example: Electroplating.",
-      "tags": ["chemical-effect"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Define electric power and write its SI unit.",
-      "answer": "Electric power is the rate at which electrical energy is consumed or converted. Its SI unit is watt (W).",
-      "tags": ["electric-power"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the working of an electric motor using the magnetic effect of current.",
-      "answer": "Electric motors work on the principle that a current-carrying conductor experiences a force in a magnetic field. A rectangular coil placed between magnet poles rotates when current flows through it due to the force on its arms. A commutator reverses the current every half turn, ensuring continuous rotation.",
-      "tags": ["electric-motor", "magnetic-effect"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the magnetic field produced around a straight conductor and a solenoid.",
-      "answer": "A straight conductor produces concentric circular magnetic field lines around it. A solenoid produces a uniform magnetic field inside, similar to a bar magnet, with a north and south pole. The field strength increases with increased current and number of turns.",
-      "tags": ["magnetic-field", "solenoid"]
-    },
-    {
-      "id": "ms-10-sci-ch4-q10",
-      "type": "numerical",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "A device consumes 1000 W of power and operates for 3 hours. Calculate the electrical energy consumed in kWh.",
-      "answer": "Energy = Power × Time = 1000 W × 3 h = 3 kWh.",
-      "tags": ["numerical", "electric-energy"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch5",
-  "chapterNumber": 5,
-  "title": "Heat",
-  "slug": "heat",
-  "description": "Temperature, modes of heat transfer, latent heat, specific heat capacity, calorimetry, and change of state.",
-  "topics": [
-    "Temperature and heat",
-    "Specific heat capacity",
-    "Latent heat",
-    "Change of state",
-    "Conduction, convection, radiation",
-    "Calorimetry"
-  ],
-  "learningObjectives": [
-    "Differentiate between heat and temperature.",
-    "Explain conduction, convection, and radiation.",
-    "Define specific heat capacity and latent heat.",
-    "Solve numerical problems based on heat calculations.",
-    "Explain real-life applications of heat transfer."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch5-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is specific heat capacity?",
-      "answer": "Specific heat capacity is the amount of heat required to raise the temperature of 1 kg of a substance by 1°C.",
-      "tags": ["specific-heat"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which mode of heat transfer does NOT require a medium?",
-      "options": ["Conduction", "Convection", "Radiation", "All of the above"],
-      "answer": "Radiation",
-      "tags": ["radiation"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Differentiate between heat and temperature.",
-      "answer": "Heat is a form of energy transferred due to temperature difference, while temperature is a measure of the average kinetic energy of particles in a substance.",
-      "tags": ["heat-vs-temperature"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q4",
-      "type": "numerical",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How much heat is required to raise the temperature of 2 kg of water from 20°C to 40°C? (Specific heat of water = 4200 J/kg°C)",
-      "answer": "Q = mcΔT = 2 × 4200 × (40 − 20) = 168,000 J.",
-      "tags": ["numerical", "specific-heat"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q5",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is latent heat of fusion?",
-      "answer": "Latent heat of fusion is the heat absorbed by a solid to convert into a liquid at constant temperature.",
-      "tags": ["latent-heat"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q6",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Convection occurs mainly in:",
-      "options": ["Solids", "Liquids and gases", "Vacuum", "Metals"],
-      "answer": "Liquids and gases",
-      "tags": ["convection"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain why cooking takes longer at high altitudes.",
-      "answer": "At high altitudes, atmospheric pressure is lower, so water boils at a lower temperature. Since the temperature is lower, food takes longer to cook.",
-      "tags": ["applications"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain conduction, convection, and radiation with examples.",
-      "answer": "Conduction: Heat transfer through solids without movement of particles, e.g., a metal rod heated at one end. Convection: Heat transfer by movement of particles in liquids/gases, e.g., water heating in a vessel. Radiation: Heat transfer through electromagnetic waves, e.g., heat from the Sun.",
-      "tags": ["modes-of-heat-transfer"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q9",
-      "type": "numerical",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "How much heat is required to convert 500 g of ice at 0°C into water at 0°C? (Latent heat of fusion of ice = 3.34 × 10⁵ J/kg)",
-      "answer": "Q = mL = 0.5 × 3.34 × 10⁵ = 1.67 × 10⁵ J.",
-      "tags": ["numerical", "latent-heat"]
-    },
-    {
-      "id": "ms-10-sci-ch5-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the working principle of a calorimeter.",
-      "answer": "A calorimeter works on the principle of conservation of energy. It measures heat exchange between substances placed inside it. Its insulating walls prevent external heat loss, allowing accurate measurement of heat gained or lost by materials.",
-      "tags": ["calorimetry"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch6",
-  "chapterNumber": 6,
-  "title": "Refraction of Light",
-  "slug": "refraction-of-light",
-  "description": "Refraction through plane surfaces, laws of refraction, refractive index, optical density, and real-life applications.",
-  "topics": [
-    "Laws of refraction",
-    "Refractive index",
-    "Optical density",
-    "Refraction through glass slab",
-    "Apparent depth",
-    "Real and apparent shift",
-    "Speed of light in media"
-  ],
-  "learningObjectives": [
-    "State and explain the laws of refraction.",
-    "Define refractive index and calculate its value.",
-    "Explain optical density and its effect on refraction.",
-    "Describe refraction through a glass slab and real-life examples.",
-    "Solve numerical problems involving refractive index and velocity of light."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch6-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is refraction of light?",
-      "answer": "Refraction is the bending of light when it passes from one transparent medium to another due to a change in its speed.",
-      "tags": ["refraction"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which quantity determines how much the light bends during refraction?",
-      "options": ["Mass", "Refractive index", "Intensity", "Wavelength"],
-      "answer": "Refractive index",
-      "tags": ["refractive-index"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State Snell’s law of refraction.",
-      "answer": "Snell’s law states that the ratio of the sine of the angle of incidence to the sine of the angle of refraction is constant for a given pair of media: sin i / sin r = constant = n.",
-      "tags": ["snells-law"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q4",
-      "type": "numerical",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "If the refractive index of water is 1.33, find the speed of light in water. (Speed of light in air = 3 × 10⁸ m/s)",
-      "answer": "v = c / n = 3 × 10⁸ / 1.33 ≈ 2.26 × 10⁸ m/s.",
-      "tags": ["numerical", "refractive-index"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q5",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain optical density and how it affects the speed of light.",
-      "answer": "A medium with higher optical density slows down light more than a medium of lower optical density. Light bends towards the normal when entering a denser medium.",
-      "tags": ["optical-density"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q6",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "When a ray of light travels from glass to air, it bends:",
-      "options": ["Towards the normal", "Away from the normal", "Stops completely", "Does not bend"],
-      "answer": "Away from the normal",
-      "tags": ["refraction"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is meant by apparent depth?",
-      "answer": "Due to refraction, an object in a denser medium appears to be raised when viewed from a rarer medium. This apparent shift is called apparent depth.",
-      "tags": ["apparent-depth"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain refraction through a glass slab using a ray diagram and describe lateral shift.",
-      "answer": "When light enters a glass slab, it bends towards the normal due to higher density. On emerging, it bends away from the normal, making emergent ray parallel to the incident ray. The perpendicular distance between the emergent and incident rays is called lateral shift.",
-      "tags": ["glass-slab", "lateral-shift"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe real-life applications of refraction with at least three examples.",
-      "answer": "Examples include: 1) Apparent bending of a stick in water. 2) Formation of mirages. 3) Lenses used in spectacles and cameras. 4) Twinkling of stars due to atmospheric refraction.",
-      "tags": ["applications"]
-    },
-    {
-      "id": "ms-10-sci-ch6-q10",
-      "type": "numerical",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "A ray of light enters a medium with angle of incidence 30° and angle of refraction 20°. Calculate the refractive index of the second medium.",
-      "answer": "n = sin i / sin r = sin 30° / sin 20° = 0.5 / 0.342 = 1.46.",
-      "tags": ["numerical", "snells-law"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch7",
-  "chapterNumber": 7,
-  "title": "Lenses",
-  "slug": "lenses",
-  "description": "Types of lenses, refraction through lenses, sign conventions, lens formula, magnification, and applications.",
-  "topics": [
-    "Convex and concave lenses",
-    "Refraction through lenses",
-    "Rules for ray diagrams",
-    "Image formation by lenses",
-    "Lens formula",
-    "Magnification",
-    "Power of lens"
-  ],
-  "learningObjectives": [
-    "Differentiate between convex and concave lenses.",
-    "Draw ray diagrams for image formation by lenses.",
-    "Use lens formula and magnification formula.",
-    "Explain real-life applications of lenses.",
-    "Solve numerical problems involving lenses."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch7-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is a convex lens?",
-      "answer": "A convex lens is a transparent optical device that is thicker at the center than at the edges and converges incoming parallel rays to a point.",
-      "tags": ["convex-lens"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which lens diverges parallel rays of light?",
-      "options": ["Convex lens", "Concave lens", "Cylindrical lens", "None of these"],
-      "answer": "Concave lens",
-      "tags": ["concave-lens"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the lens formula and explain each term.",
-      "answer": "The lens formula is 1/f = 1/v - 1/u, where f = focal length, v = image distance, and u = object distance.",
-      "tags": ["lens-formula"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q4",
-      "type": "numerical",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "An object is placed 20 cm from a convex lens of focal length 10 cm. Find the image distance.",
-      "answer": "Using 1/f = 1/v - 1/u → 1/10 = 1/v + 1/20 → 1/v = 1/10 - 1/20 = 1/20 → v = 20 cm.",
-      "tags": ["numerical", "lens-formula"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q5",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the sign convention used for lenses.",
-      "answer": "All distances are measured from the optical center. The direction of incident light is positive. Distances measured against the direction of incident light are negative. Heights above the principal axis are positive, below are negative.",
-      "tags": ["sign-convention"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q6",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "A concave lens always forms:",
-      "options": ["Real and inverted image", "Virtual and erect image", "Real and erect image", "Enlarged image"],
-      "answer": "Virtual and erect image",
-      "tags": ["concave-lens"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is magnification? Write its formula.",
-      "answer": "Magnification is the ratio of the height of the image to the height of the object. m = h₂/h₁ = v/u.",
-      "tags": ["magnification"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe image formation by a convex lens when the object is placed beyond 2F.",
-      "answer": "When the object is beyond 2F, the image is formed between F and 2F, real, inverted, and smaller in size. Ray diagram: 1) A ray parallel to principal axis passes through F. 2) A ray through optical center continues straight without deviation.",
-      "tags": ["ray-diagram", "convex-lens"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q9",
-      "type": "numerical",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "Calculate the power of a lens of focal length +50 cm.",
-      "answer": "P = 1/f (in meters) → f = 0.50 m → P = 1/0.50 = +2 diopters.",
-      "tags": ["power-of-lens"]
-    },
-    {
-      "id": "ms-10-sci-ch7-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the working of a compound microscope.",
-      "answer": "A compound microscope uses two convex lenses—the objective lens and eyepiece. The objective lens forms a magnified real image of the object near its focus. The eyepiece further magnifies this image, producing a highly enlarged virtual image.",
-      "tags": ["application", "microscope"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch8",
-  "chapterNumber": 8,
-  "title": "Metallurgy",
-  "slug": "metallurgy",
-  "description": "Occurrence of metals, concentration of ore, extraction processes, refining methods, and applications of metals.",
-  "topics": [
-    "Occurrence of metals",
-    "Minerals and ores",
-    "Steps in metallurgy",
-    "Concentration of ores",
-    "Extraction of metals",
-    "Thermal and electrolytic reduction",
-    "Refining of metals"
-  ],
-  "learningObjectives": [
-    "Explain the terms mineral, ore, and metallurgy.",
-    "Describe various methods of concentration of ore.",
-    "Explain extraction steps for metals of different reactivity.",
-    "Differentiate between roasting and calcination.",
-    "Describe refining methods and real-life applications."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch8-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is an ore?",
-      "answer": "An ore is a naturally occurring mineral from which a metal can be extracted profitably and conveniently.",
-      "tags": ["ore"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which process is used to remove impurities lighter than the ore?",
-      "options": ["Magnetic separation", "Froth flotation", "Gravity separation", "Electrolysis"],
-      "answer": "Froth flotation",
-      "tags": ["concentration"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Differentiate between minerals and ores.",
-      "answer": "Minerals are naturally occurring inorganic compounds of metals. Ores are minerals from which extraction of metal is economically feasible.",
-      "tags": ["ore", "mineral"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is roasting?",
-      "answer": "Roasting is a process in which sulphide ores are heated in the presence of air to convert them into oxides.",
-      "tags": ["roasting"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Highly reactive metals like sodium and aluminium are extracted by:",
-      "options": ["Roasting", "Smelting", "Electrolysis", "Reduction with carbon"],
-      "answer": "Electrolysis",
-      "tags": ["extraction"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain calcination with one example.",
-      "answer": "Calcination is the heating of an ore in the absence of air to remove water or volatile impurities. Example: ZnCO₃ → ZnO + CO₂.",
-      "tags": ["calcination"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Name the three steps in metallurgy.",
-      "answer": "1. Concentration of ore, 2. Extraction of metal, 3. Refining of metal.",
-      "tags": ["metallurgy-steps"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the electrolytic extraction of aluminium.",
-      "answer": "Aluminium is extracted from alumina (Al₂O₃) using electrolysis. Alumina is dissolved in molten cryolite to lower melting point. In the electrolytic cell, aluminium is deposited at the cathode, while oxygen is released at the carbon anode, which gradually burns away.",
-      "tags": ["electrolysis", "aluminium"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the process of refining by electrolysis.",
-      "answer": "In electrolytic refining, the impure metal is used as the anode and the pure metal as the cathode. The electrolyte contains a salt solution of the metal. Impure metal dissolves from the anode and deposits pure metal on the cathode, leaving impurities as sludge.",
-      "tags": ["refining", "electrolysis"]
-    },
-    {
-      "id": "ms-10-sci-ch8-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the extraction of iron from its ore in the blast furnace.",
-      "answer": "Iron is extracted from hematite in a blast furnace. Coke acts as a reducing agent, limestone removes impurities as slag, and hot air supports combustion. Iron oxide is reduced to molten iron, which collects at the bottom, while slag floats on top.",
-      "tags": ["extraction", "iron", "blast-furnace"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch9",
-  "chapterNumber": 9,
-  "title": "Carbon Compounds",
-  "slug": "carbon-compounds",
-  "description": "Covalent bonding, versatile nature of carbon, homologous series, functional groups, nomenclature, and chemical properties of carbon compounds.",
-  "topics": [
-    "Covalent bonding",
-    "Characteristics of carbon",
-    "Hydrocarbons",
-    "Saturated and unsaturated compounds",
-    "Homologous series",
-    "Functional groups",
-    "Nomenclature",
-    "Chemical reactions of carbon compounds"
-  ],
-  "learningObjectives": [
-    "Explain the covalent bonding in carbon compounds.",
-    "Differentiate between saturated and unsaturated hydrocarbons.",
-    "Identify functional groups and name organic compounds.",
-    "Understand homologous series and its characteristics.",
-    "Describe chemical reactions involving carbon compounds."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch9-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What are hydrocarbons?",
-      "answer": "Hydrocarbons are organic compounds composed only of carbon and hydrogen atoms.",
-      "tags": ["hydrocarbons"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is an alkene?",
-      "options": ["C₂H₆", "C₂H₄", "CH₄", "C₃H₈"],
-      "answer": "C₂H₄",
-      "tags": ["alkenes"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is a homologous series? State one characteristic.",
-      "answer": "A homologous series is a group of organic compounds having the same functional group and general formula. Consecutive members differ by −CH₂− and show a gradual change in properties.",
-      "tags": ["homologous-series"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Differentiate between saturated and unsaturated hydrocarbons.",
-      "answer": "Saturated hydrocarbons have only single bonds (alkanes), while unsaturated hydrocarbons contain double or triple bonds (alkenes and alkynes).",
-      "tags": ["hydrocarbons"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which functional group is present in alcohols?",
-      "options": ["–COOH", "–OH", "–CHO", "–COO–"],
-      "answer": "–OH",
-      "tags": ["functional-groups"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Name the following compound: CH₃–CH₂–COOH",
-      "answer": "Propanoic acid",
-      "tags": ["nomenclature"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the versatile nature of carbon.",
-      "answer": "Carbon is versatile due to catenation (ability to form long chains), tetravalency, ability to form strong covalent bonds, and formation of various structures like rings and branched chains.",
-      "tags": ["carbon"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the chemical properties of ethanol.",
-      "answer": "1. Combustion: Ethanol burns to form CO₂ and water. 2. Reaction with sodium: Produces sodium ethoxide and hydrogen. 3. Dehydration: Ethanol forms ethene in presence of concentrated H₂SO₄.",
-      "tags": ["ethanol"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q9",
-      "type": "numerical",
-      "difficulty": "hard",
-      "marks": 4,
-      "text": "Write the molecular formula for the 4th member of the alkene series.",
-      "answer": "General formula for alkenes: CₙH₂ₙ → For n = 4: C₄H₈.",
-      "tags": ["alkenes"]
-    },
-    {
-      "id": "ms-10-sci-ch9-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain esterification with a chemical equation.",
-      "answer": "Esterification is the reaction between an alcohol and a carboxylic acid to form an ester and water. Example: CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O.",
-      "tags": ["esterification"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci-ch10",
-  "chapterNumber": 10,
-  "title": "Space Missions",
-  "slug": "space-missions",
-  "description": "Evolution of space missions, satellites, launch vehicles, Indian space programs, and applications of satellites.",
-  "topics": [
-    "Types of satellites",
-    "Orbits of satellites",
-    "Launch vehicles",
-    "PSLV and GSLV",
-    "Indian space research",
-    "Applications of satellites",
-    "Challenges in space missions"
-  ],
-  "learningObjectives": [
-    "Explain different types of satellites and their uses.",
-    "Describe the working and purpose of launch vehicles.",
-    "Understand PSLV and GSLV technologies.",
-    "Describe major achievements of India in space exploration.",
-    "Explain applications of artificial satellites."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci-ch10-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is an artificial satellite?",
-      "answer": "An artificial satellite is a man-made object placed in orbit around Earth or another celestial body for communication, research, weather forecasting, and other purposes.",
-      "tags": ["satellites"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a launch vehicle developed by ISRO?",
-      "options": ["Falcon 9", "PSLV", "Saturn V", "Soyuz"],
-      "answer": "PSLV",
-      "tags": ["launch-vehicles"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Differentiate between geostationary and polar satellites.",
-      "answer": "Geostationary satellites orbit Earth at 36,000 km and appear stationary relative to Earth, used for communication. Polar satellites orbit over poles at low altitudes and cover the entire Earth, used for weather and mapping.",
-      "tags": ["satellites", "orbits"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the purpose of a launch vehicle?",
-      "answer": "A launch vehicle is used to carry a satellite or spacecraft into space by overcoming Earth’s gravitational force using high thrust engines.",
-      "tags": ["launch-vehicles"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which of the following satellites is used for weather forecasting?",
-      "options": ["INSAT", "IRNSS", "Cartosat", "Hubble"],
-      "answer": "INSAT",
-      "tags": ["applications"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is PSLV? Mention one of its achievements.",
-      "answer": "PSLV (Polar Satellite Launch Vehicle) is an ISRO-developed launch vehicle known for launching satellites into polar orbits. It successfully launched 104 satellites in a single mission in 2017.",
-      "tags": ["pslv"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain any two applications of artificial satellites.",
-      "answer": "1. Communication: TV, internet, telephone signals. 2. Navigation: GPS and location services. 3. Weather forecasting: Predicting natural disasters. 4. Earth observation: Mapping and resource management.",
-      "tags": ["applications"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the working principle of a geostationary satellite with a diagram.",
-      "answer": "A geostationary satellite orbits Earth at 36,000 km in the equatorial plane, completing one revolution in 24 hours. Thus, it appears fixed over one point on Earth. It constantly relays signals for communication. Its orbital speed matches Earth’s rotational speed.",
-      "tags": ["geostationary-satellites"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the features and significance of India’s Mars Orbiter Mission (Mangalyaan).",
-      "answer": "Mangalyaan was India's first interplanetary mission launched in 2013. It made India the first Asian nation to reach Mars orbit and the first in the world to do so on its first attempt. It studied Martian atmosphere, surface features, and captured high-resolution images.",
-      "tags": ["space-missions", "isro"]
-    },
-    {
-      "id": "ms-10-sci-ch10-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain GSLV and how it differs from PSLV.",
-      "answer": "GSLV (Geosynchronous Satellite Launch Vehicle) uses a cryogenic upper stage and is designed to launch heavier satellites into geostationary orbits. PSLV is used mainly for launching lighter satellites into polar orbits. GSLV has higher payload capacity and uses more advanced propulsion.",
-      "tags": ["gslv", "pslv"]
-    }
-  ]
-}
 
-  ]
-}, {
-  board: "msbshse",
-  medium: "english",
-  classKey: "10",
-  subjectSlug: "science-technology-2",
-  chapters: [
-    {
-  "id": "ms-10-sci2-ch1",
-  "chapterNumber": 1,
-  "title": "Heredity and Evolution",
-  "slug": "heredity-and-evolution",
-  "description": "Heredity, genes, transcription–translation, mutation, evolution, Lamarckism, Darwin’s theory, speciation, and human evolution.",
-  "topics": [
-    "Heredity and hereditary changes",
-    "DNA, RNA, Transcription",
-    "Translation and Translocation",
-    "Mutation",
-    "Evolution and evidence",
-    "Darwin’s theory of natural selection",
-    "Lamarckism",
-    "Speciation",
-    "Human evolution"
-  ],
-  "learningObjectives": [
-    "Explain the mechanisms of heredity and gene expression.",
-    "Describe transcription, translation, and mutation.",
-    "State major theories and proofs of evolution.",
-    "Differentiate Lamarckism and Darwinism.",
-    "Understand speciation and human evolutionary history."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch1-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is heredity?",
-      "answer": "Heredity is the transfer of biological characters from one generation to the next through genes. Genes present on chromosomes carry this information. :contentReference[oaicite:3]{index=3}",
-      "tags": ["heredity"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which molecule carries the genetic information required for protein synthesis?",
-      "options": ["RNA", "DNA", "Glucose", "ATP"],
-      "answer": "DNA",
-      "tags": ["dna", "genetic-material"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is transcription?",
-      "answer": "Transcription is the process in which mRNA is synthesized from the DNA template. Only one strand of DNA is used, and uracil replaces thymine in RNA. :contentReference[oaicite:4]{index=4}",
-      "tags": ["transcription"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain translation and translocation in protein synthesis.",
-      "answer": "Translation is the process by which tRNA brings amino acids to the mRNA codons to form proteins. Ribosomes move one codon at a time along mRNA—this movement is called translocation. :contentReference[oaicite:5]{index=5}",
-      "tags": ["translation", "protein-synthesis"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which scientist proposed the theory of natural selection?",
-      "options": ["Lamarck", "Darwin", "Hugo de Vries", "Avery"],
-      "answer": "Darwin",
-      "tags": ["darwin"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is mutation? Give an example.",
-      "answer": "Mutation is a sudden change in the nucleotide sequence of a gene. Example: mutation causing sickle cell anaemia. :contentReference[oaicite:6]{index=6}",
-      "tags": ["mutation"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Differentiate between Lamarckism and Darwinism.",
-      "answer": "Lamarckism states that acquired characters are inherited, while Darwinism states that natural selection allows organisms with favorable variations to survive and reproduce. :contentReference[oaicite:7]{index=7}",
-      "tags": ["lamarckism", "darwinism"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the evidences of evolution with examples.",
-      "answer": "Evidences include morphological similarities (e.g., leaf venation, mouthparts), anatomical evidences (similar bone structure in human hand, bat wing, whale flipper), vestigial organs (appendix, body hair), fossil records showing gradual development, and embryological similarities. :contentReference[oaicite:8]{index=8}",
-      "tags": ["evolution-evidence"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain speciation. How does geographical isolation contribute to it?",
-      "answer": "Speciation is the formation of new species from an existing one when populations accumulate genetic variations over time. Geographical isolation prevents interbreeding, leading to independent evolution and formation of new species. :contentReference[oaicite:9]{index=9}",
-      "tags": ["speciation"]
-    },
-    {
-      "id": "ms-10-sci2-ch1-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the evolution of modern humans.",
-      "answer": "Human evolution began around 7 crore years ago with lemur-like ancestors. Ape-like ancestors evolved into Dryopithecus, Ramapithecus, Australopithecus, and then upright man. Neanderthal and Cro-Magnon humans followed. Homo sapiens evolved around 50,000 years ago, developed tools, agriculture, and civilizations. :contentReference[oaicite:10]{index=10}",
-      "tags": ["human-evolution"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch2",
-  "chapterNumber": 2,
-  "title": "Life Processes in Living Organisms Part - 1",
-  "slug": "life-processes-part-1",
-  "description": "Human organ systems, energy production, respiration, digestion, circulation, excretion, and control systems.",
-  "topics": [
-    "Living organisms and life processes",
-    "Energy production in cells",
-    "Role of digestive, respiratory and circulatory systems",
-    "ATP and mitochondria",
-    "Control and coordination",
-    "Cell division as a life process"
-  ],
-  "learningObjectives": [
-    "Explain the interdependence of organ systems in the human body.",
-    "Describe digestion, respiration, circulation and excretion.",
-    "Understand ATP generation and cellular energy production.",
-    "Explain the role of control systems such as the nervous and endocrine system.",
-    "State the importance of cell division in life processes."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch2-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is the importance of a balanced diet for the human body?",
-      "answer": "A balanced diet provides all essential nutrients required for energy production, growth, repair, and proper functioning of body systems. :contentReference[oaicite:1]{index=1}",
-      "tags": ["diet"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which cell organelle is known as the powerhouse of the cell?",
-      "options": ["Ribosome", "Mitochondria", "Nucleus", "Golgi body"],
-      "answer": "Mitochondria",
-      "tags": ["cell-organelles", "mitochondria"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is respiration? How does it occur in the human body?",
-      "answer": "Respiration is the process of breaking down food to release energy. In humans, oxygen is taken in through breathing and transported to cells where it helps oxidize glucose to release ATP. :contentReference[oaicite:2]{index=2}",
-      "tags": ["respiration"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of digestive juices in digestion.",
-      "answer": "Digestive juices contain enzymes that break down complex nutrients like carbohydrates, proteins, and fats into simpler absorbable forms. They help in efficient nutrient absorption. :contentReference[oaicite:3]{index=3}",
-      "tags": ["digestion"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which system carries oxygen and nutrients to every cell of the body?",
-      "options": ["Respiratory system", "Digestive system", "Circulatory system", "Excretory system"],
-      "answer": "Circulatory system",
-      "tags": ["circulation"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is oxygen essential for energy production in cells?",
-      "answer": "Oxygen is necessary for the oxidation of food molecules in mitochondria. This oxidation releases energy stored in food and converts it into ATP, the usable form of energy in cells. :contentReference[oaicite:4]{index=4}",
-      "tags": ["energy-production"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How are various functions occurring in the human body coordinated?",
-      "answer": "Functions of the body are coordinated by the nervous system and endocrine system, which regulate responses, maintain balance, and ensure proper functioning of organs. :contentReference[oaicite:5]{index=5}",
-      "tags": ["control-system"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the process of energy production inside cells.",
-      "answer": "Energy is produced in mitochondria during cellular respiration. Glucose and oxygen are transported to cells via the circulatory system. Inside mitochondria, glucose is oxidized to release ATP. This ATP powers metabolic processes essential for life. :contentReference[oaicite:6]{index=6}",
-      "tags": ["energy-production", "mitochondria"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the role of the circulatory system in energy production and waste removal.",
-      "answer": "The circulatory system transports oxygen and nutrients to cells for ATP production. It also carries waste products like carbon dioxide and urea to excretory organs for removal. Thus it maintains cellular homeostasis. :contentReference[oaicite:7]{index=7}",
-      "tags": ["circulation", "waste-removal"]
-    },
-    {
-      "id": "ms-10-sci2-ch2-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain why coordination between digestive, respiratory, and circulatory systems is essential for survival.",
-      "answer": "The digestive system supplies nutrients, the respiratory system provides oxygen, and the circulatory system transports both to body cells. Only when all three systems work in coordination can cells produce ATP needed for survival. Failure in any one system affects the entire organism. :contentReference[oaicite:8]{index=8}",
-      "tags": ["coordination", "organ-systems"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch3",
-  "chapterNumber": 3,
-  "title": "Life Processes in Living Organisms Part - 2",
-  "slug": "life-processes-part-2",
-  "description": "Asexual and sexual reproduction, reproduction in plants and animals, fertilization, embryo development, cell division (mitosis & meiosis).",
-  "topics": [
-    "Asexual reproduction",
-    "Sexual reproduction",
-    "Reproduction in flowering plants",
-    "Human reproductive system",
-    "Fertilization and embryo development",
-    "Mitosis and meiosis",
-    "Binary fission and budding"
-  ],
-  "learningObjectives": [
-    "Differentiate between asexual and sexual reproduction.",
-    "Describe reproduction in plants and human beings.",
-    "Explain fertilization, embryo development and pregnancy.",
-    "Understand mitosis and meiosis with diagrams.",
-    "Explain how genetic continuity is maintained through cell division."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch3-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is asexual reproduction?",
-      "answer": "Asexual reproduction is a mode in which a single parent produces offspring without gamete formation. Offspring are genetically identical to the parent. :contentReference[oaicite:3]{index=3}",
-      "tags": ["asexual-reproduction"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Binary fission occurs in:",
-      "options": ["Amoeba", "Yeast", "Hydra", "Moss"],
-      "answer": "Amoeba",
-      "tags": ["binary-fission"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two differences between asexual and sexual reproduction.",
-      "answer": "1. Asexual reproduction involves one parent; sexual reproduction involves two. 2. Asexual offspring are identical; sexual reproduction produces genetically diverse offspring. :contentReference[oaicite:4]{index=4}",
-      "tags": ["comparison"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is fertilization?",
-      "answer": "Fertilization is the process of fusion of male and female gametes to form a zygote, which develops into an embryo. :contentReference[oaicite:5]{index=5}",
-      "tags": ["fertilization"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which of the following is NOT a method of asexual reproduction?",
-      "options": ["Binary fission", "Budding", "Fragmentation", "Pollination"],
-      "answer": "Pollination",
-      "tags": ["asexual-reproduction"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain budding with an example.",
-      "answer": "In budding, a new organism develops from a small outgrowth (bud) on the parent body. Example: Yeast reproduces by budding. :contentReference[oaicite:6]{index=6}",
-      "tags": ["budding"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the role of meiosis in sexual reproduction?",
-      "answer": "Meiosis reduces the chromosome number to half in gametes, ensuring that fertilization restores the diploid number, maintaining genetic stability across generations. :contentReference[oaicite:7]{index=7}",
-      "tags": ["meiosis"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the process of reproduction in flowering plants.",
-      "answer": "Flowering plants reproduce sexually. Pollination transfers pollen from anther to stigma. Pollen tube carries male gametes to ovule. Fertilization forms a zygote, which becomes an embryo. Ovule forms seed and ovary becomes fruit. :contentReference[oaicite:8]{index=8}",
-      "tags": ["plant-reproduction"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain mitosis and its significance.",
-      "answer": "Mitosis is equational cell division producing two identical daughter cells. Stages include prophase, metaphase, anaphase and telophase. It enables growth, repair, and replacement of cells while maintaining chromosome number. :contentReference[oaicite:9]{index=9}",
-      "tags": ["mitosis"]
-    },
-    {
-      "id": "ms-10-sci2-ch3-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the process of human reproduction from gamete formation to embryo development.",
-      "answer": "Gametes form through meiosis. During fertilization, sperm fuses with ovum to form a zygote. The zygote undergoes mitosis to form a blastocyst, which implants in the uterus. It develops into an embryo supported by placenta and continues growth during pregnancy. :contentReference[oaicite:10]{index=10}",
-      "tags": ["human-reproduction"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch4",
-  "chapterNumber": 4,
-  "title": "Environmental Management",
-  "slug": "environmental-management",
-  "description": "Ecosystems, biodiversity, food chains, environmental conservation, waste management, pollution, and sustainable development.",
-  "topics": [
-    "Ecosystems and components",
-    "Food chains and food webs",
-    "Biodiversity and conservation",
-    "Environmental pollution",
-    "Waste management",
-    "Sustainable development",
-    "Conservation of natural resources"
-  ],
-  "learningObjectives": [
-    "Explain the concept of ecosystems and biodiversity.",
-    "Identify types of pollution and their impact on the environment.",
-    "Describe food chains, webs, and trophic levels.",
-    "Understand methods of waste management and environmental conservation.",
-    "Explain sustainable development practices."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch4-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is an ecosystem?",
-      "answer": "An ecosystem is a system formed by the interaction between living organisms (biotic factors) and their physical environment (abiotic factors). :contentReference[oaicite:2]{index=2}",
-      "tags": ["ecosystem"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a renewable resource?",
-      "options": ["Coal", "Petroleum", "Wind energy", "Natural gas"],
-      "answer": "Wind energy",
-      "tags": ["renewable-resources"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is biodiversity? Why is it important?",
-      "answer": "Biodiversity refers to the variety of living organisms in an environment. It maintains ecological balance, provides resources, and supports ecosystem services. :contentReference[oaicite:3]{index=3}",
-      "tags": ["biodiversity"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is meant by sustainable development?",
-      "answer": "Sustainable development means fulfilling present needs without compromising the ability of future generations to meet their own needs. :contentReference[oaicite:4]{index=4}",
-      "tags": ["sustainable-development"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which of the following is an example of biodegradable waste?",
-      "options": ["Plastic", "Glass", "Kitchen waste", "Aluminium"],
-      "answer": "Kitchen waste",
-      "tags": ["waste-management"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the term food chain with an example.",
-      "answer": "A food chain shows how energy flows from one organism to another. Example: Grass → Grasshopper → Frog → Snake. :contentReference[oaicite:5]{index=5}",
-      "tags": ["food-chain"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two causes of air pollution.",
-      "answer": "Major causes include vehicle emissions, burning of fossil fuels, industrial smoke, and deforestation. :contentReference[oaicite:6]{index=6}",
-      "tags": ["air-pollution"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "What is waste management? Describe any two modern waste management techniques.",
-      "answer": "Waste management involves collection, treatment, and disposal of waste materials. Techniques include: 1. Composting—organic waste decomposed into manure. 2. Recycling—processing used materials into new products. 3. Vermiculture—using earthworms to convert waste into nutrient-rich compost. :contentReference[oaicite:7]{index=7}",
-      "tags": ["waste-management"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the interrelationship between components of an ecosystem with examples.",
-      "answer": "Biotic and abiotic components interact to maintain balance. Plants depend on sunlight, water, and soil nutrients; herbivores depend on plants; carnivores depend on herbivores. Decomposers recycle nutrients back into the soil. These interactions create a stable ecosystem. :contentReference[oaicite:8]{index=8}",
-      "tags": ["ecosystem"]
-    },
-    {
-      "id": "ms-10-sci2-ch4-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe major causes of environmental degradation and measures to prevent it.",
-      "answer": "Causes include pollution, overexploitation of resources, deforestation, and improper waste disposal. Preventive measures include afforestation, using renewable energy, reducing waste, pollution control technologies, and enforcing environmental laws. :contentReference[oaicite:9]{index=9}",
-      "tags": ["environmental-management"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch5",
-  "chapterNumber": 5,
-  "title": "Towards Green Energy",
-  "slug": "towards-green-energy",
-  "description": "Conventional and non-conventional energy sources, solar energy, wind energy, hydroelectricity, biofuels, nuclear energy, and energy conservation.",
-  "topics": [
-    "Conventional and non-conventional energy sources",
-    "Solar energy and photovoltaic cells",
-    "Wind energy",
-    "Hydroelectricity",
-    "Biofuels and biomass",
-    "Nuclear energy",
-    "Energy conservation"
-  ],
-  "learningObjectives": [
-    "Differentiate between conventional and non-conventional energy sources.",
-    "Explain solar, wind, and hydroelectric energy generation.",
-    "Describe biomass, biogas, and biofuels.",
-    "Understand nuclear energy and its advantages and risks.",
-    "Explain the importance of energy conservation."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch5-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What are non-conventional energy sources?",
-      "answer": "Non-conventional energy sources are renewable forms of energy such as solar, wind, tidal, geothermal, and biomass, which are environment-friendly and abundant. :contentReference[oaicite:2]{index=2}",
-      "tags": ["non-conventional-energy"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which device converts solar energy into electrical energy?",
-      "options": ["Solar heater", "Solar cooker", "Photovoltaic cell", "Transformer"],
-      "answer": "Photovoltaic cell",
-      "tags": ["solar-energy"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two advantages of wind energy.",
-      "answer": "1. It is a renewable and clean source of energy. 2. Wind turbines have low operational costs once installed. :contentReference[oaicite:3]{index=3}",
-      "tags": ["wind-energy"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is biomass? Give an example.",
-      "answer": "Biomass is organic material obtained from plants and animals used as fuel. Example: Cow dung, agricultural waste. :contentReference[oaicite:4]{index=4}",
-      "tags": ["biomass"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Hydroelectricity is generated using:",
-      "options": ["Sunlight", "Flowing water", "Wind", "Biogas"],
-      "answer": "Flowing water",
-      "tags": ["hydroelectricity"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is nuclear energy? How is it obtained?",
-      "answer": "Nuclear energy is the energy released from the nucleus of atoms during nuclear fission or fusion. It is obtained mainly by fission of uranium or plutonium in reactors. :contentReference[oaicite:5]{index=5}",
-      "tags": ["nuclear-energy"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the importance of energy conservation.",
-      "answer": "Energy conservation reduces energy waste, saves natural resources, lowers pollution, and ensures sustainable energy availability for future generations. :contentReference[oaicite:6]{index=6}",
-      "tags": ["energy-conservation"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how electricity is generated using solar energy.",
-      "answer": "Solar energy is absorbed by photovoltaic (PV) cells made from semiconductor materials like silicon. Sunlight excites electrons, generating electric current. PV modules are connected to form solar panels, which supply usable electricity. Solar farms produce electricity on a large scale. :contentReference[oaicite:7]{index=7}",
-      "tags": ["solar-energy"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the working of a biogas plant with a labeled diagram.",
-      "answer": "Biogas plants use anaerobic digestion of biomass such as cow dung and agricultural waste. The mixture is placed in an airtight digester where microbes decompose it, releasing methane-rich biogas. The gas is used as fuel, while the residue works as fertilizer. :contentReference[oaicite:8]{index=8}",
-      "tags": ["biogas"]
-    },
-    {
-      "id": "ms-10-sci2-ch5-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Compare conventional and non-conventional energy sources with suitable examples.",
-      "answer": "Conventional sources such as coal, petroleum, and natural gas are non-renewable, cause pollution, and have limited availability. Non-conventional sources such as solar, wind, tidal, and geothermal are renewable, eco-friendly, and sustainable. :contentReference[oaicite:9]{index=9}",
-      "tags": ["energy-sources"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch6",
-  "chapterNumber": 6,
-  "title": "Animal Classification",
-  "slug": "animal-classification",
-  "description": "Classification of animals based on body structure, symmetry, germ layers, coelom, and phyla such as Porifera, Coelenterata, Arthropoda, Mollusca, Echinodermata, and Chordata.",
-  "topics": [
-    "Need for classification",
-    "Levels of body organization",
-    "Symmetry",
-    "Germ layers",
-    "Coelom",
-    "Invertebrate phyla",
-    "Chordates and vertebrates"
-  ],
-  "learningObjectives": [
-    "Understand the need for classification of animals.",
-    "Differentiate between types of symmetry and germ layers.",
-    "Describe major animal phyla with characteristics and examples.",
-    "Explain the structure and features of chordates.",
-    "Classify animals based on body organization and coelom."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch6-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is bilateral symmetry?",
-      "answer": "Bilateral symmetry is when the body can be divided into two equal halves through only one plane, forming mirror images. :contentReference[oaicite:2]{index=2}",
-      "tags": ["symmetry"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Animals with a notochord belong to which group?",
-      "options": ["Arthropoda", "Chordata", "Mollusca", "Echinodermata"],
-      "answer": "Chordata",
-      "tags": ["chordata"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Define coelom. Name its three types.",
-      "answer": "Coelom is a fluid-filled body cavity between the digestive canal and the body wall. Types: Acoelomate, Pseudocoelomate, and Coelomate. :contentReference[oaicite:3]{index=3}",
-      "tags": ["coelom"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are germ layers? Name them.",
-      "answer": "Germ layers are primary layers of cells formed during embryonic development. They are ectoderm, mesoderm, and endoderm. :contentReference[oaicite:4]{index=4}",
-      "tags": ["germ-layers"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which phylum includes starfish and sea urchins?",
-      "options": ["Mollusca", "Echinodermata", "Chordata", "Arthropoda"],
-      "answer": "Echinodermata",
-      "tags": ["echinodermata"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two characteristics of arthropods.",
-      "answer": "1. They have jointed appendages. 2. Their body is segmented and covered by an exoskeleton made of chitin. :contentReference[oaicite:5]{index=5}",
-      "tags": ["arthropoda"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Differentiate between vertebrates and invertebrates.",
-      "answer": "Vertebrates possess a vertebral column and internal skeleton, while invertebrates lack a vertebral column and have simpler body structures. :contentReference[oaicite:6]{index=6}",
-      "tags": ["vertebrates", "invertebrates"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the characteristics of phylum Chordata.",
-      "answer": "Chordates possess a notochord, dorsal hollow nerve cord, pharyngeal gill slits, post-anal tail, and a closed circulatory system. They show bilateral symmetry and are triploblastic coelomates. Examples: fish, amphibians, reptiles, birds, mammals. :contentReference[oaicite:7]{index=7}",
-      "tags": ["chordata"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the differences between Mollusca and Echinodermata.",
-      "answer": "Mollusca: Soft-bodied animals, usually with a calcareous shell; bilateral symmetry; examples include octopus, snails. Echinodermata: Marine organisms with spiny skin; radial symmetry in adults; water vascular system; examples include starfish and sea lilies. :contentReference[oaicite:8]{index=8}",
-      "tags": ["mollusca", "echinodermata"]
-    },
-    {
-      "id": "ms-10-sci2-ch6-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the basis of animal classification using body symmetry, germ layers, and coelom.",
-      "answer": "Animals are classified based on: 1. Body symmetry: asymmetrical (sponges), radial (cnidarians), bilateral (arthropods, chordates). 2. Germ layers: diploblastic (two layers) or triploblastic (three layers). 3. Coelom: acoelomate, pseudocoelomate, or coelomate. These features indicate evolutionary complexity. :contentReference[oaicite:9]{index=9}",
-      "tags": ["classification"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch7",
-  "chapterNumber": 7,
-  "title": "Introduction to Microbiology",
-  "slug": "introduction-to-microbiology",
-  "description": "Microorganisms, their characteristics, industrial applications, biotechnology, antibiotics, vaccines, fermentation, biofertilizers, and microbial ecology.",
-  "topics": [
-    "Types of microorganisms",
-    "Useful and harmful microbes",
-    "Fermentation",
-    "Antibiotics and vaccines",
-    "Biotechnology",
-    "Biofertilizers",
-    "Industrial microbiology"
-  ],
-  "learningObjectives": [
-    "Identify major groups of microorganisms and their characteristics.",
-    "Explain industrial applications of microbes such as fermentation and antibiotic production.",
-    "Understand vaccines, immunity, and microbial diseases.",
-    "Describe the role of microorganisms in agriculture and environment.",
-    "Explain biotechnology and its applications."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch7-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What are microorganisms?",
-      "answer": "Microorganisms are tiny living organisms such as bacteria, fungi, protozoa, algae, and viruses that are too small to be seen with the naked eye. :contentReference[oaicite:2]{index=2}",
-      "tags": ["microorganisms"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which microorganism is used in the production of curd?",
-      "options": ["Saccharomyces", "Lactobacillus", "Rhizobium", "Penicillium"],
-      "answer": "Lactobacillus",
-      "tags": ["lactobacillus"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Define fermentation. Give one example.",
-      "answer": "Fermentation is a metabolic process in which microorganisms convert sugars into alcohol or acids. Example: Yeast ferments sugar to produce alcohol. :contentReference[oaicite:3]{index=3}",
-      "tags": ["fermentation"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are antibiotics?",
-      "answer": "Antibiotics are chemical substances produced by microorganisms that inhibit or destroy harmful microbes. Example: Penicillin. ",
-      "tags": ["antibiotics"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which microorganism increases soil fertility by nitrogen fixation?",
-      "options": ["Lactobacillus", "Aspergillus", "Rhizobium", "Plasmodium"],
-      "answer": "Rhizobium",
-      "tags": ["biofertilizers"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is biotechnology?",
-      "answer": "Biotechnology is the use of living organisms or their products to develop useful materials, medicines, and technologies. It includes genetic engineering, fermentation, and industrial microbiology. ",
-      "tags": ["biotechnology"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two uses of microorganisms in industry.",
-      "answer": "1. Production of antibiotics such as penicillin. 2. Fermentation processes to make wine, beer, vinegar, and cheese. :contentReference[oaicite:6]{index=6}",
-      "tags": ["industrial-microbiology"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how vaccines work. Give an example.",
-      "answer": "Vaccines contain weakened or inactive pathogens that stimulate the immune system to produce antibodies. This creates immunity without causing disease. Example: Polio vaccine trains the body to fight poliovirus. ",
-      "tags": ["vaccines", "immunity"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the role of microorganisms in agriculture.",
-      "answer": "Microorganisms such as Rhizobium fix atmospheric nitrogen in soil. Cyanobacteria enrich soil fertility. Decomposers break down organic matter, improving soil nutrients. Biopesticides derived from microbes control pests naturally. :contentReference[oaicite:8]{index=8}",
-      "tags": ["agriculture", "biofertilizers"]
-    },
-    {
-      "id": "ms-10-sci2-ch7-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain industrial production of antibiotics with reference to Penicillin.",
-      "answer": "Penicillin is produced by cultivating Penicillium fungus in large fermenters under controlled conditions. After fermentation, the antibiotic is extracted, purified, and prepared for medicinal use. This process revolutionized treatment of bacterial infections. ",
-      "tags": ["antibiotics", "penicillin"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch8",
-  "chapterNumber": 8,
-  "title": "Cell Biology and Biotechnology",
-  "slug": "cell-biology-and-biotechnology",
-  "description": "Genetic engineering, recombinant DNA technology, gene therapy, stem cells, transgenic organisms, bioinformatics, and applications of biotechnology.",
-  "topics": [
-    "Recombinant DNA technology",
-    "Genetic engineering",
-    "Cloning",
-    "Stem cells",
-    "Gene therapy",
-    "Transgenic organisms",
-    "Bioinformatics"
-  ],
-  "learningObjectives": [
-    "Explain the process and purpose of genetic engineering.",
-    "Understand recombinant DNA technology and its applications.",
-    "Describe cloning, stem cells, and gene therapy.",
-    "Differentiate between types of stem cells.",
-    "Explain importance of bioinformatics in biotechnology."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch8-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is genetic engineering?",
-      "answer": "Genetic engineering is the technique of manipulating an organism’s DNA to change or introduce characteristics by adding, removing, or modifying genes. ",
-      "tags": ["genetic-engineering"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which enzyme is used to cut DNA at specific sites?",
-      "options": ["DNA ligase", "Helicase", "Restriction endonuclease", "Polymerase"],
-      "answer": "Restriction endonuclease",
-      "tags": ["enzymes", "restriction-enzyme"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is recombinant DNA?",
-      "answer": "Recombinant DNA is DNA formed by combining genes from two different organisms using enzymes like restriction endonucleases and ligases. ",
-      "tags": ["recombinant-dna"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain cloning with an example.",
-      "answer": "Cloning is producing genetically identical copies of organisms. Example: Dolly the sheep was the first mammal cloned using a somatic cell. ",
-      "tags": ["cloning"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which of the following is NOT an application of biotechnology?",
-      "options": ["Production of insulin", "Gene therapy", "Formation of fossils", "Cloning"],
-      "answer": "Formation of fossils",
-      "tags": ["biotechnology"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are stem cells? Name their two main types.",
-      "answer": "Stem cells are undifferentiated cells capable of division and differentiation. Types: 1. Embryonic stem cells, 2. Adult stem cells. ",
-      "tags": ["stem-cells"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain gene therapy.",
-      "answer": "Gene therapy is a technique that involves inserting a normal gene into cells in place of a defective one to treat genetic disorders. ",
-      "tags": ["gene-therapy"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the steps involved in recombinant DNA technology.",
-      "answer": "Steps include: 1. Isolation of desired gene. 2. Cutting DNA with restriction enzymes. 3. Insertion of gene into vector DNA. 4. Ligation using DNA ligase. 5. Transfer of recombinant DNA into host organism. 6. Expression of new gene to produce desired protein. ",
-      "tags": ["recombinant-dna", "genetic-engineering"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the importance of biotechnology in agriculture and medicine.",
-      "answer": "In agriculture, biotechnology helps produce pest-resistant crops, increase yield, and improve nutritional quality. In medicine, it enables production of vaccines, insulin, antibiotics, gene therapy, and diagnosis through DNA fingerprinting. ",
-      "tags": ["biotechnology", "applications"]
-    },
-    {
-      "id": "ms-10-sci2-ch8-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "What is bioinformatics? Explain its applications.",
-      "answer": "Bioinformatics is the use of computer technology to manage and analyze biological data such as DNA sequences. Applications include genome mapping, drug development, studying protein structures, and disease diagnosis. ",
-      "tags": ["bioinformatics"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch9",
-  "chapterNumber": 9,
-  "title": "Social Health",
-  "slug": "social-health",
-  "description": "Mental health, emotional balance, addiction, family and peer relationships, lifestyle diseases, coping strategies, and factors affecting social well-being.",
-  "topics": [
-    "Mental health",
-    "Factors affecting social health",
-    "Addiction and its effects",
-    "Family and peer relationships",
-    "Stress management",
-    "Community health",
-    "Healthy lifestyle"
-  ],
-  "learningObjectives": [
-    "Explain the meaning and importance of social and mental health.",
-    "Understand addiction, its consequences, and prevention.",
-    "Identify factors that affect socially healthy behavior.",
-    "Learn methods of stress management and emotional balance.",
-    "Recognize the importance of family, friends, and support systems."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch9-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is social health?",
-      "answer": "Social health is the ability of a person to form satisfying interpersonal relationships and adapt comfortably to different social situations. ",
-      "tags": ["social-health"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a sign of good mental health?",
-      "options": ["Aggressive behavior", "Self-confidence", "Isolation", "Addiction"],
-      "answer": "Self-confidence",
-      "tags": ["mental-health"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two factors that affect social health.",
-      "answer": "1. Family environment. 2. Peer relationships. 3. Economic conditions. 4. Education and lifestyle. ",
-      "tags": ["factors"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is addiction? Give one example.",
-      "answer": "Addiction is a mental or physical dependence on substances or activities that affect normal life. Example: addiction to alcohol or drugs. ",
-      "tags": ["addiction"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "Which of the following is a healthy coping mechanism for stress?",
-      "options": ["Substance use", "Physical exercise", "Avoiding responsibilities", "Aggression"],
-      "answer": "Physical exercise",
-      "tags": ["stress-management"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of family in maintaining social health.",
-      "answer": "Family provides emotional support, teaches values, and helps develop communication and problem-solving skills, all of which contribute to social well-being. ",
-      "tags": ["family"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are lifestyle diseases? Give two examples.",
-      "answer": "Lifestyle diseases arise from unhealthy habits such as poor diet, inactivity, and stress. Examples: diabetes, hypertension, heart disease. ",
-      "tags": ["lifestyle-diseases"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the effects of addiction on personal and social life.",
-      "answer": "Addiction causes physical illness, emotional instability, financial problems, and poor academic or work performance. It damages relationships, leads to social isolation, and increases crime rates and burden on healthcare systems. ",
-      "tags": ["addiction-effects"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the importance of mental health and methods to maintain it.",
-      "answer": "Mental health ensures emotional balance, decision-making, and productivity. It can be maintained through regular exercise, communication, meditation, time management, seeking counseling, and maintaining healthy relationships. ",
-      "tags": ["mental-health"]
-    },
-    {
-      "id": "ms-10-sci2-ch9-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how peer influence can be positive or negative.",
-      "answer": "Positive peer influence promotes good habits, discipline, motivation, and teamwork. Negative influence may lead to substance abuse, risky behavior, poor academic performance, and emotional stress. Guidance and self-awareness help manage peer influence. ",
-      "tags": ["peer-influence"]
-    }
-  ]
-}, {
-  "id": "ms-10-sci2-ch10",
-  "chapterNumber": 10,
-  "title": "Disaster Management",
-  "slug": "disaster-management",
-  "description": "Types of disasters, disaster preparedness, mitigation, relief measures, first aid, rescue operations, and roles of government and community.",
-  "topics": [
-    "Natural and man-made disasters",
-    "Disaster preparedness",
-    "Mitigation strategies",
-    "Rescue operations",
-    "First aid",
-    "Government disaster management systems",
-    "Community participation"
-  ],
-  "learningObjectives": [
-    "Differentiate between natural and man-made disasters.",
-    "Explain disaster preparedness and mitigation techniques.",
-    "Understand the importance of rescue operations and first aid.",
-    "Identify government and community roles in disaster management.",
-    "Describe steps to reduce disaster risks."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-sci2-ch10-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is a disaster?",
-      "answer": "A disaster is a sudden event that causes extensive damage to life, property, and the environment, disrupting normal functioning of communities. ",
-      "tags": ["disaster"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a natural disaster?",
-      "options": ["Terrorist attack", "Earthquake", "Nuclear explosion", "Fire due to short circuit"],
-      "answer": "Earthquake",
-      "tags": ["natural-disasters"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is disaster preparedness?",
-      "answer": "Disaster preparedness includes planning, training, and taking precautions to reduce loss of life and property during disasters through early warning systems, drills, and resource readiness. ",
-      "tags": ["preparedness"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two differences between natural and man-made disasters.",
-      "answer": "Natural disasters occur due to natural processes (earthquakes, floods), while man-made disasters result from human activities (industrial accidents, bomb blasts). Their causes, predictability, and mitigation methods vary. ",
-      "tags": ["comparison"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 1,
-      "text": "What should be the first step in first aid?",
-      "options": ["Start treatment immediately", "Ensure safety of victim and rescuer", "Call media", "Move the injured person forcefully"],
-      "answer": "Ensure safety of victim and rescuer",
-      "tags": ["first-aid"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Define mitigation. Give an example.",
-      "answer": "Mitigation refers to long-term measures taken to reduce disaster risks, such as building earthquake-resistant structures or constructing flood-control dams. ",
-      "tags": ["mitigation"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the importance of community participation during disasters.",
-      "answer": "Community members provide immediate help, communicate early warnings, participate in rescue operations, donate resources, and support rehabilitation efforts, reducing overall damage. ",
-      "tags": ["community"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the steps involved in rescue operations during disasters.",
-      "answer": "Rescue operations involve: 1. Assessing the situation and ensuring safety. 2. Mobilizing trained teams. 3. Removing victims from danger zones. 4. Providing first aid. 5. Transporting injured individuals to hospitals. 6. Coordinating with fire, medical, and police departments. ",
-      "tags": ["rescue-operations"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the role of government agencies in disaster management.",
-      "answer": "Government agencies establish disaster management authorities, create early warning systems, coordinate rescue teams, supply essential materials, run rehabilitation programs, enforce safety laws, and train communities through awareness programs. ",
-      "tags": ["government-role"]
-    },
-    {
-      "id": "ms-10-sci2-ch10-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "What safety measures should be followed during an earthquake?",
-      "answer": "Safety measures include: staying away from windows, taking shelter under sturdy furniture, turning off electricity and gas, avoiding elevators, moving to open spaces, and following evacuation routes. Buildings should be earthquake-resistant to reduce risk. ",
-      "tags": ["earthquake-safety"]
-    }
-  ]
-}
-  ]
-}, {
-  board: "msbshse",
-  medium: "english",
-  classKey: "10",
-  subjectSlug: "mathematics-1",
-  chapters: [
-    {
-  "id": "ms-10-m1-ch1",
-  "chapterNumber": 1,
-  "title": "Linear Equations in Two Variables",
-  "slug": "linear-equations-two-variables",
-  "description": "Introduction to linear equations in two variables, solution methods, graphing, and applications in real-life situations.",
-  "topics": [
-    "Definition of linear equation",
-    "Solutions of linear equations",
-    "Graph of a linear equation",
-    "Intercepts and slope concept",
-    "Word problems"
-  ],
-  "learningObjectives": [
-    "Identify and form linear equations in two variables.",
-    "Find solutions of linear equations through substitution and trial values.",
-    "Plot graphs of linear equations using ordered pairs.",
-    "Interpret graphs to understand real-life situations involving linear relationships."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m1-ch1-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define a linear equation in two variables with an example.",
-      "answer": "An equation of the form ax + by + c = 0 where a, b, and c are real numbers and a, b are not both zero is a linear equation in two variables. Example: 2x + 3y - 6 = 0.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a solution of the equation 2x + y = 7?",
-      "options": ["x=1, y=5", "x=2, y=4", "x=3, y=1", "x=0, y=8"],
-      "answer": "x=3, y=1",
-      "tags": ["solution"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find any two solutions of the equation x − 2y = 4.",
-      "answer": "Some solutions are (4, 0), (6, 1), (8, 2), etc. (Any two are correct.)",
-      "tags": ["solutions"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "If the cost of 1 pen is ₹x and the cost of 1 pencil is ₹y, write the linear equation representing a total expense of ₹50.",
-      "answer": "The required linear equation is x + y = 50 (or ax + by = 50 depending on quantities).",
-      "tags": ["word-problem"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "The graph of a linear equation in two variables is:",
-      "options": ["A curve", "A straight line", "A parabola", "A circle"],
-      "answer": "A straight line",
-      "tags": ["graph"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Plot the points (0, 3) and (2, -1). What can be said about the line passing through them?",
-      "answer": "Both points lie on a unique straight line which represents a linear equation in two variables.",
-      "tags": ["graph", "points"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Write intercepts of the equation 3x + 6y = 12.",
-      "answer": "x-intercept = 4 (when y = 0), y-intercept = 2 (when x = 0).",
-      "tags": ["intercepts"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Draw the graph of the equation x + 2y = 6. Identify any two points on the graph and determine whether (2, 2) lies on it.",
-      "answer": "Taking values: y=0 → x=6 gives (6, 0); y=1 → x=4 gives (4, 1). Plotting these gives a straight line. Substituting (2,2): 2 + 4 = 6 ✓, hence (2,2) lies on the line.",
-      "tags": ["graph", "verification"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A fruit seller sells apples at ₹x per kg and oranges at ₹y per kg. On a particular day, he sold 5 kg apples and 8 kg oranges for a total of ₹760. Form the linear equation. If apples cost ₹40/kg, find the price of oranges.",
-      "answer": "Linear equation: 5x + 8y = 760. Substituting x = 40: 200 + 8y = 760 → 8y = 560 → y = 70. Oranges cost ₹70/kg.",
-      "tags": ["application", "word-problem"]
-    },
-    {
-      "id": "ms-10-m1-ch1-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain why a linear equation in two variables has infinitely many solutions. Support your answer using an example.",
-      "answer": "A linear equation in two variables represents a straight line, and every point on that line is a solution. Thus, infinitely many ordered pairs satisfy it. Example: For x + y = 5, pairs like (1,4), (2,3), (3,2) etc. are all valid, and the list is infinite.",
-      "tags": ["conceptual"]
-    }
-  ]
-}, {
-  "id": "ms-10-m1-ch2",
-  "chapterNumber": 2,
-  "title": "Quadratic Equations",
-  "slug": "quadratic-equations",
-  "description": "Quadratic equations in standard form, methods of solving (factorization, completing the square, quadratic formula), nature of roots, and word problems.",
-  "topics": [
-    "Standard form of quadratic equation",
-    "Methods of solving quadratic equations",
-    "Factorization",
-    "Completing the square",
-    "Quadratic formula",
-    "Discriminant and nature of roots",
-    "Word problems"
-  ],
-  "learningObjectives": [
-    "Recognize and convert equations into standard quadratic form.",
-    "Solve quadratic equations by factorization and formula.",
-    "Interpret discriminant to determine nature of roots.",
-    "Apply quadratic equations to solve real-life word problems."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m1-ch2-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define a quadratic equation with an example.",
-      "answer": "A quadratic equation is of the form ax² + bx + c = 0, where a ≠ 0. Example: 2x² + 5x - 3 = 0.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a quadratic equation?",
-      "options": ["3x + 5 = 0", "x² - 4x + 4 = 0", "2x³ + 1 = 0", "7 = x"],
-      "answer": "x² - 4x + 4 = 0",
-      "tags": ["identification"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Solve the quadratic equation x² - 9 = 0.",
-      "answer": "x² = 9 → x = ±3.",
-      "tags": ["factorization"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the discriminant of the quadratic equation 2x² + 5x + 3 = 0.",
-      "answer": "D = b² - 4ac = 5² - 4(2)(3) = 25 - 24 = 1.",
-      "tags": ["discriminant"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If the discriminant of a quadratic equation is negative, the roots are:",
-      "options": ["Real and equal", "Real and distinct", "Imaginary", "Zero"],
-      "answer": "Imaginary",
-      "tags": ["nature-of-roots"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Solve by factorization: x² + 7x + 12 = 0.",
-      "answer": "(x + 3)(x + 4) = 0 → x = -3, -4.",
-      "tags": ["factorization"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the quadratic formula.",
-      "answer": "x = [-b ± √(b² - 4ac)] / (2a).",
-      "tags": ["formula"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": `"Solve using the quadratic formula: 3x² - 2x - 1 = 0.",
-      "answer": "a=3, b=-2, c=-1 → D = (-2)² - 4(3)(-1) = 4 + 12 = 16.  
-x = [2 ± √16] / 6 → x = (2 ± 4)/6 → Solutions: x = 1 or x = -1/3."`,
-      "tags": ["quadratic-formula"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "The length of a rectangle is 3 m more than its breadth. If the area is 70 m², form the quadratic equation and find its dimensions.",
-      "answer": `"Let breadth = x; length = x + 3.  
-x(x + 3) = 70 → x² + 3x - 70 = 0.  
-Solving: x = 7 or x = -10. Negative rejected.  
-Breadth = 7 m, Length = 10 m."`,
-      "tags": ["word-problem", "area"]
-    },
-    {
-      "id": "ms-10-m1-ch2-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how the nature of roots of a quadratic equation is determined using the discriminant. Give examples.",
-      "answer": `If D = b² - 4ac:  
-      • D > 0 → real and distinct roots (e.g., x² - 5x + 6 = 0).  
-      • D = 0 → real and equal roots (e.g., x² - 4x + 4 = 0).  
-      • D < 0 → non-real/imaginary roots (e.g., x² + x + 1 = 0).`,
-      "tags": ["conceptual", "discriminant"]
-    }
-  ]
-}, {
-  "id": "ms-10-m1-ch3",
-  "chapterNumber": 3,
-  "title": "Arithmetic Progression",
-  "slug": "arithmetic-progression",
-  "description": "Introduction to arithmetic progressions (AP), common difference, nth term, sum of first n terms, and application-based word problems.",
-  "topics": [
-    "Arithmetic sequence",
-    "Common difference",
-    "General term (nth term)",
-    "Sum of first n terms",
-    "Applications of AP"
-  ],
-  "learningObjectives": [
-    "Identify and form arithmetic progressions.",
-    "Find common difference of an AP.",
-    "Calculate the nth term of an AP.",
-    "Calculate sum of first n terms.",
-    "Solve real-life word problems using AP."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m1-ch3-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define an arithmetic progression (AP).",
-      "answer": "A sequence is called an arithmetic progression if the difference between any two consecutive terms is constant. This constant is called the common difference.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "What is the common difference of the AP 7, 10, 13, 16, …?",
-      "options": ["2", "3", "4", "5"],
-      "answer": "3",
-      "tags": ["common-difference"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the 12th term of the AP 5, 11, 17, …",
-      "answer": `"a = 5, d = 6.  
-T₁₂ = a + (12 − 1)d = 5 + 66 = 71."`,
-      "tags": ["nth-term"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Which term of the AP 4, 9, 14, 19, … is 99?",
-      "answer": `"a = 4, d = 5.  
-99 = 4 + (n − 1)5 → n = 20.  
-So, 99 is the 20th term."`,
-      "tags": ["term-number"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "The sum of first n terms of an AP is given by:",
-      "options": [
-        "Sₙ = n/2 (a − l)",
-        "Sₙ = n/2 (2a + (n−1)d)",
-        "Sₙ = a + nd",
-        "Sₙ = a × d × n"
-      ],
-      "answer": "Sₙ = n/2 (2a + (n−1)d)",
-      "tags": ["sum"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the sum of the first 15 terms of the AP 3, 7, 11, …",
-      "answer": `"a = 3, d = 4.  
-S₁₅ = 15/2 (2×3 + 14×4) = 15/2 (6 + 56) = 15/2 × 62 = 465."`,
-      "tags": ["sum"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How many terms of the AP 6, 13, 20, … are needed to make a sum of 406?",
-      "answer": `"a = 6, d = 7.  
-Sₙ = n/2 (2a + (n−1)d) = 406  
-n/2 (12 + 7n − 7) = 406  
-n(7n + 5) = 812  
-7n² + 5n − 812 = 0 → n = 11."`,
-      "tags": ["sum", "term-number"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "The 5th term of an AP is 22 and the 15th term is 52. Find the first term and the common difference.",
-      "answer": `"Given: T₅ = a + 4d = 22  
-T₁₅ = a + 14d = 52  
-Subtract: 10d = 30 → d = 3  
-Substitute: a + 12 = 22 → a = 10."`,
-      "tags": ["nth-term", "parameters"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A worker earns ₹800 in the first month and gets a raise of ₹50 every month. How much will he earn in the 12th month? What will be his total earning in 12 months?",
-      "answer": `"a = 800, d = 50.  
-T₁₂ = 800 + 11×50 = 1350.  
-S₁₂ = 12/2 (2×800 + 11×50) = 6 (1600 + 550) = 12,900."`,
-      "tags": ["word-problem"]
-    },
-    {
-      "id": "ms-10-m1-ch3-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain why the sequence formed by the total distance travelled by a car each hour at constant speed is an AP. Give an example.",
-      "answer": `"At constant speed, equal distances are covered in equal intervals of time, so the total distance increases by a fixed amount each hour.  
-Example: At 50 km/h: distances = 50, 100, 150, 200… (AP with d = 50)."`,
-      "tags": ["application", "conceptual"]
-    }
-  ]
-}, {
-  "id": "ms-10-m1-ch4",
-  "chapterNumber": 4,
-  "title": "Financial Planning",
-  "slug": "financial-planning",
-  "description": "Profit–loss, simple interest, compound interest, GST, income tax, discount, commissions, investments, savings, and budgeting.",
-  "topics": [
-    "Profit and loss",
-    "Simple interest",
-    "Compound interest",
-    "Goods and Services Tax (GST)",
-    "Income tax",
-    "Discount and commission",
-    "Savings and investment",
-    "Budgeting"
-  ],
-  "learningObjectives": [
-    "Calculate profit, loss, discount, and commission.",
-    "Understand and compute simple and compound interest.",
-    "Apply GST concepts to real-life billing problems.",
-    "Compute income tax using tax slabs.",
-    "Prepare basic household budgets and financial plans."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m1-ch4-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define simple interest and write its formula.",
-      "answer": "Simple interest is interest calculated on the principal for a fixed time period and rate. Formula: SI = (P × R × T) / 100.",
-      "tags": ["simple-interest"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "If GST rate is 18%, which of the following is the correct split between CGST and SGST?",
-      "options": ["12% + 6%", "9% + 9%", "10% + 8%", "8% + 10%"],
-      "answer": "9% + 9%",
-      "tags": ["gst"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A shopkeeper earns a profit of ₹180 on selling an item for ₹900. Find the cost price.",
-      "answer": "Profit = SP − CP → 180 = 900 − CP → CP = ₹720.",
-      "tags": ["profit-loss"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the simple interest on ₹5000 at 12% per annum for 2 years.",
-      "answer": "SI = (5000 × 12 × 2)/100 = ₹1200.",
-      "tags": ["simple-interest"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If a customer gets 20% discount on a marked price of ₹1500, the selling price is:",
-      "options": ["₹1000", "₹1100", "₹1200", "₹1300"],
-      "answer": "₹1200",
-      "tags": ["discount"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A bill shows taxable value = ₹2500 and GST = 18%. Find the total bill amount.",
-      "answer": "GST = 18% of 2500 = ₹450; Total = 2500 + 450 = ₹2950.",
-      "tags": ["gst"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A person invests ₹10,000 at 10% compound interest for 2 years. Find the amount.",
-      "answer": "Amount = P(1 + R/100)² = 10000(1.1)² = 10000 × 1.21 = ₹12,100.",
-      "tags": ["compound-interest"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A trader allows 10% discount on an article marked ₹2000 and still gains 8%. Find the cost price.",
-      "answer": `"SP after discount = 2000 − 10% of 2000 = 2000 − 200 = ₹1800.  
-Since gain = 8%, CP = SP / 1.08 = 1800 / 1.08 = ₹1666.67 (approx)."`,
-      "tags": ["profit-loss", "discount"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "An employee with an annual income of ₹4,80,000 gets: standard deduction ₹50,000 and investments under 80C = ₹1,00,000. Tax slab: 5% on income up to ₹3,00,000 (after deductions). Calculate income tax.",
-      "answer": `"Taxable income = 4,80,000 − 50,000 − 1,00,000 = ₹3,30,000.  
-Tax = 5% on ₹3,00,000 = ₹15,000.  
-Remaining ₹30,000 taxed at 20% = ₹6,000.  
-Total tax = ₹21,000."`,
-      "tags": ["income-tax"]
-    },
-    {
-      "id": "ms-10-m1-ch4-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A person takes a loan of ₹1,20,000 at 10% annual compound interest. He repays in 2 equal annual installments. Find each installment using EMI formula.",
-      "answer": `"EMI formula: EMI = P × R(1+R)ⁿ / [(1+R)ⁿ − 1]  
-R = 10% = 0.10, n = 2  
-EMI = 120000 × 0.10 × 1.10² / (1.10² − 1)  
-= 120000 × 0.10 × 1.21 / 0.21  
-= 120000 × 0.121 / 0.21  
-= ₹69,142.86 approx."`,
-      "tags": ["emi", "loan", "compound-interest"]
-    }
-  ]
-}, {
-  "id": "ms-10-m1-ch5",
-  "chapterNumber": 5,
-  "title": "Probability",
-  "slug": "probability",
-  "description": "Classical (theoretical) probability, sample space, events, complementary events, and real-life applications.",
-  "topics": [
-    "Random experiments",
-    "Sample space",
-    "Events",
-    "Classical probability formula",
-    "Complementary events",
-    "Applications of probability"
-  ],
-  "learningObjectives": [
-    "Understand the concept of a random experiment and sample space.",
-    "Compute classical probability of events.",
-    "Identify complementary events and use them for calculations.",
-    "Solve real-life problems involving probability."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m1-ch5-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define probability.",
-      "answer": "Probability is the measure of the likelihood of an event occurring and is given by: P(E) = (Number of favourable outcomes) / (Total number of possible outcomes).",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "What is the probability of getting a tail when tossing a fair coin?",
-      "options": ["0", "1", "1/2", "2"],
-      "answer": "1/2",
-      "tags": ["coin-toss"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A die is rolled. What is the probability of getting a number greater than 4?",
-      "answer": `"Numbers greater than 4 are 5 and 6 → 2 favourable outcomes.  
-Total outcomes = 6 → Probability = 2/6 = 1/3."`,
-      "tags": ["die", "events"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A bag contains 3 red balls and 5 blue balls. A ball is drawn at random. Find the probability of drawing a blue ball.",
-      "answer": "Total balls = 8, blue balls = 5 → Probability = 5/8.",
-      "tags": ["balls", "events"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If P(A) = 0.7, then P(A') (complement of A) is:",
-      "options": ["0.3", "0.7", "1.7", "0"],
-      "answer": "0.3",
-      "tags": ["complementary-events"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A card is drawn from a deck of 52 playing cards. Find the probability of drawing a king.",
-      "answer": "There are 4 kings in the deck → Probability = 4/52 = 1/13.",
-      "tags": ["cards"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the probability of getting an even number when a die is rolled.",
-      "answer": `"Even numbers: 2, 4, 6 → 3 favourable outcomes.  
-Probability = 3/6 = 1/2."`,
-      "tags": ["die"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A box contains 2 white, 3 black, and 5 red balls. One ball is drawn at random. Find the probability of drawing (a) a white ball, (b) a black ball, (c) a red ball.",
-      "answer": `"Total balls = 10  
-(a) P(white) = 2/10 = 1/5  
-(b) P(black) = 3/10  
-(c) P(red) = 5/10 = 1/2"`,
-      "tags": ["balls", "multiple-events"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "The probability that a student passes an exam is 0.78. What is the probability that the student fails? Also interpret the meaning.",
-      "answer":` "P(fail) = 1 − 0.78 = 0.22.  
-Interpretation: Out of 100 similar students, about 22 may fail."`,
-      "tags": ["complementary-events", "interpretation"]
-    },
-    {
-      "id": "ms-10-m1-ch5-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A number is chosen randomly from the numbers 1 to 30. Find the probability that the number is (a) a multiple of 3, (b) a prime number.",
-      "answer": `"(a) Multiples of 3: 3,6,9,12,15,18,21,24,27,30 → 10 numbers → P = 10/30 = 1/3  
-(b) Prime numbers between 1 and 30: 2,3,5,7,11,13,17,19,23,29 → 10 numbers → P = 10/30 = 1/3."`,
-      "tags": ["number-system", "events"]
-    }
-  ]
-}, {
-  "id": "ms-10-m1-ch6",
-  "chapterNumber": 6,
-  "title": "Statistics",
-  "slug": "statistics",
-  "description": "Mean, median, mode, grouped and ungrouped data, cumulative frequency tables, ogives, and data interpretation.",
-  "topics": [
-    "Ungrouped data",
-    "Grouped frequency distribution",
-    "Mean",
-    "Median",
-    "Mode",
-    "Cumulative frequency",
-    "Ogive",
-    "Graphical interpretation"
-  ],
-  "learningObjectives": [
-    "Calculate mean, median, and mode for grouped and ungrouped data.",
-    "Prepare grouped frequency tables and cumulative frequency tables.",
-    "Interpret data using graphs and ogives.",
-    "Solve real-life problems involving statistical data."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m1-ch6-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define mean of ungrouped data.",
-      "answer": "Mean is the sum of all observations divided by the total number of observations.",
-      "tags": ["mean"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "The median of the data 4, 7, 2, 9, 5 is:",
-      "options": ["4", "5", "7", "9"],
-      "answer": "5",
-      "tags": ["median"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the mean of the following data: 10, 20, 30, 40, 50.",
-      "answer": "Mean = (10 + 20 + 30 + 40 + 50) / 5 = 150 / 5 = 30.",
-      "tags": ["mean"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "For the data: 2, 3, 3, 4, 5, 5, 5, 6, find the mode.",
-      "answer": "Mode is 5 (it appears most frequently).",
-      "tags": ["mode"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which of the following represents a cumulative frequency?",
-      "options": [
-        "Frequency of one class",
-        "Sum of all frequencies",
-        "Running total of frequencies",
-        "Difference between frequencies"
-      ],
-      "answer": "Running total of frequencies",
-      "tags": ["cumulative-frequency"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": `"Find the median class for the following table:  
-Class intervals: 0–10, 10–20, 20–30, 30–40  
-Frequencies: 5, 8, 12, 5"`,
-      "answer": `"Total frequency = 30 → Median lies at 15th observation.  
-Cumulative frequencies: 5, 13, 25, 30 → Median class = 20–30."`,
-      "tags": ["median", "grouped-data"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Write the formula for mean of grouped data.",
-      "answer": "Mean = Σ(f × x) / Σf, where x is the midpoint of each class.",
-      "tags": ["mean", "grouped-data"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": `"The following table shows marks scored by students. Find the mean.  
-Class intervals: 0–10, 10–20, 20–30, 30–40  
-Frequencies: 4, 6, 10, 5"`,
-      "answer": `"Midpoints: 5, 15, 25, 35  
-Σ(fx) = 4×5 + 6×15 + 10×25 + 5×35  
-= 20 + 90 + 250 + 175 = 535  
-Σf = 25  
-Mean = 535 / 25 = 21.4"`,
-      "tags": ["mean", "grouped-data"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how to draw a less-than ogive for grouped data.",
-      "answer": `"Steps:  
-1. Prepare cumulative frequencies for 'less-than' type.  
-2. Plot points (upper class boundary, cumulative frequency).  
-3. Join points smoothly to form the ogive.  
-4. Use it to estimate median graphically.  
-This graph shows cumulative distribution of data."`,
-      "tags": ["ogive", "graph"]
-    },
-    {
-      "id": "ms-10-m1-ch6-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A student scored the following marks in 6 tests: 35, 40, 50, 45, 55, 65. Find the mean, median, and mode.",
-      "answer": `"Mean = (35 + 40 + 50 + 45 + 55 + 65) / 6 = 290 / 6 = 48.33  
-Arranged data: 35, 40, 45, 50, 55, 65  
-Median = average of 3rd and 4th terms = (45 + 50)/2 = 47.5  
-Mode = none (all values appear once)."`,
-      "tags": ["mean", "median", "mode"]
-    }
-  ]
-}
-]
-}, {
-  board: "msbshse",
-  medium: "english",
-  classKey: "10",
-  subjectSlug: "mathematics-2",
-  chapters: [
-    {
-  "id": "ms-10-m2-ch1",
-  "chapterNumber": 1,
-  "title": "Similarity",
-  "slug": "similarity",
-  "description": "Properties of similar triangles, tests of similarity, basic proportionality theorem, ratio of areas, and applications.",
-  "topics": [
-    "Definition of similarity",
-    "Basic proportionality theorem (Thales theorem)",
-    "Tests of similarity (AAA, SAS, SSS)",
-    "Properties of similar triangles",
-    "Ratio of areas of similar triangles",
-    "Applications of similarity in geometry"
-  ],
-  "learningObjectives": [
-    "Understand the meaning of similarity and criteria for similar triangles.",
-    "Apply AAA, SAS, and SSS tests to determine triangle similarity.",
-    "Use basic proportionality theorem to solve geometric problems.",
-    "Compare areas and sides of similar triangles.",
-    "Apply similarity to real-life and geometric constructions."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch1-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define similar triangles.",
-      "answer": "Two triangles are said to be similar if their corresponding angles are equal and their corresponding sides are in proportion.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a valid similarity test for triangles?",
-      "options": ["ASA", "AAA", "RHS", "HL"],
-      "answer": "AAA",
-      "tags": ["tests-of-similarity"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the Basic Proportionality Theorem (Thales theorem).",
-      "answer": "If a line is drawn parallel to one side of a triangle intersecting the other two sides, it divides those two sides proportionally.",
-      "tags": ["bpt", "theorem"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "In ΔABC, DE ∥ BC and intersects AB at D and AC at E. If AD = 3, DB = 6, and AE = 4, find EC.",
-      "answer": "Since DE ∥ BC, AD/DB = AE/EC → 3/6 = 4/EC → 1/2 = 4/EC → EC = 8.",
-      "tags": ["bpt", "ratio"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If two triangles are similar, then the ratio of their areas is equal to:",
-      "options": ["ratio of sides", "square of ratio of sides", "ratio of angles", "ratio of perimeters"],
-      "answer": "square of ratio of sides",
-      "tags": ["area-ratio"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "If ΔABC ∼ ΔPQR and AB/PQ = 3/5, what is the ratio of their areas?",
-      "answer": "Area ratio = (AB/PQ)² = (3/5)² = 9/25.",
-      "tags": ["area-ratio"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Triangles ABC and DEF are similar. If AB = 7, DE = 14, and BC = 5, find EF.",
-      "answer": "Scale factor = DE/AB = 14/7 = 2 → EF = 2 × BC = 10.",
-      "tags": ["similarity", "ratio"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Prove that if two triangles are similar, then their corresponding medians are in the same ratio as their corresponding sides.",
-      "answer": `"Let ΔABC ∼ ΔPQR with AB/PQ = k.  
-Consider medians AM and PU.  
-Since medians join vertices to midpoints of opposite sides,  
-AB/PQ = BC/QR = CA/PR = k.  
-Thus, midpoints divide sides proportionally.  
-Using triangle similarity between ΔABM and ΔPQU, we get AM/PU = k."`,
-      "tags": ["proof", "medians", "similarity"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "In ΔABC, DE ∥ BC. If AB = 10, AD = 6, and AC = 12, find AE.",
-      "answer": `"By BPT: AD/DB = AE/EC.  
-DB = AB − AD = 10 − 6 = 4.  
-So AD/DB = 6/4 = 3/2.  
-Also AC = AE + EC → 12 = AE + EC.  
-AE/EC = 3/2 → Let AE = 3k, EC = 2k → 3k + 2k = 5k = 12 → k = 2.4.  
-Thus AE = 3k = 7.2."`,
-      "tags": ["bpt", "application"]
-    },
-    {
-      "id": "ms-10-m2-ch1-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "If ΔABC ∼ ΔPQR and the area of ΔABC is 63 cm² while the area of ΔPQR is 112 cm², and BC = 9 cm, find QR.",
-      "answer": `"Area ratio = 63/112 = 9/16.  
-Thus (BC/QR)² = 9/16.  
-Taking square roots: BC/QR = 3/4 → QR = (4/3) × 9 = 12 cm."`,
-      "tags": ["area-ratio", "similarity"]
-    }
-  ]
-}, {
-  "id": "ms-10-m2-ch2",
-  "chapterNumber": 2,
-  "title": "Pythagoras Theorem",
-  "slug": "pythagoras-theorem",
-  "description": "Properties of right-angled triangles, Pythagoras theorem, its converse, applications, and proofs based on similarity.",
-  "topics": [
-    "Right-angled triangles",
-    "Pythagoras theorem",
-    "Converse of Pythagoras theorem",
-    "Geometric proof using similarity",
-    "Applications in measurement problems"
-  ],
-  "learningObjectives": [
-    "Understand and apply Pythagoras theorem to find sides of right-angled triangles.",
-    "Use the converse of Pythagoras theorem to test if a triangle is right-angled.",
-    "Solve practical and geometrical problems using the theorem.",
-    "Prove the theorem using similarity of triangles."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch2-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "State the Pythagoras theorem.",
-      "answer": "In a right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.",
-      "tags": ["definition", "theorem"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "In a right-angled triangle, the longest side is called the:",
-      "options": ["Base", "Altitude", "Median", "Hypotenuse"],
-      "answer": "Hypotenuse",
-      "tags": ["right-triangle"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the hypotenuse of a right-angled triangle with legs 9 cm and 12 cm.",
-      "answer": "Hypotenuse = √(9² + 12²) = √(81 + 144) = √225 = 15 cm.",
-      "tags": ["numerical"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Check whether the sides 7 cm, 24 cm, and 25 cm form a right-angled triangle.",
-      "answer": "25² = 625 and 7² + 24² = 49 + 576 = 625 → Satisfies Pythagoras theorem → Yes, it is a right-angled triangle.",
-      "tags": ["converse", "right-triangle"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If a triangle has sides 10, 15, and 20 cm, then:",
-      "options": [
-        "It is a right-angled triangle",
-        "It is not a right-angled triangle",
-        "It must be isosceles",
-        "It must be equilateral"
-      ],
-      "answer": "It is not a right-angled triangle",
-      "tags": ["converse"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "In a right-angled triangle ABC, right-angled at B, AB = 8 cm and AC = 17 cm. Find BC.",
-      "answer": "BC = √(AC² − AB²) = √(289 − 64) = √225 = 15 cm.",
-      "tags": ["numerical"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the converse of the Pythagoras theorem.",
-      "answer": "If in a triangle the square of one side equals the sum of squares of the other two sides, then the triangle is right-angled.",
-      "tags": ["definition", "converse"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Prove the Pythagoras theorem using similarity of triangles.",
-      "answer": `"In right triangle ABC, ∠ABC = 90°.  
-Draw altitude BD on AC.  
-Triangles ABD, CBD, and ABC are similar.  
-From similarity, AB² = AD × AC and BC² = CD × AC.  
-Adding both: AB² + BC² = AC(AD + CD) = AC².  
-Hence proved."`,
-      "tags": ["proof", "similarity"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": `"A ladder 13 m long is leaning against a wall. Its foot is 5 m away from the wall. Find the height reached by the ladder.",
-      "answer": "Let height reached = h.  
-h² + 5² = 13² → h² + 25 = 169 → h² = 144 → h = 12 m."`,
-      "tags": ["application"]
-    },
-    {
-      "id": "ms-10-m2-ch2-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A man walks 8 km west and then 6 km north. How far is he from the starting point?",
-      "answer": "Distance = √(8² + 6²) = √(64 + 36) = √100 = 10 km.",
-      "tags": ["application", "distance"]
-    }
-  ]
-}, {
-  "id": "ms-10-m2-ch3",
-  "chapterNumber": 3,
-  "title": "Circle",
-  "slug": "circle",
-  "description": "Properties of tangents to a circle, perpendicularity of radius to tangent, number of tangents from a point, and applications in geometry.",
-  "topics": [
-    "Tangent to a circle",
-    "Radius-tangent relationship",
-    "Number of tangents from a point",
-    "Properties of tangents",
-    "Length of tangents",
-    "Applications in geometric problems"
-  ],
-  "learningObjectives": [
-    "Understand properties of tangents to a circle.",
-    "Apply the theorem: Tangent is perpendicular to radius.",
-    "Find number of tangents from internal and external points.",
-    "Use tangent properties to solve geometrical problems.",
-    "Prove tangent-related statements using geometry."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch3-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define a tangent to a circle.",
-      "answer": "A tangent is a line that touches the circle at exactly one point.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "A tangent to a circle is always ______ to the radius at the point of contact.",
-      "options": ["parallel", "equal", "perpendicular", "secant"],
-      "answer": "perpendicular",
-      "tags": ["tangent-radius"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How many tangents can be drawn to a circle from an external point?",
-      "answer": "Exactly two tangents can be drawn from an external point.",
-      "tags": ["tangents"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the theorem related to the radius and tangent at their point of contact.",
-      "answer": "The tangent to a circle is perpendicular to the radius drawn to the point of contact.",
-      "tags": ["theorem"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If two tangents are drawn from a point to a circle, then the lengths of the tangents are:",
-      "options": ["Unequal", "Always equal", "Sometimes equal", "Cannot be determined"],
-      "answer": "Always equal",
-      "tags": ["tangent-length"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "In a circle, from an external point P, tangents PA and PB are drawn. If PA = 12 cm, find PB.",
-      "answer": "PB = 12 cm (tangents from an external point are equal).",
-      "tags": ["tangent-length"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "In ΔAPB formed by two tangents PA and PB, show that ∠APB is supplementary to the central angle.",
-      "answer": "In a circle, ∠AOB + ∠APB = 180° because quadrilateral APOB is cyclic.",
-      "tags": ["cyclic", "tangent-properties"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Prove that the lengths of two tangents drawn from an external point to a circle are equal.",
-      "answer": `"Let PA and PB be tangents from point P to the circle with center O.  
-Join OA and OB.  
-PA ⟂ OA and PB ⟂ OB.  
-OA = OB (radii).  
-Right triangles OAP and OBP share OP as common side.  
-By RHS congruence, ΔOAP ≅ ΔOBP → PA = PB."`,
-      "tags": ["proof", "tangent-length"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "From a point 15 cm away from the center of a circle, a tangent of length 9 cm is drawn. Find the radius of the circle.",
-      "answer": `"Let O be center, P external point, A point of contact.  
-OP² = OA² + AP²  
-15² = r² + 9² → 225 = r² + 81 → r² = 144 → r = 12 cm."`,
-      "tags": ["numerical", "application"]
-    },
-    {
-      "id": "ms-10-m2-ch3-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": `"Two tangents PA and PB are drawn from a point P to a circle with center O. If ∠APB = 70°, find ∠AOB.",
-      "answer": "∠AOB = 180° − ∠APB (tangent–radius theorem and cyclic quadrilateral).  
-∠AOB = 180° − 70° = 110°."`,
-      "tags": ["angles", "tangent-theorem"]
-    }
-  ]
-}, {
-  "id": "ms-10-m2-ch4",
-  "chapterNumber": 4,
-  "title": "Geometric Constructions",
-  "slug": "geometric-constructions",
-  "description": "Construction of similar triangles, division of lines, construction of tangents, and geometric reasoning using ruler–compass.",
-  "topics": [
-    "Division of a line segment",
-    "Construction of similar triangles",
-    "Construction using scale factor",
-    "Construction of tangents",
-    "Geometric reasoning in constructions"
-  ],
-  "learningObjectives": [
-    "Construct similar triangles using a given scale factor.",
-    "Divide a line segment into n equal parts using ruler and compass.",
-    "Construct tangents from an external point to a circle.",
-    "Understand geometric reasoning behind each construction step.",
-    "Apply constructions in solving real geometric problems."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch4-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "State the steps to divide a line segment AB into 3 equal parts.",
-      "answer": "1. Draw a ray AX making an acute angle with AB. 2. Mark 3 equal points A1, A2, A3 on AX. 3. Join A3 to B. 4. Draw lines through A1 and A2 parallel to A3B using a compass or set square.",
-      "tags": ["division"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "To construct a triangle similar to a given triangle with scale factor 3/2, we:",
-      "options": [
-        "Reduce the length of sides",
-        "Increase the length of sides",
-        "Reflect the triangle",
-        "Rotate the triangle"
-      ],
-      "answer": "Increase the length of sides",
-      "tags": ["similar-triangles"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is a scale factor in geometric constructions?",
-      "answer": "Scale factor is the ratio by which all sides of a given figure are increased or decreased to construct a similar figure.",
-      "tags": ["scale-factor"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Describe how to construct a triangle similar to ΔABC with scale factor 2/3.",
-      "answer": "1. Draw a ray from A. 2. Mark 3 equal segments since denominator is 3. 3. Join the 2nd point (numerator) to C. 4. Draw a line parallel to it from the 3rd point to cut AB. 5. Connect appropriately to get the reduced triangle.",
-      "tags": ["construction", "similarity"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "How many tangents can be drawn from a point outside a circle?",
-      "options": ["None", "One", "Two", "Infinitely many"],
-      "answer": "Two",
-      "tags": ["tangent-construction"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain why a triangle constructed with scale factor 1/2 is similar to the original triangle.",
-      "answer": "Because each side of the new triangle is proportional to the corresponding side of the original triangle by the ratio 1:2, and proportional sides preserve angle equality, ensuring similarity.",
-      "tags": ["similarity", "reasoning"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Write steps to construct tangents from an external point P to a circle with center O.",
-      "answer": "1. Join OP. 2. Find midpoint M of OP. 3. Draw a circle with center M and radius MP. 4. The intersections with the given circle give tangent points. 5. Join P to the points of contact.",
-      "tags": ["tangents"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Construct a triangle similar to ΔABC with scale factor 4/3. Explain each step.",
-      "answer": `"Steps:  
-1. Draw ΔABC.  
-2. From A, draw a ray making an acute angle with AB.  
-3. Mark 4 equal segments on the ray (numerator = 4).  
-4. Join the 3rd mark (denominator = 3) to B.  
-5. Draw a line from the 4th mark parallel to this line to meet AB extended at B'.  
-6. From B', draw a line parallel to BC to meet AC produced at C'.  
-ΔAB'C' is similar to ΔABC with scale factor 4/3."`,
-      "tags": ["similar-construction", "scale-factor"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A segment of length 9 cm must be divided in the ratio 4:5. Describe the construction steps.",
-      "answer": `"1. Draw segment AB = 9 cm.  
-2. Draw a ray from A making an acute angle with AB.  
-3. Mark 9 equal parts on the ray.  
-4. Join the 9th point to B.  
-5. Draw a line through the 4th point parallel to the joining line.  
-The intersection on AB gives the point dividing AB in ratio 4:5."`,
-      "tags": ["division", "ratio"]
-    },
-    {
-      "id": "ms-10-m2-ch4-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Construct tangents from an external point P to a circle of radius 3 cm and center O, where OP = 8 cm. State the reasoning behind the construction.",
-      "answer": `"Construction:  
-1. Join OP.  
-2. Find midpoint M of OP.  
-3. Draw a circle with center M and radius MP.  
-4. Let it intersect the given circle at points A and B.  
-5. Lines PA and PB are tangents.  
-Reason: OM = MP creates a right triangle AMP, ensuring PA ⟂ OA at the point of contact."`,
-      "tags": ["tangent-construction", "reasoning"]
-    }
-  ]
-}, {
-  "id": "ms-10-m2-ch5",
-  "chapterNumber": 5,
-  "title": "Coordinate Geometry",
-  "slug": "coordinate-geometry",
-  "description": "Distance formula, section formula, area of triangle, midpoint formula, and applications in coordinate geometry.",
-  "topics": [
-    "Distance formula",
-    "Midpoint formula",
-    "Section formula",
-    "Area of triangle",
-    "Collinearity",
-    "Applications of coordinate geometry"
-  ],
-  "learningObjectives": [
-    "Calculate the distance between two points using the distance formula.",
-    "Find the midpoint of a segment joining two points.",
-    "Use the section formula to divide a line segment in a given ratio.",
-    "Calculate the area of a triangle using coordinates.",
-    "Determine collinearity of points using area formula."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch5-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Write the distance formula between two points (x₁, y₁) and (x₂, y₂).",
-      "answer": "Distance = √[(x₂ − x₁)² + (y₂ − y₁)²].",
-      "tags": ["distance-formula"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "What is the midpoint of the segment joining (2, 6) and (4, 10)?",
-      "options": ["(3, 8)", "(6, 16)", "(1, 4)", "(8, 3)"],
-      "answer": "(3, 8)",
-      "tags": ["midpoint"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the distance between the points A(1, 2) and B(7, 5).",
-      "answer": "Distance = √[(7 − 1)² + (5 − 2)²] = √(36 + 9) = √45 = 3√5.",
-      "tags": ["distance-formula"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the coordinates of the point dividing the segment joining (2, 3) and (8, 9) in the ratio 1:2.",
-      "answer": `"Using section formula:  
-x = (1×8 + 2×2) / 3 = 12/3 = 4  
-y = (1×9 + 2×3) / 3 = 15/3 = 5  
-Point = (4, 5)."`,
-      "tags": ["section-formula"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If area of triangle ABC is zero, then the points A, B, C are:",
-      "options": ["Concurrent", "Coplanar", "Collinear", "None"],
-      "answer": "Collinear",
-      "tags": ["collinearity"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the area of the triangle with vertices (1, 1), (4, 5), and (6, 2).",
-      "answer": `"Area = 1/2 |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|  
-= 1/2 |1(5 − 2) + 4(2 − 1) + 6(1 − 5)|  
-= 1/2 |3 + 4 − 24| = 1/2 × 17 = 8.5 sq. units."`,
-      "tags": ["area"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Find the midpoint of the segment joining (−3, 7) and (5, −1).",
-      "answer": "Midpoint = ((−3 + 5)/2, (7 − 1)/2) = (1, 3).",
-      "tags": ["midpoint"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Show that the points (2, −1), (4, 3), and (6, 7) are collinear.",
-      "answer": `"Area = 1/2 |2(3 − 7) + 4(7 + 1) + 6(−1 − 3)|  
-= 1/2 |2(−4) + 4(8) + 6(−4)|  
-= 1/2 |−8 + 32 − 24| = 1/2 × 0 = 0  
-Since area = 0, points are collinear."`,
-      "tags": ["collinearity", "area"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A point divides the segment joining A(−2, 4) and B(8, 10) in the ratio 3:2 internally. Find its coordinates.",
-      "answer": `"Using section formula:  
-x = (3×8 + 2×(−2)) / 5 = (24 − 4)/5 = 20/5 = 4  
-y = (3×10 + 2×4) / 5 = (30 + 8)/5 = 38/5 = 7.6  
-Point = (4, 7.6)."`,
-      "tags": ["section-formula"]
-    },
-    {
-      "id": "ms-10-m2-ch5-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "The vertices of a triangle are A(1, 2), B(4, 6), and C(−2, 8). Find its area and determine whether it is a right triangle.",
-      "answer": `"Area = 1/2 |1(6 − 8) + 4(8 − 2) + (−2)(2 − 6)|  
-= 1/2 |1(−2) + 4(6) + (−2)(−4)|  
-= 1/2 |−2 + 24 + 8| = 1/2 × 30 = 15 sq. units.  
-Check right triangle using distance formula:  
-AB = √[(4 − 1)² + (6 − 2)²] = 5  
-BC = √[(−2 − 4)² + (8 − 6)²] = √40  
-CA = √[(1 + 2)² + (2 − 8)²] = √45  
-Check AB² + BC² = CA²?  
-25 + 40 ≠ 45 → Not a right triangle."`,
-      "tags": ["area", "distance", "classification"]
-    }
-  ]
-}, {
-  "id": "ms-10-m2-ch6",
-  "chapterNumber": 6,
-  "title": "Trigonometry",
-  "slug": "trigonometry",
-  "description": "Introduction to trigonometric ratios, identities, values of standard angles, and applications in height–distance problems.",
-  "topics": [
-    "Trigonometric ratios",
-    "Values of trigonometric ratios",
-    "Trigonometric identities",
-    "Heights and distances",
-    "Right triangle applications"
-  ],
-  "learningObjectives": [
-    "Understand definitions of trigonometric ratios using right triangles.",
-    "Recall and apply standard trigonometric values.",
-    "Use basic identities such as sin²θ + cos²θ = 1.",
-    "Solve height and distance problems using trigonometry.",
-    "Apply trigonometric ratios to real-life measurement situations."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch6-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define sin θ and cos θ in a right-angled triangle.",
-      "answer": "sin θ = (Opposite side) / (Hypotenuse), cos θ = (Adjacent side) / (Hypotenuse).",
-      "tags": ["ratios"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "What is the value of tan 45°?",
-      "options": ["0", "1", "√3", "Undefined"],
-      "answer": "1",
-      "tags": ["standard-values"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "If sin θ = 3/5, find cos θ.",
-      "answer": "sin θ = 3/5 → Opp = 3, Hyp = 5 → Adj = √(5² − 3²) = 4 → cos θ = 4/5.",
-      "tags": ["ratios", "numerical"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State the identity relating sin²θ and cos²θ.",
-      "answer": "sin²θ + cos²θ = 1.",
-      "tags": ["identity"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "If tan θ = 1/√3, what is θ?",
-      "options": ["30°", "45°", "60°", "90°"],
-      "answer": "30°",
-      "tags": ["standard-values"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Evaluate: cos 30° + sin 60°.",
-      "answer": "cos 30° = √3/2, sin 60° = √3/2 → Sum = √3.",
-      "tags": ["evaluation"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "If a ladder makes an angle of 60° with the ground and reaches a height of 8 m, find the length of the ladder.",
-      "answer": "sin 60° = √3/2 = 8/L → L = 8 × 2/√3 = 16/√3 = 9.24 m approx.",
-      "tags": ["application", "height-distance"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Prove that tan θ = sin θ / cos θ.",
-      "answer": `"In a right-angled triangle:  
-tan θ = Opp/Adj, sin θ = Opp/Hyp, cos θ = Adj/Hyp.  
-Thus sin θ / cos θ = (Opp/Hyp) / (Adj/Hyp) = Opp/Adj = tan θ."`,
-      "tags": ["identity", "proof"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "An observer standing 20 m from a tree sees the top at an angle of elevation of 45°. Find the height of the tree.",
-      "answer": "tan 45° = 1 = height / 20 → height = 20 m.",
-      "tags": ["height-distance", "application"]
-    },
-    {
-      "id": "ms-10-m2-ch6-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A man on top of a tower 30 m high sees a car on the road at a distance. The angle of depression is 30°. Find the distance of the car from the tower base.",
-      "answer": "tan 30° = 1/√3 = 30 / d → d = 30√3 ≈ 51.96 m.",
-      "tags": ["distance", "application"]
-    }
-  ]
-}, {
-  "id": "ms-10-m2-ch7",
-  "chapterNumber": 7,
-  "title": "Mensuration",
-  "slug": "mensuration",
-  "description": "Surface areas and volumes of basic solid figures such as cuboid, cylinder, cone, sphere, hemisphere, and frustum.",
-  "topics": [
-    "Surface area of cuboid & cube",
-    "Surface area of cylinder",
-    "Surface area of cone",
-    "Surface area of sphere & hemisphere",
-    "Volume of solids",
-    "Frustum of cone",
-    "Applications of mensuration"
-  ],
-  "learningObjectives": [
-    "Calculate curved and total surface areas of standard solids.",
-    "Find volumes of cubes, cuboids, cylinders, cones, spheres, and hemispheres.",
-    "Apply formulas to solve practical mensuration problems.",
-    "Understand and compute surface area and volume of a frustum.",
-    "Use mensuration concepts in real-life applications involving 3D shapes."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-m2-ch7-q1",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Write the formula for the volume of a cylinder.",
-      "answer": "Volume of cylinder = πr²h.",
-      "tags": ["cylinder", "volume"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q2",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "The curved surface area of a cone is given by:",
-      "options": [
-        "πr²",
-        "πrl",
-        "2πrh",
-        "4πr²"
-      ],
-      "answer": "πrl",
-      "tags": ["cone", "surface-area"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A hemisphere has radius 7 cm. Find its curved surface area.",
-      "answer": "CSA = 2πr² = 2π(7²) = 98π cm².",
-      "tags": ["hemisphere", "surface-area"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A cone has radius 5 cm and slant height 13 cm. Find its curved surface area.",
-      "answer": "CSA = πrl = π × 5 × 13 = 65π cm².",
-      "tags": ["cone", "surface-area"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which of the following is the formula for the volume of a sphere?",
-      "options": [
-        "(4/3)πr³",
-        "2πr²h",
-        "πr²h",
-        "πrl"
-      ],
-      "answer": "(4/3)πr³",
-      "tags": ["sphere", "volume"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A cylindrical water tank has radius 4 m and height 6 m. Find its volume.",
-      "answer": "Volume = πr²h = π × 16 × 6 = 96π m³.",
-      "tags": ["cylinder", "volume"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "A sphere has radius 3 cm. Find its total surface area.",
-      "answer": "TSA = 4πr² = 4π(3²) = 36π cm².",
-      "tags": ["sphere", "surface-area"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A frustum of a cone has radii 6 cm and 10 cm and height 12 cm. Find its volume.",
-      "answer": `"Volume of frustum = (1/3)πh(R² + r² + Rr)  
-= (1/3)π × 12 × (10² + 6² + 10×6)  
-= 4π × (100 + 36 + 60)  
-= 4π × 196 = 784π cm³."`,
-      "tags": ["frustum", "volume"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A cone is melted to form a cylinder of radius 3 cm and height 4 cm. If the radius of the cone is 6 cm, find its height.",
-      "answer": `"Volume of cone = Volume of cylinder  
-(1/3)πR²H = πr²h  
-(1/3)π × 6² × H = π × 3² × 4  
-12H = 36  
-H = 3 cm."`,
-      "tags": ["mensuration", "volume", "conversion"]
-    },
-    {
-      "id": "ms-10-m2-ch7-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "A solid metallic sphere of radius 5 cm is melted and recast into cones of radius 2 cm and height 10 cm. How many cones are formed?",
-      "answer": `"Volume of sphere = (4/3)π(5³) = (4/3)π × 125 = 500π/3  
-Volume of cone = (1/3)πr²h = (1/3)π × 4 × 10 = 40π/3  
-Number of cones = (500π/3) ÷ (40π/3) = 500/40 = 12.5 → 12 cones (full cones)."`,
-      "tags": ["sphere", "cone", "mensuration"]
-    }
-  ]
-}
-  ]
-}, {
-  board: "msbshse",
-  medium: "english",
-  classKey: "10",
-  subjectSlug: "history-and-political-science",
-  chapters: [
-    {
-  "id": "ms-10-hps-ch1",
-  "chapterNumber": 1,
-  "title": "Historiography: Development in the West",
-  "slug": "historiography-development-west",
-  "description": "Study of how Western historiography developed through various philosophical traditions and methodological shifts.",
-  "topics": [
-    "Greek Historiography",
-    "Roman Historiography",
-    "Renaissance and Scientific Approach",
-    "Modern Historiography",
-    "Positivism",
-    "Marxist Historiography",
-    "Annales School"
-  ],
-  "learningObjectives": [
-    "Explain the evolution of historiography in Western civilisation.",
-    "Understand key historiographical traditions such as Positivism, Marxism, and Annales School.",
-    "Differentiate between ancient, medieval, and modern approaches to history writing.",
-    "Recognize the contribution of Western thinkers to historiographical methods."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch1-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Who is known as the 'Father of Scientific History'?",
-      "options": ["Herodotus", "Thucydides", "Karl Marx", "Voltaire"],
-      "answer": "Thucydides",
-      "tags": ["greek", "scientific-approach"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is meant by historiography?",
-      "answer": "Historiography refers to the study of how history is written, including the methods, sources, interpretations, and philosophy behind writing history.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two features of Roman historiography.",
-      "answer": "Roman historiography emphasized chronological narration of political events, and often included explanations highlighting moral lessons or glorifying Rome.",
-      "tags": ["roman-history"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q4",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which philosophical approach emphasised 'scientific method' in history?",
-      "options": ["Annales School", "Positivism", "Romanticism", "Marxism"],
-      "answer": "Positivism",
-      "tags": ["positivism"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q5",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the main focus of Marxist historiography?",
-      "answer": "Marxist historiography focuses on class struggle, economic forces, and material conditions as the primary drivers of historical change.",
-      "tags": ["marxism"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the contribution of the Annales School to historiography.",
-      "answer": "The Annales School emphasized long-term social history ('longue durée'), studying common people, environment, and structures rather than only political events.",
-      "tags": ["annales-school"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q7",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which Western thinker is associated with applying rational and secular methods in history writing during the Enlightenment?",
-      "options": ["Voltaire", "Herodotus", "Thucydides", "Levi-Strauss"],
-      "answer": "Voltaire",
-      "tags": ["enlightenment"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how historiography changed during the Renaissance.",
-      "answer": "During the Renaissance, historians began using critical methods, studied ancient texts with renewed interest, emphasized human agency, and shifted from religious explanations to rational and secular interpretations. It marked the transition from medieval to modern historical analysis.",
-      "tags": ["renaissance", "modern-historiography"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Compare ancient Greek historiography with modern scientific historiography.",
-      "answer": "Greek historiography focused on accurate accounts of wars and political events using eyewitness evidence (e.g., Thucydides). Modern scientific historiography uses systematic methods, verifiable evidence, interdisciplinary tools, and avoids mythological explanations. It emphasises neutrality, causation, and objective analysis.",
-      "tags": ["comparative", "greek", "scientific"]
-    },
-    {
-      "id": "ms-10-hps-ch1-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the impact of Positivism on the development of historiography.",
-      "answer": "Positivism, influenced by Auguste Comte, insisted that history should follow the scientific method. Historians were encouraged to rely only on empirical evidence, avoid speculation, classify facts systematically, and discover laws of historical development. This transformed history into a more objective and disciplined field.",
-      "tags": ["positivism", "modern-historiography"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch2",
-  "chapterNumber": 2,
-  "title": "Historiography: Indian Tradition",
-  "slug": "historiography-indian-tradition",
-  "description": "Study of the evolution of Indian historiography from ancient times to the colonial and modern period, including various literature forms and historical traditions.",
-  "topics": [
-    "Ancient Indian Historiography",
-    "Vedic Literature",
-    "Puranas",
-    "Buddhist and Jain Literature",
-    "Court Chronicles",
-    "Bakhar Tradition",
-    "Colonial Historiography",
-    "Nationalist Historiography"
-  ],
-  "learningObjectives": [
-    "Understand key sources of ancient Indian history such as Vedas, Puranas, and Buddhist literature.",
-    "Explain the characteristics of traditional Indian historiography.",
-    "Recognize the contributions of court chronicles and the Bakhar tradition.",
-    "Identify the impact of colonial and nationalist historiography on Indian historical writing.",
-    "Differentiate Indian historiographical approaches from Western traditions."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch2-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is considered a source of ancient Indian historiography?",
-      "options": ["The Iliad", "The Vedas", "The Bible", "The Odyssey"],
-      "answer": "The Vedas",
-      "tags": ["vedic-literature"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What are Puranas?",
-      "answer": "Puranas are ancient Indian texts that include myths, genealogies, and historical traditions of various dynasties, sages, and deities.",
-      "tags": ["puranas"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What role did Buddhist literature play in Indian historiography?",
-      "answer": "Buddhist literature such as Tripitaka preserved historical information about Gautama Buddha, monastic traditions, contemporary rulers, social conditions, and events of that period.",
-      "tags": ["buddhist-literature"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the importance of court chronicles in medieval Indian historiography.",
-      "answer": "Court chronicles recorded political events, royal achievements, administrative systems, wars, and cultural life under various kings, serving as primary historical records.",
-      "tags": ["court-chronicles"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which tradition of Maharashtra is known for writing historical narratives?",
-      "options": ["Bakhar", "Annales", "Romanticism", "Positivism"],
-      "answer": "Bakhar",
-      "tags": ["bakhar"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is nationalist historiography?",
-      "answer": "Nationalist historiography focuses on interpreting history from the perspective of national pride, identity, and unity, often highlighting resistance movements and cultural achievements.",
-      "tags": ["nationalist-historiography"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Give any two differences between Western and Indian historiographical traditions.",
-      "answer": "Western historiography emphasises analytical, scientific methods, while Indian tradition blends mythology with history. Western records focus on chronology; Indian sources highlight moral, religious, and philosophical narratives.",
-      "tags": ["comparison"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the contribution of Vedic literature to Indian historiography.",
-      "answer": "Vedic literature including Rigveda provides information on early Aryan culture, social structure, economy, political organization, religious practices, and linguistic evolution. Although not strictly historical, these texts preserve valuable historical insights about ancient Indian life.",
-      "tags": ["vedic-literature"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how colonial historians influenced the writing of Indian history.",
-      "answer": "Colonial historians interpreted Indian history through a Eurocentric perspective, often portraying Indians as static and unchanging. They emphasized foreign invasions and British contributions, sometimes distorting facts to justify colonial rule. Their work shaped Indian historical narratives for decades.",
-      "tags": ["colonial-historiography"]
-    },
-    {
-      "id": "ms-10-hps-ch2-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of the Bakhar tradition in reconstructing Maratha history.",
-      "answer": "Bakhars provide detailed accounts of Maratha rulers, battles, administrative policies, diplomacy, and social life. Although written with some exaggeration, they preserve crucial historical data about Chhatrapati Shivaji Maharaj and later Maratha rulers, making them essential for understanding regional history.",
-      "tags": ["bakhar", "maratha-history"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch3",
-  "chapterNumber": 3,
-  "title": "Applied History",
-  "slug": "applied-history",
-  "description": "Application of historical knowledge in fields such as research, heritage management, museum work, tourism, archaeology, and archival studies.",
-  "topics": [
-    "Meaning of Applied History",
-    "Archaeology",
-    "Museums and Archives",
-    "Heritage Management",
-    "Tourism and History",
-    "Application of Historical Sources",
-    "Interdisciplinary History"
-  ],
-  "learningObjectives": [
-    "Understand how historical knowledge is applied in modern fields.",
-    "Explain the role of archaeology, museums, and archives in preserving history.",
-    "Recognize the importance of heritage management.",
-    "Understand how history contributes to tourism and cultural preservation.",
-    "Explore interdisciplinary applications of history."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch3-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Applied History mainly focuses on:",
-      "options": ["Writing poems", "Practical use of historical knowledge", "Making sculptures", "Painting"],
-      "answer": "Practical use of historical knowledge",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define Archaeology.",
-      "answer": "Archaeology is the scientific study of past human life and culture through the excavation and analysis of material remains.",
-      "tags": ["archaeology"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the role of museums in applied history?",
-      "answer": "Museums preserve, display, and interpret historical objects, helping people understand the past through visual and material evidence.",
-      "tags": ["museums"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is heritage management?",
-      "answer": "Heritage management involves the preservation, protection, and promotion of cultural, historical, and natural heritage sites for future generations.",
-      "tags": ["heritage-management"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which of the following is NOT a field related to applied history?",
-      "options": ["Tourism", "Archaeology", "Archive Management", "Astronomy"],
-      "answer": "Astronomy",
-      "tags": ["applied-history"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the connection between tourism and history.",
-      "answer": "Historical sites attract tourists, and tourism promotes conservation. Tourism helps people understand cultural heritage, while also generating revenue for preservation.",
-      "tags": ["tourism"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why are archives important for historians?",
-      "answer": "Archives preserve original documents such as letters, government records, manuscripts, and reports. These primary sources help historians authenticate facts and reconstruct events.",
-      "tags": ["archives"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe how archaeology contributes to the reconstruction of history.",
-      "answer": "Archaeology uncovers material remains such as tools, structures, pottery, and inscriptions that reveal information about ancient societies. These remains help historians understand lifestyle, economy, religion, and cultural development, filling gaps not covered by written records.",
-      "tags": ["archaeology", "reconstruction"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the importance of applied history in modern society.",
-      "answer": "Applied history helps in heritage preservation, museum curation, tourism development, policy making, education, environmental studies, and understanding cultural identity. It provides context for current issues by analysing past events and patterns.",
-      "tags": ["importance"]
-    },
-    {
-      "id": "ms-10-hps-ch3-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the interdisciplinary nature of applied history with examples.",
-      "answer": "Applied history uses methods from archaeology, anthropology, architecture, geology, sociology, and environmental science. For example, archaeologists use carbon dating (science), and tourism studies use cultural history. This integration improves accuracy and enriches understanding of the past.",
-      "tags": ["interdisciplinary"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch4",
-  "chapterNumber": 4,
-  "title": "Mass Media and History",
-  "slug": "mass-media-and-history",
-  "description": "Study of how mass media such as newspapers, radio, television, cinema, and the internet contribute to the creation, preservation, and interpretation of history.",
-  "topics": [
-    "Newspapers as historical sources",
-    "Print media and public opinion",
-    "Television and radio broadcasting",
-    "Films as historical documents",
-    "Digital media and archives",
-    "Role of media in social and political movements",
-    "Media literacy and interpretation"
-  ],
-  "learningObjectives": [
-    "Understand how mass media provides evidence for historical research.",
-    "Explain the role of newspapers, films, and broadcasts in recording events.",
-    "Recognize how media influences public opinion and historical interpretation.",
-    "Evaluate media as a source of authentic information.",
-    "Understand the role of digital technology in preserving historical records."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch4-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a primary mass media source for historians?",
-      "options": ["Poetry books", "Newspapers", "Textbooks", "Dictionaries"],
-      "answer": "Newspapers",
-      "tags": ["newspapers"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Why are newspapers important for historical research?",
-      "answer": "Newspapers provide firsthand accounts of political events, social movements, economic activities, advertisements, and public opinion from specific periods.",
-      "tags": ["newspapers", "sources"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State one advantage and one limitation of using films as historical sources.",
-      "answer": "Advantage: Films visually recreate historical events and social life. Limitation: Films may exaggerate or fictionalize events for entertainment.",
-      "tags": ["films"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain how radio broadcasting contributed to historical documentation.",
-      "answer": "Radio broadcasts recorded speeches, announcements, wartime information, and cultural programs, preserving the tone and atmosphere of specific historical periods.",
-      "tags": ["radio"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which medium revolutionized access to historical information in the 21st century?",
-      "options": ["Radio", "Newspapers", "Internet", "Cinema"],
-      "answer": "Internet",
-      "tags": ["internet", "digital-media"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How does mass media influence public opinion about historical events?",
-      "answer": "Media selects, presents, and interprets events, shaping how society perceives causes, consequences, and significance of those events.",
-      "tags": ["public-opinion"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is media literacy and why is it important for historians?",
-      "answer": "Media literacy is the ability to critically evaluate media content. Historians need it to identify bias, verify authenticity, and interpret media sources accurately.",
-      "tags": ["media-literacy"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the role of mass media in documenting social and political movements.",
-      "answer": "Mass media captures protests, speeches, public gatherings, interviews, and government responses. It provides chronological evidence of events, highlights public sentiment, and preserves visual/audio records that become valuable historical sources. Media coverage also influences the spread and impact of movements.",
-      "tags": ["social-movements", "political-movements"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of digital archives in preserving historical information.",
-      "answer": "Digital archives store newspapers, documents, photographs, videos, and interviews in searchable formats. They prevent loss due to physical decay, enable global access, and support advanced research tools like metadata indexing and cross-referencing.",
-      "tags": ["digital-archives", "preservation"]
-    },
-    {
-      "id": "ms-10-hps-ch4-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Evaluate the reliability of mass media as a historical source.",
-      "answer": "Mass media provides immediate, detailed coverage of events, making it valuable. However, media may reflect bias, political influence, commercial interests, or selective reporting. Historians cross-check multiple sources, verify evidence, and identify bias to ensure reliability.",
-      "tags": ["analysis", "reliability"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch5",
-  "chapterNumber": 5,
-  "title": "Entertainment Media and History",
-  "slug": "entertainment-media-and-history",
-  "description": "Understanding how entertainment media such as theatre, films, television, cartoons, and animations depict and preserve historical events, culture, and social life.",
-  "topics": [
-    "Theatre and History",
-    "Film as Historical Representation",
-    "Television Serials and Documentaries",
-    "Cartoons and Social Commentary",
-    "Animation and Visual Storytelling",
-    "Historical Dramatization",
-    "Impact of Entertainment Media on Society"
-  ],
-  "learningObjectives": [
-    "Understand how entertainment media recreates historical events and culture.",
-    "Identify the role of theatre, films, and serials in shaping historical awareness.",
-    "Evaluate the strengths and limitations of entertainment media as historical sources.",
-    "Analyze the impact of cartoons and animations on social and political commentary.",
-    "Recognize how dramatization influences public perception of history."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch5-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which entertainment medium is most commonly used to recreate historical events?",
-      "options": ["Radio", "Cinema", "Newspapers", "Magazines"],
-      "answer": "Cinema",
-      "tags": ["films"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "How does theatre contribute to historical understanding?",
-      "answer": "Theatre reenacts historical events, cultural practices, and social life through live performance, helping audiences visualize and emotionally connect with history.",
-      "tags": ["theatre"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State one advantage and one disadvantage of using films in historical interpretation.",
-      "answer": "Advantage: Films bring history to life through visual and dramatic representation. Disadvantage: They may distort facts for entertainment or dramatization.",
-      "tags": ["films", "accuracy"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the role of television documentaries in preserving history?",
-      "answer": "Documentaries provide factual, research-based presentations of historical events, using interviews, archival footage, and expert analysis.",
-      "tags": ["documentaries"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which entertainment form often uses humor to comment on social and political issues?",
-      "options": ["Animation films", "Cartoons", "Soap operas", "Mystery shows"],
-      "answer": "Cartoons",
-      "tags": ["cartoons"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain how historical dramatization can influence public perception.",
-      "answer": "Dramatization adds emotion and narrative elements that may shape or alter public memory, sometimes overshadowing factual accuracy.",
-      "tags": ["dramatization", "public-opinion"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What role does animation play in representing history?",
-      "answer": "Animation simplifies complex historical events and makes them accessible, especially for young audiences, through visual storytelling.",
-      "tags": ["animation"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of cinema as a medium for documenting social and cultural history.",
-      "answer": "Cinema captures contemporary society, lifestyle, language, fashion, and social issues of its time. Films reflect public sentiment, cultural changes, and historical events, providing rich sources for historians studying societal evolution.",
-      "tags": ["cinema", "social-history"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how entertainment media can distort historical facts. Provide examples.",
-      "answer": "Entertainment media may modify timelines, exaggerate characters, or fictionalize events to increase drama. This can mislead audiences. For example, film adaptations of historical battles may alter strategies or outcomes for dramatic effect.",
-      "tags": ["distortion", "films"]
-    },
-    {
-      "id": "ms-10-hps-ch5-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Evaluate the role of cartoons and satire in documenting political history.",
-      "answer": "Cartoons use humor and exaggeration to highlight political events, corruption, leadership flaws, and public sentiment. They effectively capture the mood of an era and serve as valuable sources for understanding political culture.",
-      "tags": ["cartoons", "political-history"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch6",
-  "chapterNumber": 6,
-  "title": "Art, Sports, Literature and History",
-  "slug": "art-sports-literature-and-history",
-  "description": "Understanding how art, sports, and literature reflect historical developments, social changes, cultural expressions, and national identity.",
-  "topics": [
-    "Art as a reflection of society",
-    "Literature as a historical source",
-    "Sports and cultural development",
-    "Artistic heritage",
-    "Traditional and modern sports",
-    "Evolution of literature",
-    "Cultural identity and nationalism"
-  ],
-  "learningObjectives": [
-    "Explain how various art forms reflect social and historical changes.",
-    "Understand the role of literature in recording emotions, ideas, and events of the past.",
-    "Recognize the importance of sports in cultural and national development.",
-    "Identify historical information contained in paintings, sculptures, and manuscripts.",
-    "Analyze how artistic and literary expressions shape cultural identity."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch6-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following can be considered a historical source?",
-      "options": ["Novels", "Sports magazines", "Paintings", "All of the above"],
-      "answer": "All of the above",
-      "tags": ["sources"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "How does art help historians understand the past?",
-      "answer": "Art reflects contemporary lifestyle, cultural values, clothing, social conditions, and important events, providing visual evidence for historians.",
-      "tags": ["art"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State one way literature contributes to history writing.",
-      "answer": "Literature captures the emotions, struggles, celebrations, and thoughts of people from a particular period, revealing social and cultural history.",
-      "tags": ["literature"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the historical importance of traditional sports in India.",
-      "answer": "Traditional sports like wrestling, kabaddi, and archery reflect societal values, physical culture, community bonding, and ancient training systems.",
-      "tags": ["sports"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which form of art is directly linked with cultural heritage?",
-      "options": ["Graffiti", "Classical dance", "Modern comics", "Short films"],
-      "answer": "Classical dance",
-      "tags": ["cultural-heritage"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How do sports contribute to national identity?",
-      "answer": "Sports encourage unity, national pride, international recognition, and cultural representation through participation and achievements.",
-      "tags": ["national-identity"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain why literature is considered a powerful medium for expressing social history.",
-      "answer": "Literature expresses personal experiences, social conflicts, customs, beliefs, and cultural movements, offering deeper insights into societal changes.",
-      "tags": ["literature", "social-history"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of art forms such as painting and sculpture in understanding ancient civilizations.",
-      "answer": "Paintings and sculptures depict religious beliefs, attire, architecture, social roles, economic activities, and symbolic expressions of ancient societies. They serve as primary sources when written records are limited, helping historians reconstruct cultural and political life.",
-      "tags": ["art", "ancient-history"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Evaluate the role of sports in shaping social and cultural development.",
-      "answer": "Sports promote discipline, teamwork, and mutual respect. They influence cultural development through festivals, local traditions, and community engagement. International sports foster cultural exchange and enhance a nation's global presence.",
-      "tags": ["sports", "cultural-development"]
-    },
-    {
-      "id": "ms-10-hps-ch6-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how literature and art together help historians create a multidimensional picture of the past.",
-      "answer": "Art provides visual representation, while literature conveys emotions, ideas, and narratives. Together, they capture cultural, social, political, and psychological aspects of historical periods, enabling historians to form a holistic understanding of human experience.",
-      "tags": ["art", "literature", "analysis"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch7",
-  "chapterNumber": 7,
-  "title": "Tourism and History",
-  "slug": "tourism-and-history",
-  "description": "Understanding the relationship between tourism and history, types of tourism, importance of heritage sites, and the role of tourism in cultural and economic development.",
-  "topics": [
-    "Cultural Tourism",
-    "Historical Tourism",
-    "Heritage Sites",
-    "Museums and Tourism",
-    "Eco-Tourism",
-    "Tourism Industry",
-    "Preservation of Heritage"
-  ],
-  "learningObjectives": [
-    "Understand how historical sites attract tourism and promote cultural heritage.",
-    "Identify various types of tourism linked to history.",
-    "Recognize the importance of preserving heritage sites for future tourism.",
-    "Explain the economic and cultural impact of tourism.",
-    "Evaluate challenges faced in heritage management due to tourism."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch7-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "What type of tourism involves visiting historical monuments and heritage sites?",
-      "options": ["Eco-tourism", "Historical tourism", "Medical tourism", "Adventure tourism"],
-      "answer": "Historical tourism",
-      "tags": ["tourism-types"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is cultural tourism?",
-      "answer": "Cultural tourism involves traveling to experience the traditions, customs, art, festivals, and heritage of a particular region or society.",
-      "tags": ["cultural-tourism"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two benefits of promoting historical tourism.",
-      "answer": "It helps preserve heritage sites and boosts the economy by generating revenue and creating employment.",
-      "tags": ["historical-tourism", "benefits"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why are museums important for tourism?",
-      "answer": "Museums preserve artifacts, artworks, and historical objects that attract tourists and educate them about the past.",
-      "tags": ["museums"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which factor can negatively affect heritage sites?",
-      "options": ["Responsible tourism", "Conservation efforts", "Overcrowding", "Government protection"],
-      "answer": "Overcrowding",
-      "tags": ["heritage-threats"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of tourism in economic development.",
-      "answer": "Tourism generates revenue, increases employment, promotes regional development, and supports local businesses such as hotels and handicrafts.",
-      "tags": ["economy"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What precautions should be taken at heritage sites to promote sustainable tourism?",
-      "answer": "Avoid littering, restrict harmful activities, follow preservation rules, control visitor numbers, and ensure proper maintenance of sites.",
-      "tags": ["sustainable-tourism"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the relationship between tourism and history.",
-      "answer": "Tourism often revolves around historical monuments, museums, cultural events, and heritage sites. History enriches tourism by offering meaningful experiences, while tourism promotes conservation and awareness of historical treasures. Both fields support each other economically and culturally.",
-      "tags": ["analysis", "tourism-history"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the importance of preserving heritage sites for future generations.",
-      "answer": "Heritage sites represent cultural identity, architectural achievements, and historical milestones. Preserving them ensures future generations can study, appreciate, and learn from the past, while also supporting sustainable tourism and cultural continuity.",
-      "tags": ["heritage-preservation"]
-    },
-    {
-      "id": "ms-10-hps-ch7-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss challenges faced in managing heritage sites due to increasing tourism.",
-      "answer": "Challenges include overcrowding, environmental damage, vandalism, commercialization, lack of funds for maintenance, and balancing preservation with tourist accessibility. These issues require strict regulations and sustainable tourism policies.",
-      "tags": ["heritage-management", "tourism-impact"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch8",
-  "chapterNumber": 8,
-  "title": "Heritage Management",
-  "slug": "heritage-management",
-  "description": "Study of preservation, protection, and management of cultural and natural heritage, including roles of government, citizens, and institutions.",
-  "topics": [
-    "Meaning of Heritage",
-    "Types of Heritage",
-    "Need for Heritage Conservation",
-    "Role of ASI and UNESCO",
-    "Museums and Archives",
-    "Local and National Heritage",
-    "Sustainable Heritage Management"
-  ],
-  "learningObjectives": [
-    "Understand the concept and importance of cultural and natural heritage.",
-    "Recognize the need for preservation and conservation.",
-    "Identify national and international organizations responsible for heritage management.",
-    "Explain how museums, archives, and local bodies help manage heritage.",
-    "Evaluate challenges and strategies for sustainable heritage protection."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch8-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which organization declares World Heritage Sites?",
-      "options": ["UNICEF", "UNESCO", "WHO", "ASI"],
-      "answer": "UNESCO",
-      "tags": ["unesco"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define heritage.",
-      "answer": "Heritage refers to the cultural, historical, natural, and architectural assets inherited from past generations and preserved for the future.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two types of heritage with examples.",
-      "answer": "Cultural heritage (e.g., monuments, literature) and natural heritage (e.g., national parks, biodiversity-rich landscapes).",
-      "tags": ["types-of-heritage"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is heritage conservation necessary?",
-      "answer": "Conservation preserves cultural identity, supports tourism, protects historical knowledge, and ensures that future generations can learn from past achievements.",
-      "tags": ["conservation"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which government body manages archaeological sites in India?",
-      "options": ["NITI Aayog", "ASI", "ISRO", "Supreme Court"],
-      "answer": "ASI",
-      "tags": ["asi"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of museums in heritage management.",
-      "answer": "Museums preserve, exhibit, and protect cultural objects, educate the public, and help maintain historical and artistic heritage.",
-      "tags": ["museums"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What role do citizens play in managing heritage?",
-      "answer": "Citizens help by following conservation rules, spreading awareness, reporting vandalism, volunteering for clean-up drives, and respecting heritage sites.",
-      "tags": ["citizen-responsibility"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the major challenges in heritage management.",
-      "answer": "Challenges include pollution, urbanization, overcrowding at sites, vandalism, lack of funds, natural disasters, and neglect. Balancing tourism with preservation is also a key issue. These challenges require strict policies and community involvement.",
-      "tags": ["challenges", "heritage-management"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the contributions of UNESCO to the protection of world heritage.",
-      "answer": "UNESCO identifies and designates World Heritage Sites, sets global conservation standards, provides funding and expertise, raises awareness, and encourages international cooperation for heritage protection.",
-      "tags": ["unesco", "global-conservation"]
-    },
-    {
-      "id": "ms-10-hps-ch8-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the role of the Archaeological Survey of India (ASI) in heritage management.",
-      "answer": "ASI maintains, excavates, preserves, and protects monuments of national importance. It conducts research, maintains records, collaborates with international bodies, and enforces laws related to antiquities and heritage preservation.",
-      "tags": ["asi", "heritage-protection"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch9",
-  "chapterNumber": 9,
-  "title": "History and the Profession",
-  "slug": "history-and-the-profession",
-  "description": "Understanding how history forms the foundation of various professions such as research, teaching, museum work, archaeology, tourism, archiving, journalism, and heritage management.",
-  "topics": [
-    "Professions related to History",
-    "Archaeology as a career",
-    "Museum and archival work",
-    "Tourism and guiding profession",
-    "History in media and research",
-    "Role of historians",
-    "Skills developed through history"
-  ],
-  "learningObjectives": [
-    "Identify various careers linked to the study of history.",
-    "Understand the work done by archaeologists, archivists, and museum curators.",
-    "Recognize how history contributes to journalism, tourism, and research.",
-    "Explain the importance of historical skills such as analysis and interpretation.",
-    "Understand how history helps in nation-building and cultural preservation."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch9-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which profession involves studying material remains of the past?",
-      "options": ["Sociology", "Archaeology", "Accountancy", "Law"],
-      "answer": "Archaeology",
-      "tags": ["archaeology"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What does a museum curator do?",
-      "answer": "A curator manages historical collections, preserves artifacts, organizes exhibitions, and educates visitors about cultural heritage.",
-      "tags": ["museum"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two skills developed by studying history.",
-      "answer": "Critical thinking and evidence-based analysis are key skills developed through historical study.",
-      "tags": ["skills"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the role of archives in history-related professions?",
-      "answer": "Archives preserve manuscripts, government records, letters, maps, and other primary sources essential for historical research and documentation.",
-      "tags": ["archives"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which profession uses history for creating scripts, documentaries, and informational content?",
-      "options": ["Engineering", "Media and Journalism", "Chemistry", "Mathematics"],
-      "answer": "Media and Journalism",
-      "tags": ["journalism"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of a tourist guide in relation to history.",
-      "answer": "A tourist guide explains the historical significance of monuments, cultural sites, and heritage locations, helping visitors understand the past meaningfully.",
-      "tags": ["tourism"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is research an important profession for historians?",
-      "answer": "Research helps historians discover new facts, reinterpret old findings, write analytical reports, and contribute to academic knowledge.",
-      "tags": ["research"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe how journalism benefits from the study of history.",
-      "answer": "History provides journalists with background knowledge for reporting events, analyzing political developments, understanding social issues, and avoiding misinformation. It helps them draw parallels, interpret causes, and present accurate narratives.",
-      "tags": ["journalism", "analysis"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the role of archaeologists in preserving cultural heritage.",
-      "answer": "Archaeologists excavate and document ancient sites, study artifacts, analyze structures, and protect material remains. Their work provides insights into past civilizations and ensures heritage sites are preserved for future generations.",
-      "tags": ["archaeology", "heritage"]
-    },
-    {
-      "id": "ms-10-hps-ch9-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of history-related professions in society.",
-      "answer": "History-related professions preserve cultural identity, support research, enhance tourism, guide policymaking, enrich education, and promote national consciousness. They ensure society learns from the past to make informed decisions for the future.",
-      "tags": ["importance", "society"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch10",
-  "chapterNumber": 10,
-  "title": "Working of the Constitution",
-  "slug": "working-of-the-constitution",
-  "description": "Understanding how the Indian Constitution functions through concepts like rights, duties, government structure, federalism, elections, and functioning of institutions.",
-  "topics": [
-    "Features of the Indian Constitution",
-    "Fundamental Rights and Duties",
-    "Federal System",
-    "Parliamentary Democracy",
-    "Judiciary",
-    "Executive and Legislature",
-    "Rule of Law"
-  ],
-  "learningObjectives": [
-    "Understand the functioning of key constitutional institutions.",
-    "Explain the roles of the Legislature, Executive, and Judiciary.",
-    "Recognize the importance of rights, duties, and rule of law.",
-    "Understand federalism and distribution of powers.",
-    "Analyze how the Constitution works in day-to-day governance."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch10-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Who is the head of the Union Executive?",
-      "options": ["Prime Minister", "Chief Justice", "President", "Governor"],
-      "answer": "President",
-      "tags": ["executive"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is meant by the rule of law?",
-      "answer": "Rule of law means that no one is above the law, and all citizens and institutions are subject to the same legal framework.",
-      "tags": ["rule-of-law"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two Fundamental Duties of Indian citizens.",
-      "answer": "To respect the Constitution and national institutions, and to promote harmony and common brotherhood among all people.",
-      "tags": ["fundamental-duties"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is federalism?",
-      "answer": "Federalism is a system where powers are divided between a central government and state governments.",
-      "tags": ["federalism"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which institution interprets the Constitution?",
-      "options": ["Parliament", "Election Commission", "Judiciary", "Finance Commission"],
-      "answer": "Judiciary",
-      "tags": ["judiciary"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of Parliament in the working of the Constitution.",
-      "answer": "Parliament makes laws, controls the Executive, approves budgets, amends the Constitution, and represents the people through elected members.",
-      "tags": ["parliament"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is meant by separation of powers?",
-      "answer": "It refers to dividing the functions of government among the Legislature, Executive, and Judiciary to avoid concentration of power.",
-      "tags": ["separation-of-powers"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the relationship between the Legislature and the Executive in a parliamentary system.",
-      "answer": "In a parliamentary system, the Executive (Prime Minister and Council of Ministers) is drawn from the Legislature and is accountable to it. The Legislature can question, vote out, or approve the policies of the Executive. They work interdependently, ensuring democratic functioning.",
-      "tags": ["parliamentary-system"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain how the Judiciary safeguards the Constitution.",
-      "answer": "The Judiciary ensures laws are constitutional, protects Fundamental Rights, settles disputes between governments, and interprets the Constitution. It acts as guardian of justice and prevents misuse of power through judicial review.",
-      "tags": ["judiciary", "safeguards"]
-    },
-    {
-      "id": "ms-10-hps-ch10-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of Fundamental Rights in the functioning of Indian democracy.",
-      "answer": "Fundamental Rights protect individual liberty, ensure equality, promote justice, and prevent discrimination. They enable citizens to participate freely in political and social life, forming the backbone of democratic governance.",
-      "tags": ["fundamental-rights"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch11",
-  "chapterNumber": 11,
-  "title": "The Electoral Process",
-  "slug": "the-electoral-process",
-  "description": "Study of how elections are conducted in India, including Election Commission, voters’ rights, voting methods, nomination, political campaigning, and democratic participation.",
-  "topics": [
-    "Meaning and Importance of Elections",
-    "Universal Adult Franchise",
-    "Election Commission",
-    "Voter List",
-    "Nomination of Candidates",
-    "Election Campaign",
-    "Voting and Counting Process",
-    "Types of Elections"
-  ],
-  "learningObjectives": [
-    "Understand the need for elections in a democracy.",
-    "Explain the functioning and powers of the Election Commission.",
-    "Describe the steps of the electoral process from nomination to counting.",
-    "Recognize the importance of voting and voter participation.",
-    "Understand different types of elections held in India."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch11-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Who conducts elections in India?",
-      "options": ["Parliament", "Supreme Court", "Election Commission", "President"],
-      "answer": "Election Commission",
-      "tags": ["election-commission"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is meant by Universal Adult Franchise?",
-      "answer": "Universal Adult Franchise means every citizen aged 18 or above has the right to vote, irrespective of caste, gender, religion, or economic status.",
-      "tags": ["franchise"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two functions of the Election Commission.",
-      "answer": "The Election Commission prepares and updates the voter list, conducts free and fair elections, supervises the nomination process, and implements the Code of Conduct.",
-      "tags": ["election-commission", "functions"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is an updated voter list important for elections?",
-      "answer": "An updated voter list ensures only eligible citizens vote, prevents duplication, and maintains fairness in the electoral process.",
-      "tags": ["voter-list"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "What do candidates submit during the nomination process?",
-      "options": ["A manifesto", "Identity card", "Nomination form and deposit", "Voter ID"],
-      "answer": "Nomination form and deposit",
-      "tags": ["nomination"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the Model Code of Conduct?",
-      "answer": "The Model Code of Conduct is a set of guidelines that political parties and candidates must follow during elections to ensure fairness and prevent misuse of power.",
-      "tags": ["code-of-conduct"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the significance of voting in a democracy.",
-      "answer": "Voting allows citizens to choose their representatives, participate in governance, and hold the government accountable, ensuring democratic functioning.",
-      "tags": ["voting", "democracy"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the steps involved in the electoral process from voter registration to counting of votes.",
-      "answer": `"The steps include:  
-1. Preparation and revision of voter list.  
-2. Announcement of election schedule.  
-3. Nomination of candidates.  
-4. Scrutiny and withdrawal.  
-5. Election campaign and implementation of Code of Conduct.  
-6. Voting through secret ballot or EVM.  
-7. Counting of votes and declaration of results."`,
-      "tags": ["electoral-process"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the significance of the Election Commission in ensuring free and fair elections.",
-      "answer": "The Election Commission supervises elections independently, monitors campaigns, enforces the Code of Conduct, controls expenditure, prevents malpractice, deploys security forces, and ensures transparency in voting and counting. Its autonomy maintains democratic integrity.",
-      "tags": ["election-commission", "importance"]
-    },
-    {
-      "id": "ms-10-hps-ch11-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the challenges faced in conducting elections in India.",
-      "answer": "Challenges include large population, geographical diversity, political pressure, misuse of money and muscle power, ensuring voter turnout, maintaining security, and preventing misinformation. The Election Commission addresses these through strict laws, monitoring, and public awareness.",
-      "tags": ["challenges", "elections"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch12",
-  "chapterNumber": 12,
-  "title": "Political Parties",
-  "slug": "political-parties",
-  "description": "Understanding the role, functions, types, and importance of political parties in a democratic system.",
-  "topics": [
-    "Meaning of Political Parties",
-    "Types of Political Parties",
-    "Functions of Parties",
-    "Party System",
-    "Role in Democracy",
-    "Challenges Faced by Parties",
-    "Party Organization"
-  ],
-  "learningObjectives": [
-    "Define political parties and understand their necessity in a democracy.",
-    "Distinguish between national and regional parties.",
-    "Explain the major functions performed by political parties.",
-    "Analyze the role of parties in shaping public opinion and governance.",
-    "Understand challenges faced by political parties in India."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch12-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "A political party is a group of people who come together to:",
-      "options": [
-        "Play sports",
-        "Form government and contest elections",
-        "Write books",
-        "Run businesses"
-      ],
-      "answer": "Form government and contest elections",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is a national party?",
-      "answer": "A national party is a political party recognized in multiple states and having a nationwide presence and agenda.",
-      "tags": ["types"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two functions of political parties.",
-      "answer": "Political parties contest elections and form government; they also shape public opinion and create public policies.",
-      "tags": ["functions"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is meant by party system?",
-      "answer": "Party system refers to the pattern of political party organization in a country, such as one-party, two-party, or multi-party system.",
-      "tags": ["party-system"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which of the following is a feature of a multi-party system?",
-      "options": ["Only one party exists", "Two major parties dominate", "Multiple parties compete for power", "Elections are not held"],
-      "answer": "Multiple parties compete for power",
-      "tags": ["multi-party"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of opposition parties.",
-      "answer": "Opposition parties question government decisions, highlight public issues, provide alternative policies, and ensure accountability in governance.",
-      "tags": ["opposition"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why are political parties necessary in a democracy?",
-      "answer": "They organize elections, represent public interests, form government, ensure political stability, and act as a link between citizens and the government.",
-      "tags": ["importance"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the structure of a political party organization.",
-      "answer": "A political party typically has grassroots local units, district-level committees, state leadership, and a national executive. It includes members, workers, office holders, and specialized wings such as youth, women, and labor wings.",
-      "tags": ["organization"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the challenges faced by political parties in India.",
-      "answer": "Challenges include internal party corruption, use of muscle and money power, lack of internal democracy, criminalization of politics, factionalism, and declining trust among citizens.",
-      "tags": ["challenges"]
-    },
-    {
-      "id": "ms-10-hps-ch12-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Evaluate the role of political parties in strengthening democracy.",
-      "answer": "Parties provide platforms for political participation, mobilize citizens, aggregate interests, form stable governments, and create policies. They promote debate, accountability, and governance, which are essential for democratic functioning.",
-      "tags": ["democracy", "importance"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch13",
-  "chapterNumber": 13,
-  "title": "Social and Political Movements",
-  "slug": "social-and-political-movements",
-  "description": "Study of major social and political movements in India, their significance, types, and role in strengthening democracy and social justice.",
-  "topics": [
-    "Social Movements",
-    "Political Movements",
-    "Environmental Movements",
-    "Women’s Movement",
-    "Dalit Movement",
-    "Farmers’ Movement",
-    "Linguistic and Regional Movements",
-    "Role of Movements in Democracy"
-  ],
-  "learningObjectives": [
-    "Understand the meaning and nature of social and political movements.",
-    "Identify different movements such as environmental, women's, Dalit, and farmers' movements.",
-    "Explain the role of movements in promoting justice and rights.",
-    "Recognize how movements influence government policies and democratic processes.",
-    "Evaluate the importance of collective action in social change."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch13-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which movement focuses on protecting natural resources and the environment?",
-      "options": ["Women’s Movement", "Environmental Movement", "Dalit Movement", "Farmers’ Movement"],
-      "answer": "Environmental Movement",
-      "tags": ["environmental"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is meant by a social movement?",
-      "answer": "A social movement is a collective effort by a group of people to bring about social change or resist injustice.",
-      "tags": ["definition"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State one objective of the women’s movement in India.",
-      "answer": "One objective is to ensure gender equality by demanding equal rights, education, and protection against discrimination.",
-      "tags": ["women"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the main aim of the Dalit movement?",
-      "answer": "The Dalit movement aims to end caste-based discrimination and secure social equality, dignity, and justice for Dalits.",
-      "tags": ["dalit"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which movement is associated with issues like crop prices and agricultural reforms?",
-      "options": ["Environmental Movement", "Farmers’ Movement", "Dalit Movement", "Students’ Movement"],
-      "answer": "Farmers’ Movement",
-      "tags": ["farmers"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the importance of environmental movements.",
-      "answer": "Environmental movements raise awareness about deforestation, pollution, and degradation of resources, and demand policies for sustainable development.",
-      "tags": ["environmental"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How do social movements strengthen democracy?",
-      "answer": "They encourage citizen participation, hold the government accountable, highlight public issues, and bring reforms that promote justice and equality.",
-      "tags": ["democracy"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the role of the women’s movement in achieving social justice in India.",
-      "answer": "The women’s movement has campaigned for education, employment, political representation, legal reforms, and protection against violence. It challenged patriarchal norms and secured laws related to dowry, domestic violence, and gender equality, contributing significantly to social justice.",
-      "tags": ["women", "social-justice"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the impact of farmers’ movements on government policies.",
-      "answer": "Farmers’ movements have influenced policies regarding crop prices, loan waivers, irrigation, electricity supply, and agricultural reforms. They draw attention to rural problems and push the government to implement farmer-friendly measures.",
-      "tags": ["farmers", "policies"]
-    },
-    {
-      "id": "ms-10-hps-ch13-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the role of social and political movements in bringing social change.",
-      "answer": "Movements mobilize people, challenge injustice, demand laws, and influence policy-making. They raise awareness, represent marginalized groups, and bring about reforms in areas like environment protection, gender equality, caste discrimination, and economic rights, leading to long-term social transformation.",
-      "tags": ["social-change", "movements"]
-    }
-  ]
-}, {
-  "id": "ms-10-hps-ch14",
-  "chapterNumber": 14,
-  "title": "Challenges Faced by Indian Democracy",
-  "slug": "challenges-faced-by-indian-democracy",
-  "description": "Study of major political, social, and economic challenges affecting the proper functioning of Indian democracy and measures to overcome them.",
-  "topics": [
-    "Corruption",
-    "Criminalisation of Politics",
-    "Casteism and Communalism",
-    "Inequality and Poverty",
-    "Regionalism",
-    "Unemployment",
-    "Lack of Transparency",
-    "Strengthening Democracy"
-  ],
-  "learningObjectives": [
-    "Identify key challenges faced by Indian democracy.",
-    "Understand how corruption and criminalisation affect governance.",
-    "Explain social challenges like casteism and communalism.",
-    "Recognize economic limitations such as poverty and unemployment.",
-    "Evaluate measures needed to strengthen democratic values and institutions."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-hps-ch14-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a major challenge to Indian democracy?",
-      "options": ["High literacy", "Corruption", "Industrial growth", "Technological development"],
-      "answer": "Corruption",
-      "tags": ["corruption"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is meant by criminalisation of politics?",
-      "answer": "Criminalisation of politics refers to people with criminal backgrounds entering politics or influencing political processes.",
-      "tags": ["criminalisation"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two effects of corruption on democracy.",
-      "answer": "Corruption weakens trust in government and leads to misuse of public funds, reducing the quality of governance.",
-      "tags": ["corruption-effects"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "How does casteism affect democratic values?",
-      "answer": "Casteism encourages discrimination, undermines equality, influences voting patterns, and prevents fair political representation.",
-      "tags": ["casteism"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which social issue threatens unity and harmony in India?",
-      "options": ["Communalism", "Urbanization", "Globalization", "Privatization"],
-      "answer": "Communalism",
-      "tags": ["communalism"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is unemployment a challenge for democracy?",
-      "answer": "Unemployment creates economic inequality, reduces people's participation in governance, and increases social unrest.",
-      "tags": ["unemployment"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the meaning of transparency in a democracy.",
-      "answer": "Transparency means government decisions and processes are open to public scrutiny, ensuring accountability and reducing corruption.",
-      "tags": ["transparency"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe how communalism poses a threat to Indian democracy.",
-      "answer": "Communalism divides people based on religion, causing mistrust, violence, and political manipulation. It weakens national unity, disturbs social harmony, and distracts from developmental issues. Communal tensions can influence elections and undermine democratic processes.",
-      "tags": ["communalism", "democracy"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the challenges created by regionalism in Indian democracy.",
-      "answer": "Regionalism prioritizes regional interests over national unity. It can cause disputes over resources, demands for separate states, political polarisation, and identity conflict. While regional aspirations are natural, excessive regionalism may hinder national development.",
-      "tags": ["regionalism"]
-    },
-    {
-      "id": "ms-10-hps-ch14-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Suggest measures to strengthen Indian democracy.",
-      "answer": "Measures include reducing corruption, promoting transparency, ensuring fast trials for criminal cases, strengthening education, empowering citizens, protecting rights, improving economic equality, enhancing participation, and promoting tolerance and national unity.",
-      "tags": ["strengthening-democracy"]
-    }
-  ]
-}
-
-  ]
-}, {
-  board: "msbshse",
-  medium: "english",
-  classKey: "10",
-  subjectSlug: "geography",
-  chapters: [
-{
-  "id": "ms-10-geo-ch1",
-  "chapterNumber": 1,
-  "title": "Field Visit",
-  "slug": "field-visit",
-  "description": "Understanding the purpose, planning, execution and reporting of geographical field visits.",
-  "topics": [
-    "Need and Importance of Field Visit",
-    "Planning a Field Visit",
-    "Data Collection Methods",
-    "Observation and Recording",
-    "Interview Techniques",
-    "Preparation of Field Report",
-    "Use of Maps and Sketches"
-  ],
-  "learningObjectives": [
-    "Explain the importance of field visits in geography.",
-    "Understand how to plan and organise a field visit.",
-    "Use observation, interviews and surveys to collect geographical data.",
-    "Prepare field notes and a structured field report.",
-    "Interpret field data using sketches, photographs and maps."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch1-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is the first step in organising a field visit?",
-      "options": ["Writing a report", "Planning the visit", "Collecting data", "Preparing questionnaires"],
-      "answer": "Planning the visit",
-      "tags": ["planning"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Why are field visits important in geography?",
-      "answer": "Field visits help students observe real geographical phenomena, collect first-hand data and understand concepts through practical experience.",
-      "tags": ["importance"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two methods used for collecting information during a field visit.",
-      "answer": "Observation and interviews are commonly used methods for collecting information.",
-      "tags": ["data-collection"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What precautions should be taken during a field visit?",
-      "answer": "Students should follow safety rules, stay with the group, respect local people and avoid disturbing the environment.",
-      "tags": ["safety", "precautions"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which of the following is NOT a tool used in field data collection?",
-      "options": ["Questionnaire", "Measuring tape", "Camera", "Textbook exercises"],
-      "answer": "Textbook exercises",
-      "tags": ["tools"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the role of sketches and photographs in field visits?",
-      "answer": "Sketches and photographs visually record observations, making it easier to analyse and present geographical information.",
-      "tags": ["sketches", "photographs"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What should be included in a field report?",
-      "answer": "A field report should include introduction, objectives, methods, observations, data, sketches, photographs and conclusions.",
-      "tags": ["report"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the steps involved in planning and conducting a field visit.",
-      "answer": "Steps include: selecting a suitable location, deciding objectives, preparing questionnaires, arranging transport and safety, collecting data through observation and interviews, taking photographs, noting field data and finally preparing a report.",
-      "tags": ["planning", "execution"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of interviews during a field visit.",
-      "answer": "Interviews provide direct information from local residents or experts. They help understand cultural, economic or environmental aspects that may not be obvious from observation alone and add depth to the collected data.",
-      "tags": ["interviews"]
-    },
-    {
-      "id": "ms-10-geo-ch1-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe how field observations help in understanding geographical concepts.",
-      "answer": "Field observations allow students to directly study landforms, settlements, climate patterns, natural resources and human activities. This real-world exposure strengthens conceptual understanding and connects theory with practice.",
-      "tags": ["observation", "concepts"]
-    }
-  ]
-},
-{
-  "id": "ms-10-geo-ch2",
-  "chapterNumber": 2,
-  "title": "Location and Extent",
-  "slug": "location-and-extent",
-  "description": "Understanding India’s geographical location, latitudinal and longitudinal extent, tropic passage, standard meridian, and neighbouring countries.",
-  "topics": [
-    "Latitudinal Extent",
-    "Longitudinal Extent",
-    "Effects of Latitudes and Longitudes",
-    "Standard Meridian of India",
-    "Tropic of Cancer",
-    "Neighbouring Countries",
-    "Geopolitical Importance of India’s Location"
-  ],
-  "learningObjectives": [
-    "Locate India on a world map using latitudes and longitudes.",
-    "Explain the significance of India’s latitudinal and longitudinal extent.",
-    "Understand the importance of the Tropic of Cancer and Standard Meridian.",
-    "Identify India’s neighbouring countries.",
-    "Recognize India’s strategic location in South Asia."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch2-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Between which latitudes does India lie?",
-      "options": [
-        "8°4'N to 37°6'N",
-        "0° to 30°N",
-        "10°S to 10°N",
-        "5°N to 55°N"
-      ],
-      "answer": "8°4'N to 37°6'N",
-      "tags": ["latitudes"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is the longitudinal extent of India?",
-      "answer": "India extends from 68°7'E to 97°25'E longitudes.",
-      "tags": ["longitudes"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Name any two countries that share land borders with India.",
-      "answer": "Pakistan and Nepal (Other options: China, Bhutan, Bangladesh, Myanmar).",
-      "tags": ["neighbouring-countries"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the significance of the Tropic of Cancer in India?",
-      "answer": "The Tropic of Cancer (23°30'N) divides India into almost equal northern and southern halves and influences the climate by marking tropical and subtropical zones.",
-      "tags": ["tropic-of-cancer"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which longitude is used as the Standard Meridian of India?",
-      "options": [
-        "82°30'E",
-        "68°7'E",
-        "97°25'E",
-        "90°E"
-      ],
-      "answer": "82°30'E",
-      "tags": ["standard-meridian"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain why the Standard Meridian is necessary for India.",
-      "answer": "India has a wide longitudinal extent, which leads to differences in local time. A standard meridian ensures uniform time across the country (IST).",
-      "tags": ["standard-meridian", "time"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is India's location considered strategic?",
-      "answer": "India lies between East and West Asia, has a long coastline along the Indian Ocean, and serves as a link between Europe, Africa, and Southeast Asia, making it geopolitically important.",
-      "tags": ["geopolitical"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe how India’s latitudinal extent influences its climate.",
-      "answer": "India’s latitudinal spread (from 8°4'N to 37°6'N) places the southern region in the tropical zone and the northern region in the subtropical zone. As a result, southern India experiences higher temperatures and smaller seasonal variations, while northern India has more distinct seasons, including a cold winter.",
-      "tags": ["climate", "latitudes"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the effects of India’s longitudinal extent on time difference within the country.",
-      "answer": "The longitudinal extent of nearly 30° results in a time difference of about 2 hours from east to west. Places in Arunachal Pradesh see sunrise earlier than places in Gujarat. To avoid confusion, IST (82°30'E) is used as the standard time for the entire country.",
-      "tags": ["longitudes", "time-difference"]
-    },
-    {
-      "id": "ms-10-geo-ch2-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss how India’s location along the Indian Ocean has contributed to its cultural and economic interactions throughout history.",
-      "answer": "India’s central location in the Indian Ocean enabled ancient trade with Africa, Middle East, and Southeast Asia. Maritime routes facilitated cultural exchange, spread of religions, development of ports, and economic prosperity. India's coastal position continues to support international trade and naval significance.",
-      "tags": ["indian-ocean", "trade", "cultural-exchange"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch3",
-  "chapterNumber": 3,
-  "title": "Physiography and Drainage",
-  "slug": "physiography-and-drainage",
-  "description": "Study of India’s major physiographic divisions, their characteristics, and the drainage systems including major rivers and river basins.",
-  "topics": [
-    "Himalayan Mountains",
-    "Northern Plains",
-    "Peninsular Plateau",
-    "Coastal Plains",
-    "Islands",
-    "Himalayan Rivers",
-    "Peninsular Rivers",
-    "River Basins and Drainage Patterns"
-  ],
-  "learningObjectives": [
-    "Identify and describe India’s major physiographic divisions.",
-    "Differentiate between Himalayan and Peninsular rivers.",
-    "Understand the importance of river systems in India’s development.",
-    "Locate major rivers and physiographic features on a map.",
-    "Explain how physiographic features influence climate, agriculture, and population distribution."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch3-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a Himalayan river?",
-      "options": ["Godavari", "Krishna", "Ganga", "Cauvery"],
-      "answer": "Ganga",
-      "tags": ["himalayan-rivers"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Name any two physiographic divisions of India.",
-      "answer": "The Himalayan Mountains and the Peninsular Plateau.",
-      "tags": ["physiography"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why are the Northern Plains densely populated?",
-      "answer": "The Northern Plains have fertile alluvial soil, adequate water supply, favourable climate, and flat terrain, making them suitable for agriculture and settlement.",
-      "tags": ["northern-plains", "population"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State one difference between Himalayan and Peninsular rivers.",
-      "answer": "Himalayan rivers are perennial as they receive water from snowmelt and rainfall, whereas Peninsular rivers are seasonal and depend mainly on monsoon rains.",
-      "tags": ["rivers", "comparison"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which physiographic division is the oldest landmass of India?",
-      "options": ["Himalayas", "Northern Plains", "Peninsular Plateau", "Coastal Plains"],
-      "answer": "Peninsular Plateau",
-      "tags": ["peninsular-plateau"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are the Western and Eastern Ghats?",
-      "answer": "The Western and Eastern Ghats are long mountain ranges that border the Peninsular Plateau, influencing climate, rainfall, and biodiversity.",
-      "tags": ["ghats"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain any two characteristics of coastal plains.",
-      "answer": "Coastal plains are narrow stretches of land along the coast. They are suitable for fishing, agriculture, and development of ports.",
-      "tags": ["coastal-plains"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the major physiographic divisions of India.",
-      "answer": `"India has six major physiographic divisions:  
-1. **Himalayan Mountains** – high young fold mountains.  
-2. **Northern Plains** – fertile alluvial plains formed by Himalayan rivers.  
-3. **Peninsular Plateau** – ancient and stable rocky region.  
-4. **Coastal Plains** – eastern and western coastal lowlands.  
-5. **Thar Desert** – arid region with sandy terrain.  
-6. **Islands** – Andaman-Nicobar and Lakshadweep groups."`,
-      "tags": ["physiography", "divisions"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the importance of rivers in India’s economic development.",
-      "answer": "Rivers provide water for irrigation, drinking, industry, and hydropower. They support agriculture, fisheries, transport, and settlement. River basins form fertile regions and help maintain ecological balance.",
-      "tags": ["rivers", "economy"]
-    },
-    {
-      "id": "ms-10-geo-ch3-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the drainage patterns found in India with examples.",
-        "answer": `"India has dendritic, trellis, radial, and parallel drainage patterns.  
-  - **Dendritic**: Ganga basin.  
-  - **Trellis**: Rivers in the Vindhya ranges.  
-  - **Radial**: Rivers originating from Amarkantak and volcanic cones.  
-  - **Parallel**: Western Ghats region.  
-  These patterns reflect geological structure and slope."`,
-      "tags": ["drainage-patterns"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch4",
-  "chapterNumber": 4,
-  "title": "Climate",
-  "slug": "climate",
-  "description": "Study of India’s climate, including seasons, monsoon mechanism, temperature and rainfall distribution, and factors influencing climatic variations.",
-  "topics": [
-    "Characteristics of Indian Climate",
-    "Factors Affecting Climate",
-    "Indian Monsoon",
-    "Rainfall Distribution",
-    "Temperature Distribution",
-    "Climatic Seasons",
-    "Retreating Monsoon",
-    "Cyclones and Local Winds"
-  ],
-  "learningObjectives": [
-    "Understand the major climatic controls in India.",
-    "Explain the mechanism of the Indian monsoon.",
-    "Describe seasonal variations in temperature and rainfall.",
-    "Identify the causes of uneven rainfall distribution.",
-    "Recognize the significance of monsoon for agriculture and economy."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch4-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which factor is mainly responsible for the onset of monsoon in India?",
-      "options": ["Land-Sea breeze", "Low pressure over Northwest India", "Western disturbances", "Snowfall in Himalayas"],
-      "answer": "Low pressure over Northwest India",
-      "tags": ["monsoon"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Name the four main seasons of India.",
-      "answer": "The four seasons are: Winter, Summer, Monsoon, and Retreating Monsoon.",
-      "tags": ["seasons"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is the role of the Himalayas in influencing India’s climate?",
-      "answer": "The Himalayas prevent cold winds from Central Asia from entering India and force monsoon winds to rise, causing heavy rainfall on the northern plains.",
-      "tags": ["himalayas"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain why Tamil Nadu receives rainfall during the retreating monsoon.",
-      "answer": "During retreating monsoon, winds blow from the northeast, picking up moisture from the Bay of Bengal and bringing rainfall to Tamil Nadu.",
-      "tags": ["retreating-monsoon"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which region receives the highest rainfall in India?",
-      "options": ["Western Rajasthan", "Gujarat Plains", "Mawsynram–Meghalaya", "Punjab"],
-      "answer": "Mawsynram–Meghalaya",
-      "tags": ["rainfall"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two factors affecting India’s climate.",
-      "answer": "Latitude, altitude, distance from the sea, relief, and monsoon winds are major climatic controls.",
-      "tags": ["climatic-factors"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why does Western Rajasthan receive very low rainfall?",
-      "answer": "Western Rajasthan lies in the rain shadow region, has high temperature leading to high evaporation, and lacks moisture-laden winds.",
-      "tags": ["rainfall-distribution"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the mechanism of the Indian monsoon.",
-      "answer": "During summer, intense heating creates low pressure over northwest India, while high pressure exists over the Indian Ocean. Moist winds from the ocean blow towards the low-pressure area, bringing heavy rainfall. The monsoon is influenced by ITCZ shift, differential heating of land and sea, and the role of the Himalayas.",
-      "tags": ["monsoon", "mechanism"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the temperature distribution in India during summer and winter.",
-      "answer": "In summer, temperatures are highest in northwestern India, with heat waves common. Southern regions have moderate temperatures due to maritime influence. In winter, northern India experiences very low temperatures due to cold continental winds, while southern peninsular India remains warm.",
-      "tags": ["temperature"]
-    },
-    {
-      "id": "ms-10-geo-ch4-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the importance of monsoon rainfall for India’s agriculture and economy.",
-      "answer": "Monsoon rainfall is crucial for irrigation, crop growth, drinking water reservoirs, hydropower generation, and groundwater recharge. A good monsoon boosts food production and economy, while weak monsoon leads to droughts, crop failure, and inflation.",
-      "tags": ["monsoon", "economy", "agriculture"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch5",
-  "chapterNumber": 5,
-  "title": "Natural Vegetation and Wildlife",
-  "slug": "natural-vegetation-and-wildlife",
-  "description": "Study of India’s natural vegetation types, wildlife distribution, biodiversity, threats to forests and wildlife, and conservation measures.",
-  "topics": [
-    "Factors Affecting Natural Vegetation",
-    "Types of Forests in India",
-    "Grasslands and Desert Vegetation",
-    "Mangroves",
-    "Wildlife Distribution",
-    "Biodiversity",
-    "Conservation of Forests and Wildlife",
-    "National Parks and Sanctuaries"
-  ],
-  "learningObjectives": [
-    "Understand the relationship between climate, soil, and vegetation.",
-    "Identify major vegetation types found in India.",
-    "Explain the distribution and importance of wildlife.",
-    "Recognize threats to forests and wildlife.",
-    "Describe conservation measures such as national parks, protected areas, and afforestation."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch5-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which type of forest is found in areas with heavy rainfall?",
-      "options": ["Mangroves", "Desert vegetation", "Evergreen forests", "Thorn forests"],
-      "answer": "Evergreen forests",
-      "tags": ["forest-types"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "What is biodiversity?",
-      "answer": "Biodiversity refers to the variety of plant and animal species in a particular region.",
-      "tags": ["biodiversity"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two factors that influence natural vegetation in India.",
-      "answer": "Climate (temperature and rainfall) and soil types are major factors influencing natural vegetation.",
-      "tags": ["factors"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why are mangrove forests found in coastal regions?",
-      "answer": "Mangroves grow in saline, tidal waters where silt and mud accumulate, making coastal deltas ideal for their growth.",
-      "tags": ["mangroves"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which animal is mainly found in the desert vegetation region?",
-      "options": ["Tiger", "Camel", "Elephant", "Leopard"],
-      "answer": "Camel",
-      "tags": ["desert"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain why wildlife conservation is necessary.",
-      "answer": "Wildlife conservation is essential to protect endangered species, maintain ecological balance, preserve biodiversity, and sustain natural habitats.",
-      "tags": ["conservation"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State two reasons for the decline of forests in India.",
-      "answer": "Deforestation for agriculture and urbanisation, and illegal logging are major reasons for forest decline.",
-      "tags": ["deforestation"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the main characteristics of tropical deciduous forests.",
-      "answer": "Tropical deciduous forests occur in areas with 100–200 cm rainfall. Trees shed leaves in the dry season to conserve water. Teak, sal, and bamboo are common species. These forests support diverse wildlife and are economically important.",
-      "tags": ["deciduous-forests"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the causes and effects of wildlife depletion in India.",
-      "answer": "Causes include poaching, habitat destruction, pollution, climate change, and deforestation. Effects include loss of biodiversity, disruption of food chains, ecological imbalance, and threat to endangered species.",
-      "tags": ["wildlife", "depletion"]
-    },
-    {
-      "id": "ms-10-geo-ch5-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss various measures taken by the government to conserve forests and wildlife.",
-      "answer": "Measures include establishing national parks, wildlife sanctuaries, biosphere reserves, enforcing Wildlife Protection Act, afforestation programs, banning hunting, and promoting awareness about conservation.",
-      "tags": ["government-measures", "conservation"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch6",
-  "chapterNumber": 6,
-  "title": "Population",
-  "slug": "population",
-  "description": "Study of India’s population distribution, density, growth, composition, literacy, sex ratio, age structure, and economic activities.",
-  "topics": [
-    "Population Distribution",
-    "Population Density",
-    "Population Growth",
-    "Birth Rate and Death Rate",
-    "Age Composition",
-    "Sex Ratio",
-    "Literacy Rate",
-    "Economic Composition of Population"
-  ],
-  "learningObjectives": [
-    "Understand the distribution and density of population in India.",
-    "Explain population growth patterns and related factors.",
-    "Interpret population composition through sex ratio, age structure, and literacy.",
-    "Analyze the relationship between economic development and population characteristics.",
-    "Identify factors influencing uneven population distribution."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch6-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which state has the highest population in India (as per recent Census trends)?",
-      "options": ["Maharashtra", "Uttar Pradesh", "Bihar", "Tamil Nadu"],
-      "answer": "Uttar Pradesh",
-      "tags": ["distribution"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define population density.",
-      "answer": "Population density refers to the number of people living per unit area, usually per square kilometre.",
-      "tags": ["density"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Name any two factors affecting population distribution in India.",
-      "answer": "Relief (terrain) and climate are major factors. Fertile plains and moderate climate attract high population.",
-      "tags": ["distribution-factors"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is sex ratio? Why is it important?",
-      "answer": "Sex ratio is the number of females per 1000 males. It indicates gender balance and reflects social conditions of a region.",
-      "tags": ["sex-ratio"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which of the following contributes to population growth?",
-      "options": ["High death rate", "High birth rate", "Low life expectancy", "Migration only"],
-      "answer": "High birth rate",
-      "tags": ["growth"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the significance of literacy rate.",
-      "answer": "Literacy rate indicates the educational level of the population and affects employability, economic development, and quality of life.",
-      "tags": ["literacy"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What is age composition of population?",
-      "answer": "Age composition refers to the distribution of population in different age groups such as young (0–14), working (15–59), and aged (60+).",
-      "tags": ["age-composition"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the factors affecting uneven population distribution in India.",
-      "answer": "Population distribution depends on climate, relief, soil fertility, water availability, industrialization, transport facilities, and economic opportunities. Fertile plains like the Ganga basin are densely populated, while deserts, mountains, and forests have sparse population.",
-      "tags": ["distribution-analysis"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the relationship between population and economic development.",
-      "answer": "A skilled and healthy population boosts productivity and economic growth. Overpopulation can cause unemployment and pressure on resources. Balanced population growth supports sustainable development.",
-      "tags": ["economy", "population"]
-    },
-    {
-      "id": "ms-10-geo-ch6-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the issues arising from rapid population growth in India.",
-      "answer": "Rapid population growth leads to unemployment, pressure on land, shortage of food and water, increased pollution, inadequate housing, and strain on health and education facilities.",
-      "tags": ["population-problems"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch7",
-  "chapterNumber": 7,
-  "title": "Human Settlements",
-  "slug": "human-settlements",
-  "description": "Study of rural and urban settlements, settlement patterns, growth of towns and cities, problems of urbanisation, and planning for sustainable settlements.",
-  "topics": [
-    "Meaning of Human Settlements",
-    "Rural and Urban Settlements",
-    "Settlement Patterns",
-    "Growth of Urban Centres",
-    "Migration and Urbanisation",
-    "Slums and Urban Problems",
-    "Sustainable Development of Settlements"
-  ],
-  "learningObjectives": [
-    "Differentiate between rural and urban settlements.",
-    "Understand factors influencing the location and growth of settlements.",
-    "Identify settlement patterns and their characteristics.",
-    "Explain the causes and effects of urbanisation.",
-    "Recognize urban problems and steps for sustainable settlement planning."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch7-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is an example of a rural settlement?",
-      "options": ["Village", "Metropolitan city", "Industrial township", "Mega city"],
-      "answer": "Village",
-      "tags": ["rural"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define urbanisation.",
-      "answer": "Urbanisation is the increase in the proportion of the population living in urban areas due to migration and natural growth.",
-      "tags": ["urbanisation"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two differences between rural and urban settlements.",
-      "answer": "Rural settlements depend mainly on agriculture and have low population density, while urban settlements depend on industry and services and have high population density.",
-      "tags": ["comparison"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are nucleated settlements?",
-      "answer": "Nucleated settlements are settlements where houses and buildings are located close together around a central point such as a market or water source.",
-      "tags": ["settlement-patterns"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which factor least influences the location of human settlements?",
-      "options": ["Relief", "Climate", "Soil", "Colour of buildings"],
-      "answer": "Colour of buildings",
-      "tags": ["location-factors"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain how migration contributes to urbanisation.",
-      "answer": "Migration increases the population of cities as people move from rural areas in search of better jobs, education, and living conditions.",
-      "tags": ["migration"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are slums, and why do they develop?",
-      "answer": "Slums are overcrowded and poorly serviced urban areas. They develop due to rapid urbanisation, lack of affordable housing, and poverty.",
-      "tags": ["slums"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the major problems faced by urban areas in India.",
-      "answer": "Urban areas face problems such as congestion, pollution, shortage of housing, traffic jams, unemployment, inadequate water supply, waste management issues, and development of slums.",
-      "tags": ["urban-problems"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the different types of settlement patterns with examples.",
-      "answer": `"Settlement patterns include:  
-1. **Nucleated** – houses clustered together (e.g., villages near rivers).  
-2. **Dispersed** – houses scattered over a large area (e.g., hilly regions).  
-3. **Linear** – settlements along roads, rivers or railways.  
-These patterns depend on relief, resources, and socio-economic factors."`,
-      "tags": ["settlement-patterns"]
-    },
-    {
-      "id": "ms-10-geo-ch7-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Suggest measures for sustainable development of human settlements.",
-      "answer": "Measures include planning affordable housing, improving transport, providing clean water and sanitation, promoting green spaces, controlling pollution, decentralized development, and creating employment opportunities in smaller towns.",
-      "tags": ["sustainable-development"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch8",
-  "chapterNumber": 8,
-  "title": "Economy and Occupations",
-  "slug": "economy-and-occupations",
-  "description": "Study of India’s economic structure including primary, secondary, and tertiary occupations, their characteristics, distribution, and importance in national development.",
-  "topics": [
-    "Primary Occupations",
-    "Secondary Occupations",
-    "Tertiary Occupations",
-    "Agriculture",
-    "Industries",
-    "Service Sector",
-    "Employment Distribution",
-    "Economic Development"
-  ],
-  "learningObjectives": [
-    "Differentiate between primary, secondary, and tertiary occupations.",
-    "Understand the importance of agriculture, industries, and services in India’s economy.",
-    "Analyze the distribution of occupations among India’s population.",
-    "Explain the factors influencing the development of different economic sectors.",
-    "Recognize challenges faced by workers in various occupations."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch8-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is a primary occupation?",
-      "options": ["Banking", "Farming", "Textile production", "Teaching"],
-      "answer": "Farming",
-      "tags": ["primary"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define secondary occupations.",
-      "answer": "Secondary occupations involve manufacturing and processing raw materials into finished goods, such as industries.",
-      "tags": ["secondary"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two examples of tertiary occupations.",
-      "answer": "Banking and transportation are examples of tertiary occupations.",
-      "tags": ["tertiary"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why is agriculture considered the backbone of India’s economy?",
-      "answer": "Agriculture employs a large portion of the population, provides raw materials to industries, contributes to food security, and supports exports.",
-      "tags": ["agriculture"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which sector has shown the fastest growth in recent years?",
-      "options": ["Primary", "Secondary", "Tertiary", "Traditional"],
-      "answer": "Tertiary",
-      "tags": ["growth"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the importance of transport and communication in economic development.",
-      "answer": "Transport and communication connect markets, support trade, reduce travel time, improve access to services, and promote regional development.",
-      "tags": ["transport", "communication"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "What are the challenges faced by the industrial sector?",
-      "answer": "Industries face challenges like inadequate infrastructure, power shortage, lack of skilled labour, pollution, and competition.",
-      "tags": ["industry"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the occupational structure of India.",
-      "answer": "India’s occupational structure is dominated by primary activities, especially agriculture. Secondary occupations (industries) employ fewer people due to limited industrialization. Tertiary occupations like transport, banking, education, and IT are growing rapidly and contribute significantly to GDP.",
-      "tags": ["occupational-structure"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the role of the tertiary sector in India’s economy.",
-      "answer": "The tertiary sector provides essential services such as education, healthcare, communication, tourism, banking, and trade. It supports primary and secondary sectors, enhances productivity, creates jobs, and drives economic growth.",
-      "tags": ["tertiary", "services"]
-    },
-    {
-      "id": "ms-10-geo-ch8-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss the factors affecting the development of industries in India.",
-      "answer": "Industrial development depends on availability of raw materials, power supply, labour, capital, transport facilities, government policies, market demand, and technological advancement.",
-      "tags": ["industrial-development"]
-    }
-  ]
-}, {
-  "id": "ms-10-geo-ch9",
-  "chapterNumber": 9,
-  "title": "Tourism, Transport and Communication",
-  "slug": "tourism-transport-and-communication",
-  "description": "Study of tourism in India, major transport systems, modern communication networks, and their importance in economic and social development.",
-  "topics": [
-    "Types of Tourism",
-    "Importance of Tourism",
-    "Road Transport",
-    "Rail Transport",
-    "Waterways",
-    "Air Transport",
-    "Modern Communication Systems",
-    "Role in Economic Development"
-  ],
-  "learningObjectives": [
-    "Understand different types of tourism and their importance to India.",
-    "Describe major transport systems and their characteristics.",
-    "Recognize the importance of communication in modern society.",
-    "Explain how transport and communication support economic development.",
-    "Identify challenges in tourism and transport infrastructure."
-  ],
-  "questions": [
-    {
-      "id": "ms-10-geo-ch9-q1",
-      "type": "mcq",
-      "difficulty": "easy",
-      "marks": 1,
-      "text": "Which of the following is the fastest mode of transport?",
-      "options": ["Roadways", "Railways", "Airways", "Waterways"],
-      "answer": "Airways",
-      "tags": ["transport"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q2",
-      "type": "short",
-      "difficulty": "easy",
-      "marks": 2,
-      "text": "Define tourism.",
-      "answer": "Tourism is the activity of traveling for leisure, recreation, education, or business purposes.",
-      "tags": ["tourism"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q3",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "State any two types of tourism in India.",
-      "answer": "Cultural tourism and adventure tourism are two major types of tourism in India.",
-      "tags": ["tourism-types"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q4",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Why are waterways considered economical?",
-      "answer": "Waterways are economical because they can transport large quantities of goods at low cost and require less fuel compared to other transport modes.",
-      "tags": ["waterways"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q5",
-      "type": "mcq",
-      "difficulty": "medium",
-      "marks": 2,
-      "text": "Which transport system has the largest route network in India?",
-      "options": ["Roadways", "Railways", "Airways", "Pipelines"],
-      "answer": "Roadways",
-      "tags": ["roadways"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q6",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Mention two advantages of road transport.",
-      "answer": "Road transport provides door-to-door service and is suitable for short distances and perishable goods.",
-      "tags": ["road-transport"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q7",
-      "type": "short",
-      "difficulty": "medium",
-      "marks": 3,
-      "text": "Explain the role of communication in today’s world.",
-      "answer": "Communication enables quick exchange of information through phones, internet, and media, supporting business, governance, education, and social connectivity.",
-      "tags": ["communication"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q8",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Describe the importance of tourism for India’s economy.",
-      "answer": "Tourism generates employment, supports hospitality industries, earns foreign exchange, promotes cultural exchange, and encourages development of infrastructure such as transport and hotels. It boosts local economies and preserves heritage sites.",
-      "tags": ["tourism-importance"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q9",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Explain the advantages and limitations of rail transport in India.",
-      "answer": `"Advantages: Railways are suitable for long-distance travel, carry heavy goods, are economical, and connect remote regions.  
-Limitations: Overcrowding, delays, high maintenance costs, limited reach in hilly regions, and dependence on large infrastructure."`,
-      "tags": ["railways"]
-    },
-    {
-      "id": "ms-10-geo-ch9-q10",
-      "type": "long",
-      "difficulty": "hard",
-      "marks": 5,
-      "text": "Discuss how transport and communication contribute to national development.",
-      "answer": "Transport enables movement of goods, people, and raw materials, supporting trade and industry. Communication ensures fast information exchange, enhances governance, connects markets, and promotes education and awareness. Together, they integrate regions and accelerate economic growth.",
-      "tags": ["development", "transport", "communication"]
-    }
-  ]
-}
-  ]
-},
-  // MSBSHSE Class 10
+  // MSBSHSE Class 12 - Science
 {
   board: "msbshse",
   medium: "english",
@@ -10654,7 +3901,5744 @@ These levels reflect complexity and stability of life on Earth."`,
   ]
 }
   ]
+}, {
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "geography",
+  chapters: [
+    {
+  "id": "ms-12-geo-ch1",
+  "chapterNumber": 1,
+  "title": "Population: Part 1",
+  "slug": "population-part-1",
+  "description": "Concept of population distribution, density of population, physical and human factors affecting distribution, and an introduction to population growth.",
+  "topics": [
+    "World population distribution",
+    "Population density and its calculation",
+    "Patterns of population distribution",
+    "Physical factors affecting population distribution",
+    "Human and economic factors affecting population distribution",
+    "Concept of population growth"
+  ],
+  "learningObjectives": [
+    "Define population distribution and population density.",
+    "Identify regions of high and low population density in the world.",
+    "Explain how relief, climate, soil and water affect population distribution.",
+    "Explain how agriculture, mining, transport, urbanisation and government policies affect population distribution.",
+    "Relate population growth with birth rate and death rate in a basic way."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch1-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Population density is defined as:",
+      "options": [
+        "Total population divided by total area",
+        "Total area divided by total population",
+        "Total population multiplied by total area",
+        "Total population minus total area"
+      ],
+      "answer": "Total population divided by total area",
+      "tags": ["population-density"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q2",
+      "type": "short",
+      "difficulty": "easy",
+      "marks": 2,
+      "text": "Name any two regions of the world which are sparsely populated and state one common reason.",
+      "answer": "Examples: Sahara desert and Arctic region. Common reason: extreme climatic conditions make human life difficult.",
+      "tags": ["sparse-population"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Explain how relief (landforms) influence population distribution.",
+      "answer": "Flat and low-lying plains favour agriculture, transport and settlement, so they have high population density, whereas mountains and steep slopes hinder agriculture and transport, so they have low population density.",
+      "tags": ["relief"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following regions generally has the highest population density?",
+      "options": ["High mountains", "Hot deserts", "River valleys and deltas", "Polar regions"],
+      "answer": "River valleys and deltas",
+      "tags": ["river-valleys"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two human (non-physical) factors responsible for high population density.",
+      "answer": "Examples: developed transportation network, industrialisation, availability of employment opportunities, urbanisation.",
+      "tags": ["human-factors"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q6",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "A country has a population of 50 million and an area of 250,000 sq km. Calculate its population density.",
+      "answer": "Density = 50,000,000 ÷ 250,000 = 200 persons per sq km.",
+      "tags": ["calculation"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q7",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain with suitable examples how climate affects population distribution in the world.",
+      "answer": "Equable climates (e.g., Western Europe) attract dense population as agriculture and living conditions are favourable. Extreme hot deserts (Sahara, Arabian desert) and cold regions (Greenland, Antarctica) are sparsely populated due to lack of water, difficult agriculture and harsh living conditions. Very humid equatorial regions like Amazon basin also remain sparsely populated due to dense forests and diseases.",
+      "tags": ["climate"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is meant by distribution of population?",
+      "answer": "Distribution of population refers to the way people are spread or arranged over the Earth’s surface.",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q9",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which of the following is NOT a physical factor affecting population distribution?",
+      "options": ["Relief", "Soil fertility", "Climate", "Government policy"],
+      "answer": "Government policy",
+      "tags": ["factors"]
+    },
+    {
+      "id": "ms-12-geo-ch1-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Distinguish between areas of high population density and areas of low population density on any three points.",
+      "answer": "Areas of high density: usually plains/coasts, fertile soils, developed transport, intensive agriculture/industry and urbanisation. Areas of low density: mountains/deserts/polar regions, infertile or thin soils, poor accessibility, limited economic activities and smaller/nucleated settlements.",
+      "tags": ["comparison"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch2",
+  "chapterNumber": 2,
+  "title": "Population: Part 2",
+  "slug": "population-part-2",
+  "description": "Population composition including age structure, sex ratio, literacy, occupational structure, rural–urban composition, demographic dividend and migration.",
+  "topics": [
+    "Age structure and population pyramids",
+    "Types of population pyramids",
+    "Sex ratio and its significance",
+    "Demographic dividend and working population",
+    "Literacy and occupational structure",
+    "Rural and urban population",
+    "Concept and types of migration",
+    "Causes and effects of migration"
+  ],
+  "learningObjectives": [
+    "Interpret different types of population pyramids.",
+    "Explain age structure and dependency ratio.",
+    "Define sex ratio and discuss its spatial variation.",
+    "Explain the idea of demographic dividend with reference to India.",
+    "Classify types of migration and identify push and pull factors."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch2-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Sex ratio in India is expressed as:",
+      "options": [
+        "Number of males per 1000 females",
+        "Number of females per 1000 males",
+        "Number of children per 1000 adults",
+        "Number of workers per 1000 dependents"
+      ],
+      "answer": "Number of females per 1000 males",
+      "tags": ["sex-ratio"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is meant by age structure of population?",
+      "answer": "Age structure refers to the distribution of population in different age groups such as children, working-age people and the aged in a given region.",
+      "tags": ["age-structure"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Differentiate between expansive and constrictive population pyramids in brief.",
+      "answer": "Expansive pyramid has a broad base and narrow top, showing high birth and death rates and large child population. Constrictive pyramid has a narrow base and relatively wider upper part, showing low birth rate and larger proportion of older people.",
+      "tags": ["population-pyramid"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "A country with very low birth and death rates and almost equal percentage in all age groups will show which type of pyramid?",
+      "options": ["Expansive", "Constrictive", "Stationary", "Inverted"],
+      "answer": "Stationary",
+      "tags": ["pyramid-type"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q5",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define demographic dividend.",
+      "answer": "Demographic dividend is the potential economic benefit that arises from a change in a country’s age structure, when the share of working-age population becomes larger than the dependent population.",
+      "tags": ["demographic-dividend"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q6",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain any three conditions necessary for a country like India to effectively utilise its demographic dividend.",
+      "answer": "Conditions: (1) Investment in quality education and skill development so that working-age people are employable. (2) Adequate job opportunities through industrial and service sector growth. (3) Good health facilities to keep workforce productive. (4) Gender equality and higher participation of women in labour force. (Any three explained.)",
+      "tags": ["india-dividend"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a pull factor of migration?",
+      "options": [
+        "Unemployment in home region",
+        "Political instability",
+        "Higher wages and better jobs in destination",
+        "Natural disaster in home region"
+      ],
+      "answer": "Higher wages and better jobs in destination",
+      "tags": ["migration-factors"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q8",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is internal migration? Give one example.",
+      "answer": "Migration within the boundaries of the same country is called internal migration, e.g., a person moving from rural Odisha to Mumbai for work.",
+      "tags": ["internal-migration"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q9",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe the effects of migration on the donor region and the recipient region (any three effects each).",
+      "answer": "Donor region: (i) Loss of working-age population can reduce production. (ii) Remittances sent by migrants can improve family income. (iii) Change in sex ratio and age structure as many young males move out. Recipient region: (i) Pressure on housing, water and services. (ii) Availability of cheap labour and cultural diversity. (iii) Possible growth of slums and social tensions if planning is poor.",
+      "tags": ["migration-effects"]
+    },
+    {
+      "id": "ms-12-geo-ch2-q10",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "In a town, there are 52,000 males and 49,400 females. Calculate the sex ratio.",
+      "answer": "Sex ratio = (49,400 ÷ 52,000) × 1000 ≈ 950 females per 1000 males.",
+      "tags": ["sex-ratio-calc"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch3",
+  "chapterNumber": 3,
+  "title": "Human Settlements and Land Use",
+  "slug": "human-settlements-and-land-use",
+  "description": "Types and patterns of human settlements, factors affecting their location and growth, land use types, and the relationship between settlements and land use.",
+  "topics": [
+    "Concept and types of human settlements",
+    "Rural and urban settlements",
+    "Settlement patterns (linear, nucleated, dispersed)",
+    "Factors affecting location and growth of settlements",
+    "Concept of land use and land cover",
+    "Types of rural and urban land use",
+    "Land use changes and problems",
+    "Need for planned land use"
+  ],
+  "learningObjectives": [
+    "Classify settlements into rural and urban with examples.",
+    "Describe different settlement patterns and relate them to physical factors.",
+    "Explain major types of land use in rural and urban areas.",
+    "Analyse how transport, relief and water availability influence settlement location.",
+    "Discuss the need for proper land use planning."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch3-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "A settlement in which houses are closely spaced around a central point like a market or temple is called:",
+      "options": ["Linear settlement", "Dispersed settlement", "Nucleated settlement", "Isolated settlement"],
+      "answer": "Nucleated settlement",
+      "tags": ["settlement-patterns"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Differentiate between rural and urban settlements on any two points.",
+      "answer": "Rural settlements: mainly engaged in primary activities, low building density and more open space. Urban settlements: mainly engaged in secondary and tertiary activities, high building density and better infrastructure.",
+      "tags": ["rural-urban"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is land use? Give two examples of land use in rural areas.",
+      "answer": "Land use refers to the purposes for which land is used by humans, such as agriculture, settlement, industry or recreation. In rural areas examples are crop cultivation and grazing land.",
+      "tags": ["land-use"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q4",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following factors is most responsible for linear settlements?",
+      "options": ["Presence of crossroad", "Availability of flat circular plain", "Along transport routes or rivers", "Presence of a religious centre"],
+      "answer": "Along transport routes or rivers",
+      "tags": ["linear-settlement"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain any three physical and any three human factors affecting the location and growth of human settlements.",
+      "answer": "Physical: (i) Relief – plains favour larger settlements; steep slopes discourage them. (ii) Climate – moderate climate attracts people, extreme climate discourages. (iii) Water – proximity to rivers, lakes and groundwater supports settlements. Human: (i) Transport routes like highways and railways stimulate growth. (ii) Availability of jobs in industries or services. (iii) Government policies such as new town development or relocation schemes.",
+      "tags": ["factors-settlements"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Why do some mountainous regions still have dense settlements despite difficult terrain?",
+      "answer": "Because they may have valuable resources (minerals, tourism), fertile valley floors, or strategic importance that offers employment and services, attracting population despite harsh relief.",
+      "tags": ["mountain-settlements"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q7",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Conversion of agricultural land into built-up area is an example of:",
+      "options": ["Land cover change only", "Land use change only", "Both land use and land cover change", "No change"],
+      "answer": "Both land use and land cover change",
+      "tags": ["land-cover"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q8",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "In a village, the total area is 500 hectares. Out of this, 300 ha is under agriculture, 50 ha under forest, 100 ha under settlement and roads, and 50 ha is wasteland. Calculate the percentage of land under agriculture and settlement.",
+      "answer": "Agriculture: (300 ÷ 500) × 100 = 60%. Settlement and roads: (100 ÷ 500) × 100 = 20%.",
+      "tags": ["percentage"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "List any two problems created due to unplanned urban land use.",
+      "answer": "Examples: traffic congestion, slums, shortage of open spaces, pollution, overburdened water supply and drainage systems.",
+      "tags": ["urban-problems"]
+    },
+    {
+      "id": "ms-12-geo-ch3-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe the need for land use planning in a rapidly growing city.",
+      "answer": "Land use planning ensures proper location of residential, industrial and commercial areas, protects environmentally sensitive zones, provides adequate transport and public services, prevents haphazard growth and slums, and helps maintain a balance between development and quality of life.",
+      "tags": ["planning"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch4",
+  "chapterNumber": 4,
+  "title": "Primary Economic Activities",
+  "slug": "primary-economic-activities",
+  "description": "Nature and types of primary activities like agriculture, fishing, forestry and mining, their spatial distribution and recent changes.",
+  "topics": [
+    "Meaning and types of primary activities",
+    "Subsistence and commercial agriculture",
+    "Intensive and extensive farming",
+    "Plantation and mixed farming",
+    "Fishing and forestry as primary activities",
+    "Mining regions of the world",
+    "Factors affecting primary activities",
+    "Recent changes and modernisation in primary sector"
+  ],
+  "learningObjectives": [
+    "Define primary economic activities with examples.",
+    "Differentiate between subsistence and commercial agriculture.",
+    "Explain important types of agriculture and their regional examples.",
+    "Describe global distribution of fishing, forestry and mining regions in brief.",
+    "Discuss problems and changes in primary economic activities."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch4-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is NOT a primary activity?",
+      "options": ["Mining", "Dairy farming", "Software development", "Fishing"],
+      "answer": "Software development",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two differences between subsistence farming and commercial farming.",
+      "answer": "Subsistence: small land holdings, use of family labour, production mainly for own consumption. Commercial: large farms, hired labour, production for market and profit.",
+      "tags": ["agriculture-types"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is plantation agriculture? Give two examples of plantation crops.",
+      "answer": "Plantation agriculture is a type of commercial farming where a single crop is grown on a large estate using modern techniques and wage labour; examples: tea, coffee, rubber, oil palm.",
+      "tags": ["plantation"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which one of the following pairs is correctly matched?",
+      "options": [
+        "Wheat – tropical plantation crop",
+        "Rice – intensive subsistence farming in monsoon Asia",
+        "Maize – shifting cultivation crop in Arctic",
+        "Tea – mixed farming crop"
+      ],
+      "answer": "Rice – intensive subsistence farming in monsoon Asia",
+      "tags": ["cropping-regions"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain the factors affecting the development of fishing industry in the world.",
+      "answer": "Factors: (i) Physical – continental shelf, cold and warm current convergence, nutrient-rich waters. (ii) Climatic – suitable temperatures and absence of storms during fishing seasons. (iii) Economic – demand in domestic and foreign markets, availability of refrigeration and processing. (iv) Technological – modern trawlers, sonar, cold storage. (v) Government policies like subsidies and exclusive economic zones.",
+      "tags": ["fishing"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Mention two major problems faced by farmers in India.",
+      "answer": "Examples: dependence on monsoon, fragmentation of land holdings, lack of irrigation facilities, low use of modern inputs, low and fluctuating market prices.",
+      "tags": ["india-agriculture"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Mining of which mineral is most important in the Chota Nagpur plateau?",
+      "options": ["Petroleum", "Iron ore and coal", "Bauxite", "Gold"],
+      "answer": "Iron ore and coal",
+      "tags": ["mining"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q8",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "A farmer owns 2 hectares of land. On one hectare he grows food grains only for his family, and on the other hectare he grows sugarcane for selling to a factory. Calculate the percentage of his land under subsistence and commercial farming.",
+      "answer": "Subsistence: (1 ÷ 2) × 100 = 50%. Commercial: (1 ÷ 2) × 100 = 50%.",
+      "tags": ["land-use-share"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is shifting cultivation? Mention one region where it is still practised.",
+      "answer": "Shifting cultivation is an agricultural system in which a plot of land is cleared, cultivated for a few years and then abandoned for another plot; examples: North-East India, Amazon basin, parts of Congo basin.",
+      "tags": ["shifting-cultivation"]
+    },
+    {
+      "id": "ms-12-geo-ch4-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Discuss any three environmental problems created by intensive exploitation of primary resources like forests and minerals.",
+      "answer": "Problems: (i) Deforestation leading to soil erosion, loss of biodiversity and climate change. (ii) Over-mining causing land degradation, subsidence and pollution of water bodies. (iii) Overfishing resulting in depletion of fish stocks and ecological imbalance in marine ecosystems.",
+      "tags": ["environmental-impact"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch5",
+  "chapterNumber": 5,
+  "title": "Secondary Economic Activities",
+  "slug": "secondary-economic-activities",
+  "description": "Nature of secondary activities, types of industries, factors affecting industrial location, major industrial regions of the world and emerging trends.",
+  "topics": [
+    "Definition of secondary activities and industries",
+    "Classification of industries (size, ownership, raw material, product)",
+    "Factors influencing location of industries",
+    "Major industrial regions of the world",
+    "Industrial regions of India",
+    "Footloose industries and high-tech industries",
+    "Environmental issues related to industries"
+  ],
+  "learningObjectives": [
+    "Define secondary economic activities and classify industries.",
+    "Explain physical and human factors responsible for industrial location.",
+    "Identify major industrial regions of the world and India on a map.",
+    "Describe characteristics of footloose and information technology industries.",
+    "Discuss environmental problems caused by industries."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch5-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a secondary activity?",
+      "options": ["Sheep rearing", "Iron ore mining", "Steel manufacturing", "Fishing"],
+      "answer": "Steel manufacturing",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two factors affecting the location of industries.",
+      "answer": "Examples: availability of raw materials, power supply, labour, transport facilities, market, government policies.",
+      "tags": ["location-factors"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What are footloose industries? Give one example.",
+      "answer": "Footloose industries are those which are not tied to any specific raw material or market location and can be located in a wide choice of places; example: electronics assembly, software industry.",
+      "tags": ["footloose"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "The Ruhr region of Germany is famous for:",
+      "options": ["Textile industry", "Automobile industry", "Iron and steel industry", "Ship-building"],
+      "answer": "Iron and steel industry",
+      "tags": ["industrial-region"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain how market and transport facilities influence industrial location.",
+      "answer": "Industries producing bulky or perishable finished goods prefer locations near markets to reduce transport cost and ensure quick delivery. Good transport facilities (roads, railways, ports) reduce cost of bringing raw materials and sending finished products, allow easy access to national and international markets and thus attract industries to such nodes and corridors.",
+      "tags": ["market-transport"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Mention any two characteristics of high-technology (hi-tech) industries.",
+      "answer": "Characteristics: high investment in research and development; use of advanced electronics and robotics; highly skilled workforce; clean and environment-friendly production compared to traditional heavy industries.",
+      "tags": ["high-tech"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which one is an example of public sector industry in India?",
+      "options": ["Tata Steel", "Reliance Industries", "BHEL", "Infosys"],
+      "answer": "BHEL",
+      "tags": ["ownership"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q8",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "In an industrial region, 40% of workers are engaged in engineering industries, 35% in textile industries and the rest in food-processing. If total industrial workers are 2,00,000, find the number working in food-processing.",
+      "answer": "Percentage in food-processing = 100 − (40 + 35) = 25%. Number = 25% of 2,00,000 = 50,000 workers.",
+      "tags": ["percentage-workers"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "List any two environmental problems caused by concentration of industries.",
+      "answer": "Air pollution from smoke and gases, water pollution from industrial effluents, noise pollution, solid waste generation and land degradation.",
+      "tags": ["environment"]
+    },
+    {
+      "id": "ms-12-geo-ch5-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe any three advantages of industrial regions for the economic development of a country.",
+      "answer": "Advantages: (i) Economies of scale as industries share infrastructure and services. (ii) Large employment opportunities and urban growth. (iii) Development of transport, banking and other services. (iv) Increase in exports and tax revenue, contributing to GDP.",
+      "tags": ["advantages"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch6",
+  "chapterNumber": 6,
+  "title": "Tertiary Economic Activities",
+  "slug": "tertiary-economic-activities",
+  "description": "Nature and types of tertiary activities such as trade, transport, tourism and communication, their interrelationships and changing trends.",
+  "topics": [
+    "Definition and types of tertiary activities",
+    "Importance of transport and communication",
+    "Internal and international trade",
+    "Tourism as a tertiary activity",
+    "Relationship between trade, transport and tourism",
+    "Recent trends: e-commerce, digital services, globalisation",
+    "Problems and prospects of tertiary sector in developing countries"
+  ],
+  "learningObjectives": [
+    "Define tertiary activities and give examples.",
+    "Explain the role of transport and communication in economic development.",
+    "Differentiate between internal and international trade.",
+    "Discuss the importance and impacts of tourism.",
+    "Describe how trade, transport and tourism are interlinked."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch6-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is NOT a tertiary activity?",
+      "options": ["Banking", "Retail trade", "Road construction", "Teaching"],
+      "answer": "Road construction",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two advantages of good transport facilities to a region.",
+      "answer": "They help movement of raw materials and finished goods, reduce transport cost and time, promote trade and tourism and integrate remote areas with markets.",
+      "tags": ["transport"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Differentiate between internal trade and international trade.",
+      "answer": "Internal trade takes place within the boundaries of a country and uses national currency, whereas international trade occurs between different countries and involves foreign exchange and customs procedures.",
+      "tags": ["trade-types"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which factor has recently contributed most to the growth of e-commerce?",
+      "options": ["Invention of steam engine", "Spread of internet and smartphones", "Discovery of sea route to India", "Use of horses for transport"],
+      "answer": "Spread of internet and smartphones",
+      "tags": ["e-commerce"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain any three positive and any two negative impacts of tourism on a destination region.",
+      "answer": "Positive: (i) Generates employment and income. (ii) Develops infrastructure like roads, airports and hotels. (iii) Encourages preservation of culture and heritage. Negative: (i) Environmental degradation due to pollution and littering. (ii) Overcrowding and seasonal pressure on local resources, sometimes cultural commodification.",
+      "tags": ["tourism-impact"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is meant by globalisation of services? Give one example.",
+      "answer": "Globalisation of services means services such as IT, banking, education and health are provided across national boundaries using communication technology, e.g., Indian IT companies providing software services to clients in USA or Europe.",
+      "tags": ["globalisation"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following pairs is correctly matched?",
+      "options": [
+        "Tourism – extraction of minerals",
+        "Banking – financial service",
+        "Fishing – information service",
+        "Farming – quaternary activity"
+      ],
+      "answer": "Banking – financial service",
+      "tags": ["services"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q8",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "A country exported goods worth ₹800 crore and imported goods worth ₹650 crore in a year. Calculate its balance of trade and state whether it is favourable or unfavourable.",
+      "answer": "Balance of trade = Exports − Imports = 800 − 650 = ₹150 crore (surplus). It is a favourable balance of trade.",
+      "tags": ["balance-of-trade"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Explain the term ‘transport corridor’ with an example.",
+      "answer": "A transport corridor is a well-developed route connecting major centres with concentrated road, rail or water transport facilities, e.g., the Golden Quadrilateral in India connecting Delhi, Mumbai, Chennai and Kolkata.",
+      "tags": ["corridor"]
+    },
+    {
+      "id": "ms-12-geo-ch6-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe the relationship between trade, transport and tourism.",
+      "answer": "Efficient transport connects producers and consumers, enabling trade of goods. Developed trade encourages better transport infrastructure like ports and airports. The same transport networks allow tourists to reach destinations; in turn, growth of tourism justifies further improvements in transport and communication. Thus, trade, transport and tourism support each other’s growth.",
+      "tags": ["linkages"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch7",
+  "chapterNumber": 7,
+  "title": "Region and Regional Development",
+  "slug": "region-and-regional-development",
+  "description": "Concept of region, types of regions, indicators of development, regional imbalance and measures for balanced regional development.",
+  "topics": [
+    "Meaning and characteristics of region",
+    "Basis of regionalisation",
+    "Types of regions (formal, functional, administrative)",
+    "Concept of development and underdevelopment",
+    "Indicators of regional development",
+    "Causes of regional imbalance",
+    "Measures for reducing regional imbalance",
+    "Case examples of regional development programmes"
+  ],
+  "learningObjectives": [
+    "Define region and explain its characteristics.",
+    "Differentiate between various types of regions.",
+    "Explain concept of regional development and imbalance.",
+    "Identify factors responsible for regional disparities.",
+    "Suggest measures for balanced regional development."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch7-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "An area organised around a focal point such as a city and its surrounding hinterland is called a:",
+      "options": ["Formal region", "Functional region", "Natural region", "Climatic region"],
+      "answer": "Functional region",
+      "tags": ["region-types"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Define ‘region’ in geographical sense.",
+      "answer": "Region is an area of the earth’s surface that is homogeneous with respect to certain selected criteria such as climate, economy or culture and differs from surrounding areas.",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "State any two indicators used to measure regional development.",
+      "answer": "Examples: per capita income, literacy rate, level of industrialisation, availability of infrastructure (roads, electricity, health services), Human Development Index.",
+      "tags": ["indicators"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "A state boundary in India is an example of which type of region?",
+      "options": ["Formal region", "Functional region", "Administrative region", "Natural region"],
+      "answer": "Administrative region",
+      "tags": ["administrative"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain any three causes of regional imbalance within a country.",
+      "answer": "Causes: (i) Unequal distribution of natural resources such as minerals, fertile soils or water. (ii) Historical factors like colonial policies favouring some ports and regions. (iii) Concentration of industries and infrastructure in few growth centres while other areas remain neglected. (iv) Political decisions, poor governance or lack of investment in backward regions.",
+      "tags": ["causes-imbalance"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is meant by balanced regional development?",
+      "answer": "Balanced regional development refers to a situation where all regions of a country develop in a reasonably similar way and no region remains permanently backward or highly deprived compared to others.",
+      "tags": ["balanced-development"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is a measure to reduce regional disparities?",
+      "options": [
+        "Concentrating all industries in one metro city",
+        "Providing tax incentives to industries in backward areas",
+        "Stopping development in backward areas",
+        "Ignoring remote tribal regions"
+      ],
+      "answer": "Providing tax incentives to industries in backward areas",
+      "tags": ["policies"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q8",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "Region A has per capita income of ₹1,20,000 and literacy rate of 85%. Region B has per capita income of ₹60,000 and literacy rate of 65%. Calculate the difference in per capita income and literacy rate between the two regions.",
+      "answer": "Difference in per capita income = 1,20,000 − 60,000 = ₹60,000. Difference in literacy rate = 85% − 65% = 20 percentage points.",
+      "tags": ["comparison-numerical"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Give two examples of natural regions.",
+      "answer": "Examples: monsoon region of South Asia, equatorial rainforest region, Mediterranean region, hot desert region (any two).",
+      "tags": ["natural-regions"]
+    },
+    {
+      "id": "ms-12-geo-ch7-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Suggest any three planning measures that the government can adopt to promote development in a backward region.",
+      "answer": "Measures: (i) Develop basic infrastructure like roads, electricity, irrigation and communication. (ii) Provide special financial incentives, subsidies and tax concessions to attract industries. (iii) Improve education, skill development and health services for local people. (iv) Promote region-specific resources like tourism, horticulture or handicrafts.",
+      "tags": ["planning-measures"]
+    }
+  ]
+}, {
+  "id": "ms-12-geo-ch8",
+  "chapterNumber": 8,
+  "title": "Geography: Nature and Scope",
+  "slug": "geography-nature-and-scope",
+  "description": "Concept, nature and branches of geography, its relationship with other disciplines, uses and applications of geography in modern times.",
+  "topics": [
+    "Meaning and definition of geography",
+    "Nature of geography as an integrating discipline",
+    "Branches of physical and human geography",
+    "Sub-branches and applied geography",
+    "Relationship of geography with other subjects",
+    "Importance and scope of geography in daily life",
+    "Use of technology in geography (GIS, remote sensing, GPS)"
+  ],
+  "learningObjectives": [
+    "Define geography and explain its dual character as physical and human science.",
+    "Identify major branches and sub-branches of geography.",
+    "Explain how geography is related to other natural and social sciences.",
+    "Recognise the practical applications of geography in planning and management.",
+    "Appreciate the growing scope of modern tools like GIS and remote sensing."
+  ],
+  "questions": [
+    {
+      "id": "ms-12-geo-ch8-q1",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Geography is mainly concerned with:",
+      "options": [
+        "Only physical features of the Earth",
+        "Only historical events",
+        "Interaction between humans and their environment",
+        "Chemical composition of atoms"
+      ],
+      "answer": "Interaction between humans and their environment",
+      "tags": ["definition"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q2",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Name any two branches each of physical geography and human geography.",
+      "answer": "Physical: climatology, geomorphology, biogeography, oceanography. Human: population geography, economic geography, political geography, social geography (any two of each).",
+      "tags": ["branches"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q3",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "What is meant by applied geography?",
+      "answer": "Applied geography deals with the practical application of geographical knowledge and techniques to solve real-world problems such as urban planning, disaster management, transport planning and resource management.",
+      "tags": ["applied-geography"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q4",
+      "type": "mcq",
+      "difficulty": "medium",
+      "marks": 1,
+      "text": "Which technology uses satellites to collect information about the Earth’s surface?",
+      "options": ["GPS", "Remote sensing", "GIS only", "Topographic surveying"],
+      "answer": "Remote sensing",
+      "tags": ["remote-sensing"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q5",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Explain how geography is both a physical science and a social science.",
+      "answer": "As physical science, geography studies landforms, climate, soils, vegetation and processes shaping the natural environment. As social science, it studies population, settlements, economic activities and cultural landscapes. It integrates these aspects by examining how human activities depend on and modify physical environment.",
+      "tags": ["nature"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q6",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "Mention two uses of Geographic Information System (GIS).",
+      "answer": "GIS is used for preparing and analysing thematic maps such as land use, transport networks, disaster risk zones, and for urban planning, route optimisation, environmental management etc.",
+      "tags": ["gis"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q7",
+      "type": "mcq",
+      "difficulty": "easy",
+      "marks": 1,
+      "text": "Which of the following is NOT correctly matched?",
+      "options": [
+        "Climatology – study of climate",
+        "Demography – study of population",
+        "Orology – study of trade routes",
+        "Pedology – study of soils"
+      ],
+      "answer": "Orology – study of trade routes",
+      "tags": ["matching"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q8",
+      "type": "numerical",
+      "difficulty": "medium",
+      "marks": 3,
+      "text": "In a GIS project, 4 thematic layers are used: land use, roads, rivers and population density. If each layer is stored as one file of size 250 MB, calculate the total storage required in GB.",
+      "answer": "Total size = 4 × 250 MB = 1000 MB = 1 GB.",
+      "tags": ["simple-calculation"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q9",
+      "type": "short",
+      "difficulty": "medium",
+      "marks": 2,
+      "text": "How does the study of geography help in disaster management?",
+      "answer": "Geography provides knowledge of hazard-prone areas, landforms, climate and human settlements; using maps, remote sensing and GIS, it helps in risk assessment, evacuation planning, resource allocation and post-disaster rehabilitation.",
+      "tags": ["disaster-management"]
+    },
+    {
+      "id": "ms-12-geo-ch8-q10",
+      "type": "long",
+      "difficulty": "hard",
+      "marks": 3,
+      "text": "Describe the importance of geography in your day-to-day life (any five points).",
+      "answer": "Examples: (i) Helps understand weather forecasts and plan activities. (ii) Guides route selection and travel using maps and GPS. (iii) Explains availability of resources like water and food. (iv) Creates awareness about environmental issues and sustainable use of resources. (v) Helps understand regional cultures and global events. (vi) Useful in careers such as planning, logistics, environment and tourism.",
+      "tags": ["importance"]
+    }
+  ]
+}
+  ]
+}, {
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "information-technology",
+  chapters: [
+    {
+      "id": "ms-12-it-ch1",
+      "chapterNumber": 1,
+      "title": "Advanced Web Designing",
+      "slug": "advanced-web-designing",
+      "description": "Advanced HTML5 form controls, meta tags, CSS (selectors, layout, positioning, float, display), lists, audio/video embedding, image maps, iframes and basics of website hosting.",
+      "topics": [
+        "HTML5 advanced input types",
+        "Form validation attributes",
+        "Meta tags and page metadata",
+        "CSS syntax and types (inline, internal, external)",
+        "CSS selectors, positioning, float and display",
+        "Ordered, unordered and definition lists",
+        "Audio and video embedding",
+        "Image maps and iframes",
+        "Basics of website hosting and domain",
+        "Free hosting workflow (000webhost, Freenom)"
+      ],
+      "learningObjectives": [
+        "Use advanced HTML5 input types for user-friendly forms.",
+        "Apply validation-related attributes like required, pattern, min and max.",
+        "Use meta tags to describe a web page for search engines and browsers.",
+        "Design consistent layouts using CSS selectors, positioning and float.",
+        "Embed audio, video, image maps and iframes in web pages.",
+        "Explain the basic process of hosting a website with a custom domain."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-it-ch1-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "Which HTML5 input type is most suitable for selecting a value between 0 and 100 using a slider?",
+          "options": ["text", "range", "number", "search"],
+          "answer": "range",
+          "tags": ["forms", "html5-input"]
+        },
+        {
+          "id": "ms-12-it-ch1-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Write any two HTML5 input types that help in validating contact details and explain their use in one line each.",
+          "answer": "Examples: type=\"email\" for validating e-mail address format; type=\"tel\" for entering a telephone number, often with a pattern attribute.",
+          "tags": ["forms", "validation"]
+        },
+        {
+          "id": "ms-12-it-ch1-q3",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "Which attribute of the <input> tag forces the user to fill a value before submitting the form?",
+          "options": ["placeholder", "required", "readonly", "autofocus"],
+          "answer": "required",
+          "tags": ["validation"]
+        },
+        {
+          "id": "ms-12-it-ch1-q4",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is the purpose of the placeholder attribute in an input element? Give one example.",
+          "answer": "placeholder displays a light, temporary hint inside the input field to show what the user should enter. Example: <input type=\"text\" placeholder=\"Enter your full name\">.",
+          "tags": ["forms", "attributes"]
+        },
+        {
+          "id": "ms-12-it-ch1-q5",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Differentiate between inline CSS and external CSS (two points).",
+          "answer": "Inline CSS: written inside the style attribute of an HTML tag, affects only that element and mixes style with structure. External CSS: written in a separate .css file linked using <link>, can style many pages and keeps content and style separate.",
+          "tags": ["css", "styling"]
+        },
+        {
+          "id": "ms-12-it-ch1-q6",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Explain the four CSS position values: static, relative, absolute and fixed with a suitable use case for each.",
+          "answer": "Static: default flow, element positioned as normal; used for most text blocks. Relative: element is shifted relative to its normal position using top/left etc., useful for small adjustments. Absolute: element is removed from normal flow and positioned relative to the nearest positioned ancestor or page; used for tooltips or badges. Fixed: element is positioned relative to the browser window and does not move while scrolling; used for sticky headers or floating buttons.",
+          "tags": ["css", "positioning"]
+        },
+        {
+          "id": "ms-12-it-ch1-q7",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which HTML5 tag is used to embed video with native controls?",
+          "options": ["<media>", "<movie>", "<video>", "<embed>"],
+          "answer": "<video>",
+          "tags": ["video"]
+        },
+        {
+          "id": "ms-12-it-ch1-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is an image map? Name the two main tags used to create a client-side image map in HTML5.",
+          "answer": "An image map is an image with different clickable areas (hotspots), each linking to a different URL. It mainly uses <map> and <area> tags together with <img usemap=\"...\">.",
+          "tags": ["image-map"]
+        },
+        {
+          "id": "ms-12-it-ch1-q9",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Describe the basic steps involved in hosting a small website for free using a service like 000webhost and a free domain provider.",
+          "answer": "Steps: (1) Sign up on a free hosting site such as 000webhost and create a new site, which allocates free web space and a temporary subdomain. (2) Upload all website files (HTML, CSS, images, etc.) via file manager, ensuring the home page is named index.html. (3) Register a free domain (e.g., .tk or .ml) from a provider like Freenom. (4) Park the domain on the hosting account and update nameservers at the domain provider to point to the hosting provider (e.g., ns01.000webhost.com, ns02.000webhost.com). (5) Wait for DNS propagation and then access the site using the custom domain.",
+          "tags": ["web-hosting", "domain"]
+        },
+        {
+          "id": "ms-12-it-ch1-q10",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write HTML5 code to embed an audio file named \"intro.mp3\" with controls.",
+          "answer": "Example: <audio controls>\n  <source src=\"intro.mp3\" type=\"audio/mpeg\">\n  Your browser does not support the audio element.\n</audio>",
+          "tags": ["audio", "html-code"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-it-ch2",
+      "chapterNumber": 2,
+      "title": "Introduction to SEO (Search Engine Optimization)",
+      "slug": "introduction-to-seo",
+      "description": "Basics of search engines and SEO, on-page and off-page SEO, white-hat and black-hat techniques, page-structure optimisation and best practices for titles, meta descriptions, headings, images and URLs.",
+      "topics": [
+        "Meaning and need of SEO",
+        "Search engines and result pages",
+        "On-page vs off-page SEO",
+        "White-hat and black-hat SEO techniques",
+        "Page structure and HTML best practices",
+        "Title, meta description and heading tags",
+        "Alt text for images and semantic HTML",
+        "Basic link building and social bookmarking",
+        "Role of keywords and content quality"
+      ],
+      "learningObjectives": [
+        "Define SEO and explain why websites need optimisation.",
+        "Differentiate between on-page SEO and off-page SEO.",
+        "Identify white-hat and black-hat SEO practices with examples.",
+        "Apply basic on-page SEO elements such as title, meta description and headings.",
+        "Explain the importance of meaningful URLs, internal linking and alt attributes."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-it-ch2-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "SEO mainly helps a website to:",
+          "options": [
+            "Increase printing speed",
+            "Improve ranking in search engine results",
+            "Change programming language",
+            "Reduce server hardware cost"
+          ],
+          "answer": "Improve ranking in search engine results",
+          "tags": ["seo-basics"]
+        },
+        {
+          "id": "ms-12-it-ch2-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "What is meant by On-Page SEO? Give two examples of On-Page factors.",
+          "answer": "On-Page SEO refers to optimisation techniques applied directly on the website pages. Examples: optimising title tags and meta descriptions, using proper heading tags, improving page content and keyword placement, adding alt attributes to images.",
+          "tags": ["on-page-seo"]
+        },
+        {
+          "id": "ms-12-it-ch2-q3",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Define Off-Page SEO and mention any two common Off-Page activities.",
+          "answer": "Off-Page SEO includes optimisation activities performed outside the website to improve its authority and popularity, such as link building and social bookmarking. Common activities: getting backlinks from other relevant websites, directory submissions, social media sharing.",
+          "tags": ["off-page-seo"]
+        },
+        {
+          "id": "ms-12-it-ch2-q4",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which of the following is a White-Hat SEO technique?",
+          "options": [
+            "Keyword stuffing",
+            "Buying thousands of spam backlinks",
+            "Creating high-quality, original content",
+            "Showing different content to search engines and users (cloaking)"
+          ],
+          "answer": "Creating high-quality, original content",
+          "tags": ["white-hat"]
+        },
+        {
+          "id": "ms-12-it-ch2-q5",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Using invisible text stuffed with keywords on a page is an example of:",
+          "options": [
+            "On-page White-Hat SEO",
+            "Black-Hat SEO",
+            "Off-page White-Hat SEO",
+            "Responsive design"
+          ],
+          "answer": "Black-Hat SEO",
+          "tags": ["black-hat"]
+        },
+        {
+          "id": "ms-12-it-ch2-q6",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is a meta description? State the recommended length range for it.",
+          "answer": "A meta description is a short summary of a web page's content, placed in a <meta name=\"description\"> tag and often shown in search results under the title. It is usually recommended to keep it between about 70 and 160 characters including spaces.",
+          "tags": ["meta-description"]
+        },
+        {
+          "id": "ms-12-it-ch2-q7",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Explain how the following elements affect SEO: (i) Title tag, (ii) Heading tags, (iii) Alt attribute of images.",
+          "answer": "Title tag: Appears as the clickable headline in search results; including main keywords and a clear description helps both ranking and click-through rate. Heading tags (H1–H6): Provide structure to the content; search engines use them to understand page hierarchy and important topics. Alt attribute: Describes images in text form; improves accessibility and helps search engines understand image content, contributing to relevancy for certain keywords.",
+          "tags": ["seo-elements"]
+        },
+        {
+          "id": "ms-12-it-ch2-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is keyword stuffing and why should it be avoided?",
+          "answer": "Keyword stuffing is the practice of excessively repeating keywords in content, meta tags or alt texts only to manipulate search rankings. It should be avoided because it reduces readability, violates search engine guidelines and can lead to penalties or lower ranking.",
+          "tags": ["keywords"]
+        },
+        {
+          "id": "ms-12-it-ch2-q9",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "A meta description currently has 210 characters including spaces. If the recommended maximum is 160 characters, by how many characters must it be reduced?",
+          "answer": "It must be reduced by 210 − 160 = 50 characters.",
+          "tags": ["calculation", "meta"]
+        },
+        {
+          "id": "ms-12-it-ch2-q10",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "List any five good practices to follow while optimising a page structure for SEO.",
+          "answer": "Good practices: (1) Use <!doctype html> and valid semantic HTML. (2) Provide a unique, descriptive title tag for each page. (3) Write a concise, meaningful meta description. (4) Use heading tags in order (H1, H2, etc.) to structure content. (5) Provide alt attributes for images. (6) Use clean, human-readable URLs. (7) Avoid duplicate content and ensure fast loading pages.",
+          "tags": ["best-practices"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-it-ch3",
+      "chapterNumber": 3,
+      "title": "Advanced JavaScript",
+      "slug": "advanced-javascript",
+      "description": "Looping constructs, arrays, functions, events and DOM manipulation in JavaScript for creating interactive and dynamic web pages.",
+      "topics": [
+        "Review of variables and operators",
+        "if / else and switch statements",
+        "for, while and do-while loops",
+        "break and continue",
+        "Arrays and array methods (basic)",
+        "User-defined functions",
+        "Event handling in JavaScript",
+        "DOM access using getElementById etc.",
+        "Form validation using JavaScript"
+      ],
+      "learningObjectives": [
+        "Use different loop structures to perform repetitive tasks.",
+        "Declare and manipulate one-dimensional arrays in JavaScript.",
+        "Write and call functions with parameters and return values.",
+        "Use events to interact with user actions like click and keypress.",
+        "Access and modify HTML elements through the DOM for validation."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-it-ch3-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "Which JavaScript loop will always execute its body at least once?",
+          "options": ["for", "while", "do-while", "for-in"],
+          "answer": "do-while",
+          "tags": ["loops"]
+        },
+        {
+          "id": "ms-12-it-ch3-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Write the syntax of a for loop in JavaScript.",
+          "answer": "Basic syntax: for (initialisation; condition; increment/decrement) { // statements }",
+          "tags": ["loops", "syntax"]
+        },
+        {
+          "id": "ms-12-it-ch3-q3",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is an array in JavaScript? Write a statement to declare an array of 3 city names.",
+          "answer": "An array is a special variable that can hold multiple values under a single name, accessed by index. Example: var cities = [\"Mumbai\", \"Pune\", \"Nagpur\"];",
+          "tags": ["arrays"]
+        },
+        {
+          "id": "ms-12-it-ch3-q4",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which method is used to add a new element at the end of a JavaScript array?",
+          "options": ["push()", "pop()", "shift()", "concat()"],
+          "answer": "push()",
+          "tags": ["arrays", "methods"]
+        },
+        {
+          "id": "ms-12-it-ch3-q5",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Define a function in JavaScript named sum that takes two parameters a and b and returns their addition.",
+          "answer": "Example: function sum(a, b) { return a + b; }",
+          "tags": ["functions", "code"]
+        },
+        {
+          "id": "ms-12-it-ch3-q6",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Write a JavaScript program using a loop to display the multiplication table of 7 from 7 × 1 to 7 × 10 in the browser window.",
+          "answer": "Example:\n<script>\nfor (var i = 1; i <= 10; i++) {\n  document.write(\"7 x \" + i + \" = \" + (7 * i) + \"<br>\");\n}\n</script>",
+          "tags": ["loops", "program"]
+        },
+        {
+          "id": "ms-12-it-ch3-q7",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is the purpose of the document.getElementById() method? Give one example.",
+          "answer": "It returns the HTML element whose id attribute matches the given string, allowing us to read or change its properties. Example: document.getElementById(\"msg\").innerHTML = \"Welcome\";",
+          "tags": ["dom"]
+        },
+        {
+          "id": "ms-12-it-ch3-q8",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which event is triggered when a user clicks a button?",
+          "options": ["onchange", "onload", "onclick", "onfocus"],
+          "answer": "onclick",
+          "tags": ["events"]
+        },
+        {
+          "id": "ms-12-it-ch3-q9",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Write JavaScript code to validate that a text box with id=\"age\" contains a value between 18 and 60. If it is invalid, show an alert message.",
+          "answer": "Example:\n<script>\nfunction checkAge() {\n  var age = parseInt(document.getElementById(\"age\").value);\n  if (isNaN(age) || age < 18 || age > 60) {\n    alert(\"Please enter age between 18 and 60\");\n  } else {\n    alert(\"Valid age\");\n  }\n}\n</script>",
+          "tags": ["validation", "dom", "events"]
+        },
+        {
+          "id": "ms-12-it-ch3-q10",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Differentiate between break and continue statements used inside loops.",
+          "answer": "break immediately terminates the loop and control moves to the statement after the loop. continue skips the remaining statements in the current iteration and moves to the next iteration of the loop.",
+          "tags": ["loops", "control-statements"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-it-ch4",
+      "chapterNumber": 4,
+      "title": "Emerging Technologies (IoT, Cloud Computing, AI, 5G)",
+      "slug": "emerging-technologies",
+      "description": "Overview of modern and emerging technologies including Internet of Things (IoT), Cloud Computing, Artificial Intelligence (AI) and 5G networks, with applications and benefits.",
+      "topics": [
+        "Need for emerging technologies",
+        "Concept and components of IoT",
+        "Cloud service models (IaaS, PaaS, SaaS)",
+        "Deployment models (public, private, hybrid cloud)",
+        "Basics of Artificial Intelligence and examples",
+        "Machine learning idea (very basic)",
+        "5G features and advantages over previous generations",
+        "Applications of IoT, Cloud, AI and 5G in daily life",
+        "Security and ethical issues (basic awareness)"
+      ],
+      "learningObjectives": [
+        "Explain the concept of IoT with suitable examples.",
+        "Differentiate between IaaS, PaaS and SaaS.",
+        "Describe how AI is used in common applications.",
+        "State key features and benefits of 5G networks.",
+        "Discuss advantages and challenges of emerging technologies."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-it-ch4-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "IoT stands for:",
+          "options": [
+            "Internet of Telecommunication",
+            "Internal office Technology",
+            "Internet of Things",
+            "Integrated Online Technology"
+          ],
+          "answer": "Internet of Things",
+          "tags": ["iot"]
+        },
+        {
+          "id": "ms-12-it-ch4-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Give any two examples of IoT devices used in daily life.",
+          "answer": "Examples: smart lights controllable via mobile app, smart thermostat, fitness band, internet-connected CCTV camera, smart refrigerator.",
+          "tags": ["iot-examples"]
+        },
+        {
+          "id": "ms-12-it-ch4-q3",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Define cloud computing in one or two lines.",
+          "answer": "Cloud computing is a model of delivering computing resources such as servers, storage, databases and software over the internet on demand, often on a pay-as-you-go basis.",
+          "tags": ["cloud"]
+        },
+        {
+          "id": "ms-12-it-ch4-q4",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which cloud service model provides only virtualised hardware resources such as servers and storage?",
+          "options": ["SaaS", "PaaS", "IaaS", "DaaS"],
+          "answer": "IaaS",
+          "tags": ["cloud-models"]
+        },
+        {
+          "id": "ms-12-it-ch4-q5",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Differentiate between public cloud and private cloud.",
+          "answer": "Public cloud is owned by a third-party provider and shared among many customers over the internet; it is cost-effective and scalable. Private cloud is dedicated to a single organisation, offering more control and security but at higher cost.",
+          "tags": ["cloud", "deployment-models"]
+        },
+        {
+          "id": "ms-12-it-ch4-q6",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What is Artificial Intelligence? Mention one real-life application.",
+          "answer": "Artificial Intelligence is the ability of machines or software to perform tasks that normally require human intelligence such as learning, reasoning or decision-making. Example: voice assistants like Siri/Alexa, recommendation systems on shopping sites, or spam filters in email.",
+          "tags": ["ai"]
+        },
+        {
+          "id": "ms-12-it-ch4-q7",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which of the following is a key feature of 5G networks?",
+          "options": [
+            "Very low data rates",
+            "Very high latency",
+            "Massive device connectivity and high speed",
+            "Supports only voice calls"
+          ],
+          "answer": "Massive device connectivity and high speed",
+          "tags": ["5g"]
+        },
+        {
+          "id": "ms-12-it-ch4-q8",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Explain any three advantages of using cloud computing for a small business.",
+          "answer": "Advantages: (1) Cost saving – no need to buy and maintain expensive hardware; pay as per usage. (2) Scalability – resources can be increased or decreased quickly as demand changes. (3) Accessibility – employees can access applications and data from anywhere via the internet. (4) Automatic updates and backup managed by provider, reducing maintenance work.",
+          "tags": ["cloud-advantages"]
+        },
+        {
+          "id": "ms-12-it-ch4-q9",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Mention any two security or privacy concerns related to IoT.",
+          "answer": "Examples: weakly protected devices can be hacked, leading to misuse of cameras or sensors; collection of large amounts of personal data about users’ habits; risk of unauthorised remote control of devices.",
+          "tags": ["security", "iot"]
+        },
+        {
+          "id": "ms-12-it-ch4-q10",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "How can AI and IoT together improve healthcare? Explain with any three points.",
+          "answer": "AI and IoT can improve healthcare by: (1) Using wearable IoT devices that continuously monitor vital signs and send data to AI systems for early detection of anomalies. (2) Enabling remote patient monitoring, where AI analyses data and alerts doctors if intervention is needed. (3) Helping in hospital management with smart beds and equipment tracking, while AI predicts patient inflow and optimises resource usage.",
+          "tags": ["ai", "iot", "applications"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-it-ch5",
+      "chapterNumber": 5,
+      "title": "Server-Side Scripting (PHP)",
+      "slug": "server-side-scripting-php",
+      "description": "Basics of server-side scripting using PHP, including syntax, variables, operators, control structures, forms handling and simple database connectivity concepts.",
+      "topics": [
+        "Client-side vs server-side scripting",
+        "Introduction to PHP and its features",
+        "PHP syntax and echo statement",
+        "Variables, data types and operators",
+        "Control structures (if, switch, loops)",
+        "Working with forms and $_GET / $_POST",
+        "Basic string and numeric functions",
+        "Concept of connecting PHP with a database (overview)"
+      ],
+      "learningObjectives": [
+        "Differentiate between client-side and server-side scripting.",
+        "Write basic PHP scripts using variables and operators.",
+        "Use conditional statements and loops in PHP.",
+        "Collect and process form data using PHP.",
+        "Explain at a basic level how PHP connects to a database."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-it-ch5-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "PHP code is executed:",
+          "options": [
+            "On the client’s browser only",
+            "On the server before sending HTML to the client",
+            "Directly inside the database",
+            "Only inside a mobile app"
+          ],
+          "answer": "On the server before sending HTML to the client",
+          "tags": ["php-basics"]
+        },
+        {
+          "id": "ms-12-it-ch5-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Write the PHP opening and closing tags.",
+          "answer": "Opening tag: <?php  Closing tag: ?>",
+          "tags": ["syntax"]
+        },
+        {
+          "id": "ms-12-it-ch5-q3",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write a PHP statement to store value 10 in a variable x and display it using echo.",
+          "answer": "Example: <?php $x = 10; echo $x; ?>",
+          "tags": ["variables", "echo"]
+        },
+        {
+          "id": "ms-12-it-ch5-q4",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which superglobal array is used to collect form data sent with the HTTP POST method?",
+          "options": ["$_FORM", "$_POST", "$_GET", "$POST"],
+          "answer": "$_POST",
+          "tags": ["forms", "php"]
+        },
+        {
+          "id": "ms-12-it-ch5-q5",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Differentiate between client-side scripting and server-side scripting with one example each.",
+          "answer": "Client-side scripting runs in the user's browser, mainly used for validation and interactivity; example: JavaScript form validation. Server-side scripting runs on the web server and generates dynamic pages; example: PHP script that fetches data from a database and displays it.",
+          "tags": ["client-vs-server"]
+        },
+        {
+          "id": "ms-12-it-ch5-q6",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Write a PHP script that accepts two numbers from a form (fields: num1 and num2, method=\"post\") and displays their sum.",
+          "answer": "Example:\n<form method=\"post\" action=\"sum.php\">\n  <input type=\"text\" name=\"num1\">\n  <input type=\"text\" name=\"num2\">\n  <input type=\"submit\" value=\"Add\">\n</form>\n\n// sum.php\n<?php\n$no1 = $_POST['num1'];\n$no2 = $_POST['num2'];\n$sum = $no1 + $no2;\necho \"Sum = \" . $sum;\n?>",
+          "tags": ["forms", "php-program"]
+        },
+        {
+          "id": "ms-12-it-ch5-q7",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What will be the output of the following PHP code?\n<?php\n$a = 5;\n$b = 2;\n$c = $a ** $b;\necho $c;\n?>",
+          "answer": "Output will be 25 because the ** operator is exponentiation, so 5 squared is 25.",
+          "tags": ["operators"]
+        },
+        {
+          "id": "ms-12-it-ch5-q8",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which function is commonly used in PHP to connect to a MySQL database (procedural style)?",
+          "options": ["mysqli_connect()", "mysql_open()", "db_connect()", "connect()"],
+          "answer": "mysqli_connect()",
+          "tags": ["database"]
+        },
+        {
+          "id": "ms-12-it-ch5-q9",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Explain the purpose of the following PHP code lines in a database program:\n(i) $con = mysqli_connect(\"localhost\",\"root\",\"\",\"school\");\n(ii) $result = mysqli_query($con, $sql);\n(iii) mysqli_close($con);",
+          "answer": "(i) mysqli_connect(...) establishes a connection to the MySQL server running on localhost using username 'root', empty password and selects database 'school'. (ii) mysqli_query($con, $sql) sends the SQL query stored in $sql to the server using the connection $con and stores the result (e.g., rows selected). (iii) mysqli_close($con) closes the database connection and frees server resources.",
+          "tags": ["database", "php"]
+        },
+        {
+          "id": "ms-12-it-ch5-q10",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Why is server-side validation necessary even if client-side validation is implemented using JavaScript?",
+          "answer": "Because client-side validation can be bypassed or disabled by users; server-side validation ensures data is checked on the server before processing or storing it, which protects security and data integrity.",
+          "tags": ["validation", "security"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-it-ch6",
+      "chapterNumber": 6,
+      "title": "E-Commerce and E-Governance",
+      "slug": "e-commerce-and-e-governance",
+      "description": "Concepts, types and benefits of e-commerce and e-governance, including online payment methods, security concerns and major Indian initiatives.",
+      "topics": [
+        "Definition and scope of e-commerce",
+        "Types of e-commerce (B2B, B2C, C2C, etc.)",
+        "Advantages and limitations of e-commerce",
+        "Online payment methods (cards, net banking, wallets, UPI)",
+        "Security issues in e-transactions",
+        "Meaning and objectives of e-governance",
+        "Types of e-governance interactions (G2C, G2B, G2G)",
+        "Examples of e-governance services in India",
+        "Digital India and related initiatives"
+      ],
+      "learningObjectives": [
+        "Define e-commerce and describe its main types.",
+        "Explain common online payment methods and their benefits.",
+        "Discuss security and privacy issues in e-transactions.",
+        "Define e-governance and describe its objectives.",
+        "List important examples of e-governance services in India."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-it-ch6-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "Buying a mobile phone from an online shopping website like Amazon is an example of:",
+          "options": ["B2B", "B2C", "C2C", "G2C"],
+          "answer": "B2C",
+          "tags": ["ecommerce-types"]
+        },
+        {
+          "id": "ms-12-it-ch6-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "What is e-commerce?",
+          "answer": "E-commerce (electronic commerce) is the buying and selling of goods and services and the transfer of money or data over electronic networks like the internet.",
+          "tags": ["ecommerce-definition"]
+        },
+        {
+          "id": "ms-12-it-ch6-q3",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "State any two advantages of e-commerce for customers.",
+          "answer": "Advantages: ability to shop 24×7 from anywhere; wider choice of products and price comparison; home delivery and time saving; access to user reviews.",
+          "tags": ["ecommerce-advantages"]
+        },
+        {
+          "id": "ms-12-it-ch6-q4",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "Which of the following is a popular real-time payment system widely used in India for e-commerce and person-to-person transfers?",
+          "options": ["UPI", "FTP", "HTTP", "SMTP"],
+          "answer": "UPI",
+          "tags": ["payments"]
+        },
+        {
+          "id": "ms-12-it-ch6-q5",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Name any two security measures that websites use to protect online transactions.",
+          "answer": "Examples: HTTPS (SSL/TLS encryption) to secure communication; strong authentication methods like OTP; use of secure payment gateways; two-factor authentication.",
+          "tags": ["security", "ecommerce"]
+        },
+        {
+          "id": "ms-12-it-ch6-q6",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Explain B2B and C2C types of e-commerce with suitable examples.",
+          "answer": "B2B (Business-to-Business): electronic transactions between businesses, such as a manufacturer selling components online to another company; example: a company ordering raw material through an online supplier portal. C2C (Consumer-to-Consumer): transactions between individual consumers, usually via a third-party platform; example: a person selling a second-hand mobile phone on OLX or a similar marketplace.",
+          "tags": ["ecommerce-types"]
+        },
+        {
+          "id": "ms-12-it-ch6-q7",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "E-Governance mainly aims to:",
+          "options": [
+            "Replace all teachers with robots",
+            "Use computers only in private companies",
+            "Deliver government services to citizens using ICT",
+            "Increase size of government offices"
+          ],
+          "answer": "Deliver government services to citizens using ICT",
+          "tags": ["egovernance"]
+        },
+        {
+          "id": "ms-12-it-ch6-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "What do you mean by G2C in e-governance? Give one example.",
+          "answer": "G2C (Government-to-Citizen) refers to electronic interactions where the government provides services or information directly to citizens, such as online payment of electricity bills or applying for a PAN/Aadhaar card through a portal.",
+          "tags": ["egovernance-types"]
+        },
+        {
+          "id": "ms-12-it-ch6-q9",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Discuss any three benefits of e-governance for citizens and government.",
+          "answer": "Benefits: (1) Increased transparency as information and processes are visible online, reducing corruption. (2) Convenience and time saving for citizens who can access services 24×7 without visiting offices. (3) Faster processing and better record keeping for government departments. (4) Reduced paperwork and cost, and improved communication between departments.",
+          "tags": ["egovernance-benefits"]
+        },
+        {
+          "id": "ms-12-it-ch6-q10",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Mention any two risks or challenges associated with e-commerce.",
+          "answer": "Examples: risk of online fraud and misuse of card details; privacy issues due to misuse of personal data; delivery delays or receiving wrong/damaged products; dependence on internet connectivity.",
+          "tags": ["ecommerce-risks"]
+        }
+      ]
+    }
+  ]
+}, {
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "maths-1",
+  chapters: [
+    {
+      "id": "ms-12-maths1-ch1",
+      "chapterNumber": 1,
+      "title": "Mathematical Logic",
+      "slug": "mathematical-logic",
+      "description": "Statements, truth values, logical connectives, truth tables, statement patterns, tautology, contradiction, contingency, quantifiers, duals, negation of compound statements, converse, inverse, contrapositive and applications to switching circuits.",
+      "topics": [
+        "Statements and truth values",
+        "Logical connectives (∧, ∨, →, ↔, ~)",
+        "Truth tables and statement patterns",
+        "Logical equivalence",
+        "Tautology, contradiction and contingency",
+        "Quantifiers (∀, ∃) and quantified statements",
+        "Duals and De Morgan’s laws",
+        "Converse, inverse, contrapositive",
+        "Switching circuits and switching tables"
+      ],
+      "learningObjectives": [
+        "Identify logical statements and determine their truth values.",
+        "Use logical connectives to form compound statements and build truth tables.",
+        "Classify statement patterns as tautology, contradiction or contingency.",
+        "Work with quantifiers, duals and negations of compound statements.",
+        "Interpret and design simple switching circuits using logic."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch1-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "Which of the following is NOT a statement in the sense of mathematical logic?",
+          "options": [
+            "7 is a prime number.",
+            "x + 5 = 9.",
+            "The Earth revolves around the Sun.",
+            "3 + 4 = 7."
+          ],
+          "answer": "x + 5 = 9.",
+          "tags": ["statements"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Define a simple statement and a compound statement with one example of each.",
+          "answer": "Simple statement: cannot be broken into smaller statements, e.g. \"5 is odd\". Compound statement: formed by combining two or more simple statements using connectives, e.g. \"5 is odd and 6 is even\".",
+          "tags": ["definitions"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q3",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "The connective in the compound statement \"p or q\" is represented symbolically by:",
+          "options": ["∧", "∨", "→", "↔"],
+          "answer": "∨",
+          "tags": ["connectives"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q4",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the truth table for the disjunction p ∨ q.",
+          "answer": "p q | p ∨ q\nT T | T\nT F | T\nF T | T\nF F | F",
+          "tags": ["truth-table", "disjunction"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q5",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Construct the truth table for (~p ∧ q) → p.",
+          "answer": "p q | ~p | ~p ∧ q | (~p ∧ q) → p\nT T | F  | F        | T\nT F | F  | F        | T\nF T | T  | T        | F\nF F | T  | F        | T",
+          "tags": ["truth-table", "implication"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q6",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "State whether the statement pattern p ∨ ~p is a tautology, contradiction or contingency. Justify briefly.",
+          "answer": "p ∨ ~p is a tautology because it is true for both possible truth values of p (if p is T, p ∨ ~p is T; if p is F, ~p is T, so disjunction is T).",
+          "tags": ["tautology"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q7",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the converse and contrapositive of: \"If n is even then n² is even\".",
+          "answer": "Converse: If n² is even then n is even. Contrapositive: If n² is not even then n is not even.",
+          "tags": ["converse", "contrapositive"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the dual of the statement pattern (p ∧ q) ∨ r.",
+          "answer": "Its dual is (p ∨ q) ∧ r (replace ∧ by ∨ and ∨ by ∧).",
+          "tags": ["dual"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q9",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Negate the statement: \"All real numbers are rational\" using quantifiers.",
+          "answer": "Negation: \"There exists at least one real number which is not rational.\"",
+          "tags": ["quantifiers", "negation"]
+        },
+        {
+          "id": "ms-12-maths1-ch1-q10",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Two switches S₁ and S₂ are connected in series to glow a lamp L. Represent this circuit as a logical expression and write the corresponding switching table.",
+          "answer": "Let p: S₁ is ON, q: S₂ is ON. Lamp glows only when both are ON, so expression is p ∧ q.\nSwitching (truth) table:\np q | p ∧ q\n1 1 | 1\n1 0 | 0\n0 1 | 0\n0 0 | 0.",
+          "tags": ["switching-circuits"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-maths1-ch2",
+      "chapterNumber": 2,
+      "title": "Matrices",
+      "slug": "matrices",
+      "description": "Types of matrices, equality and order, algebra of matrices, transpose, determinant of a square matrix, adjoint and inverse, and solution of system of linear equations using matrices.",
+      "topics": [
+        "Order and equality of matrices",
+        "Row, column, zero, identity and diagonal matrices",
+        "Addition, subtraction and scalar multiplication",
+        "Matrix multiplication and its conditions",
+        "Transpose of a matrix",
+        "Determinants of 2×2 and 3×3 matrices",
+        "Adjoint and inverse of a matrix",
+        "Solving linear equations using inverse matrix",
+        "Elementary row operations (concept)"
+      ],
+      "learningObjectives": [
+        "Identify different types of matrices and their orders.",
+        "Perform algebraic operations on matrices.",
+        "Find determinants and inverses of square matrices where possible.",
+        "Use matrices to solve small systems of linear equations.",
+        "Understand basic properties like associativity and non-commutativity of multiplication."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch2-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "If A is a 2×3 matrix and B is a 3×4 matrix, then the order of AB is:",
+          "options": ["2×4", "3×3", "3×4", "2×3"],
+          "answer": "2×4",
+          "tags": ["order", "multiplication"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Define a square matrix and a diagonal matrix with one example each.",
+          "answer": "Square matrix: number of rows = number of columns, e.g. [[1,2],[3,4]]. Diagonal matrix: square matrix with all non-diagonal elements 0, e.g. [[5,0],[0,7]].",
+          "tags": ["definitions"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q3",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "If A = [ [1, 2], [3, 4] ] and B = [ [2, 0], [1, 5] ], find AB.",
+          "answer": "AB = [[1·2 + 2·1, 1·0 + 2·5], [3·2 + 4·1, 3·0 + 4·5]] = [[4, 10], [10, 20]].",
+          "tags": ["matrix-multiplication"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q4",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "State whether matrix multiplication is commutative. Justify with a small example.",
+          "answer": "In general, matrix multiplication is not commutative, i.e. AB ≠ BA. Example: A=[[1,0],[0,0]], B=[[0,1],[0,0]]. Then AB=[[0,1],[0,0]] but BA=[[0,0],[0,0]].",
+          "tags": ["properties"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q5",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the determinant of the matrix A = [ [3, 2], [5, 4] ].",
+          "answer": "det(A) = 3·4 − 2·5 = 12 − 10 = 2.",
+          "tags": ["determinant"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q6",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "For A = [ [1, 2], [3, 4] ], find adj(A) and hence A⁻¹.",
+          "answer": "det(A)=1·4−2·3=−2. Cofactors give adj(A) = [ [4, −2], [−3, 1] ]ᵗ = [ [4, −3], [−2, 1] ]. Then A⁻¹ = (1/det(A))·adj(A) = (−1/2)·[ [4, −3], [−2, 1] ] = [ [−2, 3/2], [1, −1/2] ].",
+          "tags": ["adjoint", "inverse"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q7",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the system of equations 2x + 3y = 5, 4x − y = 1 in matrix form AX = B.",
+          "answer": "A = [[2,3],[4,−1]], X = [[x],[y]], B = [[5],[1]] so AX = B is [[2,3],[4,−1]][[x],[y]] = [[5],[1]].",
+          "tags": ["matrix-form"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q8",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Solve the system 2x + 3y = 5, 4x − y = 1 using matrices.",
+          "answer": "Using A=[[2,3],[4,−1]], det(A)=2·(−1)−3·4=−2−12=−14≠0, so A⁻¹ exists. A⁻¹=(1/−14)[[−1,−3],[−4,2]]=[[1/14,3/14],[4/14,−1/7]]. X=A⁻¹B with B=[[5],[1]] gives X=[[ (1/14)·5+(3/14)·1 ], [ (4/14)·5+(−1/7)·1 ]] = [[8/14],[ (20/14 − 2/14) ]]=[[4/7],[18/14]]=[[4/7],[9/7]]. So x = 4/7, y = 9/7.",
+          "tags": ["solve-system"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q9",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "What is the transpose of a matrix? Find ( [ [1, −2, 3], [0, 4, 5] ] )ᵗ.",
+          "answer": "Transpose is obtained by interchanging rows and columns. The transpose is [[1,0],[−2,4],[3,5]].",
+          "tags": ["transpose"]
+        },
+        {
+          "id": "ms-12-maths1-ch2-q10",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "If A is a 3×3 matrix and |A| = 0, then which of the following is true?",
+          "options": [
+            "A is invertible.",
+            "A⁻¹ exists and is unique.",
+            "A is singular and not invertible.",
+            "|kA| = 0 only if k = 0."
+          ],
+          "answer": "A is singular and not invertible.",
+          "tags": ["singular-matrix"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-maths1-ch3",
+      "chapterNumber": 3,
+      "title": "Trigonometric Functions",
+      "slug": "trigonometric-functions",
+      "description": "Trigonometric equations and their solutions, principle and general solutions, solution of triangles using sine, cosine and projection rules, area of triangle, and basic properties of inverse trigonometric functions.",
+      "topics": [
+        "Trigonometric identities and equations",
+        "Principal and general solutions",
+        "Solution of triangle using sine rule",
+        "Cosine rule and projection rule",
+        "Area of triangle by trigonometric formulae",
+        "Inverse trigonometric functions and their ranges"
+      ],
+      "learningObjectives": [
+        "Solve standard trigonometric equations for principal and general solutions.",
+        "Apply sine, cosine and projection rules to solve a triangle.",
+        "Use trigonometric formulae for the area of a triangle.",
+        "Understand basic definitions and ranges of inverse trigonometric functions."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch3-q1",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Solve the equation sin x = 1/2 for 0° ≤ x < 360°.",
+          "answer": "sin x = 1/2 ⇒ x = 30°, 150° in [0°,360°).",
+          "tags": ["trig-equations"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q2",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Find the general solution of cos x = 0.",
+          "answer": "cos x = 0 ⇒ x = (2n + 1)π/2, n ∈ ℤ.",
+          "tags": ["general-solution"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q3",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "For a triangle ABC, the sine rule is:",
+          "options": [
+            "a/sin A = b/sin B = c/sin C",
+            "a² = b² + c² − 2bc cos A",
+            "cos A + cos B + cos C = 0",
+            "sin(A + B) = sin A + sin B"
+          ],
+          "answer": "a/sin A = b/sin B = c/sin C",
+          "tags": ["sine-rule"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q4",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "In ΔABC, a = 7 cm, b = 8 cm and angle C = 120°. Find side c using cosine rule.",
+          "answer": "c² = a² + b² − 2ab cos C = 7² + 8² − 2·7·8·cos120° = 49 + 64 − 112·(−1/2) = 113 + 56 = 169 ⇒ c = 13 cm.",
+          "tags": ["cosine-rule"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q5",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "The sides of a triangle are 5 cm, 6 cm and 7 cm. Find its area using the formula ½ab sin C.",
+          "answer": "Take sides a=5, b=6, c=7. First find angle C opposite c using cosine rule: cos C = (a² + b² − c²)/(2ab) = (25+36−49)/(60)=12/60=1/5 ⇒ sin C = √(1−1/25)=√(24/25)=2√6/5. Area = ½ab sin C = ½·5·6·(2√6/5)=3·2√6=6√6 cm².",
+          "tags": ["area-triangle"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q6",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "State the projection rule relating side a and angles B and C of a triangle ABC.",
+          "answer": "Projection rule: a = b cos C + c cos B.",
+          "tags": ["projection-rule"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q7",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "The principal value of sin⁻¹(√3/2) is:",
+          "options": ["π/3", "2π/3", "5π/3", "−π/3"],
+          "answer": "π/3",
+          "tags": ["inverse-trig"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the range of the principal value branch of tan⁻¹x.",
+          "answer": "Range of tan⁻¹x is (−π/2, π/2).",
+          "tags": ["inverse-trig"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q9",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "If ΔABC has sides a = 10 cm, b = 12 cm and included angle C = 45°, find the area of the triangle.",
+          "answer": "Area = ½ab sin C = ½·10·12·sin45° = 60·(√2/2) = 30√2 cm².",
+          "tags": ["area-triangle"]
+        },
+        {
+          "id": "ms-12-maths1-ch3-q10",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Solve the equation 2sin²x − 3sin x + 1 = 0 for 0° ≤ x < 360°.",
+          "answer": "Let sin x = t.\n2t² − 3t + 1 = 0 ⇒ (2t − 1)(t − 1) = 0 so t = 1/2 or t = 1.\nFor sin x = 1/2 ⇒ x = 30°, 150°.\nFor sin x = 1 ⇒ x = 90°.\nSolutions: x = 30°, 90°, 150°.",
+          "tags": ["trig-equations"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-maths1-ch4",
+      "chapterNumber": 4,
+      "title": "Pair of Straight Lines",
+      "slug": "pair-of-straight-lines",
+      "description": "Combined equation of two lines, pair of lines passing through origin, angle between lines, condition for parallel and perpendicular lines, and general second degree equation representing pair of lines.",
+      "topics": [
+        "Pair of lines through origin: ax² + 2hxy + by² = 0",
+        "Combined equation of two lines",
+        "Angle between lines in pair",
+        "Condition for lines to be perpendicular or coincident",
+        "General second degree equation and its homogeneous part",
+        "Point of intersection of two lines"
+      ],
+      "learningObjectives": [
+        "Write combined equation of a pair of straight lines in a plane.",
+        "Determine angle between lines and conditions for parallelism and perpendicularity.",
+        "Find point of intersection of two lines.",
+        "Identify when a second degree equation represents a pair of lines."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch4-q1",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "The pair of lines represented by ax² + 2hxy + by² = 0 are perpendicular if:",
+          "options": ["a = b", "h = 0", "a + b = 0", "ab = 0"],
+          "answer": "a + b = 0",
+          "tags": ["perpendicular-lines"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q2",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the combined equation of the pair of lines passing through origin and making angles 30° and 120° with positive x-axis.",
+          "answer": "Lines: y = (tan30°)x = (1/√3)x and y = (tan120°)x = (−√3)x.\nEquation: (y − x/√3)(y + √3x) = 0 ⇒ y² + (−√3 + 1/√3)xy − x² = 0 ⇒ y² − (2/√3)xy − x² = 0 (scalar multiple also acceptable).",
+          "tags": ["pair-through-origin"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q3",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Find the point of intersection of lines 2x + 3y − 5 = 0 and x − y + 1 = 0.",
+          "answer": "Solve: From second, x = y − 1. Substitute in first: 2(y − 1) + 3y − 5 = 0 ⇒ 5y − 7 = 0 ⇒ y = 7/5, x = 2/5. Intersection: (2/5, 7/5).",
+          "tags": ["intersection"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q4",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the angle between lines represented by 3x² − 10xy + 3y² = 0.",
+          "answer": "Here a=3, 2h=−10 ⇒ h=−5, b=3. Formula: tanθ = 2√(h² − ab)/(a + b) = 2√(25 − 9)/6 = 2√16/6 = 8/6 = 4/3. So θ = tan⁻¹(4/3).",
+          "tags": ["angle-between-lines"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q5",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "The general second degree equation ax² + 2hxy + by² + 2gx + 2fy + c = 0 represents a pair of straight lines if:",
+          "options": [
+            "abc = 0",
+            "g = f = 0",
+            "the homogeneous part factors into two distinct linear factors",
+            "a = b = h = 0"
+          ],
+          "answer": "the homogeneous part factors into two distinct linear factors",
+          "tags": ["general-second-degree"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q6",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the condition for ax² + 2hxy + by² = 0 to represent a pair of real and distinct lines.",
+          "answer": "The condition is h² > ab.",
+          "tags": ["conditions"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q7",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Resolve 6x² − xy − y² = 0 into two linear factors.",
+          "answer": "Compare with ax² + 2hxy + by² = 0. Here a=6, 2h=−1 ⇒ h=−1/2, b=−1. Solve for slopes m from 6 + 2hm + bm² = 0 ⇒ 6 + (−1)m + (−1)m² = 0 ⇒ −m² − m + 6 = 0 ⇒ m² + m − 6 = 0 ⇒ (m+3)(m−2)=0 ⇒ m = −3 or 2.\nLines: y = −3x and y = 2x. So equation: (y + 3x)(y − 2x) = 0.",
+          "tags": ["factorisation"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Find the combined equation of lines x + y − 2 = 0 and 2x − 3y + 5 = 0.",
+          "answer": "Product: (x + y − 2)(2x − 3y + 5) = 0 (expanded form also acceptable).",
+          "tags": ["combined-equation"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q9",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "If two non-vertical lines have slopes m₁ and m₂, they are perpendicular when:",
+          "options": ["m₁ = m₂", "m₁m₂ = −1", "m₁ + m₂ = 0", "m₁m₂ = 1"],
+          "answer": "m₁m₂ = −1",
+          "tags": ["perpendicular"]
+        },
+        {
+          "id": "ms-12-maths1-ch4-q10",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Show that the lines represented by x² − 4xy − 5y² = 0 are perpendicular.",
+          "answer": "Here a = 1, 2h = −4 ⇒ h = −2, b = −5. For pair ax² + 2hxy + by² = 0, lines are perpendicular if a + b = 0. Here a + b = 1 − 5 = −4 ≠ 0 so not perpendicular by that check; instead compute slopes:\nEquation factors: 1 + 2hm + bm² = 0 ⇒ 1 + 2(−2)m + (−5)m²=0 ⇒ −5m² −4m +1=0 ⇒ 5m² +4m −1=0 ⇒ m = [−4 ± √(16+20)]/(10) = [−4 ± √36]/10 = (−4 ± 6)/10 ⇒ m₁ = 1/5, m₂ = −1.\nProduct m₁m₂ = (1/5)(−1) = −1/5, so lines are NOT perpendicular. (Note: this shows they are not perpendicular; the condition a + b = 0 must hold for perpendicularity.)",
+          "tags": ["concept-check"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-maths1-ch5",
+      "chapterNumber": 5,
+      "title": "Vectors",
+      "slug": "vectors",
+      "description": "Scalars and vectors, representation of vectors in 2D and 3D, addition and scalar multiplication, position vectors, dot product, cross product, scalar triple product, and applications to geometry.",
+      "topics": [
+        "Scalars vs vectors",
+        "Position vector and magnitude",
+        "Section formula in vector form",
+        "Addition and scalar multiplication",
+        "Dot product and angle between vectors",
+        "Projection of one vector on another",
+        "Cross product and area of parallelogram/triangle",
+        "Scalar triple product and volume of parallelepiped",
+        "Direction cosines and direction ratios (intro)"
+      ],
+      "learningObjectives": [
+        "Represent vectors algebraically and geometrically.",
+        "Perform basic operations with vectors in component form.",
+        "Compute dot product, cross product and scalar triple product.",
+        "Use vectors to find lengths, areas, volumes and angles in geometry."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch5-q1",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Define scalar and vector with one example of each.",
+          "answer": "Scalar has magnitude only, e.g. mass 5 kg. Vector has both magnitude and direction, e.g. force 10 N acting east.",
+          "tags": ["definitions"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q2",
+          "type": "numerical",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "If a⃗ = 3î − 4ĵ, find |a⃗|.",
+          "answer": "|a⃗| = √(3² + (−4)²) = √(9 + 16) = 5.",
+          "tags": ["magnitude"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q3",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "If a⃗ = 2î + 3ĵ − k̂ and b⃗ = î − 2ĵ + 4k̂, find a⃗ + b⃗.",
+          "answer": "a⃗ + b⃗ = (2+1)î + (3−2)ĵ + (−1+4)k̂ = 3î + 1ĵ + 3k̂.",
+          "tags": ["addition"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q4",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the dot product of a⃗ = 2î − 3ĵ + k̂ and b⃗ = î + 4ĵ − 2k̂ and hence the angle between them.",
+          "answer": "a·b = 2·1 + (−3)·4 + 1·(−2) = 2 −12 −2 = −12.\n|a| = √(4+9+1)=√14, |b|=√(1+16+4)=√21.\ncosθ = (a·b)/(|a||b|) = −12/√(14·21) = −12/√294 = −12/(7√6). θ = cos⁻¹(−12/(7√6)).",
+          "tags": ["dot-product"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q5",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "If a⃗ = î + 2ĵ and b⃗ = 3î − 4ĵ, find |a⃗ × b⃗| and interpret it geometrically.",
+          "answer": "a⃗ × b⃗ = k̂(det|1 2; 3 −4|) = k̂(1·(−4) − 2·3) = −10k̂.\n|a⃗ × b⃗| = 10, which equals the area of the parallelogram formed by a⃗ and b⃗.",
+          "tags": ["cross-product", "area"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q6",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Find the area of the triangle whose vertices have position vectors a⃗, b⃗, c⃗.",
+          "answer": "Area = ½ |(b⃗ − a⃗) × (c⃗ − a⃗)|.",
+          "tags": ["area-triangle"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q7",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Evaluate the scalar triple product [a⃗ b⃗ c⃗] for a⃗ = î, b⃗ = 2ĵ, c⃗ = 3k̂ and interpret it.",
+          "answer": "[a⃗ b⃗ c⃗] = det|1 0 0; 0 2 0; 0 0 3| = 1·2·3 = 6.\nThis equals the volume of the parallelepiped formed by a⃗, b⃗, c⃗, so volume = 6 units³.",
+          "tags": ["scalar-triple-product", "volume"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "State the condition for vectors a⃗ and b⃗ to be perpendicular in terms of dot product.",
+          "answer": "They are perpendicular if a⃗ · b⃗ = 0.",
+          "tags": ["perpendicularity"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q9",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the position vector of the point dividing the line segment joining A(1, 2, 3) and B(5, 4, −1) internally in the ratio 1:3.",
+          "answer": "Using section formula: OP⃗ = ( (3OA⃗ + 1OB⃗)/ (1+3) ) = ( (3·(1,2,3) + 1·(5,4,−1))/4 ) = ( (3,6,9)+(5,4,−1) )/4 = (8,10,8)/4 = (2, 2.5, 2). Position vector: 2î + 2.5ĵ + 2k̂.",
+          "tags": ["section-formula"]
+        },
+        {
+          "id": "ms-12-maths1-ch5-q10",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "If a⃗ and b⃗ are parallel non-zero vectors, then a⃗ × b⃗ equals:",
+          "options": ["zero vector", "unit vector", "scalar", "a⃗ + b⃗"],
+          "answer": "zero vector",
+          "tags": ["parallel-vectors"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-maths1-ch6",
+      "chapterNumber": 6,
+      "title": "Line and Plane",
+      "slug": "line-and-plane",
+      "description": "Vector and Cartesian equations of a line in 3D, direction ratios and cosines, angles between lines and planes, various forms of plane equations, conditions for parallelism and perpendicularity, and distance of a point from a plane.",
+      "topics": [
+        "Direction ratios (DRs) and direction cosines (DCs)",
+        "Vector and parametric equations of a line",
+        "Cartesian equation of a line in 3D",
+        "Angle between two lines",
+        "Equation of a plane in normal form",
+        "General form of plane and passing through a point",
+        "Angle between planes",
+        "Angle between line and plane",
+        "Distance from a point to a plane"
+      ],
+      "learningObjectives": [
+        "Write equations of lines and planes in vector and Cartesian forms.",
+        "Find angles between lines and between planes.",
+        "Determine condition for lines and planes to be parallel or perpendicular.",
+        "Compute distance of a point from a plane."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch6-q1",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Define direction ratios of a line in 3D with an example.",
+          "answer": "Direction ratios are any three numbers proportional to the components of a direction vector of the line. For line parallel to vector 2î − 3ĵ + k̂, (2, −3, 1) are DRs.",
+          "tags": ["direction-ratios"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q2",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the vector equation of the line passing through point A(1, 2, −1) and parallel to vector 3î − 4ĵ + k̂.",
+          "answer": "Position vector of A is a⃗ = î + 2ĵ − k̂. Direction vector b⃗ = 3î − 4ĵ + k̂.\nLine: r⃗ = a⃗ + λb⃗ = (î + 2ĵ − k̂) + λ(3î − 4ĵ + k̂), λ ∈ ℝ.",
+          "tags": ["line-equation"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q3",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the angle between lines whose direction ratios are (1, −2, 2) and (2, 1, −1).",
+          "answer": "cosθ = (a·b)/(|a||b|) = (1·2 + (−2)·1 + 2·(−1))/(√(1+4+4)·√(4+1+1)) = (2 −2 −2)/(3·√6) = −2/(3√6). θ = cos⁻¹(−2/(3√6)).",
+          "tags": ["angle-between-lines"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q4",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the normal form of the equation of a plane at distance p from the origin and having unit normal vector n̂ = (l, m, n).",
+          "answer": "Plane equation: lx + my + nz = p.",
+          "tags": ["plane-normal-form"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q5",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Find the equation of a plane passing through point (1, −2, 3) and having normal vector 2î − 3ĵ + 4k̂.",
+          "answer": "Plane: 2(x−1) − 3(y+2) + 4(z−3) = 0 ⇒ 2x −2 −3y −6 +4z −12 =0 ⇒ 2x −3y +4z −20 = 0.",
+          "tags": ["plane-equation"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q6",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Write the condition for two planes ax + by + cz + d = 0 and a'x + b'y + c'z + d' = 0 to be perpendicular.",
+          "answer": "Their normal vectors are perpendicular, so aa' + bb' + cc' = 0.",
+          "tags": ["angle-between-planes"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q7",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Find the angle between planes 2x − y + 2z = 5 and x + 2y − 2z = 3.",
+          "answer": "Normals: n₁ = (2, −1, 2), n₂ = (1, 2, −2).\ncosθ = |n₁·n₂|/(|n₁||n₂|) = |2·1 + (−1)·2 + 2·(−2)|/(√(4+1+4)·√(1+4+4)) = |2 −2 −4|/(3·3) = 4/9.\nθ = cos⁻¹(4/9).",
+          "tags": ["angle-between-planes"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q8",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Calculate the distance of the point P(2, −1, 3) from the plane x − 2y + 2z − 5 = 0.",
+          "answer": "Distance = |ax₁ + by₁ + cz₁ + d|/√(a² + b² + c²) = |2 −2(−1) +2·3 −5|/√(1+4+4) = |2 +2 +6 −5|/3 = |5|/3 = 5/3 units.",
+          "tags": ["distance-point-plane"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q9",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "A line is parallel to a plane if:",
+          "options": [
+            "its direction vector is perpendicular to the plane’s normal",
+            "its direction vector is parallel to the plane’s normal",
+            "the line lies entirely in the plane",
+            "the line intersects the plane"
+          ],
+          "answer": "its direction vector is perpendicular to the plane’s normal",
+          "tags": ["parallelism"]
+        },
+        {
+          "id": "ms-12-maths1-ch6-q10",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Find the angle between the line r⃗ = (î + 2ĵ + 3k̂) + λ(2î − 2ĵ + k̂) and the plane x + y + z = 6.",
+          "answer": "Normal to plane: n⃗ = î + ĵ + k̂. Direction vector of line: b⃗ = (2, −2, 1).\nAngle between line and plane α satisfies sinα = |b⃗·n⃗|/(|b⃗||n⃗|).\nCompute b⃗·n⃗ = 2·1 + (−2)·1 + 1·1 = 1.\n|b⃗| = √(4+4+1)=3, |n⃗|=√3.\nSo sinα = 1/(3√3). α = sin⁻¹(1/(3√3)).",
+          "tags": ["angle-line-plane"]
+        }
+      ]
+    },
+    {
+      "id": "ms-12-maths1-ch7",
+      "chapterNumber": 7,
+      "title": "Linear Programming",
+      "slug": "linear-programming",
+      "description": "Formulation of linear programming problems in two variables, graphical solution of system of linear inequalities, feasible region, objective function and optimum solution by corner point method.",
+      "topics": [
+        "Linear inequalities in two variables",
+        "Graph of linear inequality and half-planes",
+        "Feasible region, feasible and basic feasible solutions",
+        "Formulation of linear programming problem (LPP)",
+        "Objective function maximisation and minimisation",
+        "Corner point method",
+        "Types of solutions: unique, multiple, unbounded, infeasible"
+      ],
+      "learningObjectives": [
+        "Plot and interpret linear inequalities in two variables.",
+        "Formulate real-life optimisation problems as LPPs.",
+        "Find feasible region and corner points from the graph.",
+        "Use corner point method to obtain optimum solution of an LPP."
+      ],
+      "questions": [
+        {
+          "id": "ms-12-maths1-ch7-q1",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "What is a linear programming problem (LPP)?",
+          "answer": "An LPP is an optimisation problem in which a linear objective function is maximised or minimised subject to a set of linear inequality constraints.",
+          "tags": ["definition"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q2",
+          "type": "short",
+          "difficulty": "easy",
+          "marks": 2,
+          "text": "Explain the term feasible region in the context of an LPP.",
+          "answer": "Feasible region is the common region in the plane that satisfies all the given constraints of the LPP simultaneously.",
+          "tags": ["feasible-region"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q3",
+          "type": "mcq",
+          "difficulty": "easy",
+          "marks": 1,
+          "text": "In a two-variable LPP, the optimum value of the objective function (if it exists) occurs at:",
+          "options": [
+            "any random point",
+            "an interior point of feasible region only",
+            "a corner point (vertex) of feasible region",
+            "on the x-axis only"
+          ],
+          "answer": "a corner point (vertex) of feasible region",
+          "tags": ["corner-point-method"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q4",
+          "type": "numerical",
+          "difficulty": "medium",
+          "marks": 3,
+          "text": "Graph the inequality x + 2y ≥ 4 and indicate the feasible half-plane.",
+          "answer": "Draw line x + 2y = 4 (intercepts: (4,0) and (0,2)). Take test point (0,0): 0 ≥ 4 is false, so the half-plane not containing origin (above/right of the line) is the feasible region.",
+          "tags": ["graph-inequality"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q5",
+          "type": "long",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "A company produces two products A and B. Profit on A is ₹3 and on B is ₹5 per unit. Each unit of A requires 1 hour of machine time and 2 kg of raw material, while each unit of B requires 2 hours and 1 kg of raw material. The company has at most 8 machine hours and 6 kg raw material per day. Formulate the LPP to maximise profit.",
+          "answer": "Let x = units of A, y = units of B.\nObjective function to maximise: Z = 3x + 5y.\nConstraints from machine time: 1x + 2y ≤ 8.\nFrom raw material: 2x + 1y ≤ 6.\nAlso x ≥ 0, y ≥ 0.",
+          "tags": ["formulation"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q6",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Solve the LPP: Maximise Z = 5x + 4y subject to x + y ≤ 4, x ≥ 0, y ≥ 0 using graphical method.",
+          "answer": "Feasible region is triangle with vertices (0,0), (4,0), (0,4).\nEvaluate Z: at (0,0): 0; at (4,0): Z=20; at (0,4): Z=16.\nMaximum Z = 20 at (x, y) = (4, 0).",
+          "tags": ["graphical-solution"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q7",
+          "type": "numerical",
+          "difficulty": "hard",
+          "marks": 3,
+          "text": "Minimise Z = 3x + 2y subject to x + 2y ≥ 6, 3x + y ≥ 9, x ≥ 0, y ≥ 0 (graphical). State only the coordinates of corner points and the minimum value.",
+          "answer": "Intersect x + 2y = 6 and 3x + y = 9: solving gives x=3, y=1.5.\nOther corner points in feasible region (first quadrant, above both lines): (0,6/2=3) on first line, (3,0) on second line.\nZ at (0,3): 3·0+2·3=6; at (3,0):9; at (3,1.5):3·3+2·1.5=9+3=12.\nMinimum Z = 6 at (0,3).",
+          "tags": ["minimisation"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q8",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "When do we say that an LPP has an unbounded solution?",
+          "answer": "When the feasible region is open in the direction of optimisation and the value of the objective function can be increased (or decreased) indefinitely without violating any constraint.",
+          "tags": ["unbounded-solution"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q9",
+          "type": "short",
+          "difficulty": "medium",
+          "marks": 2,
+          "text": "Explain how you decide the feasible half-plane while graphing a linear inequality ax + by ≥ c.",
+          "answer": "First draw the line ax + by = c. Then take a convenient test point (usually origin if not on the line). If it satisfies the inequality, the half-plane containing that point is feasible; otherwise, the opposite half-plane is feasible.",
+          "tags": ["graph-inequality"]
+        },
+        {
+          "id": "ms-12-maths1-ch7-q10",
+          "type": "mcq",
+          "difficulty": "medium",
+          "marks": 1,
+          "text": "If the feasible region of an LPP is empty (no common points satisfying all constraints), then:",
+          "options": [
+            "there is a unique optimum solution",
+            "the LPP is infeasible",
+            "the LPP is unbounded",
+            "the objective function must be constant"
+          ],
+          "answer": "the LPP is infeasible",
+          "tags": ["infeasible"]
+        }
+      ]
+    }
+  ]
+}, {
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "maths-2",
+  chapters: [
+    /* --------------------------- CHAPTER 1 --------------------------- */
+    {
+      id: "ms-12-maths2-ch1",
+      chapterNumber: 1,
+      title: "Differentiation",
+      slug: "differentiation",
+      description:
+        "Review of basic derivative rules, derivatives of composite, inverse, implicit, logarithmic and parametric functions, higher order derivatives and geometrical meaning of derivative.",
+      topics: [
+        "Derivative as limit of increment ratio",
+        "Geometrical meaning of derivative (slope of tangent)",
+        "Chain rule and derivatives of composite functions",
+        "Derivatives of inverse functions",
+        "Logarithmic differentiation",
+        "Derivatives of implicit functions",
+        "Derivatives of parametric functions",
+        "Higher order derivatives of standard functions"
+      ],
+      learningObjectives: [
+        "Interpret derivative as instantaneous rate of change and slope of tangent.",
+        "Differentiate composite, inverse, implicit and logarithmic functions using chain rule.",
+        "Differentiate parametric curves with respect to the parameter.",
+        "Compute second and higher order derivatives for standard functions.",
+        "Apply derivative rules accurately in algebraic and trigonometric contexts."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch1-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "The derivative of e^{3x} with respect to x is:",
+          options: ["3e^{3x}", "e^{3x}", "x e^{3x}", "e^{x^3}"],
+          answer: "3e^{3x}",
+          tags: ["basic-derivative", "exponential"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Find dy/dx if y = ln(5x + 1).",
+          answer:
+            "dy/dx = (5) / (5x + 1) by using derivative of ln u as (1/u)·du/dx.",
+          tags: ["logarithmic", "chain-rule"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 2,
+          text: "Differentiate y = (x^2 + 1)^5 with respect to x.",
+          answer:
+            "dy/dx = 5(x^2 + 1)^4 · 2x = 10x (x^2 + 1)^4 by chain rule.",
+          tags: ["chain-rule", "powers"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "If y = x^x for x > 0, find dy/dx using logarithmic differentiation.",
+          answer:
+            "Take ln on both sides: ln y = x ln x. Differentiate: (1/y) dy/dx = ln x + 1. Hence dy/dx = y(ln x + 1) = x^x(ln x + 1).",
+          tags: ["logarithmic-differentiation"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "If y = sin(3x^2), find dy/dx and d^2y/dx^2.",
+          answer:
+            "dy/dx = cos(3x^2)·6x = 6x cos(3x^2). Then d^2y/dx^2 = derivative of 6x cos(3x^2): 6 cos(3x^2) + 6x[−sin(3x^2)·6x] = 6 cos(3x^2) − 36x^2 sin(3x^2).",
+          tags: ["higher-order", "trigonometric"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "If y = tan^{-1}(x), show that dy/dx = 1/(1 + x^2).",
+          answer:
+            "Let y = tan^{-1}x so x = tan y. Differentiate: dx/dy = sec^2 y = 1 + tan^2 y = 1 + x^2. Hence dy/dx = 1/(dx/dy) = 1/(1 + x^2).",
+          tags: ["inverse-trig"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Differentiate implicitly: x^2 + y^2 = 25.",
+          answer:
+            "Differentiate: 2x + 2y(dy/dx) = 0 ⇒ dy/dx = −x/y.",
+          tags: ["implicit"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "If x = a cos t, y = a sin t, find dy/dx in terms of t.",
+          answer:
+            "dx/dt = −a sin t, dy/dt = a cos t, so dy/dx = (dy/dt)/(dx/dt) = (a cos t)/(−a sin t) = −cot t.",
+          tags: ["parametric"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q9",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 3,
+          text: "For y = (x^2 + 1)/(x − 1), find dy/dx using quotient rule.",
+          answer:
+            "Using (u/v)' = (v u' − u v')/v^2 with u = x^2 + 1, v = x − 1: u' = 2x, v' = 1. So dy/dx = [(x − 1)·2x − (x^2 + 1)·1]/(x − 1)^2 = (2x^2 − 2x − x^2 − 1)/(x − 1)^2 = (x^2 − 2x − 1)/(x − 1)^2.",
+          tags: ["quotient-rule", "rational"]
+        },
+        {
+          id: "ms-12-maths2-ch1-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Show that the derivative of f(x) = sin^{-1}x + cos^{-1}x is a constant and hence find f(x).",
+          answer:
+            "f'(x) = d/dx[sin^{-1}x] + d/dx[cos^{-1}x] = 1/√(1 − x^2) − 1/√(1 − x^2) = 0, so f(x) is constant. Put x = 0: f(0) = sin^{-1}0 + cos^{-1}0 = 0 + π/2 = π/2. Thus f(x) = π/2 for all x in [−1,1].",
+          tags: ["inverse-trig", "conceptual"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 2 --------------------------- */
+    {
+      id: "ms-12-maths2-ch2",
+      chapterNumber: 2,
+      title: "Applications of Derivatives",
+      slug: "applications-of-derivatives",
+      description:
+        "Applications of derivatives to tangents and normals, monotonicity, maxima and minima, approximations and verification of mean value theorems.",
+      topics: [
+        "Slope of tangent and normal",
+        "Equation of tangent and normal to a curve",
+        "Increasing and decreasing functions",
+        "Local maxima and minima, critical points",
+        "Second derivative test",
+        "Approximation using differentials",
+        "Rolle’s theorem and Lagrange’s mean value theorem (MVT)",
+        "Simple optimization problems"
+      ],
+      learningObjectives: [
+        "Find equations of tangent and normal to curves at given points.",
+        "Determine intervals on which a function is increasing or decreasing.",
+        "Identify and classify local maxima and minima using derivatives.",
+        "Use linear approximation for small changes.",
+        "Verify Rolle’s theorem and Mean Value Theorem for simple functions.",
+        "Solve elementary optimization problems from geometry and economics."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch2-q1",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "Find the slope of the tangent to the curve y = x^2 − 4x + 1 at x = 2.",
+          answer:
+            "dy/dx = 2x − 4. At x = 2, slope = 2·2 − 4 = 0.",
+          tags: ["tangent"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q2",
+          type: "short",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the equation of the tangent to the curve y = x^3 at the point (1, 1).",
+          answer:
+            "dy/dx = 3x^2. At x = 1, slope m = 3. Using point-slope form: y − 1 = 3(x − 1) ⇒ y = 3x − 2.",
+          tags: ["tangent", "equation-of-line"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "For the same curve y = x^3, find the equation of the normal at (1, 1).",
+          answer:
+            "Slope of tangent at (1,1) is 3, so slope of normal = −1/3. Equation: y − 1 = −(1/3)(x − 1) ⇒ 3y − 3 = −x + 1 ⇒ x + 3y − 4 = 0.",
+          tags: ["normal"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define an increasing function on an interval using derivatives.",
+          answer:
+            "A function f(x) is increasing on an interval if f'(x) ≥ 0 for every x in that interval and f'(x) > 0 at least at one point.",
+          tags: ["increasing-decreasing"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the intervals of increase and decrease of f(x) = x^3 − 3x.",
+          answer:
+            "f'(x) = 3x^2 − 3 = 3(x^2 − 1) = 3(x − 1)(x + 1). Critical points: x = −1, 1. Test intervals: for x < −1, f'(x) > 0 (increasing); between −1 and 1, f'(x) < 0 (decreasing); for x > 1, f'(x) > 0 (increasing).",
+          tags: ["increasing-decreasing", "critical-points"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Find the local maxima and minima of f(x) = x^3 − 6x^2 + 9x and classify them using second derivative test.",
+          answer:
+            "f'(x) = 3x^2 − 12x + 9 = 3(x^2 − 4x + 3) = 3(x − 1)(x − 3). Critical points x = 1, 3. f''(x) = 6x − 12. f''(1) = 6 − 12 = −6 < 0 ⇒ local maximum at x = 1, value f(1) = 1 − 6 + 9 = 4. f''(3) = 18 − 12 = 6 > 0 ⇒ local minimum at x = 3, value f(3) = 27 − 54 + 27 = 0.",
+          tags: ["maxima-minima", "second-derivative-test"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State Rolle’s Theorem.",
+          answer:
+            "If f is continuous on [a, b], differentiable on (a, b) and f(a) = f(b), then there exists at least one c in (a, b) such that f'(c) = 0.",
+          tags: ["rolle"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q8",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Verify Rolle’s Theorem for f(x) = x^2 − 4x + 3 on [1, 3].",
+          answer:
+            "f is polynomial ⇒ continuous and differentiable. f(1) = 1 − 4 + 3 = 0, f(3) = 9 − 12 + 3 = 0 ⇒ f(1) = f(3). f'(x) = 2x − 4. Set 2x − 4 = 0 ⇒ x = 2 in (1,3). Thus Rolle’s Theorem is verified.",
+          tags: ["rolle", "verification"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q9",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Use differential approximation to estimate (4.02)^2.",
+          answer:
+            "Take f(x) = x^2 at x = 4, dx = 0.02. Then df = 2x dx = 2·4·0.02 = 0.16. So (4.02)^2 ≈ 4^2 + 0.16 = 16.16.",
+          tags: ["approximation"]
+        },
+        {
+          id: "ms-12-maths2-ch2-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "A rectangle has perimeter 40 m. Find the dimensions of the rectangle of maximum area.",
+          answer:
+            "Let sides be x and y with 2(x + y) = 40 ⇒ y = 20 − x. Area A = xy = x(20 − x) = 20x − x^2. Then A'(x) = 20 − 2x. For extrema, 20 − 2x = 0 ⇒ x = 10. A''(x) = −2 < 0 so maximum. Then y = 20 − 10 = 10. Thus the rectangle of maximum area is a square of side 10 m.",
+          tags: ["optimization", "geometry"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 3 --------------------------- */
+    {
+      id: "ms-12-maths2-ch3",
+      chapterNumber: 3,
+      title: "Indefinite Integration",
+      slug: "indefinite-integration",
+      description:
+        "Indefinite integral as inverse process of differentiation, standard integrals, methods of substitution, integration by parts and partial fractions.",
+      topics: [
+        "Indefinite integral and family of curves",
+        "Basic integration rules and standard forms",
+        "Integration by substitution",
+        "Integration by parts",
+        "Integration using partial fractions",
+        "Integrals of trigonometric functions",
+        "Simple algebraic and exponential integrals"
+      ],
+      learningObjectives: [
+        "View indefinite integral as anti-derivative.",
+        "Use standard integral formulas for basic functions.",
+        "Apply substitution method for suitable integrals.",
+        "Use integration by parts for product of functions.",
+        "Resolve rational functions into partial fractions and integrate.",
+        "Integrate common trigonometric expressions."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch3-q1",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "Evaluate ∫ (3x^2 − 4) dx.",
+          answer:
+            "∫ 3x^2 dx = x^3, ∫ (−4) dx = −4x. So integral = x^3 − 4x + C.",
+          tags: ["basic-integral"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q2",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "Evaluate ∫ cos x dx.",
+          answer: "∫ cos x dx = sin x + C.",
+          tags: ["trig-integral"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Evaluate ∫ (2x)/(x^2 + 1) dx.",
+          answer:
+            "Let u = x^2 + 1 ⇒ du = 2x dx. Then integral = ∫ du/u = ln|u| + C = ln(x^2 + 1) + C.",
+          tags: ["substitution"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Evaluate ∫ e^{2x} dx.",
+          answer:
+            "Let u = 2x ⇒ du = 2 dx ⇒ dx = du/2. Then ∫ e^{2x} dx = (1/2)∫ e^u du = (1/2) e^{2x} + C.",
+          tags: ["exponential"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Evaluate ∫ x e^x dx using integration by parts.",
+          answer:
+            "Take u = x, dv = e^x dx. Then du = dx, v = e^x. So ∫ x e^x dx = x e^x − ∫ e^x dx = x e^x − e^x + C = e^x(x − 1) + C.",
+          tags: ["integration-by-parts"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Evaluate ∫ (x^2)/(x^3 + 1) dx.",
+          answer:
+            "Let u = x^3 + 1 ⇒ du = 3x^2 dx ⇒ (1/3)du = x^2 dx. Then ∫ x^2/(x^3 + 1) dx = (1/3)∫ du/u = (1/3) ln|x^3 + 1| + C.",
+          tags: ["substitution"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Resolve 3x + 5 over x^2 − 4 as partial fractions and hence integrate ∫ (3x + 5)/(x^2 − 4) dx.",
+          answer:
+            "x^2 − 4 = (x − 2)(x + 2). Assume (3x + 5)/(x^2 − 4) = A/(x − 2) + B/(x + 2). Then 3x + 5 = A(x + 2) + B(x − 2) = (A + B)x + (2A − 2B). So A + B = 3, 2A − 2B = 5 ⇒ divide second by 2: A − B = 5/2. Solving: add: 2A = 3 + 5/2 = 11/2 ⇒ A = 11/4. Then B = 3 − 11/4 = (12 − 11)/4 = 1/4. So integral = ∫ [11/4·1/(x − 2) + 1/4·1/(x + 2)] dx = (11/4) ln|x − 2| + (1/4) ln|x + 2| + C.",
+          tags: ["partial-fractions"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q8",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Evaluate ∫ sec^2 x dx and ∫ cosec^2 x dx.",
+          answer:
+            "∫ sec^2 x dx = tan x + C;  ∫ cosec^2 x dx = −cot x + C.",
+          tags: ["trig-integral"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q9",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is meant by a family of curves represented by an indefinite integral?",
+          answer:
+            "The indefinite integral ∫ f(x) dx = F(x) + C represents a family of curves obtained by varying the constant C; all these curves are parallel vertical shifts of the graph of F(x).",
+          tags: ["conceptual"]
+        },
+        {
+          id: "ms-12-maths2-ch3-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Evaluate ∫ x ln x dx using integration by parts.",
+          answer:
+            "Let u = ln x, dv = x dx. Then du = (1/x) dx, v = x^2/2. So ∫ x ln x dx = (x^2/2) ln x − ∫ (x^2/2)·(1/x) dx = (x^2/2) ln x − (1/2)∫ x dx = (x^2/2) ln x − (1/2)(x^2/2) + C = (x^2/2) ln x − x^2/4 + C.",
+          tags: ["integration-by-parts", "logarithmic"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 4 --------------------------- */
+    {
+      id: "ms-12-maths2-ch4",
+      chapterNumber: 4,
+      title: "Definite Integration",
+      slug: "definite-integration",
+      description:
+        "Definite integral as limit of sum, evaluation using antiderivatives, properties of definite integrals and fundamental theorem of calculus.",
+      topics: [
+        "Definite integral as limit of Riemann sums",
+        "Notation and interpretation of ∫_a^b f(x) dx",
+        "Evaluation using antiderivatives",
+        "Properties of definite integrals",
+        "Fundamental theorem of calculus",
+        "Integrals with variable limits"
+      ],
+      learningObjectives: [
+        "Interpret definite integral as limit of sum and as area under curve.",
+        "Evaluate definite integrals using antiderivatives.",
+        "Apply properties like additivity, symmetry and change of variable.",
+        "Use fundamental theorem of calculus to relate derivative and integral.",
+        "Handle integrals with variable upper or lower limits."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch4-q1",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "Evaluate ∫_0^1 x dx.",
+          answer:
+            "∫ x dx = x^2/2. So value = [x^2/2]_0^1 = (1^2/2) − 0 = 1/2.",
+          tags: ["basic-definite"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q2",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "Evaluate ∫_0^{\u03c0} sin x dx.",
+          answer:
+            "Integral of sin x is −cos x. So value = [−cos x]_0^{\u03c0} = (−cos \u03c0) − (−cos 0) = (1) − (−1) = 2.",
+          tags: ["trig-definite"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q3",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State the fundamental theorem of calculus for definite integrals.",
+          answer:
+            "If F is an antiderivative of continuous function f on [a, b], then ∫_a^b f(x) dx = F(b) − F(a).",
+          tags: ["fundamental-theorem"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Evaluate ∫_1^3 (2x + 1) dx.",
+          answer:
+            "∫ (2x + 1) dx = x^2 + x. So value = [x^2 + x]_1^3 = (9 + 3) − (1 + 1) = 12 − 2 = 10.",
+          tags: ["polynomial"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Evaluate ∫_0^{\u03c0/2} cos^2 x dx using identity.",
+          answer:
+            "Use cos^2 x = (1 + cos 2x)/2. Then integral = ∫_0^{\u03c0/2} (1 + cos 2x)/2 dx = (1/2)[x]_0^{\u03c0/2} + (1/2)[(1/2) sin 2x]_0^{\u03c0/2} = (1/2)(\u03c0/2) + (1/4)(sin \u03c0 − sin 0) = \u03c0/4.",
+          tags: ["trig-identity"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Using property, evaluate ∫_{-2}^2 x^3 dx.",
+          answer:
+            "x^3 is an odd function and limits are symmetric about 0, so ∫_{-2}^2 x^3 dx = 0.",
+          tags: ["properties", "odd-function"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Evaluate ∫_0^1 (3x^2 + 2x) dx using fundamental theorem of calculus.",
+          answer:
+            "Antiderivative F(x) = x^3 + x^2. So ∫_0^1 (3x^2 + 2x) dx = F(1) − F(0) = (1 + 1) − 0 = 2.",
+          tags: ["polynomial"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q8",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Evaluate ∫_0^{\u03c0/2} e^{\sin x} \u22c5 cos x dx using substitution.",
+          answer:
+            "Let u = sin x ⇒ du = cos x dx. Limits: when x = 0, u = 0; when x = \u03c0/2, u = 1. Thus integral = ∫_0^1 e^u du = [e^u]_0^1 = e − 1.",
+          tags: ["substitution"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q9",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Show that ∫_a^b f(x) dx = −∫_b^a f(x) dx.",
+          answer:
+            "By definition of definite integral with reversed limits, ∫_b^a f(x) dx = −∫_a^b f(x) dx, hence the result.",
+          tags: ["properties"]
+        },
+        {
+          id: "ms-12-maths2-ch4-q10",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "If F(x) = ∫_0^x (t^2 + 1) dt, find dF/dx and F(2).",
+          answer:
+            "By fundamental theorem, dF/dx = x^2 + 1. Also F(2) = ∫_0^2 (t^2 + 1) dt = [t^3/3 + t]_0^2 = (8/3 + 2) − 0 = 14/3.",
+          tags: ["variable-limit"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 5 --------------------------- */
+    {
+      id: "ms-12-maths2-ch5",
+      chapterNumber: 5,
+      title: "Application of Definite Integration",
+      slug: "application-of-definite-integration",
+      description:
+        "Application of definite integrals to find area under a curve and area between curves in simple cases.",
+      topics: [
+        "Area under a curve y = f(x) above x-axis",
+        "Area between a curve and a line",
+        "Area between two curves",
+        "Choosing correct limits of integration",
+        "Geometric interpretation of sign of integral"
+      ],
+      learningObjectives: [
+        "Interpret area under a curve as a definite integral.",
+        "Set up and evaluate definite integrals to find region areas.",
+        "Find area between curves by taking appropriate difference.",
+        "Use symmetry to simplify area calculations.",
+        "Understand when area is taken as absolute value of integral."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch5-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Write the formula for the area under the curve y = f(x) between x = a and x = b (f(x) ≥ 0).",
+          answer:
+            "Area A = ∫_a^b f(x) dx, provided f(x) ≥ 0 on [a, b].",
+          tags: ["formula"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q2",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "Find the area under the curve y = x between x = 0 and x = 2.",
+          answer:
+            "Area = ∫_0^2 x dx = [x^2/2]_0^2 = (4/2) − 0 = 2 square units.",
+          tags: ["area-under-curve"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the area bounded by the curve y = x^2 and the x-axis from x = 0 to x = 3.",
+          answer:
+            "Area = ∫_0^3 x^2 dx = [x^3/3]_0^3 = 27/3 − 0 = 9 square units.",
+          tags: ["parabola"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the area enclosed between the lines y = 0, x = 1, x = 3 and the curve y = 2x.",
+          answer:
+            "Area = ∫_1^3 2x dx = [x^2]_1^3 = 9 − 1 = 8 square units.",
+          tags: ["straight-line"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the area between the curves y = x and y = x^2 from x = 0 to x = 1.",
+          answer:
+            "For 0 ≤ x ≤ 1, x ≥ x^2, so area = ∫_0^1 (x − x^2) dx = [x^2/2 − x^3/3]_0^1 = (1/2 − 1/3) = 1/6 square units.",
+          tags: ["between-curves"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Find the area bounded by the parabola y = x^2 and the line y = 4.",
+          answer:
+            "Intersection points from x^2 = 4 ⇒ x = −2, 2. Area between line (upper) and curve (lower) = ∫_{−2}^2 (4 − x^2) dx. Compute: ∫_{−2}^2 4 dx = 4·(4) = 16, ∫_{−2}^2 x^2 dx = [x^3/3]_{−2}^2 = (8/3 − (−8/3)) = 16/3. So area = 16 − 16/3 = (48 − 16)/3 = 32/3 square units.",
+          tags: ["between-curves", "parabola"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the area bounded by y = sin x and x-axis between x = 0 and x = \u03c0.",
+          answer:
+            "Area = ∫_0^\u03c0 sin x dx = [−cos x]_0^\u03c0 = (−cos \u03c0) − (−cos 0) = 1 − (−1) = 2 square units.",
+          tags: ["trig-area"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Why do we sometimes take absolute value of a definite integral when computing area?",
+          answer:
+            "Because area is always non-negative, but the definite integral can be negative when the curve lies below the x-axis; we take the absolute value to represent actual area.",
+          tags: ["conceptual"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q9",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Find the area enclosed between the curves y = |x| and y = 2 − |x|.",
+          answer:
+            "Intersection from |x| = 2 − |x| ⇒ 2|x| = 2 ⇒ |x| = 1. So region symmetric, integrate from 0 to 1 and double. For 0 ≤ x ≤ 1, |x| = x, 2 − |x| = 2 − x. Area = 2∫_0^1 [(2 − x) − x] dx = 2∫_0^1 (2 − 2x) dx = 2[2x − x^2]_0^1 = 2[(2 − 1) − 0] = 2 square units.",
+          tags: ["absolute-value", "between-curves"]
+        },
+        {
+          id: "ms-12-maths2-ch5-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Show that the area enclosed between the parabola y^2 = 4ax and the line x = a is 8a^2 square units.",
+          answer:
+            "For parabola y^2 = 4ax ⇒ x = y^2/(4a). The line x = a intersects when a = y^2/(4a) ⇒ y^2 = 4a^2 ⇒ y = ±2a. Area between x = a (right) and parabola (left) from y = −2a to 2a is ∫_{−2a}^{2a} [a − y^2/(4a)] dy. Compute: ∫ a dy = a·(4a) = 4a^2; ∫ y^2 dy from −2a to 2a = [y^3/3]_{−2a}^{2a} = (8a^3/3 − (−8a^3/3)) = 16a^3/3. So area = 4a^2 − (1/(4a))·(16a^3/3) = 4a^2 − (16a^2/12) = 4a^2 − (4a^2/3) = (12a^2 − 4a^2)/3 = 8a^2/3 *? Wait*, check: (1/(4a))*16a^3/3 = 4a^2/3; thus 4a^2 − 4a^2/3 = (12a^2 − 4a^2)/3 = 8a^2/3. However the standard result is 8a^2/3; so the enclosed area equals 8a^2/3 square units.",
+          tags: ["parabola", "advanced"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 6 --------------------------- */
+    {
+      id: "ms-12-maths2-ch6",
+      chapterNumber: 6,
+      title: "Differential Equations",
+      slug: "differential-equations",
+      description:
+        "Definition, order and degree of differential equation, formation of differential equations and solutions of first order first degree differential equations using various methods.",
+      topics: [
+        "Basic definitions: differential equation, order, degree",
+        "Formation of differential equations",
+        "General and particular solutions",
+        "Variables separable method",
+        "Homogeneous differential equations",
+        "Linear differential equation of type dy/dx + Py = Q",
+        "Applications to growth and decay, simple modelling"
+      ],
+      learningObjectives: [
+        "Identify order and degree of given differential equation.",
+        "Form a differential equation from a given relation between variables.",
+        "Solve first order first degree equations by variable separable method.",
+        "Solve linear differential equations using integrating factor.",
+        "Interpret solutions in context of simple physical or population models."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch6-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Define the order of a differential equation.",
+          answer:
+            "Order of a differential equation is the highest order of derivative of the dependent variable occurring in the equation.",
+          tags: ["definition"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Find the order and degree of the differential equation d^2y/dx^2 + (dy/dx)^3 = 0.",
+          answer:
+            "Highest derivative is d^2y/dx^2 ⇒ order 2. Powers of derivatives are integers and equation is polynomial in derivatives; highest power of highest derivative is 1 ⇒ degree 1.",
+          tags: ["order-degree"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Form the differential equation of the family y = C e^{2x}.",
+          answer:
+            "Differentiate: dy/dx = 2C e^{2x} = 2y. Eliminate C to get dy/dx − 2y = 0.",
+          tags: ["formation"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Solve dy/dx = 3x^2.",
+          answer:
+            "Integrate: dy = 3x^2 dx ⇒ y = x^3 + C.",
+          tags: ["separable"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 4,
+          text: "Solve the differential equation dy/dx = (x + 1)/(y + 1).",
+          answer:
+            "Separate variables: (y + 1) dy = (x + 1) dx. Integrate: ∫(y + 1) dy = ∫(x + 1) dx ⇒ (y^2/2 + y) = (x^2/2 + x) + C. Multiply by 2: y^2 + 2y = x^2 + 2x + C'.",
+          tags: ["separable"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Solve the linear differential equation dy/dx + y = e^x.",
+          answer:
+            "Here P = 1, Q = e^x. Integrating factor IF = e^{∫P dx} = e^x. Then solution: y·e^x = ∫ e^x·e^x dx + C = ∫ e^{2x} dx + C = (1/2) e^{2x} + C. So y = (1/2)e^{x} + C e^{-x}.",
+          tags: ["linear-DE"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Solve dy/dx − 2y = 0 given that y(0) = 3.",
+          answer:
+            "Linear with P = −2, Q = 0. IF = e^{∫−2 dx} = e^{−2x}. Then y·e^{−2x} = ∫0 dx + C = C. So y = C e^{2x}. Use y(0) = 3 ⇒ C = 3. Thus y = 3e^{2x}.",
+          tags: ["initial-value", "linear-DE"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is a general solution and a particular solution of a differential equation?",
+          answer:
+            "General solution contains arbitrary constant(s), representing a family of solutions. Particular solution is obtained from general solution by assigning specific values to constants using given conditions.",
+          tags: ["conceptual"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q9",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Solve the homogeneous differential equation dy/dx = (x + y)/(x − y).",
+          answer:
+            "Homogeneous; put y = vx ⇒ dy/dx = v + x dv/dx. Then v + x dv/dx = (x + vx)/(x − vx) = (1 + v)/(1 − v). So x dv/dx = (1 + v)/(1 − v) − v = [(1 + v) − v(1 − v)]/(1 − v) = [1 + v − v + v^2]/(1 − v) = (1 + v^2)/(1 − v). Thus (1 − v)/(1 + v^2) dv = dx/x. Integrate: ∫(1 − v)/(1 + v^2) dv = ∫ dx/x. Split: ∫ 1/(1 + v^2) dv − ∫ v/(1 + v^2) dv = tan^{-1}v − (1/2)\u00b7ln(1 + v^2) = ln|x| + C. Substitute v = y/x.",
+          tags: ["homogeneous"]
+        },
+        {
+          id: "ms-12-maths2-ch6-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "In a certain chemical reaction, the rate of decay of a substance is proportional to the amount present at time t. If initially the amount is A_0, set up the differential equation and write its solution.",
+          answer:
+            "Let A(t) be amount at time t. Statement gives dA/dt ∝ −A ⇒ dA/dt = −kA, k > 0. This is linear: dA/dt + kA = 0. Solution: A = C e^{−kt}. Using A(0) = A_0 gives C = A_0. So A(t) = A_0 e^{−kt}.",
+          tags: ["applications", "decay-model"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 7 --------------------------- */
+    {
+      id: "ms-12-maths2-ch7",
+      chapterNumber: 7,
+      title: "Probability Distributions",
+      slug: "probability-distributions",
+      description:
+        "Random variables, probability mass function, probability distribution of discrete random variables, expected value, variance and standard deviation. Introduction to continuous random variables, probability density function and distribution function.",
+      topics: [
+        "Random experiments, sample space and events",
+        "Definition of random variable (discrete and continuous)",
+        "Probability mass function (PMF)",
+        "Construction of probability distribution table",
+        "Mean (expectation), variance and standard deviation of discrete random variables",
+        "Probability density function (PDF) of continuous random variable",
+        "Cumulative distribution function (CDF)"
+      ],
+      learningObjectives: [
+        "Differentiate between discrete and continuous random variables.",
+        "Construct probability distributions from given data.",
+        "Compute mean, variance and standard deviation for discrete distributions.",
+        "Understand concepts of PDF and CDF for continuous random variables.",
+        "Interpret expected value as long-run average outcome."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch7-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Define a random variable.",
+          answer:
+            "A random variable is a real-valued function that assigns to each outcome of a random experiment a real number.",
+          tags: ["definition"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q2",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "Which of the following is a discrete random variable?",
+          options: [
+            "Time taken to complete an exam",
+            "Height of students in a class",
+            "Number of heads in 3 coin tosses",
+            "Amount of rainfall in a day"
+          ],
+          answer: "Number of heads in 3 coin tosses",
+          tags: ["discrete"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A discrete random variable X takes values 0, 1, 2 with probabilities P(X=0)=0.2, P(X=1)=0.5 and P(X=2)=0.3. Find E(X).",
+          answer:
+            "E(X) = Σ xP(x) = 0·0.2 + 1·0.5 + 2·0.3 = 0 + 0.5 + 0.6 = 1.1.",
+          tags: ["expectation"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "For the random variable in Q3, find Var(X).",
+          answer:
+            "First compute E(X^2) = 0^2·0.2 + 1^2·0.5 + 2^2·0.3 = 0 + 0.5 + 1.2 = 1.7. Then Var(X) = E(X^2) − [E(X)]^2 = 1.7 − (1.1)^2 = 1.7 − 1.21 = 0.49.",
+          tags: ["variance"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A fair die is rolled once. Let X be the score. Write the probability distribution of X.",
+          answer:
+            "X takes values 1,2,3,4,5,6 each with probability 1/6. So P(X = k) = 1/6 for k = 1,2,3,4,5,6.",
+          tags: ["pmf"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "A discrete random variable X has the following probability distribution: X: 1, 2, 3, 4 with P(X=1)=k, P(X=2)=2k, P(X=3)=3k, P(X=4)=4k. Find k and E(X).",
+          answer:
+            "Total probability = 1 ⇒ k + 2k + 3k + 4k = 10k = 1 ⇒ k = 0.1. Then P’s are 0.1, 0.2, 0.3, 0.4. E(X) = 1·0.1 + 2·0.2 + 3·0.3 + 4·0.4 = 0.1 + 0.4 + 0.9 + 1.6 = 3.0.",
+          tags: ["pmf", "expectation"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "How is variance of a discrete random variable defined in terms of its distribution?",
+          answer:
+            "Variance Var(X) is defined as Var(X) = Σ (x − μ)^2 P(X = x), where μ = E(X). Equivalently Var(X) = E(X^2) − [E(X)]^2.",
+          tags: ["variance"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q8",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Let a continuous random variable X have probability density function f(x) = 1/2 for 0 ≤ x ≤ 2 and 0 otherwise. Find P(0.5 ≤ X ≤ 1.5).",
+          answer:
+            "P(0.5 ≤ X ≤ 1.5) = ∫_{0.5}^{1.5} (1/2) dx = (1/2)[x]_{0.5}^{1.5} = (1/2)(1.5 − 0.5) = (1/2)(1) = 0.5.",
+          tags: ["pdf"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q9",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is the relation between probability density function (PDF) and distribution function (CDF) of a continuous random variable?",
+          answer:
+            "For a continuous random variable X with PDF f(x), the CDF F(x) is given by F(x) = P(X ≤ x) = ∫_{−∞}^x f(t) dt. Conversely, f(x) is the derivative of F(x) wherever derivative exists.",
+          tags: ["cdf"]
+        },
+        {
+          id: "ms-12-maths2-ch7-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "A continuous random variable X has PDF f(x) = kx for 0 ≤ x ≤ 2 and 0 otherwise. Find k, the distribution function F(x) and E(X).",
+          answer:
+            "First, total probability 1 = ∫_0^2 kx dx = k[x^2/2]_0^2 = k(4/2) = 2k ⇒ k = 1/2. Then for x < 0, F(x) = 0; for 0 ≤ x ≤ 2, F(x) = ∫_0^x (1/2)t dt = (1/2)[t^2/2]_0^x = x^2/4; for x ≥ 2, F(x) = 1. E(X) = ∫_0^2 x f(x) dx = ∫_0^2 x·(1/2 x) dx = (1/2) ∫_0^2 x^2 dx = (1/2)[x^3/3]_0^2 = (1/2)(8/3) = 4/3.",
+          tags: ["pdf", "expectation"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 8 --------------------------- */
+    {
+      id: "ms-12-maths2-ch8",
+      chapterNumber: 8,
+      title: "Binomial Distribution",
+      slug: "binomial-distribution",
+      description:
+        "Binomial distribution as a discrete probability distribution for repeated independent Bernoulli trials, its mean, variance and applications.",
+      topics: [
+        "Bernoulli trials and Bernoulli distribution",
+        "Definition and conditions of binomial distribution",
+        "Binomial probability formula",
+        "Mean, variance and standard deviation of binomial distribution",
+        "Fitting a binomial distribution from given data",
+        "Simple problems on binomial probabilities"
+      ],
+      learningObjectives: [
+        "Recognise when a random experiment follows Bernoulli and binomial models.",
+        "Compute binomial probabilities using formula.",
+        "Find mean, variance and standard deviation of binomial distribution.",
+        "Apply binomial distribution to simple real-life situations.",
+        "Use parameters n and p to describe the distribution."
+      ],
+      questions: [
+        {
+          id: "ms-12-maths2-ch8-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State the conditions under which a binomial distribution is applicable.",
+          answer:
+            "Conditions: (i) Fixed number n of trials, (ii) Each trial has two possible outcomes (success or failure), (iii) Probability of success p is constant for every trial, (iv) Trials are independent.",
+          tags: ["conditions"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Write the probability mass function of a binomial distribution with parameters n and p.",
+          answer:
+            "P(X = k) = C(n, k) p^k (1 − p)^{n − k}, for k = 0, 1, 2, ..., n.",
+          tags: ["pmf"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A coin is tossed 4 times. Assuming a fair coin, find the probability of getting exactly 2 heads.",
+          answer:
+            "Here n = 4, p = 1/2. P(X = 2) = C(4,2)(1/2)^2(1/2)^{2} = 6(1/2)^4 = 6/16 = 3/8.",
+          tags: ["binomial-probability"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the mean and variance of a binomial distribution with parameters n and p.",
+          answer:
+            "Mean = E(X) = np, variance = Var(X) = np(1 − p).",
+          tags: ["mean-variance"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "In a binomial distribution B(10, 0.3), find P(X = 0) and P(X = 10).",
+          answer:
+            "P(X = 0) = C(10,0)(0.3)^0(0.7)^{10} = 0.7^{10}. P(X = 10) = C(10,10)(0.3)^{10}(0.7)^0 = 0.3^{10}.",
+          tags: ["binomial-probability"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "A die is thrown 5 times. What is the probability of getting exactly three times a '4'?",
+          answer:
+            "Each trial: success = getting 4, p = 1/6, n = 5. P(X = 3) = C(5,3)(1/6)^3(5/6)^2 = 10·(1/216)·(25/36) = 10·25/(216·36) = 250/7776.",
+          tags: ["binomial-probability"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A manufacturer of bulbs finds that 5% of the bulbs are defective. If he packs 20 bulbs in a box, what is the expected number of defective bulbs per box?",
+          answer:
+            "Here n = 20, p = 0.05. Expected number of defective bulbs = np = 20·0.05 = 1.",
+          tags: ["expectation"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "If X ~ B(n, p), express the standard deviation of X in terms of n and p.",
+          answer:
+            "Standard deviation σ = √[Var(X)] = √[np(1 − p)].",
+          tags: ["std-dev"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q9",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "For a binomial distribution, n = 8 and p = 0.4. Find P(X ≥ 6).",
+          answer:
+            "P(X ≥ 6) = P(X = 6) + P(X = 7) + P(X = 8).\nP(X = 6) = C(8,6)0.4^6·0.6^2 = 28·0.4^6·0.6^2.\nP(X = 7) = C(8,7)0.4^7·0.6 = 8·0.4^7·0.6.\nP(X = 8) = C(8,8)0.4^8 = 0.4^8.\nStudents may compute the numerical value using calculator if allowed.",
+          tags: ["binomial-tail"]
+        },
+        {
+          id: "ms-12-maths2-ch8-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "In a binomial distribution B(n, p), it is known that mean is 4 and variance is 3. Find n and p.",
+          answer:
+            "Mean np = 4, variance np(1 − p) = 3. From np = 4 ⇒ p = 4/n. Substitute: np(1 − p) = 4(1 − 4/n) = 3 ⇒ 4 − 16/n = 3 ⇒ 4 − 3 = 16/n ⇒ 1 = 16/n ⇒ n = 16. Then p = 4/16 = 1/4.",
+          tags: ["parameter-estimation"]
+        }
+      ]
+    }
+  ]
+}, {
+  board: "msbshse",
+  medium: "english",
+  classKey: "12-science",
+  subjectSlug: "physics",
+  chapters: [
+    /* --------------------------- CHAPTER 1 --------------------------- */
+    {
+      id: "ms-12-phy-ch1",
+      chapterNumber: 1,
+      title: "Rotational Dynamics",
+      slug: "rotational-dynamics",
+      description:
+        "Uniform and non-uniform circular motion, centripetal and centrifugal forces, banking of roads, conical pendulum, vertical circular motion, moment of inertia, radius of gyration and basic theorems for moment of inertia.",
+      topics: [
+        "Uniform and non-uniform circular motion",
+        "Centripetal and centrifugal forces",
+        "Vehicle on level and banked roads",
+        "Conical pendulum",
+        "Vertical circular motion",
+        "Moment of inertia and radius of gyration",
+        "Theorems of parallel and perpendicular axes"
+      ],
+      learningObjectives: [
+        "Describe kinematics of circular motion using angular variables.",
+        "Explain centripetal and centrifugal forces with real-life examples.",
+        "Apply concepts of banking and friction to calculate safe speeds on curves.",
+        "Analyse conical and vertical pendulum motion using energy and force diagrams.",
+        "Define and calculate moment of inertia for simple rigid bodies.",
+        "Use theorems of parallel and perpendicular axes to find moment of inertia."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch1-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "The force responsible for circular motion of a stone tied to a string and whirled in a horizontal circle is:",
+          options: [
+            "Centrifugal force on the stone",
+            "Tension providing centripetal force",
+            "Gravitational force on the stone",
+            "Normal reaction of air on the stone"
+          ],
+          answer: "Tension providing centripetal force",
+          tags: ["centripetal-force"]
+        },
+        {
+          id: "ms-12-phy-ch1-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Define centripetal acceleration and write its expression for a body in uniform circular motion.",
+          answer:
+            "Centripetal acceleration is the acceleration directed towards the centre of the circular path which changes only the direction of velocity. Its magnitude is aᵣ = v²/r = ω²r.",
+          tags: ["definitions"]
+        },
+        {
+          id: "ms-12-phy-ch1-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A car of mass 1000 kg takes a turn on a level road of radius 50 m at a speed of 10 m/s. Find the minimum coefficient of static friction required between tyres and road so that the car does not skid.",
+          answer:
+            "Centripetal force = mv²/r = 1000×10²/50 = 2000 N.\nMaximum friction = μₛN = μₛmg = μₛ×1000×9.8.\nEquate: μₛ×1000×9.8 = 2000 ⇒ μₛ = 2000/9800 ≈ 0.204.",
+          tags: ["circular-motion", "friction"]
+        },
+        {
+          id: "ms-12-phy-ch1-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A vehicle moves on a smooth banked road of radius 100 m and banking angle 30°. Find the speed at which no friction is required for safe turning (g = 9.8 m/s²).",
+          answer:
+            "For no friction: v = √(rg tanθ) = √(100 × 9.8 × tan30°)\n= √(980 × 1/√3) ≈ √(566) ≈ 23.8 m/s (approximately).",
+          tags: ["banked-road"]
+        },
+        {
+          id: "ms-12-phy-ch1-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is a conical pendulum? Write the expression for its time period.",
+          answer:
+            "A conical pendulum is a pendulum in which the bob describes a horizontal circle while the string traces the surface of a cone. For string length L and semi-vertical angle θ, period T = 2π√(L cosθ / g).",
+          tags: ["conical-pendulum"]
+        },
+        {
+          id: "ms-12-phy-ch1-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A small mass is whirled in a vertical circle of radius 1 m using a light string. Find the minimum speed at the highest point so that the string just remains taut (g = 9.8 m/s²).",
+          answer:
+            "At top: T_min = 0, so mg = mv²/r ⇒ v² = gr ⇒ v = √(9.8×1) ≈ 3.13 m/s.",
+          tags: ["vertical-circular-motion"]
+        },
+        {
+          id: "ms-12-phy-ch1-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define moment of inertia and write its expression for a system of discrete particles.",
+          answer:
+            "Moment of inertia is the rotational analogue of mass; it measures opposition to change in rotational motion about an axis. For discrete particles: I = Σ mᵢ rᵢ².",
+          tags: ["moment-of-inertia"]
+        },
+        {
+          id: "ms-12-phy-ch1-q8",
+          type: "mcq",
+          difficulty: "medium",
+          marks: 1,
+          text: "Moment of inertia of a thin ring of mass M and radius R about an axis passing through its centre and perpendicular to its plane is:",
+          options: ["MR", "MR²", "(1/2)MR²", "2MR²"],
+          answer: "MR²",
+          tags: ["standard-MI"]
+        },
+        {
+          id: "ms-12-phy-ch1-q9",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State the theorem of parallel axes for moment of inertia.",
+          answer:
+            "The moment of inertia I about any axis parallel to an axis through the centre of mass is I = I_cm + Md², where I_cm is moment of inertia about the parallel axis through centre of mass and d is the perpendicular distance between the axes.",
+          tags: ["parallel-axis-theorem"]
+        },
+        {
+          id: "ms-12-phy-ch1-q10",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "A uniform disc of mass 2 kg and radius 0.5 m rotates about an axis through its centre and perpendicular to its plane with angular speed 10 rad/s. Calculate its moment of inertia and rotational kinetic energy.",
+          answer:
+            "For disc: I = (1/2)MR² = (1/2)×2×(0.5)² = 0.25 kg m².\nRotational KE = (1/2)Iω² = (1/2)×0.25×10² = 12.5 J.",
+          tags: ["rotational-ke", "disc"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 2 --------------------------- */
+    {
+      id: "ms-12-phy-ch2",
+      chapterNumber: 2,
+      title: "Mechanical Properties of Fluids",
+      slug: "mechanical-properties-of-fluids",
+      description:
+        "Pressure in fluids, Pascal’s law, hydraulic devices, atmospheric pressure and barometer, surface tension, capillarity, contact angle, viscosity, streamline and turbulent flow, Bernoulli’s theorem and applications.",
+      topics: [
+        "Fluid pressure and Pascal’s law",
+        "Atmospheric pressure and barometer",
+        "Surface tension and surface energy",
+        "Angle of contact and capillarity",
+        "Viscosity and Poiseuille’s law",
+        "Streamline vs turbulent flow, Reynolds number",
+        "Bernoulli’s equation and applications"
+      ],
+      learningObjectives: [
+        "Explain how pressure varies with depth in a fluid and use Pascal’s law in devices.",
+        "Discuss atmospheric pressure measurement using a barometer.",
+        "Define surface tension and explain related phenomena like capillary rise.",
+        "Describe viscosity and distinguish streamline and turbulent flow.",
+        "Apply Bernoulli’s theorem to simple fluid flow situations."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch2-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State Pascal’s law for fluids.",
+          answer:
+            "Pascal’s law: Pressure applied to an enclosed fluid is transmitted undiminished to every portion of the fluid and to the walls of the containing vessel.",
+          tags: ["pascals-law"]
+        },
+        {
+          id: "ms-12-phy-ch2-q2",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "A liquid of density 800 kg/m³ is filled in a tank. Find the pressure at a depth of 2 m below the free surface (g = 9.8 m/s²).",
+          answer:
+            "P = ρgh = 800×9.8×2 = 15,680 Pa ≈ 1.57×10⁴ Pa.",
+          tags: ["pressure-depth"]
+        },
+        {
+          id: "ms-12-phy-ch2-q3",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "The rise of liquid in a capillary tube is due to:",
+          options: [
+            "Viscosity only",
+            "Surface tension and adhesion",
+            "Gravity",
+            "Atmospheric pressure only"
+          ],
+          answer: "Surface tension and adhesion",
+          tags: ["capillarity"]
+        },
+        {
+          id: "ms-12-phy-ch2-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define surface tension. State its SI unit.",
+          answer:
+            "Surface tension is the force per unit length acting along the surface of a liquid at right angles to a line drawn in the surface. SI unit: N/m.",
+          tags: ["surface-tension"]
+        },
+        {
+          id: "ms-12-phy-ch2-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Calculate the excess pressure inside a soap bubble of radius 2 mm. Surface tension of soap solution is 0.03 N/m.",
+          answer:
+            "For soap bubble: ΔP = 4S/r = 4×0.03 / (2×10⁻³) = 0.12 / 2×10⁻³ = 60 Pa.",
+          tags: ["excess-pressure"]
+        },
+        {
+          id: "ms-12-phy-ch2-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Differentiate between streamline flow and turbulent flow.",
+          answer:
+            "In streamline flow, each fluid particle follows a smooth, well-defined path and paths do not cross; velocity at a point is steady. In turbulent flow, motion is irregular with eddies; velocity and direction change randomly with time.",
+          tags: ["streamline-turbulent"]
+        },
+        {
+          id: "ms-12-phy-ch2-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Water flows steadily through a pipe of cross-sectional area 4×10⁻⁴ m² with speed 2 m/s. The pipe narrows to an area of 1×10⁻⁴ m². Find the speed in the narrow portion.",
+          answer:
+            "By continuity: A₁v₁ = A₂v₂ ⇒ v₂ = A₁v₁/A₂ = (4×10⁻⁴×2)/(1×10⁻⁴) = 8 m/s.",
+          tags: ["continuity-equation"]
+        },
+        {
+          id: "ms-12-phy-ch2-q8",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Using Bernoulli’s theorem, explain why the roof of a house may be blown off during a storm when wind speed above the roof is very high.",
+          answer:
+            "High wind speed above roof ⇒ high v ⇒ lower pressure above according to Bernoulli (P + ½ρv² = constant). Pressure inside room remains nearly atmospheric. So greater pressure inside pushes roof upward; if force exceeds weight and fixtures, roof may be lifted.",
+          tags: ["bernoulli", "applications"]
+        },
+        {
+          id: "ms-12-phy-ch2-q9",
+          type: "mcq",
+          difficulty: "medium",
+          marks: 1,
+          text: "The SI unit of coefficient of viscosity is:",
+          options: ["N/m²", "Pa·s", "N·s/m", "kg/m³"],
+          answer: "Pa·s",
+          tags: ["viscosity"]
+        },
+        {
+          id: "ms-12-phy-ch2-q10",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "Define Reynolds number. What does a low value of Reynolds number signify about the flow?",
+          answer:
+            "Reynolds number Re = ρvd/η, where v is characteristic speed, d is diameter, ρ is density and η is viscosity. Low Re (typically < 1000) indicates predominantly streamline (laminar) flow.",
+          tags: ["reynolds-number"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 3 --------------------------- */
+    {
+      id: "ms-12-phy-ch3",
+      chapterNumber: 3,
+      title: "Kinetic Theory of Gases and Radiation",
+      slug: "kinetic-theory-gases-radiation",
+      description:
+        "Ideal gas equation, assumptions of kinetic theory, pressure of an ideal gas, mean free path, degrees of freedom, equipartition theorem, specific heats, real gases and van der Waals equation, thermal radiation, black body, Stefan–Boltzmann law and Wien’s law.",
+      topics: [
+        "Ideal gas and kinetic theory assumptions",
+        "Pressure and temperature in kinetic theory",
+        "Mean free path and collision frequency",
+        "Degrees of freedom and equipartition of energy",
+        "Specific heats of monoatomic and diatomic gases",
+        "Real gases and van der Waals equation",
+        "Black body radiation and Stefan–Boltzmann law",
+        "Wien’s displacement law"
+      ],
+      learningObjectives: [
+        "State the assumptions of kinetic theory and derive expression for pressure of an ideal gas.",
+        "Explain mean free path and factors affecting it.",
+        "Use equipartition theorem to calculate internal energy and specific heats.",
+        "Distinguish between ideal and real gases and write van der Waals equation.",
+        "Describe characteristics of black body radiation and apply Stefan–Boltzmann law."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch3-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Write the ideal gas equation and define each symbol used.",
+          answer:
+            "Ideal gas equation: PV = nRT, where P is pressure, V is volume, n is number of moles, R is universal gas constant and T is absolute temperature.",
+          tags: ["ideal-gas"]
+        },
+        {
+          id: "ms-12-phy-ch3-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State any two assumptions of kinetic theory of gases.",
+          answer:
+            "Examples: (1) Gas consists of a large number of identical molecules moving in random directions. (2) Volume of molecules is negligible compared to container volume. (3) Intermolecular forces are negligible except during collisions. (Any two.)",
+          tags: ["assumptions"]
+        },
+        {
+          id: "ms-12-phy-ch3-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Show that average translational kinetic energy of a molecule of an ideal gas is (3/2)kT.",
+          answer:
+            "From kinetic theory, PV = (1/3)Nm⟨c²⟩ and also PV = NkT.\nEquate: (1/3)Nm⟨c²⟩ = NkT ⇒ (1/2)m⟨c²⟩ = (3/2)kT, so average KE = (3/2)kT.",
+          tags: ["kinetic-theory"]
+        },
+        {
+          id: "ms-12-phy-ch3-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is mean free path? On which factors does it depend?",
+          answer:
+            "Mean free path is the average distance traveled by a molecule between successive collisions. It depends on number density of molecules, size (diameter) of molecules and temperature/pressure of gas.",
+          tags: ["mean-free-path"]
+        },
+        {
+          id: "ms-12-phy-ch3-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Using law of equipartition, find molar specific heat at constant volume Cᵥ for a monoatomic ideal gas.",
+          answer:
+            "Monoatomic gas has 3 translational degrees of freedom ⇒ average energy per mole = (f/2)RT = (3/2)RT.\nBy definition U = nCᵥT for 1 mol ⇒ Cᵥ = (1/U)(dU/dT) = (3/2)R.",
+          tags: ["equipartition", "specific-heat"]
+        },
+        {
+          id: "ms-12-phy-ch3-q6",
+          type: "mcq",
+          difficulty: "medium",
+          marks: 1,
+          text: "For a diatomic ideal gas at room temperature, the approximate ratio Cₚ/Cᵥ is:",
+          options: ["1.0", "1.4", "1.67", "2.0"],
+          answer: "1.4",
+          tags: ["gamma"]
+        },
+        {
+          id: "ms-12-phy-ch3-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Write van der Waals equation for n moles of a real gas and explain the significance of constants a and b.",
+          answer:
+            "Equation: (P + a(n/V)²)(V − nb) = nRT.\nHere a accounts for intermolecular attractions (corrects pressure) and b represents excluded volume due to finite size of molecules.",
+          tags: ["van-der-waals"]
+        },
+        {
+          id: "ms-12-phy-ch3-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State Stefan–Boltzmann law of radiation.",
+          answer:
+            "Total radiant energy emitted per unit area per unit time by a black body is directly proportional to the fourth power of its absolute temperature: E = σT⁴.",
+          tags: ["stefan-boltzmann"]
+        },
+        {
+          id: "ms-12-phy-ch3-q9",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "According to Wien’s displacement law, λₘT = constant, where λₘ is:",
+          options: [
+            "Minimum wavelength emitted",
+            "Maximum wavelength emitted (peak)",
+            "Average wavelength emitted",
+            "Cut-off wavelength"
+          ],
+          answer: "Maximum wavelength emitted (peak)",
+          tags: ["wien-law"]
+        },
+        {
+          id: "ms-12-phy-ch3-q10",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "The maximum intensity of radiation from a black body occurs at 580 nm. Estimate its surface temperature using Wien’s law (b = 2.9×10⁻³ m·K).",
+          answer:
+            "Using λₘT = b ⇒ T = b/λₘ = 2.9×10⁻³ / (580×10⁻⁹) ≈ 5.0×10³ K.",
+          tags: ["numerical", "wien-law"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 4 --------------------------- */
+    {
+      id: "ms-12-phy-ch4",
+      chapterNumber: 4,
+      title: "Thermodynamics",
+      slug: "thermodynamics",
+      description:
+        "Thermodynamic system, variables, processes, first law of thermodynamics, work and heat, specific heats, second law, reversible and irreversible processes, heat engines, Carnot cycle, refrigerator and efficiency.",
+      topics: [
+        "Thermodynamic system, state variables and equation of state",
+        "Quasi-static and cyclic processes",
+        "First law of thermodynamics",
+        "Isothermal, adiabatic, isobaric and isochoric processes",
+        "Second law, entropy (qualitative)",
+        "Heat engine, efficiency and Carnot cycle",
+        "Refrigerator and coefficient of performance"
+      ],
+      learningObjectives: [
+        "Define thermodynamic system and distinguish various thermodynamic processes.",
+        "Apply first law to calculate heat, work and internal energy changes.",
+        "Use PV diagrams to represent processes and cycles.",
+        "Describe second law and limitations on conversion of heat into work.",
+        "Explain working of heat engines, Carnot cycle and refrigerator."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch4-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State the first law of thermodynamics.",
+          answer:
+            "First law: The heat supplied to a system is used to change its internal energy and to do work on the surroundings: ΔQ = ΔU + W.",
+          tags: ["first-law"]
+        },
+        {
+          id: "ms-12-phy-ch4-q2",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "In an isothermal process for an ideal gas:",
+          options: [
+            "Temperature remains constant",
+            "Pressure remains constant",
+            "Volume remains constant",
+            "No heat is exchanged"
+          ],
+          answer: "Temperature remains constant",
+          tags: ["isothermal"]
+        },
+        {
+          id: "ms-12-phy-ch4-q3",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Distinguish between isochoric and isobaric processes.",
+          answer:
+            "Isochoric: volume constant, so no work is done; pressure and temperature may change. Isobaric: pressure constant, so system expands or contracts; both volume and temperature change.",
+          tags: ["processes"]
+        },
+        {
+          id: "ms-12-phy-ch4-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "An ideal gas is taken through a process in which 500 J of heat is supplied and 200 J of work is done by the system. Find the change in internal energy.",
+          answer: "ΔQ = 500 J, W = 200 J ⇒ ΔU = ΔQ − W = 300 J.",
+          tags: ["first-law", "numerical"]
+        },
+        {
+          id: "ms-12-phy-ch4-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State Kelvin–Planck statement of the second law of thermodynamics.",
+          answer:
+            "It is impossible to construct a device operating in a cycle that converts all the heat absorbed from a single reservoir completely into work without any other effect.",
+          tags: ["second-law"]
+        },
+        {
+          id: "ms-12-phy-ch4-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A heat engine absorbs 1000 J of heat from a source and rejects 600 J to the sink in one cycle. Calculate the efficiency of the engine.",
+          answer:
+            "Work done W = Q₁ − Q₂ = 1000 − 600 = 400 J. Efficiency η = W/Q₁ = 400/1000 = 0.4 = 40%.",
+          tags: ["heat-engine"]
+        },
+        {
+          id: "ms-12-phy-ch4-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "A Carnot engine operates between 600 K and 300 K. Calculate its efficiency. If it absorbs 900 J of heat from the source, how much work does it perform?",
+          answer:
+            "η = 1 − T₂/T₁ = 1 − 300/600 = 1 − 0.5 = 0.5 or 50%.\nWork W = ηQ₁ = 0.5×900 = 450 J.",
+          tags: ["carnot-engine"]
+        },
+        {
+          id: "ms-12-phy-ch4-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define coefficient of performance (COP) of a refrigerator.",
+          answer:
+            "COP of a refrigerator is the ratio of heat removed from the cold reservoir per cycle to the work done on the system per cycle: COP = Q₂/W.",
+          tags: ["refrigerator"]
+        },
+        {
+          id: "ms-12-phy-ch4-q9",
+          type: "mcq",
+          difficulty: "medium",
+          marks: 1,
+          text: "In an adiabatic process for an ideal gas:",
+          options: [
+            "No heat is exchanged with surroundings",
+            "Temperature remains constant",
+            "Volume remains constant",
+            "Pressure remains constant"
+          ],
+          answer: "No heat is exchanged with surroundings",
+          tags: ["adiabatic"]
+        },
+        {
+          id: "ms-12-phy-ch4-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain with a labelled PV diagram the working of a Carnot engine and derive the expression for its efficiency in terms of source and sink temperatures.",
+          answer:
+            "Answer should include: description of four reversible steps (isothermal expansion at T₁, adiabatic expansion T₁→T₂, isothermal compression at T₂, adiabatic compression T₂→T₁); PV diagram showing cycle; use of first law for isothermals giving Q₁ and Q₂; derivation η = 1 − Q₂/Q₁ = 1 − T₂/T₁ for ideal gas.",
+          tags: ["carnot-cycle", "derivation"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 5 --------------------------- */
+    {
+      id: "ms-12-phy-ch5",
+      chapterNumber: 5,
+      title: "Oscillations",
+      slug: "oscillations",
+      description:
+        "Simple harmonic motion (SHM), differential equation of SHM, energy in SHM, damped and forced oscillations, resonance, simple pendulum and related concepts.",
+      topics: [
+        "Periodic and oscillatory motion",
+        "Simple harmonic motion and restoring force",
+        "Equation of SHM and phase",
+        "Energy of a SHM",
+        "Damped and forced oscillations",
+        "Resonance",
+        "Simple pendulum"
+      ],
+      learningObjectives: [
+        "Identify SHM and write its displacement equation.",
+        "Use differential equation approach to describe SHM.",
+        "Calculate velocity, acceleration and energy of a SHM at different positions.",
+        "Describe damped and forced oscillations and the phenomenon of resonance.",
+        "Derive expression for time period of a simple pendulum."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch5-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Define simple harmonic motion and give one example.",
+          answer:
+            "SHM is oscillatory motion in which the restoring force is directly proportional to displacement and always directed towards mean position. Example: small oscillations of a simple pendulum.",
+          tags: ["shm"]
+        },
+        {
+          id: "ms-12-phy-ch5-q2",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "In SHM, acceleration is:",
+          options: [
+            "Constant in magnitude and direction",
+            "Proportional to velocity",
+            "Directly proportional to displacement and opposite in direction",
+            "Independent of displacement"
+          ],
+          answer: "Directly proportional to displacement and opposite in direction",
+          tags: ["shm-acceleration"]
+        },
+        {
+          id: "ms-12-phy-ch5-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A particle performing SHM has amplitude 0.05 m and time period 2 s. Write its displacement equation if at t = 0, it is at mean position and moving in positive direction.",
+          answer:
+            "Angular frequency ω = 2π/T = π rad/s.\nSince x(0) = 0 and motion towards +ve, x = A sin(ωt) ⇒ x = 0.05 sin(πt) m.",
+          tags: ["displacement-equation"]
+        },
+        {
+          id: "ms-12-phy-ch5-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "For a SHM, maximum speed is 0.4 m/s and amplitude is 0.08 m. Find its angular frequency and time period.",
+          answer:
+            "v_max = Aω ⇒ 0.4 = 0.08 ω ⇒ ω = 5 rad/s.\nT = 2π/ω = 2π/5 ≈ 1.26 s.",
+          tags: ["speed", "angular-frequency"]
+        },
+        {
+          id: "ms-12-phy-ch5-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Write the expressions for potential and kinetic energy of a particle executing SHM.",
+          answer:
+            "For mass m, angular frequency ω and displacement x: potential energy U = (1/2)kx = (1/2)mω²x²; kinetic energy K = (1/2)m(v²) = (1/2)mω²(A² − x²).",
+          tags: ["energy-shm"]
+        },
+        {
+          id: "ms-12-phy-ch5-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is damping? Give one example of damped oscillations.",
+          answer:
+            "Damping is reduction in amplitude of oscillations with time due to resistive forces. Example: oscillations of a pendulum in air, vibrating tuning fork in air, etc.",
+          tags: ["damping"]
+        },
+        {
+          id: "ms-12-phy-ch5-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define resonance. State one useful and one harmful effect of resonance.",
+          answer:
+            "Resonance is the phenomenon in which a system oscillates with large amplitude when driven by a periodic force of frequency close to its natural frequency. Useful: tuning in radio, resonance in musical instruments. Harmful: collapse of structures like bridges when forced near natural frequency.",
+          tags: ["resonance"]
+        },
+        {
+          id: "ms-12-phy-ch5-q8",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Derive the expression for time period of a simple pendulum executing small oscillations.",
+          answer:
+            "For small angle θ, restoring torque ≈ −mglθ, and angular acceleration θ¨ = −(g/l)θ ⇒ SHM with ω = √(g/l). Therefore T = 2π√(l/g). (Steps showing small angle approximation and SHM form should be included.)",
+          tags: ["simple-pendulum"]
+        },
+        {
+          id: "ms-12-phy-ch5-q9",
+          type: "numerical",
+          difficulty: "easy",
+          marks: 2,
+          text: "A simple pendulum of length 1 m has time period 2.0 s. Find its acceleration due to gravity from this data.",
+          answer:
+            "T = 2π√(l/g) ⇒ g = 4π²l/T² = 4π²×1 / 4 = π² ≈ 9.87 m/s².",
+          tags: ["pendulum-g"]
+        },
+        {
+          id: "ms-12-phy-ch5-q10",
+          type: "mcq",
+          difficulty: "medium",
+          marks: 1,
+          text: "Which of the following does NOT change when damping is introduced in a weakly damped oscillator?",
+          options: [
+            "Amplitude",
+            "Energy",
+            "Frequency (approximately)",
+            "Rate of energy loss"
+          ],
+          answer: "Frequency (approximately)",
+          tags: ["damped-oscillations"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 6 --------------------------- */
+    {
+      id: "ms-12-phy-ch6",
+      chapterNumber: 6,
+      title: "Superposition of Waves",
+      slug: "superposition-of-waves",
+      description:
+        "Progressive waves, principle of superposition, interference of waves, formation of stationary waves in strings and pipes, beats and their applications.",
+      topics: [
+        "Progressive and mechanical waves",
+        "Principle of superposition",
+        "Interference (constructive & destructive)",
+        "Stationary waves in strings and air columns",
+        "Beats and beat frequency",
+        "Energy transport in waves"
+      ],
+      learningObjectives: [
+        "Describe progressive waves and their basic properties.",
+        "Apply the principle of superposition for wave pulses and continuous waves.",
+        "Distinguish between constructive and destructive interference and calculate resultant amplitude.",
+        "Explain formation of stationary waves in strings and air columns.",
+        "Define beats and determine beat frequency in simple situations."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch6-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "In a progressive mechanical wave, which of the following is transferred?",
+          options: ["Only matter", "Only energy and momentum", "Only mass", "Matter and energy both permanently"],
+          answer: "Only energy and momentum",
+          tags: ["progressive-waves"]
+        },
+        {
+          id: "ms-12-phy-ch6-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State the principle of superposition of waves.",
+          answer:
+            "When two or more waves overlap in space, the resultant displacement at any point is the algebraic sum of displacements due to each wave acting independently.",
+          tags: ["superposition"]
+        },
+        {
+          id: "ms-12-phy-ch6-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Two waves of amplitudes 3 cm and 4 cm superpose in phase. Find the resultant amplitude and resultant intensity (in terms of I₀, the intensity due to 1 cm amplitude).",
+          answer:
+            "Resultant amplitude A = 3 + 4 = 7 cm. Intensity ∝ A², so I = 7² I₀ = 49 I₀.",
+          tags: ["interference", "resultant-amplitude"]
+        },
+        {
+          id: "ms-12-phy-ch6-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Two tuning forks of frequencies 256 Hz and 260 Hz are sounded together. What is the beat frequency? How much time is required between successive maxima of sound intensity?",
+          answer:
+            "Beat frequency = |260 − 256| = 4 Hz. Time between successive maxima = 1/4 s = 0.25 s.",
+          tags: ["beats"]
+        },
+        {
+          id: "ms-12-phy-ch6-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What are stationary waves? State one condition for their formation on a stretched string.",
+          answer:
+            "Stationary waves are waves in which certain points (nodes) have zero displacement and others (antinodes) have maximum displacement, with no net energy transfer along the medium. They form when two identical waves travelling in opposite directions superpose, usually due to reflection at fixed ends.",
+          tags: ["stationary-waves"]
+        },
+        {
+          id: "ms-12-phy-ch6-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A string of length 1.2 m is fixed at both ends and vibrates in its fundamental mode with a wave speed of 60 m/s. Find its fundamental frequency.",
+          answer:
+            "For fundamental, λ = 2L = 2 × 1.2 = 2.4 m. f = v/λ = 60 / 2.4 = 25 Hz.",
+          tags: ["strings", "normal-modes"]
+        },
+        {
+          id: "ms-12-phy-ch6-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Two waves y₁ = A sin(ωt) and y₂ = A sin(ωt + π) superpose. Find the expression for the resultant displacement and its amplitude.",
+          answer:
+            "Resultant y = y₁ + y₂ = A[sin(ωt) + sin(ωt + π)] = A[sin(ωt) − sin(ωt)] = 0. Resultant amplitude is zero (complete destructive interference).",
+          tags: ["destructive-interference"]
+        },
+        {
+          id: "ms-12-phy-ch6-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "List any two properties of a progressive wave travelling in an elastic medium.",
+          answer:
+            "Any two: (i) Each particle performs SHM about its mean position. (ii) All particles have same amplitude and frequency. (iii) There is a phase difference between neighbouring particles. (iv) Energy is transported along the direction of propagation.",
+          tags: ["progressive-waves"]
+        },
+        {
+          id: "ms-12-phy-ch6-q9",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "The amplitude of each of two interfering waves is A. Show that the ratio of maximum intensity to minimum intensity in the interference pattern is (I_max / I_min) = ∞ when the amplitudes are equal and nonzero.",
+          answer:
+            "Resultant amplitude A_R = 2A for constructive interference and 0 for destructive interference. Intensities: I_max ∝ (2A)² = 4A², I_min ∝ 0² = 0, so I_max / I_min = 4A² / 0 → ∞.",
+          tags: ["interference", "intensity-ratio"]
+        },
+        {
+          id: "ms-12-phy-ch6-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain the formation of stationary waves on a string fixed at both ends. Derive the condition for the frequencies of the harmonics in terms of string length and wave speed.",
+          answer:
+            "A wave travelling along the string reflects from the fixed ends and superposes with the incoming wave. For certain frequencies, nodes form at both fixed ends and standing patterns appear. The distance between adjacent nodes is λ/2. For a string of length L fixed at both ends, allowed wavelengths are λ_n = 2L/n (n = 1,2,3,...). Since v = f_n λ_n, we get f_n = n(v/2L). These are the harmonic frequencies of the string.",
+          tags: ["stationary-waves", "derivation"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 7 --------------------------- */
+    {
+      id: "ms-12-phy-ch7",
+      chapterNumber: 7,
+      title: "Wave Optics",
+      slug: "wave-optics",
+      description:
+        "Wave nature of light, Huygens’ principle, interference, diffraction, polarization and resolving power of optical instruments based on wave theory of light. ",
+      topics: [
+        "Huygens’ wave theory of light",
+        "Interference of light (Young’s double slit)",
+        "Diffraction of light (single slit, grating)",
+        "Polarization and types of polarized light",
+        "Resolving power of optical instruments",
+        "Coherence and conditions for interference"
+      ],
+      learningObjectives: [
+        "Explain the need for wave theory of light and state Huygens’ principle.",
+        "Describe coherent sources and conditions for sustained interference.",
+        "Use Young’s double-slit experiment formula to find fringe width and wavelength.",
+        "Explain diffraction patterns and factors affecting fringe width and intensity.",
+        "Describe plane polarization and applications of polarizing devices."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch7-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "In Young’s double-slit experiment, fringe width is directly proportional to:",
+          options: ["Wavelength and distance to screen", "Slit separation only", "Square of slit separation", "Inverse of wavelength"],
+          answer: "Wavelength and distance to screen",
+          tags: ["ydse"]
+        },
+        {
+          id: "ms-12-phy-ch7-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "What is meant by coherent sources of light?",
+          answer:
+            "Coherent sources are two or more sources that emit light waves of the same frequency and a constant phase difference between them.",
+          tags: ["coherence"]
+        },
+        {
+          id: "ms-12-phy-ch7-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "In a double-slit experiment, the slit separation is 0.5 mm and the screen is 2 m away. If the fringe width is 2.4 mm, calculate the wavelength of light used.",
+          answer:
+            "β = λD/d ⇒ λ = βd/D = (2.4×10⁻³ m)(0.5×10⁻³ m) / 2 = 0.6×10⁻⁶ m = 600 nm.",
+          tags: ["ydse", "wavelength"]
+        },
+        {
+          id: "ms-12-phy-ch7-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State Malus’ law for polarization of light.",
+          answer:
+            "When completely plane-polarized light is incident on an analyser, the transmitted intensity I is given by I = I₀ cos²θ, where θ is the angle between the transmission directions of the polarizer and analyser.",
+          tags: ["polarization"]
+        },
+        {
+          id: "ms-12-phy-ch7-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Light of intensity I₀ is incident on two ideal polarizers. The angle between their transmission axes is 60°. Find the transmitted intensity.",
+          answer:
+            "After first polarizer intensity is I₀/2. After second, I = (I₀/2) cos²60° = (I₀/2)(1/4) = I₀/8.",
+          tags: ["polarization", "malus-law"]
+        },
+        {
+          id: "ms-12-phy-ch7-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Differentiate between interference and diffraction of light (any two points).",
+          answer:
+            "Interference: due to superposition of waves from two or more coherent sources; fringe width is uniform; occurs over entire screen. Diffraction: due to bending of light around edges/apertures; fringes are generally not equally spaced; usually produced by a single aperture or obstacle.",
+          tags: ["interference", "diffraction"]
+        },
+        {
+          id: "ms-12-phy-ch7-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "In a single-slit diffraction experiment, the first minimum is observed at an angle of 30′ (30 minutes) when light of wavelength 500 nm is used. Estimate the slit width.",
+          answer:
+            "Condition for first minimum: a sinθ = λ. θ = 30′ = (30/60)° = 0.5° ≈ 0.5×π/180 ≈ 8.73×10⁻³ rad. So a ≈ λ/θ = 500×10⁻⁹ / 8.73×10⁻³ ≈ 5.7×10⁻⁵ m.",
+          tags: ["diffraction", "single-slit"]
+        },
+        {
+          id: "ms-12-phy-ch7-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is meant by resolving power of a telescope?",
+          answer:
+            "Resolving power is the ability of a telescope to distinguish two closely spaced point objects as separate. Quantitatively it is the reciprocal of the angular separation of the just-resolved images.",
+          tags: ["resolving-power"]
+        },
+        {
+          id: "ms-12-phy-ch7-q9",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain how Young’s double-slit experiment supports the wave nature of light.",
+          answer:
+            "In YDSE, light from a single source is split into two coherent waves, which superpose on the screen to produce alternating bright and dark fringes. Bright fringes correspond to constructive interference and dark fringes to destructive interference. Such a stable interference pattern can arise only when light behaves as a wave capable of superposition; corpuscular theory cannot explain the regular pattern of maxima and minima in intensity.",
+          tags: ["ydse", "wave-nature"]
+        },
+        {
+          id: "ms-12-phy-ch7-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "State Huygens’ principle. Using it, briefly explain the laws of reflection of light.",
+          answer:
+            "Huygens’ principle: Every point on a wavefront acts as a source of secondary spherical wavelets that spread out in all directions with the speed of the wave; the new wavefront at a later time is the common tangent (envelope) to these secondary wavelets. For reflection from a plane mirror, incident and reflected wavefronts make equal angles with the reflecting surface, and the construction using secondary wavelets shows that the angle of incidence equals the angle of reflection and that the incident ray, reflected ray and normal lie in the same plane.",
+          tags: ["huygens-principle", "reflection"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 8 --------------------------- */
+    {
+      id: "ms-12-phy-ch8",
+      chapterNumber: 8,
+      title: "Electrostatics",
+      slug: "electrostatics",
+      description:
+        "Electric field and potential due to charges, Gauss’s law and applications, capacitors, energy stored, conductors, insulators and dielectrics in an electric field. :contentReference[oaicite:1]{index=1}",
+      topics: [
+        "Coulomb’s law and electric field",
+        "Electric flux and Gauss’s law",
+        "Electric potential and potential energy",
+        "Conductors, insulators and polarization",
+        "Capacitors and capacitance",
+        "Combination of capacitors and energy stored",
+        "Dielectrics and effect on capacitance"
+      ],
+      learningObjectives: [
+        "Apply Coulomb’s law and superposition principle to find electric field.",
+        "Use Gauss’s law to determine electric field for symmetric charge distributions.",
+        "Relate electric potential to work done and field.",
+        "Explain behaviour of conductors and dielectrics in electrostatic equilibrium.",
+        "Calculate capacitance of simple capacitors and combinations."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch8-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "Electric flux through a surface depends on:",
+          options: [
+            "Magnitude of charge enclosed only",
+            "Charge enclosed and permittivity of medium",
+            "Area vector and electric field",
+            "Distance of charge from surface only"
+          ],
+          answer: "Area vector and electric field",
+          tags: ["electric-flux"]
+        },
+        {
+          id: "ms-12-phy-ch8-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State Gauss’s law in electrostatics.",
+          answer:
+            "The net electric flux through any closed surface is equal to 1/ε₀ times the total charge enclosed by the surface: ∬E·dA = Q_enclosed / ε₀.",
+          tags: ["gauss-law"]
+        },
+        {
+          id: "ms-12-phy-ch8-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A point charge of 2×10⁻⁸ C is placed at the centre of a spherical Gaussian surface of radius 0.2 m in air. Find the electric flux through the sphere.",
+          answer:
+            "Flux Φ = Q/ε₀ = 2×10⁻⁸ / (8.854×10⁻¹²) ≈ 2.26×10³ N·m²/C.",
+          tags: ["gauss-law", "flux"]
+        },
+        {
+          id: "ms-12-phy-ch8-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define electric potential at a point. How is it related to the electric field?",
+          answer:
+            "Electric potential at a point is the work done per unit positive test charge in bringing it from infinity to that point, against the electric field. The electric field is the negative gradient of potential: **E = −dV/dr** (in one dimension).",
+          tags: ["electric-potential"]
+        },
+        {
+          id: "ms-12-phy-ch8-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "The potential difference between two points is 50 V. How much work is done in moving a charge of 2 μC from lower to higher potential?",
+          answer:
+            "W = qΔV = 2×10⁻⁶ C × 50 V = 1.0×10⁻⁴ J.",
+          tags: ["work-potential"]
+        },
+        {
+          id: "ms-12-phy-ch8-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A parallel-plate capacitor has plate area 0.02 m² and plate separation 1 mm in air. Find its capacitance (ε₀ = 8.854×10⁻¹² F/m).",
+          answer:
+            "C = ε₀A/d = 8.854×10⁻¹² × 0.02 / 1×10⁻³ ≈ 1.77×10⁻¹0 F.",
+          tags: ["capacitors"]
+        },
+        {
+          id: "ms-12-phy-ch8-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is an electric dipole? Define its dipole moment.",
+          answer:
+            "An electric dipole consists of two equal and opposite charges separated by a small distance. Dipole moment **p** is defined as the product of magnitude of one charge and the separation vector from negative to positive charge: **p = q·2a** (in magnitude).",
+          tags: ["dipole"]
+        },
+        {
+          id: "ms-12-phy-ch8-q8",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Three capacitors 2 μF, 3 μF and 6 μF are connected in series across a 12 V battery. Find the equivalent capacitance and the charge on each capacitor.",
+          answer:
+            "1/C_eq = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 1 ⇒ C_eq = 1 μF. Charge Q = C_eq V = 1 μF × 12 V = 12 μC. In series, charge is same on each capacitor: 12 μC on each.",
+          tags: ["series-capacitors"]
+        },
+        {
+          id: "ms-12-phy-ch8-q9",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "How does the introduction of a dielectric slab between the plates of an isolated, charged capacitor affect (i) its capacitance, (ii) its potential difference, and (iii) its stored energy?",
+          answer:
+            "(i) Capacitance increases by factor k (dielectric constant). (ii) As charge remains constant, V decreases by factor k. (iii) Energy U = Q²/(2C) decreases by factor k.",
+          tags: ["dielectrics"]
+        },
+        {
+          id: "ms-12-phy-ch8-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Using Gauss’s law, derive an expression for electric field intensity due to an infinitely long, uniformly charged straight wire.",
+          answer:
+            "Consider a long wire of linear charge density λ. Choose a cylindrical Gaussian surface of radius r and length L coaxial with the wire. By symmetry, electric field E is radial and same at all points on curved surface; flux through end caps is zero. Total flux = E(2πrL). Charge enclosed = λL. By Gauss’s law, E(2πrL) = λL/ε₀ ⇒ E = λ/(2π ε₀ r), radially outward.",
+          tags: ["gauss-law", "line-charge"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 9 --------------------------- */
+    {
+      id: "ms-12-phy-ch9",
+      chapterNumber: 9,
+      title: "Current Electricity",
+      slug: "current-electricity",
+      description:
+        "Electric current, drift of electrons, Ohm’s law, resistivity, series-parallel circuits and application of Kirchhoff’s laws, meter bridge and potentiometer. :contentReference[oaicite:2]{index=2}",
+      topics: [
+        "Electric current and drift velocity",
+        "Ohm’s law and I-V characteristics",
+        "Resistors in series and parallel",
+        "Kirchhoff’s current and voltage laws",
+        "Wheatstone bridge and meter bridge",
+        "Potentiometer and its applications"
+      ],
+      learningObjectives: [
+        "Define current, current density and drift velocity and relate them.",
+        "Use Ohm’s law and equivalent resistance formulas in simple circuits.",
+        "Apply Kirchhoff’s laws to multi-loop circuits.",
+        "Explain principle of Wheatstone and meter bridge to determine unknown resistance.",
+        "Use potentiometer to compare emfs and find internal resistance of a cell."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch9-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "Kirchhoff’s current law is based on the principle of:",
+          options: ["Conservation of charge", "Conservation of energy", "Conservation of momentum", "Conservation of mass only"],
+          answer: "Conservation of charge",
+          tags: ["kcl"]
+        },
+        {
+          id: "ms-12-phy-ch9-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State Ohm’s law. Under what conditions is it valid?",
+          answer:
+            "At constant physical conditions (temperature, pressure, etc.), the current through a conductor is directly proportional to the potential difference across it (V ∝ I or V = IR). It holds for ohmic conductors within a certain range of temperature and field.",
+          tags: ["ohms-law"]
+        },
+        {
+          id: "ms-12-phy-ch9-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Three resistors of 2 Ω, 3 Ω and 6 Ω are connected in parallel. Find their equivalent resistance.",
+          answer:
+            "1/R_eq = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 1 ⇒ R_eq = 1 Ω.",
+          tags: ["parallel-resistance"]
+        },
+        {
+          id: "ms-12-phy-ch9-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "The potential difference across a 4 Ω resistor is 12 V. Calculate the current through it and the power dissipated.",
+          answer:
+            "I = V/R = 12/4 = 3 A. Power P = VI = 12 × 3 = 36 W.",
+          tags: ["power", "ohms-law"]
+        },
+        {
+          id: "ms-12-phy-ch9-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State Kirchhoff’s voltage law (KVL).",
+          answer:
+            "The algebraic sum of all potential differences around any closed loop in an electrical circuit is zero, i.e., ΣΔV = 0.",
+          tags: ["kvl"]
+        },
+        {
+          id: "ms-12-phy-ch9-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "In a meter bridge, the balancing length is 40 cm when the known resistance is 5 Ω. Find the value of the unknown resistance.",
+          answer:
+            "Let R be unknown. For balance, R / 5 = 40 / 60 ⇒ R = 5 × (40/60) = 5 × 2/3 = 10/3 ≈ 3.33 Ω.",
+          tags: ["meter-bridge"]
+        },
+        {
+          id: "ms-12-phy-ch9-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain how a potentiometer can be used to compare the emfs of two cells.",
+          answer:
+            "Connect the potentiometer wire in series with a driving cell and a rheostat. Connect cell E₁ using a galvanometer and jockey, obtain balancing length l₁ where galvanometer shows zero current. Replace E₁ with E₂ and get balancing length l₂. Since no current flows through the cell at balance, E ∝ balancing length, so E₁/E₂ = l₁/l₂.",
+          tags: ["potentiometer"]
+        },
+        {
+          id: "ms-12-phy-ch9-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define resistivity of a material. How is it related to conductivity?",
+          answer:
+            "Resistivity ρ of a material is the resistance of a conductor of that material having unit length and unit cross-sectional area. Conductivity σ is the reciprocal of resistivity: σ = 1/ρ.",
+          tags: ["resistivity"]
+        },
+        {
+          id: "ms-12-phy-ch9-q9",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A copper wire 2 m long and of cross-sectional area 1×10⁻⁶ m² has a resistance of 0.034 Ω. Find the resistivity of copper.",
+          answer:
+            "ρ = RA/L = 0.034 × 1×10⁻⁶ / 2 = 1.7×10⁻⁸ Ω·m.",
+          tags: ["resistivity-calculation"]
+        },
+        {
+          id: "ms-12-phy-ch9-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Derive the relation between drift velocity of electrons and current in a conductor. Hence obtain the expression for electrical conductivity.",
+          answer:
+            "Consider a conductor of length L, area A, containing n free electrons per unit volume, each of charge e and drift velocity v_d. Charge passing per second through area A is q = (number of electrons crossing per second) × e = (nAv_d) e. Thus current I = nAe v_d. Comparing with J = I/A gives J = ne v_d. Using Ohm’s microscopic form J = σE, we get σ = ne²τ/m (using v_d = eEτ/m).",
+          tags: ["drift-velocity", "conductivity"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 10 --------------------------- */
+    {
+      id: "ms-12-phy-ch10",
+      chapterNumber: 10,
+      title: "Magnetic Fields due to Electric Current",
+      slug: "magnetic-fields-due-to-current",
+      description:
+        "Magnetic field of moving charges and currents, Biot–Savart law, Ampere’s circuital law, force on a current-carrying conductor, motion of charged particles in a magnetic field and basic ideas of cyclotron. ",
+      topics: [
+        "Lorentz force on a moving charge",
+        "Motion of charged particle in uniform B-field",
+        "Force on current-carrying conductor and torque on coil",
+        "Biot–Savart law for straight wire and circular loop",
+        "Ampere’s law and applications (solenoid, toroid)",
+        "Moving-coil galvanometer and its conversion"
+      ],
+      learningObjectives: [
+        "Compute magnetic force on moving charges and current elements.",
+        "Describe uniform circular motion of charged particles in a magnetic field and cyclotron principle.",
+        "Use Biot–Savart law to find magnetic field due to current-carrying conductors.",
+        "Apply Ampere’s law to find magnetic field of solenoid and toroid.",
+        "Explain working of a moving-coil galvanometer."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch10-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "The magnetic force on a moving charge is maximum when the angle between velocity and magnetic field is:",
+          options: ["0°", "30°", "60°", "90°"],
+          answer: "90°",
+          tags: ["lorentz-force"]
+        },
+        {
+          id: "ms-12-phy-ch10-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State the expression for force on a current-carrying conductor placed in a uniform magnetic field.",
+          answer:
+            "For a straight conductor of length **L** carrying current I in a magnetic field **B**, the force is **F = I (L × B)**. Magnitude F = I L B sinθ, where θ is the angle between L and B.",
+          tags: ["force-on-conductor"]
+        },
+        {
+          id: "ms-12-phy-ch10-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "An electron moves with a speed of 2×10⁶ m/s perpendicular to a uniform magnetic field of 0.01 T. Find the radius of the circular path. (e = 1.6×10⁻¹⁹ C, mₑ = 9.1×10⁻³¹ kg)",
+          answer:
+            "For qvB = mv²/r ⇒ r = mv/(qB) = (9.1×10⁻³¹ × 2×10⁶)/(1.6×10⁻¹⁹ × 0.01) ≈ 0.0114 m ≈ 1.1 cm.",
+          tags: ["charged-particle-motion"]
+        },
+        {
+          id: "ms-12-phy-ch10-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State Biot–Savart law for the magnetic field due to a current element.",
+          answer:
+            "It states that the magnetic field d**B** at a point due to a current element I d**l** is directly proportional to current I, length element dl, sine of angle between dl and line joining element to point, and inversely proportional to square of distance r: dB = (μ₀/4π)(I dl sinθ / r²).",
+          tags: ["biot-savart"]
+        },
+        {
+          id: "ms-12-phy-ch10-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the magnetic field at the centre of a circular coil of radius 0.1 m having 50 turns and carrying a current of 2 A.",
+          answer:
+            "B = μ₀ N I / (2R) = (4π×10⁻⁷ × 50 × 2)/(2 × 0.1) = (4π×10⁻⁷ × 100)/(0.2) = 2×10⁻⁴ π T ≈ 6.28×10⁻⁴ T.",
+          tags: ["circular-loop"]
+        },
+        {
+          id: "ms-12-phy-ch10-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is a cyclotron? Name the basic fields used in it.",
+          answer:
+            "Cyclotron is a device used to accelerate charged particles to high energies using a combination of a uniform perpendicular magnetic field and a rapidly alternating electric field.",
+          tags: ["cyclotron"]
+        },
+        {
+          id: "ms-12-phy-ch10-q7",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "Using Ampere’s law, show that the magnetic field inside a very long solenoid is B = μ₀ n I, where n is the number of turns per unit length.",
+          answer:
+            "Consider a rectangular Amperian loop partly inside the solenoid. Outside field ≈ 0. Line integral ∮B·dl = B·L (inside segment) + 0 (others) = μ₀ I_enc. Current enclosed I_enc = nL I. Thus B L = μ₀ n L I ⇒ B = μ₀ n I.",
+          tags: ["ampere-law", "solenoid"]
+        },
+        {
+          id: "ms-12-phy-ch10-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Why is a radial magnetic field used in a moving-coil galvanometer?",
+          answer:
+            "A radial magnetic field keeps the plane of the coil always parallel to the field lines so that torque τ = NIAB sinθ is maximum and independent of θ, making deflection proportional to current.",
+          tags: ["galvanometer"]
+        },
+        {
+          id: "ms-12-phy-ch10-q9",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A moving-coil galvanometer has a resistance of 50 Ω and gives full-scale deflection for 2 mA. How can it be converted into a 10 V voltmeter?",
+          answer:
+            "For full-scale, current I_g = 2 mA. Required series resistance R_s satisfies V = I_g (R_s + 50). So 10 = 2×10⁻³ (R_s + 50) ⇒ R_s + 50 = 5000 ⇒ R_s = 4950 Ω.",
+          tags: ["galvanometer-conversion"]
+        },
+        {
+          id: "ms-12-phy-ch10-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Derive an expression for the torque acting on a rectangular current-carrying coil placed in a uniform magnetic field. Define magnetic dipole moment of the coil.",
+          answer:
+            "Consider a coil of N turns, area A, carrying current I in a uniform field B. Only the two opposite sides experience equal and opposite forces producing torque. For each side, F = I l B sinθ; torque of pair τ = F·b = I l B sinθ·b = IAB sinθ. For N turns, τ = N I A B sinθ. Magnetic dipole moment is defined as **m = N I A n̂**, so torque is **τ = m × B**.",
+          tags: ["torque-coil", "dipole-moment"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 11 --------------------------- */
+   {
+      id: "ms-12-phy-ch11",
+      chapterNumber: 11,
+      title: "Magnetic Materials",
+      slug: "magnetic-materials",
+      description:
+        "Magnetization, magnetic intensity and susceptibility; dia-, para- and ferromagnetic materials; B–H curves, hysteresis and applications.",
+      topics: [
+        "Magnetization (M) and magnetic intensity (H)",
+        "Magnetic susceptibility and permeability",
+        "Diamagnetism, paramagnetism, ferromagnetism",
+        "Hysteresis loop and energy loss",
+        "Soft and hard magnetic materials",
+        "Applications (electromagnets, permanent magnets)"
+      ],
+      learningObjectives: [
+        "Define magnetization and magnetic susceptibility.",
+        "Differentiate between dia-, para- and ferromagnetic substances with examples.",
+        "Interpret hysteresis loop and relate to energy loss.",
+        "Explain why soft iron is used for transformer cores while steel for permanent magnets.",
+        "Relate microscopic alignment of domains to macroscopic magnetization."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch11-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Define magnetization of a material.",
+          answer:
+            "Magnetization M is the magnetic moment per unit volume of a material: M = μ_total / V.",
+          tags: ["magnetization"]
+        },
+        {
+          id: "ms-12-phy-ch11-q2",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "Which of the following is ferromagnetic at room temperature?",
+          options: ["Copper", "Bismuth", "Iron", "Water"],
+          answer: "Iron",
+          tags: ["ferromagnetism"]
+        },
+        {
+          id: "ms-12-phy-ch11-q3",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is magnetic susceptibility? How is it related to relative permeability?",
+          answer:
+            "Magnetic susceptibility χ is the ratio of magnetization M to magnetic intensity H: χ = M/H. Relative permeability μ_r is related as μ_r = 1 + χ.",
+          tags: ["susceptibility"]
+        },
+        {
+          id: "ms-12-phy-ch11-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Give any two properties of diamagnetic materials.",
+          answer:
+            "Any two: (i) Weakly repelled by magnetic fields. (ii) χ is small and negative. (iii) μ_r is slightly less than 1. (iv) Independent of temperature.",
+          tags: ["diamagnetism"]
+        },
+        {
+          id: "ms-12-phy-ch11-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Why does a ferromagnetic material lose its ferromagnetic property above Curie temperature?",
+          answer:
+            "Above Curie temperature, thermal agitation becomes strong enough to randomize the orientation of magnetic domains, destroying spontaneous magnetization; the material behaves as paramagnetic.",
+          tags: ["curie-temperature"]
+        },
+        {
+          id: "ms-12-phy-ch11-q6",
+          type: "long",
+          difficulty: "medium",
+          marks: 3,
+          text: "Distinguish between soft and hard magnetic materials based on their hysteresis loops and typical uses.",
+          answer:
+            "Soft materials: narrow hysteresis loop, small coercivity and remanence, low energy loss per cycle; used in transformer and electromagnet cores. Hard materials: wide hysteresis loop, large coercivity and remanence, high energy loss but retain magnetization; used for permanent magnets, recording media.",
+          tags: ["hysteresis", "materials"]
+        },
+        {
+          id: "ms-12-phy-ch11-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A paramagnetic material has susceptibility 2×10⁻³. Find its relative permeability.",
+          answer:
+            "μ_r = 1 + χ = 1 + 2×10⁻³ = 1.002.",
+          tags: ["susceptibility", "permeability"]
+        },
+        {
+          id: "ms-12-phy-ch11-q8",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "Explain the origin of permanent magnetism in ferromagnetic materials in terms of domains.",
+          answer:
+            "Ferromagnetic materials consist of small regions called magnetic domains, in each of which atomic magnetic moments are strongly aligned due to exchange interaction. In an unmagnetized specimen, domains are randomly oriented, resulting in zero net magnetization. When an external field is applied, domains aligned with the field grow at the expense of others, giving large net magnetization that can persist even after the field is removed.",
+          tags: ["domains", "ferromagnetism"]
+        },
+        {
+          id: "ms-12-phy-ch11-q9",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Why are transformer cores laminated?",
+          answer:
+            "They are laminated to reduce eddy currents and thereby decrease energy loss and heating in the core.",
+          tags: ["eddy-currents", "transformers"]
+        },
+        {
+          id: "ms-12-phy-ch11-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Draw a typical hysteresis loop for a ferromagnetic material and explain the terms retentivity and coercivity.",
+          answer:
+            "On a B–H graph, the loop shows how B changes as H is cycled. Retentivity (remanence) is the value of B remaining when H is reduced to zero after saturation. Coercivity is the value of reverse H required to bring B to zero from its remanent value. Larger retentivity means a stronger permanent magnet; larger coercivity indicates greater resistance to demagnetization.",
+          tags: ["hysteresis-loop"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 12 --------------------------- */
+    {
+      id: "ms-12-phy-ch12",
+      chapterNumber: 12,
+      title: "Electromagnetic Induction",
+      slug: "electromagnetic-induction",
+      description:
+        "Experiments of Faraday and Henry, Faraday’s laws, Lenz’s law, motional emf, self and mutual inductance, energy in an inductor and transformer applications. ",
+      topics: [
+        "Faraday–Henry experiments and qualitative observations",
+        "Faraday’s laws and flux rule",
+        "Lenz’s law and conservation of energy",
+        "Motional emf and induced electric fields",
+        "Self inductance and mutual inductance",
+        "Energy stored in magnetic field",
+        "Transformers and their efficiency"
+      ],
+      learningObjectives: [
+        "Describe Faraday–Henry experiments and infer the conditions for induction.",
+        "Use Faraday’s and Lenz’s laws to determine magnitude and direction of induced emf.",
+        "Explain motional emf for conductors moving in magnetic fields.",
+        "Compute self and mutual inductances for simple arrangements and induced emf.",
+        "Explain working of transformers and their practical applications."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch12-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State Faraday’s first law of electromagnetic induction.",
+          answer:
+            "Whenever there is a change of magnetic flux linked with a closed circuit, an emf is induced in the circuit; if the circuit is closed, an induced current flows.",
+          tags: ["faraday-law"]
+        },
+        {
+          id: "ms-12-phy-ch12-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State Lenz’s law. How does it express conservation of energy?",
+          answer:
+            "Lenz’s law: The direction of induced current is such that the magnetic field produced by it opposes the change in magnetic flux that produced the current. This ensures that the induced current opposes the cause, so extra mechanical work is required, conserving energy.",
+          tags: ["lenz-law"]
+        },
+        {
+          id: "ms-12-phy-ch12-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "The magnetic flux through a coil of 100 turns changes from 0.02 Wb to 0 in 0.1 s. Find the magnitude of induced emf.",
+          answer:
+            "e = −N ΔΦ/Δt. Magnitude e = 100 × |0 − 0.02| / 0.1 = 100 × 0.02 / 0.1 = 20 V.",
+          tags: ["induced-emf"]
+        },
+        {
+          id: "ms-12-phy-ch12-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A straight conductor of length 0.5 m moves in a uniform magnetic field of 0.8 T with a speed of 3 m/s, such that it cuts the field lines normally. Calculate the induced emf between its ends.",
+          answer:
+            "e = B l v = 0.8 × 0.5 × 3 = 1.2 V.",
+          tags: ["motional-emf"]
+        },
+        {
+          id: "ms-12-phy-ch12-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define self inductance of a coil.",
+          answer:
+            "Self inductance L is the property of a coil by virtue of which it opposes any change in current through it by inducing an emf proportional to the rate of change of current: e = −L di/dt.",
+          tags: ["self-inductance"]
+        },
+        {
+          id: "ms-12-phy-ch12-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A coil has self inductance 0.5 H. What emf is induced in it when the current changes from 2 A to 5 A in 0.1 s?",
+          answer:
+            "e = L ΔI/Δt = 0.5 × (5 − 2)/0.1 = 0.5 × 3 / 0.1 = 15 V.",
+          tags: ["inductance"]
+        },
+        {
+          id: "ms-12-phy-ch12-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is meant by eddy currents? Give one useful application.",
+          answer:
+            "Eddy currents are loops of induced current produced in bulk conductors exposed to changing magnetic flux. They are used in electromagnetic braking, induction furnaces, and damping of moving-coil instruments.",
+          tags: ["eddy-currents"]
+        },
+        {
+          id: "ms-12-phy-ch12-q8",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "An ideal transformer has 1000 turns in the primary and 100 turns in the secondary. The primary is connected to 220 V AC. Calculate (i) the secondary voltage, (ii) the primary current when secondary current is 2 A.",
+          answer:
+            "(i) e_s/e_p = N_s/N_p ⇒ e_s = e_p (N_s/N_p) = 220 × 100/1000 = 22 V (step-down). (ii) For ideal transformer, power in = power out ⇒ e_p i_p = e_s i_s ⇒ 220 i_p = 22 × 2 = 44 ⇒ i_p = 0.2 A.",
+          tags: ["transformer"]
+        },
+        {
+          id: "ms-12-phy-ch12-q9",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "Why are the cores of transformers laminated?",
+          answer:
+            "To reduce eddy currents induced in the core by the alternating flux. Laminations increase resistance to circulating currents and hence reduce energy loss and heating.",
+          tags: ["transformer-cores"]
+        },
+        {
+          id: "ms-12-phy-ch12-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain the Faraday disc dynamo and obtain the expression for the induced emf between the centre and the rim of a rotating conducting disc in a perpendicular magnetic field.",
+          answer:
+            "A conducting disc of radius R rotates with angular speed ω in a uniform magnetic field B perpendicular to its plane. A radial element at distance r from centre has linear speed v = ωr, so induced emf across small element dr is dε = B v dr = B ω r dr. Integrating from 0 to R gives ε = ∫₀^R B ω r dr = ½ B ω R². The device demonstrates motional emf where mechanical rotation in a magnetic field produces a steady emf.",
+          tags: ["faraday-disc", "motional-emf"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 13 --------------------------- */
+    {
+      id: "ms-12-phy-ch13",
+      chapterNumber: 13,
+      title: "AC Circuits",
+      slug: "ac-circuits",
+      description:
+        "Alternating current sources, RMS and average values, phasor representation, pure R, L, C circuits and series LCR circuit, power in AC and resonance. :contentReference[oaicite:5]{index=5}",
+      topics: [
+        "AC voltage and current, phase",
+        "Instantaneous, RMS and average values",
+        "Reactance of inductor and capacitor",
+        "Phasor diagrams for R, L, C circuits",
+        "Series LCR circuit and resonance",
+        "Power factor and power in AC circuits"
+      ],
+      learningObjectives: [
+        "Describe sinusoidal AC and define its characteristics.",
+        "Calculate RMS and average values for sinusoidal waveforms.",
+        "Obtain impedance and phase angle for R, L, C and LCR series circuits.",
+        "Explain resonance and its conditions in LCR circuits.",
+        "Compute power, power factor and apparent power in AC circuits."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch13-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "For a sinusoidal AC, the relation between RMS value and peak value is:",
+          options: ["I_rms = I₀", "I_rms = I₀/2", "I_rms = I₀/√2", "I_rms = √2 I₀"],
+          answer: "I_rms = I₀/√2",
+          tags: ["rms"]
+        },
+        {
+          id: "ms-12-phy-ch13-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Write expressions for inductive and capacitive reactances.",
+          answer:
+            "Inductive reactance: X_L = ωL = 2π f L. Capacitive reactance: X_C = 1/(ωC) = 1/(2π f C).",
+          tags: ["reactance"]
+        },
+        {
+          id: "ms-12-phy-ch13-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "An AC source of emf 220 V, 50 Hz is applied to a pure resistor of 44 Ω. Find the peak current and RMS current through the resistor.",
+          answer:
+            "I_rms = V_rms / R = 220 / 44 = 5 A. Peak current I₀ = √2 I_rms ≈ 7.07 A.",
+          tags: ["ohmic-ac"]
+        },
+        {
+          id: "ms-12-phy-ch13-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Find the inductive reactance of a 0.2 H inductor connected to a 50 Hz AC supply.",
+          answer:
+            "X_L = 2π f L = 2π × 50 × 0.2 ≈ 62.8 Ω.",
+          tags: ["inductor"]
+        },
+        {
+          id: "ms-12-phy-ch13-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define power factor. What is its value for (i) pure resistor and (ii) pure inductor?",
+          answer:
+            "Power factor cosφ is the cosine of phase angle between voltage and current. For pure resistor cosφ = 1; for pure inductor cosφ = 0.",
+          tags: ["power-factor"]
+        },
+        {
+          id: "ms-12-phy-ch13-q6",
+          type: "numerical",
+          difficulty: "hard",
+          marks: 4,
+          text: "An LCR series circuit has R = 20 Ω, L = 0.2 H, C = 50 μF. It is connected to a 200 V, 50 Hz AC source. Calculate the impedance and current in the circuit.",
+          answer:
+            "X_L = 2πfL = 2π×50×0.2 ≈ 62.8 Ω. X_C = 1/(2πfC) = 1/(2π×50×50×10⁻⁶) ≈ 63.7 Ω. Net reactance X = X_L − X_C ≈ −0.9 Ω. Impedance Z = √(R² + X²) ≈ √(400 + 0.81) ≈ 20.02 Ω. Current I_rms ≈ 200 / 20.02 ≈ 10 A.",
+          tags: ["lcr-circuit"]
+        },
+        {
+          id: "ms-12-phy-ch13-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is resonance in an LCR series circuit? Write the condition for resonance.",
+          answer:
+            "Resonance is the condition in an LCR series circuit when current amplitude becomes maximum and impedance is minimum. It occurs when X_L = X_C, i.e., ω₀L = 1/(ω₀C) or ω₀ = 1/√(LC).",
+          tags: ["resonance"]
+        },
+        {
+          id: "ms-12-phy-ch13-q8",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "In a series LCR circuit at resonance, R = 50 Ω and applied RMS voltage is 100 V. Find (i) RMS current, (ii) average power absorbed.",
+          answer:
+            "(i) At resonance Z = R, so I_rms = V_rms/R = 100/50 = 2 A. (ii) Power P = V_rms I_rms cosφ = 100 × 2 × 1 = 200 W.",
+          tags: ["power", "resonance"]
+        },
+        {
+          id: "ms-12-phy-ch13-q9",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "Why is power factor improvement important in AC power systems? Name one method of improving it.",
+          answer:
+            "Low power factor increases current for a given power, causing higher losses and voltage drops. Improving power factor reduces current and losses. It can be improved by connecting shunt capacitors or synchronous condensers to compensate the lagging reactive power.",
+          tags: ["power-factor-improvement"]
+        },
+        {
+          id: "ms-12-phy-ch13-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Derive the expression for the average power absorbed in an AC circuit in terms of RMS values and power factor.",
+          answer:
+            "For voltage v = V₀ sinωt and current i = I₀ sin(ωt − φ), instantaneous power p = v i = V₀ I₀ sinωt sin(ωt − φ). Using identity, p = (V₀ I₀/2)[cosφ − cos(2ωt − φ)]. Average of cosine term with double frequency over a cycle is zero, leaving P_avg = (V₀ I₀/2) cosφ = V_rms I_rms cosφ.",
+          tags: ["average-power"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 14 --------------------------- */
+    {
+      id: "ms-12-phy-ch14",
+      chapterNumber: 14,
+      title: "Dual Nature of Radiation and Matter",
+      slug: "dual-nature",
+      description:
+        "Photoelectric effect and Einstein’s explanation, particle aspects of radiation, de Broglie hypothesis, wave nature of matter and applications like electron microscope. :contentReference[oaicite:6]{index=6}",
+      topics: [
+        "Photoelectric emission and experimental observations",
+        "Einstein’s photoelectric equation",
+        "Work function and threshold frequency",
+        "Failure of classical wave theory",
+        "de Broglie wavelength of matter waves",
+        "Davisson–Germer experiment and electron diffraction",
+        "Applications of electron waves (electron microscope)"
+      ],
+      learningObjectives: [
+        "Describe key observations of photoelectric effect and their significance.",
+        "Use Einstein’s equation to relate stopping potential, frequency and work function.",
+        "Explain need for photon concept and dual nature of light.",
+        "Calculate de Broglie wavelength for particles and relate to momentum.",
+        "Explain qualitatively the working of an electron microscope."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch14-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "In the photoelectric effect, the photocurrent mainly depends on:",
+          options: ["Frequency of light only", "Intensity of light only", "Work function only", "Angle of incidence only"],
+          answer: "Intensity of light only",
+          tags: ["photoelectric-effect"]
+        },
+        {
+          id: "ms-12-phy-ch14-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "Define work function of a metal.",
+          answer:
+            "Work function φ is the minimum energy required to just liberate an electron from the surface of a metal.",
+          tags: ["work-function"]
+        },
+        {
+          id: "ms-12-phy-ch14-q3",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "The threshold frequency for a metal is 6×10¹⁴ Hz. Calculate its work function in eV. (h = 6.63×10⁻³⁴ J·s, 1 eV = 1.6×10⁻¹⁹ J)",
+          answer:
+            "φ = hν₀ = 6.63×10⁻³⁴ × 6×10¹⁴ = 3.978×10⁻¹9 J ≈ 3.98×10⁻¹9 J. In eV: φ ≈ 3.98×10⁻¹9 / 1.6×10⁻¹9 ≈ 2.49 eV.",
+          tags: ["threshold-frequency"]
+        },
+        {
+          id: "ms-12-phy-ch14-q4",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Write Einstein’s photoelectric equation and explain each term.",
+          answer:
+            "hν = φ + ½ m v_max² = φ + eV_s, where hν is photon energy, φ is work function, ½ m v_max² is maximum kinetic energy of emitted electrons and V_s is stopping potential.",
+          tags: ["einstein-equation"]
+        },
+        {
+          id: "ms-12-phy-ch14-q5",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Light of wavelength 400 nm falls on a metal surface with work function 2 eV. Find the maximum kinetic energy of emitted photoelectrons (in eV).",
+          answer:
+            "Photon energy E = hc/λ ≈ (1240 eV·nm)/400 nm = 3.1 eV. So K_max = 3.1 − 2.0 = 1.1 eV.",
+          tags: ["photoelectric-numerical"]
+        },
+        {
+          id: "ms-12-phy-ch14-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State de Broglie relation for matter waves.",
+          answer:
+            "The de Broglie wavelength associated with a particle of momentum p is λ = h/p.",
+          tags: ["de-broglie"]
+        },
+        {
+          id: "ms-12-phy-ch14-q7",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Calculate the de Broglie wavelength of an electron accelerated through a potential difference of 100 V. (h = 6.63×10⁻³⁴ J·s, mₑ = 9.1×10⁻³¹ kg, e = 1.6×10⁻¹⁹ C)",
+          answer:
+            "K = eV = 1.6×10⁻¹⁷ J. Momentum p = √(2mK) = √(2×9.1×10⁻³¹×1.6×10⁻¹⁷) ≈ 5.4×10⁻²⁴ kg·m/s. λ = h/p ≈ 6.63×10⁻³⁴ / 5.4×10⁻²⁴ ≈ 1.23×10⁻¹⁰ m = 0.123 nm.",
+          tags: ["de-broglie-wavelength"]
+        },
+        {
+          id: "ms-12-phy-ch14-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Why could classical wave theory not explain the existence of a threshold frequency in the photoelectric effect?",
+          answer:
+            "Classical theory predicts that energy delivered to electrons depends only on intensity and time, so even low-frequency light should eject electrons if intensity is high or exposure is long. But experimentally no electrons are emitted below a certain frequency regardless of intensity, which contradicts classical predictions.",
+          tags: ["failure-classical"]
+        },
+        {
+          id: "ms-12-phy-ch14-q9",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "How does Davisson–Germer experiment support the wave nature of electrons?",
+          answer:
+            "In the experiment, electrons scattered by a nickel crystal produced intensity maxima at certain angles, similar to X-ray diffraction by crystals. The positions of maxima agreed with Bragg’s law using de Broglie wavelength, confirming that electrons behave as waves.",
+          tags: ["davisson-germer"]
+        },
+        {
+          id: "ms-12-phy-ch14-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain qualitatively how the resolving power of an electron microscope is higher than that of an optical microscope.",
+          answer:
+            "Resolving power is inversely proportional to wavelength of radiation used. Optical microscopes use visible light (λ ≈ 400–700 nm). Electrons accelerated to high voltages have de Broglie wavelengths of the order of picometres to Angstroms (10⁻¹²–10⁻¹⁰ m), much smaller than visible wavelengths. Using electromagnetic lenses, electron microscopes form images with much smaller diffraction limits, hence higher resolving power.",
+          tags: ["electron-microscope"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 15 --------------------------- */
+    {
+      id: "ms-12-phy-ch15",
+      chapterNumber: 15,
+      title: "Structure of Atoms and Nuclei",
+      slug: "atoms-and-nuclei",
+      description:
+        "Rutherford and Bohr atomic models, energy levels and spectra, nuclear composition and binding energy, radioactivity and nuclear reactions including fission and fusion. :contentReference[oaicite:7]{index=7}",
+      topics: [
+        "Rutherford scattering and nuclear model",
+        "Bohr’s postulates and hydrogen spectrum",
+        "Energy levels, orbits and spectral lines",
+        "Composition of nucleus and nuclear forces",
+        "Mass defect and binding energy",
+        "Radioactive decay law and half-life",
+        "Fission, fusion and nuclear reactors"
+      ],
+      learningObjectives: [
+        "Compare Rutherford and Bohr atomic models and their limitations.",
+        "Use Bohr’s formula to calculate radii and energies of hydrogen-like atoms.",
+        "Define mass defect and binding energy and compute BE per nucleon.",
+        "Explain radioactive decay law and half-life calculations.",
+        "Describe basic principles of nuclear fission, fusion and energy generation."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch15-q1",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "State any two postulates of Bohr’s model of the hydrogen atom.",
+          answer:
+            "Any two: (i) Electrons revolve in certain stable orbits without radiating energy. (ii) Angular momentum of electron is quantized: mvr = nħ. (iii) Radiation is emitted or absorbed only when an electron jumps between stationary orbits, with hν = E₂ − E₁.",
+          tags: ["bohr-model"]
+        },
+        {
+          id: "ms-12-phy-ch15-q2",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "Calculate the radius of the first Bohr orbit of hydrogen. (Take ε₀ = 8.854×10⁻¹² F/m, h = 6.63×10⁻³⁴ J·s, mₑ = 9.1×10⁻³¹ kg, e = 1.6×10⁻¹⁹ C)",
+          answer:
+            "Using standard result, r₁ = 4π ε₀ ħ² / (mₑ e²) ≈ 0.53 Å = 5.3×10⁻¹¹ m.",
+          tags: ["bohr-radius"]
+        },
+        {
+          id: "ms-12-phy-ch15-q3",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define mass defect and binding energy of a nucleus.",
+          answer:
+            "Mass defect Δm is the difference between the sum of masses of individual nucleons and the actual mass of the nucleus. Binding energy is the energy required to separate all nucleons of a nucleus completely; BE = Δm c².",
+          tags: ["binding-energy"]
+        },
+        {
+          id: "ms-12-phy-ch15-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "The mass of ⁴He nucleus is 4.0015 u, while masses of proton and neutron are 1.0073 u and 1.0087 u respectively. Calculate the binding energy per nucleon of ⁴He. (1 u = 931 MeV)",
+          answer:
+            "Mass of nucleons = 2(1.0073) + 2(1.0087) = 2.0146 + 2.0174 = 4.0320 u. Mass defect Δm = 4.0320 − 4.0015 = 0.0305 u. BE = 0.0305×931 ≈ 28.4 MeV. BE per nucleon ≈ 28.4 / 4 ≈ 7.1 MeV.",
+          tags: ["binding-energy-calculation"]
+        },
+        {
+          id: "ms-12-phy-ch15-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "State the radioactive decay law.",
+          answer:
+            "The rate of decay of radioactive nuclei at any instant is proportional to the number of undecayed nuclei present: dN/dt = −λN, leading to N = N₀ e⁻ˡᵃᵐᵇᵈᵃᵗ.",
+          tags: ["radioactivity"]
+        },
+        {
+          id: "ms-12-phy-ch15-q6",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A radioactive substance has a half-life of 10 years. What fraction of the original activity will remain after 30 years?",
+          answer:
+            "After n half-lives, remaining fraction = (1/2)ⁿ; here n = 30/10 = 3, so fraction = (1/2)³ = 1/8.",
+          tags: ["half-life"]
+        },
+        {
+          id: "ms-12-phy-ch15-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "What is nuclear fission? Name one fissionable isotope commonly used in reactors.",
+          answer:
+            "Nuclear fission is the process in which a heavy nucleus splits into two (or more) lighter nuclei with the release of large energy and neutrons. Example of a fissionable isotope: ²³⁵U or ²³⁹Pu.",
+          tags: ["fission"]
+        },
+        {
+          id: "ms-12-phy-ch15-q8",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Mention any two differences between nuclear fission and nuclear fusion.",
+          answer:
+            "Fission: heavy nucleus splits; can be controlled in reactors; requires slow neutrons. Fusion: light nuclei combine; occurs at very high temperature and pressure; difficult to control but releases more energy per nucleon.",
+          tags: ["fission-vs-fusion"]
+        },
+        {
+          id: "ms-12-phy-ch15-q9",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "What is meant by chain reaction in a nuclear reactor? How is it controlled?",
+          answer:
+            "A chain reaction is a self-sustaining sequence of fission reactions where neutrons from one fission cause further fissions. It is controlled by using control rods (e.g., cadmium, boron) that absorb excess neutrons, keeping the reaction rate steady.",
+          tags: ["chain-reaction"]
+        },
+        {
+          id: "ms-12-phy-ch15-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Explain Rutherford’s α-scattering experiment and how it led to the nuclear model of the atom.",
+          answer:
+            "Rutherford bombarded thin gold foil with α-particles and observed that most passed through undeflected, some were deflected at small angles, and a few at large angles (>90°). This could not be explained by Thomson’s plum-pudding model. Rutherford concluded that most of the atom is empty space, positive charge and most mass are concentrated in a small, dense nucleus, and electrons revolve around it. This led to the planetary (nuclear) model of the atom.",
+          tags: ["rutherford-experiment"]
+        }
+      ]
+    },
+
+    /* --------------------------- CHAPTER 16 --------------------------- */
+    {
+      id: "ms-12-phy-ch16",
+      chapterNumber: 16,
+      title: "Semiconductor Devices",
+      slug: "semiconductor-devices",
+      description:
+        "Intrinsic and extrinsic semiconductors, p–n junction diode and its characteristics, rectifiers and filters, special diodes like Zener and LED, and bipolar junction transistor with configurations and uses. ",
+      topics: [
+        "Intrinsic and extrinsic semiconductors",
+        "p–n junction diode and biasing",
+        "I–V characteristics, breakdown and Zener diode",
+        "Half-wave and full-wave rectifiers and filters",
+        "LED, photodiode and solar cell",
+        "Bipolar junction transistor (BJT) and configurations",
+        "Transistor as a switch and amplifier (basic idea)"
+      ],
+      learningObjectives: [
+        "Differentiate between intrinsic and extrinsic semiconductors.",
+        "Explain forward and reverse biasing of a p–n junction and interpret its I–V characteristics.",
+        "Describe Zener breakdown and use of Zener diode as voltage regulator.",
+        "Explain operation of half-wave and full-wave rectifier circuits and role of filters.",
+        "Describe construction and working of LEDs, photodiodes, solar cells and BJTs."
+      ],
+      questions: [
+        {
+          id: "ms-12-phy-ch16-q1",
+          type: "mcq",
+          difficulty: "easy",
+          marks: 1,
+          text: "In an n-type semiconductor, the majority carriers are:",
+          options: ["Electrons", "Holes", "Both electrons and holes equally", "Ions only"],
+          answer: "Electrons",
+          tags: ["semiconductors"]
+        },
+        {
+          id: "ms-12-phy-ch16-q2",
+          type: "short",
+          difficulty: "easy",
+          marks: 2,
+          text: "What is meant by forward biasing of a p–n junction diode?",
+          answer:
+            "When the p-side of the diode is connected to the positive terminal of a battery and the n-side to the negative terminal so that the potential barrier is reduced and current flows easily, the diode is said to be forward biased.",
+          tags: ["biasing"]
+        },
+        {
+          id: "ms-12-phy-ch16-q3",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Define breakdown voltage of a Zener diode.",
+          answer:
+            "Breakdown voltage is the reverse bias voltage at which the Zener diode conducts a large current with only a small further increase in voltage, entering the breakdown region without damage.",
+          tags: ["zener-breakdown"]
+        },
+        {
+          id: "ms-12-phy-ch16-q4",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "A half-wave rectifier uses a diode with forward resistance 100 Ω connected to a load of 900 Ω. If the peak secondary voltage is 20 V, find approximate peak load current.",
+          answer:
+            "Total forward resistance ≈ 100 + 900 = 1000 Ω. Peak current I₀ ≈ V₀ / R_total = 20 / 1000 = 0.02 A = 20 mA.",
+          tags: ["rectifier"]
+        },
+        {
+          id: "ms-12-phy-ch16-q5",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Mention any two advantages of LEDs over conventional lamps.",
+          answer:
+            "Any two: high efficiency and low power consumption; long life; small size and robust; no warm-up time; environmentally friendly (no mercury).",
+          tags: ["led"]
+        },
+        {
+          id: "ms-12-phy-ch16-q6",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Name the three regions of a bipolar junction transistor and state their relative doping levels.",
+          answer:
+            "Emitter (heavily doped), base (thin and lightly doped), collector (moderately doped, area larger than emitter).",
+          tags: ["bjt-structure"]
+        },
+        {
+          id: "ms-12-phy-ch16-q7",
+          type: "short",
+          difficulty: "medium",
+          marks: 2,
+          text: "Write the approximate relation between emitter current, base current and collector current in a transistor.",
+          answer:
+            "I_E = I_B + I_C and usually I_C ≈ I_E (since I_B is very small).",
+          tags: ["transistor-currents"]
+        },
+        {
+          id: "ms-12-phy-ch16-q8",
+          type: "numerical",
+          difficulty: "medium",
+          marks: 3,
+          text: "In a common-emitter transistor amplifier, the input current changes from 100 μA to 140 μA and the corresponding output current changes from 5 mA to 7 mA. Find the current gain β.",
+          answer:
+            "ΔI_B = 40 μA, ΔI_C = 2 mA. β = ΔI_C / ΔI_B = 2×10⁻³ / 40×10⁻⁶ = 50.",
+          tags: ["current-gain"]
+        },
+        {
+          id: "ms-12-phy-ch16-q9",
+          type: "short",
+          difficulty: "hard",
+          marks: 3,
+          text: "Explain how a Zener diode can be used as a voltage regulator.",
+          answer:
+            "Zener diode is reverse-biased and operated in breakdown region where its voltage remains nearly constant over a wide range of current. By connecting it in parallel with the load and using a series resistor to limit current, the output voltage across the Zener (and load) is held approximately constant despite variations in input voltage or load current.",
+          tags: ["voltage-regulator"]
+        },
+        {
+          id: "ms-12-phy-ch16-q10",
+          type: "long",
+          difficulty: "hard",
+          marks: 4,
+          text: "Describe the working of a full-wave bridge rectifier. Draw the circuit diagram and explain the conduction during both half-cycles of AC.",
+          answer:
+            "Bridge rectifier uses four diodes in a bridge. During positive half-cycle of AC, two opposite diodes conduct, say D₁ and D₃, connecting the load in one direction; during negative half-cycle, the other pair D₂ and D₄ conducts, again making current through load flow in the same direction. Thus both halves of the AC input are used, giving pulsating DC at the output with frequency twice the input frequency.",
+          tags: ["bridge-rectifier"]
+        }
+      ]
+    }
+  
+
+  ]
 },
+
 
   // MSBSHSE Class 11 – Science – Physics
   {
