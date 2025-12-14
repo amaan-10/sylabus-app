@@ -3,8 +3,8 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { SubjectQuestionBankModel } from "@/models/subjectQuestionBank";
-import subjects from "@/data/msbshse-10.json";
-// import subjects from "@/data/msbshse-12-science.json";
+// import subjects from "@/data/msbshse-10.json";
+import subjects from "@/data/msbshse-12-science.json";
 
 export async function POST() {
   try {
