@@ -3,7 +3,7 @@
 import type { BoardSlug, MediumSlug, ClassKey } from "./subjects";
 
 // Basic question types for your platform
-export type QuestionType = "mcq" | "short" | "long" | "true-false" | "fill" | "numerical" | "activity";
+export type QuestionType = "mcq" | "short" | "very-short" | "long" | "true-false" | "fill" | "numerical" | "activity";
 
 // Difficulty levels
 export type Difficulty = "easy" | "medium" | "hard";

@@ -6,7 +6,7 @@ export type ExamSection = {
   type: string;
   marks: number;
   total: number;
-  attemptAny?: number;
+  attemptAny: number;
 };
 
 export type ExamPattern = {
@@ -17,16 +17,17 @@ export type ExamPattern = {
 
 export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   physics: {
-    time: "3 Hours",
+    time: "3 Hrs.",
     maxMarks: 70,
     sections: [
-      { key: "A1", title: "SECTION – A", type: "MCQ", marks: 1, total: 10 },
+      { key: "A1", title: "SECTION – A", type: "MCQ", marks: 1, total: 10, attemptAny: 10 },
       {
         key: "A2",
         title: "SECTION – A",
         type: "Very short answer",
         marks: 1,
         total: 8,
+         attemptAny: 8
       },
       {
         key: "B",
@@ -56,16 +57,17 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   chemistry: {
-    time: "3 Hours",
+    time: "3 Hrs.",
     maxMarks: 70,
     sections: [
-      { key: "A1", title: "SECTION – A", type: "MCQ", marks: 1, total: 10 },
+      { key: "A1", title: "SECTION – A", type: "MCQ", marks: 1, total: 10,  attemptAny: 10 },
       {
         key: "A2",
         title: "SECTION – A",
         type: "Very short answer",
         marks: 1,
         total: 8,
+         attemptAny: 8
       },
       {
         key: "B",
@@ -95,16 +97,17 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   biology: {
-    time: "3 Hours",
+    time: "3 Hrs.",
     maxMarks: 70,
     sections: [
-      { key: "A1", title: "SECTION – A", type: "MCQ", marks: 1, total: 10 },
+      { key: "A1", title: "SECTION – A", type: "MCQ", marks: 1, total: 10,  attemptAny: 10 },
       {
         key: "A2",
         title: "SECTION – A",
         type: "Very short answer",
         marks: 1,
         total: 8,
+         attemptAny: 8
       },
       {
         key: "B",
