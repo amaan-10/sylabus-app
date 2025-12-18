@@ -20,3 +20,23 @@
 .font-inter { font-family: var(--font-inter); }
 .font-mont { font-family: var(--font-montserrat); }
 .font-poppins { font-family: var(--font-poppins); }
+
+.animate-rocket-launch {
+  animation: rocket-launch 1.5s ease-in-out infinite;
+}
+
+/* loader animation */
+@keyframes rocket-launch {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+}
