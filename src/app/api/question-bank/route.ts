@@ -121,7 +121,8 @@ function filterQuestionsByQuestionTypeLabel(
     ],
     "true-false": ["true-false", "true or false", "true/false", "tf"],
     fill: ["fill", "fill in the blanks", "fill-in-the-blanks"],
-    short: ["short", "short-answer", "one-word"],
+    short: ["short", "short-answer"],
+    "very-short": ["very short", "very-short", "one-line"],
     long: ["long", "long-answer", "descriptive", "paragraph"],
     activity: ["activity", "activity-based-questions", "activity based questions", "Activity based questions"],
   };
@@ -177,7 +178,7 @@ function filterQuestionsByQuestionTypeLabel(
 
   // Very short / 1-mark very short
   if (lower.includes("very short")) {
-    const res = qs.filter((q) => q.type === "short" && (q.marks || 0) <= 1);
+    const res = qs.filter((q) => q.type === "very-short" && (q.marks || 0) <= 1);
     console.debug(`[question-bank] very short filter matched ${res.length}`);
     return res;
   }
