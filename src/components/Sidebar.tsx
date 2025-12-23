@@ -153,12 +153,12 @@ const Sidebar = () => {
   const pathname = usePathname() ?? "/";
 
   return (
-    <div className="flex-none h-[97.5vh] fixed left-2 top-2 w-auto z-20">
-      <nav className="flex place-content-start items-start flex-row gap-2 overflow-visible p-2 relative w-min h-full border border-[rgba(0,0,0,0.08)] rounded-2xl opacity-100">
-        <div className="flex place-content-center justify-between items-center flex-none flex-col h-full overflow-visible py-8 px-3 relative w-min bg-white rounded-xl shadow-none opacity-100">
+    <div className="fixed z-20 bottom-0 left-1/2 -translate-x-1/2 md:bottom-auto md:left-2 md:top-2 md:translate-x-0 w-full md:w-auto">
+      <nav className="flex gap-2 p-2 relative border border-[rgba(0,0,0,0.08)] rounded-t-2xl md:rounded-2xl bg-white w-full h-auto md:w-min md:h-[97.5vh]">
+        <div className="flex items-center justify-center md:justify-between flex-row md:flex-col w-full md:w-min h-auto md:h-full px-4 py-3 md:px-3 md:py-8 bg-white rounded-xl">
           <Link
             href="/"
-            className="flex-none h-6 relative no-underline w-8 block shrink-0 [image-rendering:pixelated] fill-black text-black opacity-100"
+            className="hidden md:block flex-none h-6 relative no-underline w-8 shrink-0 [image-rendering:pixelated] fill-black text-black opacity-100"
           >
             <div className="w-full h-full aspect-[inherit]">
               <svg
@@ -181,7 +181,7 @@ const Sidebar = () => {
               </svg>
             </div>
           </Link>
-          <div className="flex flex-col place-content-center items-center gap-4 p-0 relative w-min">
+          <div className="flex flex-row md:flex-col items-center gap-4 p-0 relative">
             {navItems.slice(0, 4).map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -207,7 +207,7 @@ const Sidebar = () => {
             })}
           </div>
 
-          <div className="flex flex-col place-content-center items-center gap-4 p-0 relative w-min">
+          <div className="flex flex-row md:flex-col items-center gap-4 p-0 relative">
             {navItems.slice(4).map((item) => {
               const isActive = pathname === item.href;
               return (

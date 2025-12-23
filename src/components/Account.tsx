@@ -1,7 +1,169 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import React from "react";
+import { auth } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
+type User = {
+  name?: string;
+  email?: string;
+  phone?: string;
+  gender?: string;
+  role?: string;
+  board?: string;
+  medium?: string;
+  classLevel?: string;
+};
+
+const boardMediumMap = {
+  CBSE: ["English", "Hindi"],
+  MSBSHSE: ["English", "Semi-English", "Marathi"],
+  ICSE: ["English"],
+};
+
+const boardClassMap = {
+  CBSE: [
+    "8th",
+    "9th",
+    "10th",
+    "11th Humanities",
+    "11th Commerce",
+    "11th Science",
+    "12th Humanities",
+    "12th Commerce",
+    "12th Science",
+  ],
+  MSBSHSE: [
+    "8th",
+    "9th",
+    "10th",
+    "11th Arts",
+    "11th Commerce",
+    "11th Science",
+    "12th Arts",
+    "12th Commerce",
+    "12th Science",
+  ],
+  ICSE: ["8th", "9th", "10th"],
+};
+
+type UserForm = {
+  name: string;
+  phone: string;
+  gender: string;
+  role: string;
+  board: string;
+  medium: string;
+  classLevel: string;
+};
 
 const Account = () => {
+  const [form, setForm] = useState<UserForm>({
+    name: "",
+    phone: "",
+    gender: "",
+    role: "",
+    board: "",
+    medium: "",
+    classLevel: "",
+  });
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/account/me", {
+          headers: {
+            "x-user-uid": user.uid,
+          },
+        });
+
+        if (!res.ok) throw new Error("Failed to load user");
+
+        const data = await res.json();
+
+        setForm({
+          name: data.name ?? "",
+          phone: data.phone ?? "",
+          gender: data.gender ?? "",
+          role: data.role ?? "",
+          board: data.board ?? "",
+          medium: data.medium ?? "",
+          classLevel: data.classLevel ?? "",
+        });
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleSave = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form) return;
+
+    setSaving(true);
+
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Not authenticated");
+      return;
+    }
+
+    const idToken = await user.getIdToken();
+
+    await fetch("/api/profile/complete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${idToken}`,
+      },
+      body: JSON.stringify(form),
+    });
+
+    setSaving(false);
+  };
+
+  const formatIndianPhone = (phone?: string) => {
+    if (!phone) return "—";
+
+    // Remove spaces
+    const clean = phone.replace(/\s+/g, "");
+
+    // Handle +91 prefix
+    if (clean.startsWith("+91")) {
+      const num = clean.slice(3);
+      return `+91 ${num.slice(0, 5)} ${num.slice(5)}`;
+    }
+
+    // Handle 10-digit number
+    if (clean.length === 10) {
+      return `${clean.slice(0, 5)} ${clean.slice(5)}`;
+    }
+
+    // Fallback
+    return phone;
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading account…
+      </div>
+    );
+  }
+
   return (
     <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_32px_32px] will-change-transform">
       <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-center content-center justify-start gap-14 w-px max-w-[1200px] h-min overflow-hidden p-0">
@@ -25,21 +187,21 @@ const Account = () => {
                     className="w-full h-full"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </div>
               </div>
               <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-0 w-px h-min overflow-hidden p-0">
                 <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
-                  <p className="text-base text-[#193625] tracking-tight">
-                    Artless
+                  <p className="text-base font-medium text-[#193625] tracking-tight">
+                    {form.name}
                   </p>
                 </div>
                 <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word opacity-50 outline-none">
-                  <p className="text-sm">artlessdenominater@gmail.com</p>
+                  <p className="text-sm">{formatIndianPhone(form.phone)}</p>
                 </div>
               </div>
             </div>
@@ -52,104 +214,90 @@ const Account = () => {
               <div className="flex-none w-full h-auto relative">
                 <div className="relative w-full h-full flex justify-center items-center">
                   <form
-                    method="POST"
+                    onSubmit={handleSave}
                     className="relative flex flex-col w-full h-auto gap-4"
                   >
-                    <div className="flex flex-col">
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        autoComplete="off"
-                        autoCapitalize="off"
-                        autoCorrect="off"
-                        spellCheck="false"
-                        value="artlessdenominater@gmail.com"
-                        className="w-full h-auto p-4 rounded-lg text-[16px] leading-[1em] outline-none border-none appearance-none bg-white shadow-[inset_0_0_0_1px_rgba(25,26,32,0.2)]"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <input
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        autoComplete="off"
-                        autoCapitalize="off"
-                        autoCorrect="off"
-                        spellCheck="false"
-                        value="Artless"
-                        className="w-full h-auto p-4 rounded-lg text-[16px] leading-[1em] outline-none border-none appearance-none bg-white shadow-[inset_0_0_0_1px_rgba(25,26,32,0.2)]"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <input
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        autoComplete="off"
-                        autoCapitalize="off"
-                        autoCorrect="off"
-                        spellCheck="false"
-                        value="Denominater"
-                        className="w-full h-auto p-4 rounded-lg text-[16px] leading-[1em] outline-none border-none appearance-none bg-white shadow-[inset_0_0_0_1px_rgba(25,26,32,0.2)]"
-                      />
-                    </div>
-                    <div>
-                      <div className="block justify-end relative">
-                        <div className="relative block">
-                          <input
-                            type="submit"
-                            value="Save Changes"
-                            className="appearance-none w-full h-full outline-none border-none cursor-pointer p-4 rounded-lg text-[16px] leading-[1em] font-normal bg-[rgb(25,26,32)] text-[rgb(245,245,245)] relative z-1"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          opacity: 0,
-                          height: 0,
-                          transform: "scale(0)",
-                          willChange: "transform",
-                        }}
-                      >
-                        <div style={{ paddingTop: 16 }}>
-                          <div
-                            style={{
-                              padding: "1rem",
-                              color: "rgb(255, 255, 255)",
-                              fontSize: 16,
-                              backgroundColor: "rgb(0, 200, 83)",
-                              borderRadius: 8,
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          opacity: 0,
-                          height: 0,
-                          transform: "scale(0)",
-                          willChange: "transform",
-                        }}
-                      >
-                        <div style={{ paddingTop: 16 }}>
-                          <div
-                            style={{
-                              padding: "1rem",
-                              color: "rgb(255, 255, 255)",
-                              fontSize: 16,
-                              backgroundColor: "rgb(224, 36, 36)",
-                              borderRadius: 8,
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
+                    {/* Email (still read-only) */}
+                    {/* <Input label="Email" value={form.email} disabled /> */}
+
+                    {/* Name */}
+                    <Input
+                      label="Full Name"
+                      value={form.name}
+                      onChange={(v) => setForm({ ...form, name: v })}
+                    />
+
+                    {/* Gender */}
+                    <Select
+                      label="Gender"
+                      value={form.gender}
+                      options={["Male", "Female", "Other"]}
+                      onChange={(v) => setForm({ ...form, gender: v })}
+                    />
+
+                    {/* Role */}
+                    <Select
+                      label="Role"
+                      value={form.role}
+                      options={["Teacher", "Student"]}
+                      onChange={(v) => setForm({ ...form, role: v })}
+                    />
+
+                    {/* Board */}
+                    <Select
+                      label="Board"
+                      value={form.board}
+                      options={Object.keys(boardMediumMap)}
+                      onChange={(v) =>
+                        setForm({
+                          ...form,
+                          board: v,
+                          medium: "",
+                          classLevel: "",
+                        })
+                      }
+                    />
+
+                    {/* Medium (depends on board) */}
+                    <Select
+                      label="Medium"
+                      value={form.medium}
+                      options={
+                        form.board
+                          ? boardMediumMap[
+                              form.board as keyof typeof boardMediumMap
+                            ]
+                          : []
+                      }
+                      onChange={(v) => setForm({ ...form, medium: v })}
+                    />
+
+                    {/* Class (depends on board) */}
+                    <Select
+                      label="Class"
+                      value={form.classLevel}
+                      options={
+                        form.board
+                          ? boardClassMap[
+                              form.board as keyof typeof boardClassMap
+                            ]
+                          : []
+                      }
+                      onChange={(v) => setForm({ ...form, classLevel: v })}
+                    />
+
+                    {/* SAVE */}
+                    <button
+                      type="submit"
+                      className="appearance-none w-full p-4 rounded-lg bg-[#191a20] text-white cursor-pointer"
+                    >
+                      Save Changes
+                    </button>
                   </form>
                 </div>
               </div>
             </div>
-            <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min overflow-hidden pt-12 border-t border-[#d9d9d9]">
+            {/* <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min overflow-hidden pt-12 border-t border-[#d9d9d9]">
               <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
                 <p className="text-base text-[#193625] tracking-tight">
                   Change password
@@ -293,7 +441,7 @@ const Account = () => {
                   </form>
                 </div>
               </div>
-            </div>
+            </div> */}
           </section>
           <div className="relative flex flex-row flex-nowrap flex-none items-center content-center justify-center gap-0 w-full h-min overflow-visible p-0 rounded-xl bg-white">
             <div className="flex-none w-auto h-auto relative">
@@ -302,7 +450,7 @@ const Account = () => {
                 className="relative flex flex-row flex-nowrap items-center content-center justify-center gap-2 cursor-pointer w-min h-min overflow-hidden px-3 py-2 no-underline rounded-sm bg-[rgb(245,223,223)] opacity-100 will-change-transform"
               >
                 <div className="relative flex flex-col justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none opacity-100">
-                  <p className="text-sm text-[#a60303] tracking-tight">
+                  <p className="text-sm text-[#a60303] tracking-tight cursor-pointer">
                     Log Out
                   </p>
                 </div>
@@ -376,3 +524,81 @@ const Account = () => {
 };
 
 export default Account;
+
+/* ---------- Reusable Input ---------- */
+
+const Input = ({
+  label,
+  value,
+  onChange,
+  disabled = false,
+}: {
+  label: string;
+  value: string;
+  onChange?: (v: string) => void;
+  disabled?: boolean;
+}) => (
+  <div className="flex flex-col gap-1">
+    <span className="text-sm opacity-60">{label}</span>
+    <input
+      disabled={disabled}
+      value={value}
+      onChange={(e) => onChange?.(e.target.value)}
+      className="w-full p-4 rounded-lg bg-white shadow-[inset_0_0_0_1px_rgba(25,26,32,0.2)] outline-none"
+    />
+  </div>
+);
+
+const Select = ({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (v: string) => void;
+}) => (
+  <div className="flex flex-col gap-1 relative">
+    <span className="text-sm opacity-60">{label}</span>
+
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="
+        w-full p-4 pr-12 rounded-lg bg-white
+        shadow-[inset_0_0_0_1px_rgba(25,26,32,0.2)]
+        outline-none text-[16px]
+        focus:ring-2 focus:ring-[#193625]/20
+        appearance-none
+      "
+      >
+        <option value="">Select {label}</option>
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
+
+      {/* Custom Chevron */}
+      <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="text-[#193625]"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+    </div>
+  </div>
+);
