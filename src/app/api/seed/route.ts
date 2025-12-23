@@ -22,6 +22,7 @@ export async function POST() {
     for (const subject of subjects) {
       const updated = await SubjectQuestionBankModel.findOneAndUpdate(
         {
+          id: subject.id,
           board: subject.board,
           medium: subject.medium,
           classKey: subject.classKey,
@@ -52,3 +53,4 @@ export async function POST() {
     );
   }
 }
+// curl -X POST http://localhost:3000/api/seed
