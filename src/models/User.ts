@@ -10,6 +10,7 @@ export interface IUser extends Document {
   medium?: string;
   classLevel?: string;
   createdAt: Date;
+  userTier: "free" | "plus" | "pro+";
 }
 
 const UserSchema = new Schema<IUser>(
@@ -22,6 +23,7 @@ const UserSchema = new Schema<IUser>(
     board: String,
     medium: String,
     classLevel: String,
+    userTier: { type: String, default: "free", required: true },
   },
   { timestamps: true }
 );

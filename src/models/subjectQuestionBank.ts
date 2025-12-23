@@ -1,7 +1,15 @@
 // models/subjectQuestionBank.ts
 import mongoose, { Schema, Document, Model } from "mongoose";
 
-export type QuestionType = "mcq" | "short" | "very-short" | "long" | "numerical" | "true-false" | "fill" | "activity" ;
+export type QuestionType =
+  | "mcq"
+  | "short"
+  | "very-short"
+  | "long"
+  | "numerical"
+  | "true-false"
+  | "fill"
+  | "activity";
 export type Difficulty = "easy" | "medium" | "hard";
 export type QuestionSource = "balbharati" | "pyq";
 
@@ -29,10 +37,11 @@ export interface Chapter {
 }
 
 export interface SubjectQuestionBank extends Document {
-  board: string;          // "msbshse"
-  medium: string;         // "english"
-  classKey: string;       // "10"
-  subjectSlug: string;    // "science-technology-1"
+  id: string;
+  board: string; // "msbshse"
+  medium: string; // "english"
+  classKey: string; // "10"
+  subjectSlug: string; // "science-technology-1"
   chapters: Chapter[];
 }
 
@@ -41,12 +50,20 @@ export interface SubjectQuestionBank extends Document {
 const QuestionSchema = new Schema<Question>(
   {
     id: { type: String, required: true },
-    type: { type: String, enum: ["mcq", "short", "long", "numerical"], required: true },
-    difficulty: { type: String, enum: ["easy", "medium", "hard"], required: true },
+    type: {
+      type: String,
+      enum: ["mcq", "short", "long", "numerical"],
+      required: true,
+    },
+    difficulty: {
+      type: String,
+      enum: ["easy", "medium", "hard"],
+      required: true,
+    },
     marks: { type: Number, required: true },
     text: { type: String, required: true },
     answer: { type: String, required: true },
-    source: {type: String, default: "balbharati"},
+    source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
     tags: { type: [String], default: [] },
   },
@@ -69,6 +86,7 @@ const ChapterSchema = new Schema<Chapter>(
 
 const SubjectQuestionBankSchema = new Schema<SubjectQuestionBank>(
   {
+    id: { type: String, required: true, index: true },
     board: { type: String, required: true, index: true },
     medium: { type: String, required: true, index: true },
     classKey: { type: String, required: true, index: true },
@@ -83,4 +101,7 @@ const SubjectQuestionBankSchema = new Schema<SubjectQuestionBank>(
 // avoid OverwriteModelError in Next.js
 export const SubjectQuestionBankModel: Model<SubjectQuestionBank> =
   mongoose.models.SubjectQuestionBank ||
-  mongoose.model<SubjectQuestionBank>("SubjectQuestionBank", SubjectQuestionBankSchema);
+  mongoose.model<SubjectQuestionBank>(
+    "SubjectQuestionBank",
+    SubjectQuestionBankSchema
+  );
