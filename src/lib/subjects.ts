@@ -1,7 +1,12 @@
 // lib/subjects.ts
 
 export type BoardSlug = "icse" | "msbshse" | "cbse";
-export type MediumSlug = "english" | "marathi" | "semi-english" | "hindi" | "all";
+export type MediumSlug =
+  | "english"
+  | "marathi"
+  | "semi-english"
+  | "hindi"
+  | "all";
 
 // matches your URL values: "8", "11-arts", "12-humanities", etc.
 export type ClassKey =
@@ -39,7 +44,10 @@ export interface BoardMediumClassSubjects {
 
 // Helper creators
 const toSlug = (name: string) =>
-  name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 const core = (
   code: string,
@@ -52,7 +60,7 @@ const core = (
   code,
   name,
   shortName,
-  slug: toSlug(name),        // 👈 NEW
+  slug: toSlug(name), // 👈 NEW
   category: "core",
   isCompulsory,
   stream,
@@ -70,7 +78,7 @@ const elective = (
   code,
   name,
   shortName,
-  slug: toSlug(name),        // 👈 NEW
+  slug: toSlug(name), // 👈 NEW
   category: "elective",
   isCompulsory,
   stream,
@@ -86,13 +94,12 @@ const lang = (
   code,
   name,
   shortName,
-  slug: toSlug(shortName),        // 👈 NEW
+  slug: toSlug(shortName), // 👈 NEW
   category: "language",
   isCompulsory: true,
   stream: undefined,
   description,
 });
-
 
 // -----------------------------------------------------------------------------
 // MAIN DATA
@@ -159,6 +166,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
   // MSBSHSE (All Mediums) – 8th, 9th, 10th, 11th/12th Arts, Commerce, Science
   // ===========================================================================
 
+  // 8th English Medium
   {
     board: "msbshse",
     medium: "english",
@@ -173,6 +181,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
       core("geo", "Geography", "Geography"),
     ],
   },
+  // 9th English Medium
   {
     board: "msbshse",
     medium: "english",
@@ -188,6 +197,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
       core("geo", "Geography", "Geography"),
     ],
   },
+  // 10th English Medium
   {
     board: "msbshse",
     medium: "english",
@@ -205,14 +215,14 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     ],
   },
 
-  // 11th Arts
+  // 11th Arts English Medium
   {
     board: "msbshse",
     medium: "all",
     classKey: "11-arts",
     subjects: [
       lang("eng", "English Yuvakbharthi", "English"),
-      lang("hin-opt", "Hindi Yuvakbharthi", "Hindi"),
+      lang("hin", "Hindi Yuvakbharthi", "Hindi"),
       core("hist", "History", "History", undefined, "arts"),
       core("geo", "Geography", "Geography", undefined, "arts"),
       core("pol-sci", "Political Science", "Pol Science", undefined, "arts"),
@@ -220,14 +230,14 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
       elective("soc", "Sociology", "Sociology", undefined, "arts"),
     ],
   },
-  // 12th Arts
+  // 12th Arts English Medium
   {
     board: "msbshse",
     medium: "all",
     classKey: "12-arts",
     subjects: [
       lang("eng", "English Yuvakbharthi", "English"),
-      lang("hin-opt", "Hindi Yuvakbharthi", "Hindi"),
+      lang("hin", "Hindi Yuvakbharthi", "Hindi"),
       core("hist", "History", "History", undefined, "arts"),
       core("geo", "Geography", "Geography", undefined, "arts"),
       core("pol-sci", "Political Science", "Pol Science", undefined, "arts"),
@@ -236,40 +246,76 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     ],
   },
 
-  // 11th Commerce
+  // 11th Commerce English Medium
   {
     board: "msbshse",
     medium: "all",
     classKey: "11-commerce",
     subjects: [
       lang("eng", "English Yuvakbharthi", "English"),
-      lang("hin-opt", "Hindi Yuvakbharthi", "Hindi"),
+      lang("hin", "Hindi Yuvakbharthi", "Hindi"),
       core("acct", "Accountancy", "Accounts", undefined, "commerce"),
       core("eco", "Economics", "Economics", undefined, "commerce"),
-      core("ocm", "Organization of Commerce & Management", "OCM", undefined, "commerce"),
-      elective("maths-1", "Mathematics & Statistics 1", "Maths 1", undefined, "commerce"),
-      elective("maths-2", "Mathematics & Statistics 2", "Maths 2", undefined, "commerce"),
+      core(
+        "ocm",
+        "Organization of Commerce & Management",
+        "OCM",
+        undefined,
+        "commerce"
+      ),
+      elective(
+        "maths-1",
+        "Mathematics & Statistics 1",
+        "Maths 1",
+        undefined,
+        "commerce"
+      ),
+      elective(
+        "maths-2",
+        "Mathematics & Statistics 2",
+        "Maths 2",
+        undefined,
+        "commerce"
+      ),
       elective("it", "Information Technology", "IT", undefined, "commerce"),
     ],
   },
-  // 12th Commerce
+  // 12th Commerce English Medium
   {
     board: "msbshse",
     medium: "all",
     classKey: "12-commerce",
     subjects: [
       lang("eng", "English Yuvakbharthi", "English"),
-      lang("hin-opt", "Hindi Yuvakbharthi", "Hindi"),
+      lang("hin", "Hindi Yuvakbharthi", "Hindi"),
       core("acct", "Accountancy", "Accounts", undefined, "commerce"),
       core("eco", "Economics", "Economics", undefined, "commerce"),
-      core("ocm", "Organization of Commerce & Management", "OCM", undefined, "commerce"),
-      elective("maths-1", "Mathematics & Statistics 1", "Maths 1", undefined, "commerce"),
-      elective("maths-2", "Mathematics & Statistics 2", "Maths 2", undefined, "commerce"),
+      core(
+        "ocm",
+        "Organization of Commerce & Management",
+        "OCM",
+        undefined,
+        "commerce"
+      ),
+      elective(
+        "maths-1",
+        "Mathematics & Statistics 1",
+        "Maths 1",
+        undefined,
+        "commerce"
+      ),
+      elective(
+        "maths-2",
+        "Mathematics & Statistics 2",
+        "Maths 2",
+        undefined,
+        "commerce"
+      ),
       elective("it", "Information Technology", "IT", undefined, "commerce"),
     ],
   },
 
-  // 11th Science
+  // 11th Science English Medium
   {
     board: "msbshse",
     medium: "english",
@@ -278,16 +324,28 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
       lang("eng", "English Yuvakbharthi", "English"),
       core("phy", "Physics", "Physics", undefined, "science"),
       core("chem", "Chemistry", "Chemistry", undefined, "science"),
-      elective("maths-1", "Mathematics & Statistics 1", "Maths 1", undefined, "science"),
-      elective("maths-2", "Mathematics & Statistics 2", "Maths 2", undefined, "science"),
+      elective(
+        "maths-1",
+        "Mathematics & Statistics 1",
+        "Maths 1",
+        undefined,
+        "science"
+      ),
+      elective(
+        "maths-2",
+        "Mathematics & Statistics 2",
+        "Maths 2",
+        undefined,
+        "science"
+      ),
       elective("bio", "Biology", "Biology", undefined, "science"),
       elective("geo", "Geography", "Geography", undefined, "all"),
-      elective("hin-opt", "Hindi Yuvakbharthi", "Hindi", undefined, "all"),
+      elective("hin", "Hindi Yuvakbharthi", "Hindi", undefined, "all"),
       elective("it", "Information Technology", "IT", undefined, "all"),
       elective("cs", "Computer Science", "CS", undefined, "all"),
     ],
   },
-  // 12th Science
+  // 12th Science English Medium
   {
     board: "msbshse",
     medium: "english",
@@ -296,11 +354,23 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
       lang("eng", "English Yuvakbharthi", "English"),
       core("phy", "Physics", "Physics", undefined, "science"),
       core("chem", "Chemistry", "Chemistry", undefined, "science"),
-      elective("maths-1", "Mathematics & Statistics 1", "Maths 1", undefined, "science"),
-      elective("maths-2", "Mathematics & Statistics 2", "Maths 2", undefined, "science"),
+      elective(
+        "maths-1",
+        "Mathematics & Statistics 1",
+        "Maths 1",
+        undefined,
+        "science"
+      ),
+      elective(
+        "maths-2",
+        "Mathematics & Statistics 2",
+        "Maths 2",
+        undefined,
+        "science"
+      ),
       elective("bio", "Biology", "Biology", undefined, "science"),
       elective("geo", "Geography", "Geography", undefined, "all"),
-      elective("hin-opt", "Hindi Yuvakbharthi", "Hindi", undefined, "all"),
+      elective("hin", "Hindi Yuvakbharthi", "Hindi", undefined, "all"),
       elective("it", "Information Technology", "IT", undefined, "all"),
       elective("cs", "Computer Science", "CS", undefined, "all"),
     ],
@@ -310,45 +380,66 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
   // CBSE – English Medium: 8,9,10,11/12 Humanities, Commerce, Science
   // ===========================================================================
 
+  // 8th
   {
     board: "cbse",
     medium: "english",
     classKey: "8",
     subjects: [
       lang("eng", "English", "English"),
-      lang("2nd-lang", "Second Language (Hindi/Sanskrit/etc.)", "2nd Lang"),
+      lang("hin", "Hindi", "Hindi"),
+      lang("sans", "Sanskrit", "Sanskrit"),
       core("maths", "Mathematics", "Maths"),
       core("science", "Science", "Science"),
       core("sst", "Social Science", "SST"),
-      elective("comp", "Computer Science / IT", "CS / IT"),
+      elective("comp", "Computer Science", "CS"),
+      elective("it", "Information Technology", "IT"),
     ],
   },
+  // 9th
   {
     board: "cbse",
     medium: "english",
     classKey: "9",
     subjects: [
       lang("eng", "English", "English"),
-      lang("2nd-lang", "Second Language (Hindi/Sanskrit/etc.)", "2nd Lang"),
+      lang("hin", "Hindi", "Hindi"),
+      lang("sans", "Sanskrit", "Sanskrit"),
       core("maths", "Mathematics", "Maths"),
       core("science", "Science", "Science"),
       core("sst", "Social Science", "SST"),
-      elective("ai", "Artificial Intelligence (Skill)", "AI", "all", undefined, false),
+      elective(
+        "ai",
+        "Artificial Intelligence (Skill)",
+        "AI",
+        "all",
+        undefined,
+        false
+      ),
       elective("it", "Information Technology", "IT"),
     ],
   },
+  // 10th
   {
     board: "cbse",
     medium: "english",
     classKey: "10",
     subjects: [
       lang("eng", "English", "English"),
-      lang("2nd-lang", "Second Language (Hindi/Sanskrit/etc.)", "2nd Lang"),
+      lang("hin", "Hindi", "Hindi"),
+      lang("sans", "Sanskrit", "Sanskrit"),
       core("maths", "Mathematics", "Maths"),
       core("science", "Science", "Science"),
       core("sst", "Social Science", "SST"),
       elective("it", "Information Technology", "IT"),
-      elective("ai", "Artificial Intelligence (Skill)", "AI", undefined, "all", false),
+      elective(
+        "ai",
+        "Artificial Intelligence (Skill)",
+        "AI",
+        undefined,
+        "all",
+        false
+      ),
     ],
   },
 
@@ -358,10 +449,16 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "11-humanities",
     subjects: [
-      lang("eng-core", "English Core", "English"),
+      lang("eng", "English Core", "English"),
       core("hist", "History", "History", undefined, "humanities"),
       core("geo", "Geography", "Geography", undefined, "humanities"),
-      core("pol-sci", "Political Science", "Pol Science", undefined, "humanities"),
+      core(
+        "pol-sci",
+        "Political Science",
+        "Pol Science",
+        undefined,
+        "humanities"
+      ),
       elective("psy", "Psychology", "Psychology", "humanities"),
       elective("soc", "Sociology", "Sociology", "humanities"),
       elective("fine-art", "Fine Arts", "Fine Arts", "humanities"),
@@ -373,10 +470,16 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "12-humanities",
     subjects: [
-      lang("eng-core", "English Core", "English"),
+      lang("eng", "English Core", "English"),
       core("hist", "History", "History", undefined, "humanities"),
       core("geo", "Geography", "Geography", undefined, "humanities"),
-      core("pol-sci", "Political Science", "Pol Science", undefined, "humanities"),
+      core(
+        "pol-sci",
+        "Political Science",
+        "Pol Science",
+        undefined,
+        "humanities"
+      ),
       elective("psy", "Psychology", "Psychology", "humanities"),
       elective("soc", "Sociology", "Sociology", "humanities"),
       elective("fine-art", "Fine Arts", "Fine Arts", "humanities"),
@@ -389,12 +492,12 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "11-commerce",
     subjects: [
-      lang("eng-core", "English Core", "English"),
+      lang("eng", "English Core", "English"),
       core("acct", "Accountancy", "Accounts", undefined, "commerce"),
       core("bstud", "Business Studies", "B. Studies", undefined, "commerce"),
       core("eco", "Economics", "Economics", undefined, "commerce"),
       elective("maths", "Mathematics / Applied Maths", "Maths", "commerce"),
-      elective("it", "Information Practices", "IP", "commerce"),
+      elective("ip", "Information Practices", "IP", "commerce"),
     ],
   },
   // 12th Commerce
@@ -403,7 +506,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "12-commerce",
     subjects: [
-      lang("eng-core", "English Core", "English"),
+      lang("eng", "English Core", "English"),
       core("acct", "Accountancy", "Accounts", undefined, "commerce"),
       core("bstud", "Business Studies", "B. Studies", undefined, "commerce"),
       core("eco", "Economics", "Economics", undefined, "commerce"),
@@ -418,7 +521,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "11-science",
     subjects: [
-      lang("eng-core", "English Core", "English"),
+      lang("eng", "English Core", "English"),
       core("phy", "Physics", "Physics", undefined, "science"),
       core("chem", "Chemistry", "Chemistry", undefined, "science"),
       core("maths", "Mathematics", "Maths", undefined, "science"),
@@ -433,7 +536,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "12-science",
     subjects: [
-      lang("eng-core", "English Core", "English"),
+      lang("eng", "English Core", "English"),
       core("phy", "Physics", "Physics", undefined, "science"),
       core("chem", "Chemistry", "Chemistry", undefined, "science"),
       core("maths", "Mathematics", "Maths", undefined, "science"),
