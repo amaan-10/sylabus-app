@@ -21,12 +21,12 @@ export async function connectToDatabase() {
   if (!cached.promise) {
     cached.promise = mongoose
       .connect(MONGODB_URI, {
-        dbName: "question-bank",
+        dbName: "sylabus-db",
       })
       .then((mongooseInstance) => mongooseInstance);
   }
 
-  console.log("Connected to db")
+  console.log("Connected to db");
 
   cached.conn = await cached.promise;
   return cached.conn;
