@@ -8,6 +8,12 @@ const PaperDraftSchema = new Schema(
       index: true,
     },
 
+    draftName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
     subjectSlug: {
       type: String,
       required: true,
@@ -33,7 +39,7 @@ const PaperDraftSchema = new Schema(
 );
 
 // one draft per user per subject
-PaperDraftSchema.index({ userId: 1, subjectSlug: 1 }, { unique: true });
+// PaperDraftSchema.index({ userId: 1, subjectSlug: 1 }, { unique: true });
 
 export default models.PaperDraft ||
   mongoose.model("PaperDraft", PaperDraftSchema);
