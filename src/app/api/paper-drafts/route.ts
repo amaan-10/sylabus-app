@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   try {
     await connectToDatabase();
 
-    const { userId, draft } = await req.json();
+    const { userId, draft, draftName } = await req.json();
 
     if (!userId || !draft?.subjectSlug) {
       return NextResponse.json(
@@ -17,11 +17,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const { subjectSlug, paperMode, lastUpdated, ...cleanDraft } = draft;
+
     const saved = await PaperDraft.create({
       userId,
+      draftName,
       subjectSlug: draft.subjectSlug,
       paperMode: draft.paperMode,
-      draft,
+      draft: cleanDraft,
       lastUpdated: new Date(),
     });
 
@@ -43,7 +46,7 @@ export async function GET(req: NextRequest) {
 
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId");
-    const subjectSlug = searchParams.get("subjectSlug");
+    const draftId = searchParams.get("draftId");
 
     if (!userId) {
       return NextResponse.json(
@@ -52,15 +55,23 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // single draft
-    if (subjectSlug) {
-      const draft = await PaperDraft.findOne({ userId, subjectSlug });
+    // Fetch single draft by ID (secured by userId)
+    if (draftId) {
+      const draft = await PaperDraft.findOne({
+        _id: draftId,
+        userId,
+      });
+
+      if (!draft) {
+        return NextResponse.json({ error: "Draft not found" }, { status: 404 });
+      }
+
       return NextResponse.json({ draft });
     }
 
-    // all drafts
+    // Fetch all drafts for user
     const drafts = await PaperDraft.find({ userId }).sort({
-      updatedAt: -1,
+      lastUpdated: -1,
     });
 
     return NextResponse.json({ drafts });
@@ -79,17 +90,17 @@ export async function PUT(req: NextRequest) {
   try {
     await connectToDatabase();
 
-    const { userId, subjectSlug, updates } = await req.json();
+    const { userId, draftId, updates } = await req.json();
 
-    if (!userId || !subjectSlug) {
+    if (!userId || !draftId) {
       return NextResponse.json(
-        { error: "userId and subjectSlug required" },
+        { error: "userId and draftId required" },
         { status: 400 }
       );
     }
 
     const updated = await PaperDraft.findOneAndUpdate(
-      { userId, subjectSlug },
+      { userId, _id: draftId },
       {
         ...updates,
         lastUpdated: new Date(),
@@ -115,14 +126,14 @@ export async function DELETE(req: NextRequest) {
 
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId");
-    const subjectSlug = searchParams.get("subjectSlug");
+    const draftId = searchParams.get("draftId");
 
     if (!userId) {
       return NextResponse.json({ error: "userId required" }, { status: 400 });
     }
 
-    if (subjectSlug) {
-      await PaperDraft.deleteOne({ userId, subjectSlug });
+    if (draftId) {
+      await PaperDraft.deleteOne({ userId, _id: draftId });
       return NextResponse.json({ success: true });
     }
 
