@@ -1,5 +1,6 @@
 [
   {
+    "id": "ms-eng-10-science-1",
     "board": "msbshse",
     "medium": "english",
     "classKey": "10",
@@ -46,7 +47,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which force is responsible for circular motion of a stone tied to a string rotating in a horizontal circle?",
-            "options": ["Centrifugal force", "Gravitational force", "Centripetal force", "Frictional force"],
+            "options": [
+              "Centrifugal force",
+              "Gravitational force",
+              "Centripetal force",
+              "Frictional force"
+            ],
             "answer": "Centripetal force",
             "tags": ["centripetal-force"]
           },
@@ -87,7 +93,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "The value of acceleration due to gravity ‘g’ is highest at:",
-            "options": ["Equator", "Poles", "Mount Everest", "Centre of the Earth"],
+            "options": [
+              "Equator",
+              "Poles",
+              "Mount Everest",
+              "Centre of the Earth"
+            ],
             "answer": "Poles",
             "tags": ["acceleration-due-to-gravity"]
           },
@@ -183,7 +194,8 @@
             "tags": ["mass", "weight"]
           }
         ]
-      },{
+      },
+      {
         "id": "ms-10-sci-ch2",
         "chapterNumber": 2,
         "title": "Periodic Classification of Elements",
@@ -222,7 +234,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "According to Newlands’ law of octaves, the properties of elements repeat after:",
-            "options": ["Every 5th element", "Every 7th element", "Every 8th element", "Every 10th element"],
+            "options": [
+              "Every 5th element",
+              "Every 7th element",
+              "Every 8th element",
+              "Every 10th element"
+            ],
             "answer": "Every 8th element",
             "tags": ["octaves"]
           },
@@ -253,7 +270,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Which property did Mendeleev consider fundamental while preparing the periodic table?",
-            "options": ["Atomic number", "Atomic mass", "Density", "Electronegativity"],
+            "options": [
+              "Atomic number",
+              "Atomic mass",
+              "Density",
+              "Electronegativity"
+            ],
             "answer": "Atomic mass",
             "tags": ["mendeleev"]
           },
@@ -370,7 +392,8 @@
             "tags": ["electronic-configuration"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch3",
         "chapterNumber": 3,
         "title": "Chemical Reactions and Equations",
@@ -409,7 +432,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is a decomposition reaction?",
-            "options": ["2Mg + O₂ → 2MgO", "CaCO₃ → CaO + CO₂", "Zn + CuSO₄ → ZnSO₄ + Cu", "HCl + NaOH → NaCl + H₂O"],
+            "options": [
+              "2Mg + O₂ → 2MgO",
+              "CaCO₃ → CaO + CO₂",
+              "Zn + CuSO₄ → ZnSO₄ + Cu",
+              "HCl + NaOH → NaCl + H₂O"
+            ],
             "answer": "CaCO₃ → CaO + CO₂",
             "tags": ["types-of-reaction"]
           },
@@ -537,7 +565,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "The reaction in which ions are exchanged to form a precipitate is called:",
-            "options": ["Combination", "Decomposition", "Displacement", "Double displacement"],
+            "options": [
+              "Combination",
+              "Decomposition",
+              "Displacement",
+              "Double displacement"
+            ],
             "answer": "Double displacement",
             "tags": ["reaction-type"]
           },
@@ -562,7 +595,8 @@
             "tags": ["decomposition"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch4",
         "chapterNumber": 4,
         "title": "Effects of Electric Current",
@@ -740,7 +774,8 @@
             "tags": ["conductors"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch5",
         "chapterNumber": 5,
         "title": "Heat",
@@ -779,7 +814,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which mode of heat transfer does NOT require a medium?",
-            "options": ["Conduction", "Convection", "Radiation", "All of the above"],
+            "options": [
+              "Conduction",
+              "Convection",
+              "Radiation",
+              "All of the above"
+            ],
             "answer": "Radiation",
             "tags": ["radiation"]
           },
@@ -906,7 +946,8 @@
             "tags": ["water"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch6",
         "chapterNumber": 6,
         "title": "Refraction of Light",
@@ -987,7 +1028,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "When a ray of light travels from glass to air, it bends:",
-            "options": ["Towards the normal", "Away from the normal", "Stops completely", "Does not bend"],
+            "options": [
+              "Towards the normal",
+              "Away from the normal",
+              "Stops completely",
+              "Does not bend"
+            ],
             "answer": "Away from the normal",
             "tags": ["refraction"]
           },
@@ -1086,7 +1132,8 @@
             "tags": ["rainbow"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch7",
         "chapterNumber": 7,
         "title": "Lenses",
@@ -1126,7 +1173,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which lens diverges parallel rays of light?",
-            "options": ["Convex lens", "Concave lens", "Cylindrical lens", "None of these"],
+            "options": [
+              "Convex lens",
+              "Concave lens",
+              "Cylindrical lens",
+              "None of these"
+            ],
             "answer": "Concave lens",
             "tags": ["concave-lens"]
           },
@@ -1167,7 +1219,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "A concave lens always forms:",
-            "options": ["Real and inverted image", "Virtual and erect image", "Real and erect image", "Enlarged image"],
+            "options": [
+              "Real and inverted image",
+              "Virtual and erect image",
+              "Real and erect image",
+              "Enlarged image"
+            ],
             "answer": "Virtual and erect image",
             "tags": ["concave-lens"]
           },
@@ -1254,7 +1311,8 @@
             "tags": ["human-eye"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch8",
         "chapterNumber": 8,
         "title": "Metallurgy",
@@ -1294,7 +1352,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which process is used to remove impurities lighter than the ore?",
-            "options": ["Magnetic separation", "Froth flotation", "Gravity separation", "Electrolysis"],
+            "options": [
+              "Magnetic separation",
+              "Froth flotation",
+              "Gravity separation",
+              "Electrolysis"
+            ],
             "answer": "Froth flotation",
             "tags": ["concentration"]
           },
@@ -1325,7 +1388,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Highly reactive metals like sodium and aluminium are extracted by:",
-            "options": ["Roasting", "Smelting", "Electrolysis", "Reduction with carbon"],
+            "options": [
+              "Roasting",
+              "Smelting",
+              "Electrolysis",
+              "Reduction with carbon"
+            ],
             "answer": "Electrolysis",
             "tags": ["extraction"]
           },
@@ -1421,7 +1489,8 @@
             "tags": ["metals"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch9",
         "chapterNumber": 9,
         "title": "Carbon Compounds",
@@ -1589,7 +1658,8 @@
             "tags": ["carbon"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci-ch10",
         "chapterNumber": 10,
         "title": "Space Missions",
@@ -1747,7 +1817,9 @@
         ]
       }
     ]
-  }, {
+  },
+  {
+    "id": "ms-eng-10-science-2",
     "board": "msbshse",
     "medium": "english",
     "classKey": "10",
@@ -1887,7 +1959,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "A minor change occurring due to change in position of any nucleotide is termed as:",
-            "options": ["Transcription", "Translocation", "Mutation", "Translation"],
+            "options": [
+              "Transcription",
+              "Translocation",
+              "Mutation",
+              "Translation"
+            ],
             "answer": "Mutation",
             "tags": ["mutation"]
           },
@@ -1943,7 +2020,8 @@
             "tags": ["heredity", "genetics"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch2",
         "chapterNumber": 2,
         "title": "Life Processes in Living Organisms Part - 1",
@@ -2013,7 +2091,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Which system carries oxygen and nutrients to every cell of the body?",
-            "options": ["Respiratory system", "Digestive system", "Circulatory system", "Excretory system"],
+            "options": [
+              "Respiratory system",
+              "Digestive system",
+              "Circulatory system",
+              "Excretory system"
+            ],
             "answer": "Circulatory system",
             "tags": ["circulation"]
           },
@@ -2120,7 +2203,8 @@
             "tags": ["reproduction"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch3",
         "chapterNumber": 3,
         "title": "Life Processes in Living Organisms Part - 2",
@@ -2191,7 +2275,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Which of the following is NOT a method of asexual reproduction?",
-            "options": ["Binary fission", "Budding", "Fragmentation", "Pollination"],
+            "options": [
+              "Binary fission",
+              "Budding",
+              "Fragmentation",
+              "Pollination"
+            ],
             "answer": "Pollination",
             "tags": ["asexual-reproduction"]
           },
@@ -2263,7 +2352,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "In humans, sperm production occurs in:",
-            "options": ["Vas deferens", "Ejaculatory duct", "Testes", "Urinogenital duct"],
+            "options": [
+              "Vas deferens",
+              "Ejaculatory duct",
+              "Testes",
+              "Urinogenital duct"
+            ],
             "answer": "Testes",
             "tags": ["reproduction"]
           },
@@ -2288,7 +2382,8 @@
             "tags": ["cell-division"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch4",
         "chapterNumber": 4,
         "title": "Environmental Management",
@@ -2455,7 +2550,8 @@
             "tags": ["acid-rain"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch5",
         "chapterNumber": 5,
         "title": "Towards Green Energy",
@@ -2495,7 +2591,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which device converts solar energy into electrical energy?",
-            "options": ["Solar heater", "Solar cooker", "Photovoltaic cell", "Transformer"],
+            "options": [
+              "Solar heater",
+              "Solar cooker",
+              "Photovoltaic cell",
+              "Transformer"
+            ],
             "answer": "Photovoltaic cell",
             "tags": ["solar-energy"]
           },
@@ -2624,7 +2725,8 @@
             "tags": ["thermal-energy"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch6",
         "chapterNumber": 6,
         "title": "Animal Classification",
@@ -2791,7 +2893,8 @@
             "tags": ["mollusca"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch7",
         "chapterNumber": 7,
         "title": "Introduction to Microbiology",
@@ -2831,7 +2934,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which microorganism is used in the production of curd?",
-            "options": ["Saccharomyces", "Lactobacillus", "Rhizobium", "Penicillium"],
+            "options": [
+              "Saccharomyces",
+              "Lactobacillus",
+              "Rhizobium",
+              "Penicillium"
+            ],
             "answer": "Lactobacillus",
             "tags": ["lactobacillus"]
           },
@@ -2862,7 +2970,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Which microorganism increases soil fertility by nitrogen fixation?",
-            "options": ["Lactobacillus", "Aspergillus", "Rhizobium", "Plasmodium"],
+            "options": [
+              "Lactobacillus",
+              "Aspergillus",
+              "Rhizobium",
+              "Plasmodium"
+            ],
             "answer": "Rhizobium",
             "tags": ["biofertilizers"]
           },
@@ -2959,7 +3072,8 @@
             "tags": ["asexual-reproduction"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch8",
         "chapterNumber": 8,
         "title": "Cell Biology and Biotechnology",
@@ -2999,7 +3113,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which enzyme is used to cut DNA at specific sites?",
-            "options": ["DNA ligase", "Helicase", "Restriction endonuclease", "Polymerase"],
+            "options": [
+              "DNA ligase",
+              "Helicase",
+              "Restriction endonuclease",
+              "Polymerase"
+            ],
             "answer": "Restriction endonuclease",
             "tags": ["enzymes", "restriction-enzyme"]
           },
@@ -3030,7 +3149,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Which of the following is NOT an application of biotechnology?",
-            "options": ["Production of insulin", "Gene therapy", "Formation of fossils", "Cloning"],
+            "options": [
+              "Production of insulin",
+              "Gene therapy",
+              "Formation of fossils",
+              "Cloning"
+            ],
             "answer": "Formation of fossils",
             "tags": ["biotechnology"]
           },
@@ -3115,7 +3239,8 @@
             "tags": ["stem-cells"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch9",
         "chapterNumber": 9,
         "title": "Social Health",
@@ -3155,7 +3280,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is a sign of good mental health?",
-            "options": ["Aggressive behavior", "Self-confidence", "Isolation", "Addiction"],
+            "options": [
+              "Aggressive behavior",
+              "Self-confidence",
+              "Isolation",
+              "Addiction"
+            ],
             "answer": "Self-confidence",
             "tags": ["mental-health"]
           },
@@ -3186,7 +3316,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "Which of the following is a healthy coping mechanism for stress?",
-            "options": ["Substance use", "Physical exercise", "Avoiding responsibilities", "Aggression"],
+            "options": [
+              "Substance use",
+              "Physical exercise",
+              "Avoiding responsibilities",
+              "Aggression"
+            ],
             "answer": "Physical exercise",
             "tags": ["stress-management"]
           },
@@ -3281,7 +3416,8 @@
             "tags": ["mental-health"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-sci2-ch10",
         "chapterNumber": 10,
         "title": "Disaster Management",
@@ -3321,7 +3457,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is a natural disaster?",
-            "options": ["Terrorist attack", "Earthquake", "Nuclear explosion", "Fire due to short circuit"],
+            "options": [
+              "Terrorist attack",
+              "Earthquake",
+              "Nuclear explosion",
+              "Fire due to short circuit"
+            ],
             "answer": "Earthquake",
             "tags": ["natural-disasters"]
           },
@@ -3352,7 +3493,12 @@
             "difficulty": "medium",
             "marks": 1,
             "text": "What should be the first step in first aid?",
-            "options": ["Start treatment immediately", "Ensure safety of victim and rescuer", "Call media", "Move the injured person forcefully"],
+            "options": [
+              "Start treatment immediately",
+              "Ensure safety of victim and rescuer",
+              "Call media",
+              "Move the injured person forcefully"
+            ],
             "answer": "Ensure safety of victim and rescuer",
             "tags": ["first-aid"]
           },
@@ -3440,7 +3586,9 @@
         ]
       }
     ]
-  }, {
+  },
+  {
+    "id": "ms-eng-10-maths-1",
     "board": "msbshse",
     "medium": "english",
     "classKey": "10",
@@ -3662,7 +3810,8 @@
             "tags": ["graph", "area"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-m1-ch2",
         "chapterNumber": 2,
         "title": "Quadratic Equations",
@@ -3701,7 +3850,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is a quadratic equation?",
-            "options": ["3x + 5 = 0", "x² - 4x + 4 = 0", "2x³ + 1 = 0", "7 = x"],
+            "options": [
+              "3x + 5 = 0",
+              "x² - 4x + 4 = 0",
+              "2x³ + 1 = 0",
+              "7 = x"
+            ],
             "answer": "x² - 4x + 4 = 0",
             "tags": ["identification"]
           },
@@ -3732,7 +3886,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "If the discriminant of a quadratic equation is negative, the roots are:",
-            "options": ["Real and equal", "Real and distinct", "Imaginary", "Zero"],
+            "options": [
+              "Real and equal",
+              "Real and distinct",
+              "Imaginary",
+              "Zero"
+            ],
             "answer": "Imaginary",
             "tags": ["nature-of-roots"]
           },
@@ -3793,7 +3952,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "From the following equations which one is a quadratic equation?",
-            "options": ["(A) 5/2 x + 3/x", "(B) x(x + 5) = 2", "(C) n² − n − 12", "(D) 2/(x−2) x"],
+            "options": [
+              "(A) 5/2 x + 3/x",
+              "(B) x(x + 5) = 2",
+              "(C) n² − n − 12",
+              "(D) 2/(x−2) x"
+            ],
             "answer": "(C) n² − n − 12 is a quadratic equation (in n).",
             "tags": ["recognition"]
           },
@@ -3880,7 +4044,8 @@
             "tags": ["quadratic-formula"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-m1-ch3",
         "chapterNumber": 3,
         "title": "Arithmetic Progression",
@@ -4007,7 +4172,8 @@
             "text": "Explain why the sequence formed by the total distance travelled by a car each hour at constant speed is an AP. Give an example.",
             "answer": "At constant speed, equal distances are covered in equal intervals of time, so the total distance increases by a fixed amount each hour. Example: At 50 km/h: distances = 50, 100, 150, 200… (AP with d = 50).",
             "tags": ["application", "conceptual"]
-          }, {
+          },
+          {
             "id": "ms-10-m1-ch3-pyq1",
             "source": "pyq",
             "type": "mcq",
@@ -4090,7 +4256,8 @@
             "tags": ["ap", "word-problem"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-m1-ch4",
         "chapterNumber": 4,
         "title": "Financial Planning",
@@ -4215,7 +4382,8 @@
             "text": "A person takes a loan of ₹1,20,000 at 10% annual compound interest. He repays in 2 equal annual installments. Find each installment using EMI formula.",
             "answer": "EMI formula: EMI = P × R(1+R)ⁿ / [(1+R)ⁿ − 1] R = 10% = 0.10, n = 2 EMI = 120000 × 0.10 × 1.10² / (1.10² − 1) = 120000 × 0.10 × 1.21 / 0.21 = 120000 × 0.121 / 0.21 = ₹69,142.86 approx.",
             "tags": ["emi", "loan", "compound-interest"]
-          }, {
+          },
+          {
             "id": "ms-10-m1-ch4-pyq1",
             "source": "pyq",
             "type": "activity",
@@ -4288,7 +4456,8 @@
             "tags": ["shares", "dividend"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-m1-ch5",
         "chapterNumber": 5,
         "title": "Probability",
@@ -4410,7 +4579,8 @@
             "text": "A number is chosen randomly from the numbers 1 to 30. Find the probability that the number is (a) a multiple of 3, (b) a prime number.",
             "answer": "(a) Multiples of 3: 3,6,9,12,15,18,21,24,27,30 → 10 numbers → P = 10/30 = 1/3 (b) Prime numbers between 1 and 30: 2,3,5,7,11,13,17,19,23,29 → 10 numbers → P = 10/30 = 1/3.",
             "tags": ["number-system", "events"]
-          }, {
+          },
+          {
             "id": "ms-10-m1-ch5-pyq1",
             "source": "pyq",
             "type": "mcq",
@@ -4482,7 +4652,8 @@
             "tags": ["events"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-m1-ch6",
         "chapterNumber": 6,
         "title": "Statistics",
@@ -4611,7 +4782,8 @@
             "text": "A student scored the following marks in 6 tests: 35, 40, 50, 45, 55, 65. Find the mean, median, and mode.",
             "answer": "Mean = (35 + 40 + 50 + 45 + 55 + 65) / 6 = 290 / 6 = 48.33 Arranged data: 35, 40, 45, 50, 55, 65 Median = average of 3rd and 4th terms = (45 + 50)/2 = 47.5 Mode = none (all values appear once).",
             "tags": ["mean", "median", "mode"]
-          }, {
+          },
+          {
             "id": "ms-10-m1-ch6-pyq1",
             "source": "pyq",
             "type": "short",
@@ -4697,1391 +4869,1401 @@
         ]
       }
     ]
-  }, {
+  },
+  {
+    "id": "ms-eng-10-maths-1",
     "board": "msbshse",
     "medium": "english",
     "classKey": "10",
     "subjectSlug": "mathematics-2",
     "chapters": [
       {
-    "id": "ms-10-m2-ch1",
-    "chapterNumber": 1,
-    "title": "Similarity",
-    "slug": "similarity",
-    "description": "Properties of similar triangles, tests of similarity, basic proportionality theorem, ratio of areas, and applications.",
-    "topics": [
-      "Definition of similarity",
-      "Basic proportionality theorem (Thales theorem)",
-      "Tests of similarity (AAA, SAS, SSS)",
-      "Properties of similar triangles",
-      "Ratio of areas of similar triangles",
-      "Applications of similarity in geometry"
-    ],
-    "learningObjectives": [
-      "Understand the meaning of similarity and criteria for similar triangles.",
-      "Apply AAA, SAS, and SSS tests to determine triangle similarity.",
-      "Use basic proportionality theorem to solve geometric problems.",
-      "Compare areas and sides of similar triangles.",
-      "Apply similarity to real-life and geometric constructions."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch1-q1",
-        "type": "short",
-        "source": "balbharati",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Define similar triangles.",
-        "answer": "Two triangles are said to be similar if their corresponding angles are equal and their corresponding sides are in proportion.",
-        "tags": ["definition"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q2",
-        "type": "mcq",
-        "source": "balbharati",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "Which of the following is a valid similarity test for triangles?",
-        "options": ["ASA", "AAA", "RHS", "HL"],
-        "answer": "AAA",
-        "tags": ["tests-of-similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q3",
-        "type": "short",
-        "source": "balbharati",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "State the Basic Proportionality Theorem (Thales theorem).",
-        "answer": "If a line is drawn parallel to one side of a triangle intersecting the other two sides, it divides those two sides proportionally.",
-        "tags": ["bpt", "theorem"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q4",
-        "type": "short",
-        "source": "balbharati",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "In ΔABC, DE ∥ BC and intersects AB at D and AC at E. If AD = 3, DB = 6, and AE = 4, find EC.",
-        "answer": "Since DE ∥ BC, AD/DB = AE/EC → 3/6 = 4/EC → 1/2 = 4/EC → EC = 8.",
-        "tags": ["bpt", "ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q5",
-        "type": "mcq",
-        "source": "balbharati",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "If two triangles are similar, then the ratio of their areas is equal to:",
-        "options": ["ratio of sides", "square of ratio of sides", "ratio of angles", "ratio of perimeters"],
-        "answer": "square of ratio of sides",
-        "tags": ["area-ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q6",
-        "type": "short",
-        "source": "balbharati",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "If ΔABC ∼ ΔPQR and AB/PQ = 3/5, what is the ratio of their areas?",
-        "answer": "Area ratio = (AB/PQ)² = (3/5)² = 9/25.",
-        "tags": ["area-ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q7",
-        "type": "short",
-        "source": "balbharati",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Triangles ABC and DEF are similar. If AB = 7, DE = 14, and BC = 5, find EF.",
-        "answer": "Scale factor = DE/AB = 14/7 = 2 → EF = 2 × BC = 10.",
-        "tags": ["similarity", "ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q8",
-        "type": "long",
-        "source": "balbharati",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Prove that if two triangles are similar, then their corresponding medians are in the same ratio as their corresponding sides.",
-        "answer": "Let ΔABC ∼ ΔPQR with AB/PQ = k. Consider medians AM and PU. Since medians join vertices to midpoints of opposite sides, AB/PQ = BC/QR = CA/PR = k. Thus, midpoints divide sides proportionally. Using triangle similarity between ΔABM and ΔPQU, we get AM/PU = k.",
-        "tags": ["proof", "medians", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q9",
-        "type": "long",
-        "source": "balbharati",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "In ΔABC, DE ∥ BC. If AB = 10, AD = 6, and AC = 12, find AE.",
-        "answer": "By BPT: AD/DB = AE/EC. DB = AB − AD = 10 − 6 = 4. So AD/DB = 6/4 = 3/2. Also AC = AE + EC → 12 = AE + EC. AE/EC = 3/2 → Let AE = 3k, EC = 2k → 3k + 2k = 5k = 12 → k = 2.4. Thus AE = 3k = 7.2.",
-        "tags": ["bpt", "application"]
-      },
-      {
-        "id": "ms-10-m2-ch1-q10",
-        "type": "long",
-        "source": "balbharati",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "If ΔABC ∼ ΔPQR and the area of ΔABC is 63 cm² while the area of ΔPQR is 112 cm², and BC = 9 cm, find QR.",
-        "answer": "Area ratio = 63/112 = 9/16. Thus (BC/QR)² = 9/16. Taking square roots: BC/QR = 3/4 → QR = (4/3) × 9 = 12 cm.",
-        "tags": ["area-ratio", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq1",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "If △ABC ~ △PQR and AB : PQ = 2 : 3, then find the value of A(ABC)/A(PQR).",
-        "answer": "Ratio of areas = (2/3)² = 4/9.",
-        "tags": ["similarity", "area-ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq2",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Complete the activity showing AB/BC = AE/ED when BD bisects ∠ABC and DE ∥ BC.",
-        "imageUrl": "/images/geometry/ch1-similarity-bisector.png",
-        "answer": "Using angle bisector theorem and parallel line proportionality, AB/BC = AE/ED.",
-        "tags": ["angle-bisector", "proportion"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq3",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Given chords AB and CD intersect at E. Complete the proof that AE × EB = CE × ED.",
-        "imageUrl": "/images/geometry/ch1-intersecting-chords.png",
-        "answer": "Using ∠AEC ≅ ∠DEB and similarity, AE/DE = CE/EB → AE×EB = CE×ED.",
-        "tags": ["circle", "similarity", "intersecting-chords"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq4",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "If a line parallel to a side of a triangle intersects the remaining sides in two distinct points, prove that the line divides those sides in the same proportion.",
-        "answer": "Using similarity of triangles formed by the parallel line, corresponding sides are proportional.",
-        "tags": ["similarity", "basic-proportionality-theorem"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq5",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 3,
-        "text": "ABCD is a trapezium with AB ∥ CD. Diagonals intersect at P. Identify a pair of alternate angles, opposite angles, and write the names of similar triangles.",
-        "imageUrl": "/images/geometry/ch1-trapezium-similarity.png",
-        "answer": "Alternate angles: ∠APB & ∠PCD. Opposite: ∠ABC & ∠CDA. Similar triangles: △APB ~ △CPD.",
-        "tags": ["similarity", "trapezium"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq6",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "In the figure, B–D–C and BD = 7, BC = 20. Find A(ABD) / A(ABC).",
-        "imageUrl": "/images/maths2/ch1-area-ratio.png",
-        "answer": "A(ABD) / A(ABC) = (BD / BC)² = (7 / 20)² = 49 / 400.",
-        "tags": ["similarity", "area-ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq7",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "In △ABC, DE ∥ BC. If DB = 5.4 cm, AD = 1.8 cm, EC = 7.2 cm, find AE.",
-        "answer": "Using Basic Proportionality Theorem, AE = 2.4 cm.",
-        "tags": ["bpt", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch1-pyq8",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Complete the activity to find AC when 2AX = 3BX and XY ∥ AC, XY = 9 cm.",
-        "imageUrl": "/images/maths2/ch1-similarity-activity.png",
-        "answer": "Using similarity, AC = 15 cm.",
-        "tags": ["similarity", "activity"]
-      }
-    ]
-  }, {
-    "id": "ms-10-m2-ch2",
-    "chapterNumber": 2,
-    "title": "Pythagoras Theorem",
-    "slug": "pythagoras-theorem",
-    "description": "Properties of right-angled triangles, Pythagoras theorem, its converse, applications, and proofs based on similarity.",
-    "topics": [
-      "Right-angled triangles",
-      "Pythagoras theorem",
-      "Converse of Pythagoras theorem",
-      "Geometric proof using similarity",
-      "Applications in measurement problems"
-    ],
-    "learningObjectives": [
-      "Understand and apply Pythagoras theorem to find sides of right-angled triangles.",
-      "Use the converse of Pythagoras theorem to test if a triangle is right-angled.",
-      "Solve practical and geometrical problems using the theorem.",
-      "Prove the theorem using similarity of triangles."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch2-q1",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "State the Pythagoras theorem.",
-        "answer": "In a right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.",
-        "tags": ["definition", "theorem"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q2",
-        "type": "mcq",
-        "source": "balbharati",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "In a right-angled triangle, the longest side is called the:",
-        "options": ["Base", "Altitude", "Median", "Hypotenuse"],
-        "answer": "Hypotenuse",
-        "tags": ["right-triangle"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q3",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Find the hypotenuse of a right-angled triangle with legs 9 cm and 12 cm.",
-        "answer": "Hypotenuse = √(9² + 12²) = √(81 + 144) = √225 = 15 cm.",
-        "tags": ["numerical"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q4",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Check whether the sides 7 cm, 24 cm, and 25 cm form a right-angled triangle.",
-        "answer": "25² = 625 and 7² + 24² = 49 + 576 = 625 → Satisfies Pythagoras theorem → Yes, it is a right-angled triangle.",
-        "tags": ["converse", "right-triangle"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q5",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "If a triangle has sides 10, 15, and 20 cm, then:",
-        "options": [
-          "It is a right-angled triangle",
-          "It is not a right-angled triangle",
-          "It must be isosceles",
-          "It must be equilateral"
+        "id": "ms-10-m2-ch1",
+        "chapterNumber": 1,
+        "title": "Similarity",
+        "slug": "similarity",
+        "description": "Properties of similar triangles, tests of similarity, basic proportionality theorem, ratio of areas, and applications.",
+        "topics": [
+          "Definition of similarity",
+          "Basic proportionality theorem (Thales theorem)",
+          "Tests of similarity (AAA, SAS, SSS)",
+          "Properties of similar triangles",
+          "Ratio of areas of similar triangles",
+          "Applications of similarity in geometry"
         ],
-        "answer": "It is not a right-angled triangle",
-        "tags": ["converse"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q6",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "In a right-angled triangle ABC, right-angled at B, AB = 8 cm and AC = 17 cm. Find BC.",
-        "answer": "BC = √(AC² − AB²) = √(289 − 64) = √225 = 15 cm.",
-        "tags": ["numerical"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q7",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "State the converse of the Pythagoras theorem.",
-        "answer": "If in a triangle the square of one side equals the sum of squares of the other two sides, then the triangle is right-angled.",
-        "tags": ["definition", "converse"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q8",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Prove the Pythagoras theorem using similarity of triangles.",
-        "answer": "In right triangle ABC, ∠ABC = 90°. Draw altitude BD on AC. Triangles ABD, CBD, and ABC are similar. From similarity, AB² = AD × AC and BC² = CD × AC. Adding both: AB² + BC² = AC(AD + CD) = AC². Hence proved.",
-        "tags": ["proof", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q9",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A ladder 13 m long is leaning against a wall. Its foot is 5 m away from the wall. Find the height reached by the ladder.",
-        "answer": "Let height reached = h. h² + 5² = 13² → h² + 25 = 169 → h² = 144 → h = 12 m.",
-        "tags": ["application"]
-      },
-      {
-        "id": "ms-10-m2-ch2-q10",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A man walks 8 km west and then 6 km north. How far is he from the starting point?",
-        "answer": "Distance = √(8² + 6²) = √(64 + 36) = √100 = 10 km.",
-        "tags": ["application", "distance"]
-      },
-      {
-        "id": "ms-10-m2-ch2-pyq1",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "Out of the dates given below which date constitutes a Pythagorean triplet?",
-        "options": ["15/8/17", "16/8/16", "3/5/17", "4/9/15"],
-        "answer": "15/8/17 (since 8² + 15² = 17²).",
-        "tags": ["pythagoras", "mcq"]
-      },
-      {
-        "id": "ms-10-m2-ch2-pyq2",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Two circles of radii 5 cm and 3 cm touch each other externally. Find distance between their centres.",
-        "answer": "Distance = 5 + 3 = 8 cm.",
-        "tags": ["geometry", "distance"]
-      },
-      {
-        "id": "ms-10-m2-ch2-pyq3",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Find the length of the hypotenuse of a right triangle whose legs are 9 cm and 12 cm.",
-        "answer": "Hypotenuse = √(9² + 12²) = 15 cm.",
-        "tags": ["pythagoras"]
-      },
-      {
-        "id": "ms-10-m2-ch2-pyq4",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Complete the activity proving sin²θ + cos²θ = 1 using △ABC with ∠B = 90°.",
-        "imageUrl": "/images/geometry/ch2-trig-identity-activity.png",
-        "answer": "Using Pythagoras: AB² + BC² = AC². Divide by AC² → sin²θ + cos²θ = 1.",
-        "tags": ["pythagoras", "trigonometry"]
-      },
-      {
-        "id": "ms-10-m2-ch2-pyq5",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "Which of the following is a Pythagorean triplet?",
-        "options": ["(1, 5, 10)", "(3, 4, 5)", "(2, 2, 2)", "(5, 5, 2)"],
-        "answer": "(3, 4, 5)",
-        "tags": ["pythagoras", "mcq"]
-      },
-      {
-        "id": "ms-10-m2-ch2-pyq6",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "In △MNP, ∠MNP = 90°, MQ = 9 cm and QP = 4 cm. Find NQ.",
-        "imageUrl": "/images/maths2/ch2-right-triangle.png",
-        "answer": "Using Pythagoras theorem, NQ = √(9² − 4²) = √65 cm.",
-        "tags": ["right-triangle"]
-      }
-    ]
-  }, {
-    "id": "ms-10-m2-ch3",
-    "chapterNumber": 3,
-    "title": "Circle",
-    "slug": "circle",
-    "description": "Properties of tangents to a circle, perpendicularity of radius to tangent, number of tangents from a point, and applications in geometry.",
-    "topics": [
-      "Tangent to a circle",
-      "Radius-tangent relationship",
-      "Number of tangents from a point",
-      "Properties of tangents",
-      "Length of tangents",
-      "Applications in geometric problems"
-    ],
-    "learningObjectives": [
-      "Understand properties of tangents to a circle.",
-      "Apply the theorem: Tangent is perpendicular to radius.",
-      "Find number of tangents from internal and external points.",
-      "Use tangent properties to solve geometrical problems.",
-      "Prove tangent-related statements using geometry."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch3-q1",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Define a tangent to a circle.",
-        "answer": "A tangent is a line that touches the circle at exactly one point.",
-        "tags": ["definition"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q2",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "A tangent to a circle is always ______ to the radius at the point of contact.",
-        "options": ["parallel", "equal", "perpendicular", "secant"],
-        "answer": "perpendicular",
-        "tags": ["tangent-radius"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q3",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "How many tangents can be drawn to a circle from an external point?",
-        "answer": "Exactly two tangents can be drawn from an external point.",
-        "tags": ["tangents"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q4",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "State the theorem related to the radius and tangent at their point of contact.",
-        "answer": "The tangent to a circle is perpendicular to the radius drawn to the point of contact.",
-        "tags": ["theorem"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q5",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "If two tangents are drawn from a point to a circle, then the lengths of the tangents are:",
-        "options": ["Unequal", "Always equal", "Sometimes equal", "Cannot be determined"],
-        "answer": "Always equal",
-        "tags": ["tangent-length"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q6",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "In a circle, from an external point P, tangents PA and PB are drawn. If PA = 12 cm, find PB.",
-        "answer": "PB = 12 cm (tangents from an external point are equal).",
-        "tags": ["tangent-length"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q7",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "In ΔAPB formed by two tangents PA and PB, show that ∠APB is supplementary to the central angle.",
-        "answer": "In a circle, ∠AOB + ∠APB = 180° because quadrilateral APOB is cyclic.",
-        "tags": ["cyclic", "tangent-properties"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q8",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Prove that the lengths of two tangents drawn from an external point to a circle are equal.",
-        "answer": "Let PA and PB be tangents from point P to the circle with center O. Join OA and OB. PA ⟂ OA and PB ⟂ OB. OA = OB (radii). Right triangles OAP and OBP share OP as common side. By RHS congruence, ΔOAP ≅ ΔOBP → PA = PB.",
-        "tags": ["proof", "tangent-length"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q9",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "From a point 15 cm away from the center of a circle, a tangent of length 9 cm is drawn. Find the radius of the circle.",
-        "answer": "Let O be center, P external point, A point of contact. OP² = OA² + AP² 15² = r² + 9² → 225 = r² + 81 → r² = 144 → r = 12 cm.",
-        "tags": ["numerical", "application"]
-      },
-      {
-        "id": "ms-10-m2-ch3-q10",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Two tangents PA and PB are drawn from a point P to a circle with center O. If ∠APB = 70°, find ∠AOB.",
-        "answer": "∠AOB = 180° − ∠APB (tangent–radius theorem and cyclic quadrilateral). ∠AOB = 180° − 70° = 110°.",
-        "tags": ["angles", "tangent-theorem"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq1",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "A circle having radius 3 cm, then the length of its largest chord is:",
-        "options": ["1.5 cm", "3 cm", "6 cm", "9 cm"],
-        "answer": "6 cm (diameter).",
-        "tags": ["circle", "mcq"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq2",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "△ABC is inscribed in arc ABC. If ∠ABC = 60°, find ∠AOC.",
-        "imageUrl": "/images/geometry/ch3-inscribed-angle.png",
-        "answer": "Central angle = 2 × inscribed angle = 120°.",
-        "tags": ["circle", "central-angle"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq3",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Two circles of radii 5 cm and 3 cm touch each other externally. Find distance between centres.",
-        "answer": "8 cm (sum of radii).",
-        "tags": ["circle", "distance"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq4",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "In a circle, m(arc NS) = 125°, m(arc EF) = 37°. Find measure of ∠NMS.",
-        "imageUrl": "/images/geometry/ch3-arc-angle.png",
-        "answer": "∠NMS = ½ × (difference of arcs) = ½ × (125 − 37) = 44°.",
-        "tags": ["circle", "arc"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq5",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 3,
-        "text": "AB is a chord of a circle with centre O. AT is tangent at A. Find ∠CAT and ∠ABC.",
-        "imageUrl": "/images/geometry/ch3-tangent-chord-theorem.png",
-        "answer": "∠CAT = angle in opposite arc. ∠ABC = inscribed angle subtending same arc. They are equal.",
-        "tags": ["circle", "tangent", "chord"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq6",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "∠ACB is an inscribed angle of a circle. If ∠ACB = 65°, find measure of intercepted arc AXB.",
-        "options": ["65°", "230°", "295°", "130°"],
-        "answer": "130°",
-        "tags": ["circle", "inscribed-angle"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq7",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "A chord subtends a right angle at the centre of a circle of radius 10 cm. Find the area of the minor sector.",
-        "imageUrl": "/images/maths2/ch3-sector-area.png",
-        "answer": "Area of minor sector = 78.5 cm².",
-        "tags": ["sector", "activity"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq8",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "In a cyclic quadrilateral ABCD, if ∠A = 100°, find ∠C.",
-        "answer": "∠C = 80°.",
-        "tags": ["cyclic-quadrilateral"]
-      },
-      {
-        "id": "ms-10-m2-ch3-pyq9",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Chords MN and RS intersect at D. If RD = 15, DS = 4, MD = 8, find DN.",
-        "imageUrl": "/images/maths2/ch3-intersecting-chords.png",
-        "answer": "Using intersecting chords theorem, DN = 7.5 cm.",
-        "tags": ["chords", "activity"]
-      }
-    ]
-  }, {
-    "id": "ms-10-m2-ch4",
-    "chapterNumber": 4,
-    "title": "Geometric Constructions",
-    "slug": "geometric-constructions",
-    "description": "Construction of similar triangles, division of lines, construction of tangents, and geometric reasoning using ruler–compass.",
-    "topics": [
-      "Division of a line segment",
-      "Construction of similar triangles",
-      "Construction using scale factor",
-      "Construction of tangents",
-      "Geometric reasoning in constructions"
-    ],
-    "learningObjectives": [
-      "Construct similar triangles using a given scale factor.",
-      "Divide a line segment into n equal parts using ruler and compass.",
-      "Construct tangents from an external point to a circle.",
-      "Understand geometric reasoning behind each construction step.",
-      "Apply constructions in solving real geometric problems."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch4-q1",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "State the steps to divide a line segment AB into 3 equal parts.",
-        "answer": "1. Draw a ray AX making an acute angle with AB. 2. Mark 3 equal points A1, A2, A3 on AX. 3. Join A3 to B. 4. Draw lines through A1 and A2 parallel to A3B using a compass or set square.",
-        "tags": ["division"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q2",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "To construct a triangle similar to a given triangle with scale factor 3/2, we:",
-        "options": [
-          "Reduce the length of sides",
-          "Increase the length of sides",
-          "Reflect the triangle",
-          "Rotate the triangle"
+        "learningObjectives": [
+          "Understand the meaning of similarity and criteria for similar triangles.",
+          "Apply AAA, SAS, and SSS tests to determine triangle similarity.",
+          "Use basic proportionality theorem to solve geometric problems.",
+          "Compare areas and sides of similar triangles.",
+          "Apply similarity to real-life and geometric constructions."
         ],
-        "answer": "Increase the length of sides",
-        "tags": ["similar-triangles"]
+        "questions": [
+          {
+            "id": "ms-10-m2-ch1-q1",
+            "type": "short",
+            "source": "balbharati",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Define similar triangles.",
+            "answer": "Two triangles are said to be similar if their corresponding angles are equal and their corresponding sides are in proportion.",
+            "tags": ["definition"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q2",
+            "type": "mcq",
+            "source": "balbharati",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "Which of the following is a valid similarity test for triangles?",
+            "options": ["ASA", "AAA", "RHS", "HL"],
+            "answer": "AAA",
+            "tags": ["tests-of-similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q3",
+            "type": "short",
+            "source": "balbharati",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "State the Basic Proportionality Theorem (Thales theorem).",
+            "answer": "If a line is drawn parallel to one side of a triangle intersecting the other two sides, it divides those two sides proportionally.",
+            "tags": ["bpt", "theorem"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q4",
+            "type": "short",
+            "source": "balbharati",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "In ΔABC, DE ∥ BC and intersects AB at D and AC at E. If AD = 3, DB = 6, and AE = 4, find EC.",
+            "answer": "Since DE ∥ BC, AD/DB = AE/EC → 3/6 = 4/EC → 1/2 = 4/EC → EC = 8.",
+            "tags": ["bpt", "ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q5",
+            "type": "mcq",
+            "source": "balbharati",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "If two triangles are similar, then the ratio of their areas is equal to:",
+            "options": [
+              "ratio of sides",
+              "square of ratio of sides",
+              "ratio of angles",
+              "ratio of perimeters"
+            ],
+            "answer": "square of ratio of sides",
+            "tags": ["area-ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q6",
+            "type": "short",
+            "source": "balbharati",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "If ΔABC ∼ ΔPQR and AB/PQ = 3/5, what is the ratio of their areas?",
+            "answer": "Area ratio = (AB/PQ)² = (3/5)² = 9/25.",
+            "tags": ["area-ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q7",
+            "type": "short",
+            "source": "balbharati",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Triangles ABC and DEF are similar. If AB = 7, DE = 14, and BC = 5, find EF.",
+            "answer": "Scale factor = DE/AB = 14/7 = 2 → EF = 2 × BC = 10.",
+            "tags": ["similarity", "ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q8",
+            "type": "long",
+            "source": "balbharati",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Prove that if two triangles are similar, then their corresponding medians are in the same ratio as their corresponding sides.",
+            "answer": "Let ΔABC ∼ ΔPQR with AB/PQ = k. Consider medians AM and PU. Since medians join vertices to midpoints of opposite sides, AB/PQ = BC/QR = CA/PR = k. Thus, midpoints divide sides proportionally. Using triangle similarity between ΔABM and ΔPQU, we get AM/PU = k.",
+            "tags": ["proof", "medians", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q9",
+            "type": "long",
+            "source": "balbharati",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "In ΔABC, DE ∥ BC. If AB = 10, AD = 6, and AC = 12, find AE.",
+            "answer": "By BPT: AD/DB = AE/EC. DB = AB − AD = 10 − 6 = 4. So AD/DB = 6/4 = 3/2. Also AC = AE + EC → 12 = AE + EC. AE/EC = 3/2 → Let AE = 3k, EC = 2k → 3k + 2k = 5k = 12 → k = 2.4. Thus AE = 3k = 7.2.",
+            "tags": ["bpt", "application"]
+          },
+          {
+            "id": "ms-10-m2-ch1-q10",
+            "type": "long",
+            "source": "balbharati",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "If ΔABC ∼ ΔPQR and the area of ΔABC is 63 cm² while the area of ΔPQR is 112 cm², and BC = 9 cm, find QR.",
+            "answer": "Area ratio = 63/112 = 9/16. Thus (BC/QR)² = 9/16. Taking square roots: BC/QR = 3/4 → QR = (4/3) × 9 = 12 cm.",
+            "tags": ["area-ratio", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq1",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "If △ABC ~ △PQR and AB : PQ = 2 : 3, then find the value of A(ABC)/A(PQR).",
+            "answer": "Ratio of areas = (2/3)² = 4/9.",
+            "tags": ["similarity", "area-ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq2",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Complete the activity showing AB/BC = AE/ED when BD bisects ∠ABC and DE ∥ BC.",
+            "imageUrl": "/images/geometry/ch1-similarity-bisector.png",
+            "answer": "Using angle bisector theorem and parallel line proportionality, AB/BC = AE/ED.",
+            "tags": ["angle-bisector", "proportion"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq3",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Given chords AB and CD intersect at E. Complete the proof that AE × EB = CE × ED.",
+            "imageUrl": "/images/geometry/ch1-intersecting-chords.png",
+            "answer": "Using ∠AEC ≅ ∠DEB and similarity, AE/DE = CE/EB → AE×EB = CE×ED.",
+            "tags": ["circle", "similarity", "intersecting-chords"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq4",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "If a line parallel to a side of a triangle intersects the remaining sides in two distinct points, prove that the line divides those sides in the same proportion.",
+            "answer": "Using similarity of triangles formed by the parallel line, corresponding sides are proportional.",
+            "tags": ["similarity", "basic-proportionality-theorem"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq5",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 3,
+            "text": "ABCD is a trapezium with AB ∥ CD. Diagonals intersect at P. Identify a pair of alternate angles, opposite angles, and write the names of similar triangles.",
+            "imageUrl": "/images/geometry/ch1-trapezium-similarity.png",
+            "answer": "Alternate angles: ∠APB & ∠PCD. Opposite: ∠ABC & ∠CDA. Similar triangles: △APB ~ △CPD.",
+            "tags": ["similarity", "trapezium"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq6",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "In the figure, B–D–C and BD = 7, BC = 20. Find A(ABD) / A(ABC).",
+            "imageUrl": "/images/maths2/ch1-area-ratio.png",
+            "answer": "A(ABD) / A(ABC) = (BD / BC)² = (7 / 20)² = 49 / 400.",
+            "tags": ["similarity", "area-ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq7",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "In △ABC, DE ∥ BC. If DB = 5.4 cm, AD = 1.8 cm, EC = 7.2 cm, find AE.",
+            "answer": "Using Basic Proportionality Theorem, AE = 2.4 cm.",
+            "tags": ["bpt", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch1-pyq8",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Complete the activity to find AC when 2AX = 3BX and XY ∥ AC, XY = 9 cm.",
+            "imageUrl": "/images/maths2/ch1-similarity-activity.png",
+            "answer": "Using similarity, AC = 15 cm.",
+            "tags": ["similarity", "activity"]
+          }
+        ]
       },
       {
-        "id": "ms-10-m2-ch4-q3",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "What is a scale factor in geometric constructions?",
-        "answer": "Scale factor is the ratio by which all sides of a given figure are increased or decreased to construct a similar figure.",
-        "tags": ["scale-factor"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q4",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Describe how to construct a triangle similar to ΔABC with scale factor 2/3.",
-        "answer": "1. Draw a ray from A. 2. Mark 3 equal segments since denominator is 3. 3. Join the 2nd point (numerator) to C. 4. Draw a line parallel to it from the 3rd point to cut AB. 5. Connect appropriately to get the reduced triangle.",
-        "tags": ["construction", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q5",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "How many tangents can be drawn from a point outside a circle?",
-        "options": ["None", "One", "Two", "Infinitely many"],
-        "answer": "Two",
-        "tags": ["tangent-construction"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q6",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Explain why a triangle constructed with scale factor 1/2 is similar to the original triangle.",
-        "answer": "Because each side of the new triangle is proportional to the corresponding side of the original triangle by the ratio 1:2, and proportional sides preserve angle equality, ensuring similarity.",
-        "tags": ["similarity", "reasoning"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q7",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Write steps to construct tangents from an external point P to a circle with center O.",
-        "answer": "1. Join OP. 2. Find midpoint M of OP. 3. Draw a circle with center M and radius MP. 4. The intersections with the given circle give tangent points. 5. Join P to the points of contact.",
-        "tags": ["tangents"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q8",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Construct a triangle similar to ΔABC with scale factor 4/3. Explain each step.",
-        "answer": "Steps: 1. Draw ΔABC. 2. From A, draw a ray making an acute angle with AB. 3. Mark 4 equal segments on the ray (numerator = 4). 4. Join the 3rd mark (denominator = 3) to B. 5. Draw a line from the 4th mark parallel to this line to meet AB extended at B'. 6. From B', draw a line parallel to BC to meet AC produced at C'. ΔAB'C' is similar to ΔABC with scale factor 4/3.",
-        "tags": ["similar-construction", "scale-factor"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q9",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A segment of length 9 cm must be divided in the ratio 4:5. Describe the construction steps.",
-        "answer": "1. Draw segment AB = 9 cm. 2. Draw a ray from A making an acute angle with AB. 3. Mark 9 equal parts on the ray. 4. Join the 9th point to B. 5. Draw a line through the 4th point parallel to the joining line. The intersection on AB gives the point dividing AB in ratio 4:5.",
-        "tags": ["division", "ratio"]
-      },
-      {
-        "id": "ms-10-m2-ch4-q10",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Construct tangents from an external point P to a circle of radius 3 cm and center O, where OP = 8 cm. State the reasoning behind the construction.",
-        "answer": "Construction: 1. Join OP. 2. Find midpoint M of OP. 3. Draw a circle with center M and radius MP. 4. Let it intersect the given circle at points A and B. 5. Lines PA and PB are tangents. Reason: OM = MP creates a right triangle AMP, ensuring PA ⟂ OA at the point of contact.",
-        "tags": ["tangent-construction", "reasoning"]
-      },
-      {
-        "id": "ms-10-m2-ch4-pyq1",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Construct △ABC and △LMN such that △ABC ~ △LMN and BC/ MN = 5/4.",
-        "answer": "Use similarity scaling: MN = (4/5) × BC; construct LMN using proportional reduction.",
-        "tags": ["construction", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch4-pyq2",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Draw a circle of radius 3 cm and draw tangents PA and PB through point P such that ∠APB = 70°.",
-        "imageUrl": "/images/geometry/ch4-tangent-construction.png",
-        "answer": "Construct circle → draw exterior point P → locate tangent points using right-angle property.",
-        "tags": ["construction", "tangents"]
-      },
-      {
-        "id": "ms-10-m2-ch4-pyq3",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 4,
-        "text": "Construct △ABC and △PQR such that corresponding sides are in the ratio 2 : 3.",
-        "imageUrl": "/images/maths2/ch4-triangle-construction.png",
-        "answer": "Construction completed using proportional division method.",
-        "tags": ["construction", "similarity"]
-      },
-      {
-        "id": "ms-10-m2-ch4-pyq4",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 3,
-        "text": "Draw a circle of radius 4.1 cm and construct tangents from a point 7.3 cm away from the centre.",
-        "imageUrl": "/images/maths2/ch4-tangent-construction.png",
-        "answer": "Tangents constructed using right angle at point of contact.",
-        "tags": ["tangent", "construction"]
-      } 
-    ]
-  }, {
-    "id": "ms-10-m2-ch5",
-    "chapterNumber": 5,
-    "title": "Coordinate Geometry",
-    "slug": "coordinate-geometry",
-    "description": "Distance formula, section formula, area of triangle, midpoint formula, and applications in coordinate geometry.",
-    "topics": [
-      "Distance formula",
-      "Midpoint formula",
-      "Section formula",
-      "Area of triangle",
-      "Collinearity",
-      "Applications of coordinate geometry"
-    ],
-    "learningObjectives": [
-      "Calculate the distance between two points using the distance formula.",
-      "Find the midpoint of a segment joining two points.",
-      "Use the section formula to divide a line segment in a given ratio.",
-      "Calculate the area of a triangle using coordinates.",
-      "Determine collinearity of points using area formula."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch5-q1",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Write the distance formula between two points (x₁, y₁) and (x₂, y₂).",
-        "answer": "Distance = √[(x₂ − x₁)² + (y₂ − y₁)²].",
-        "tags": ["distance-formula"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q2",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "What is the midpoint of the segment joining (2, 6) and (4, 10)?",
-        "options": ["(3, 8)", "(6, 16)", "(1, 4)", "(8, 3)"],
-        "answer": "(3, 8)",
-        "tags": ["midpoint"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q3",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Find the distance between the points A(1, 2) and B(7, 5).",
-        "answer": "Distance = √[(7 − 1)² + (5 − 2)²] = √(36 + 9) = √45 = 3√5.",
-        "tags": ["distance-formula"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q4",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Find the coordinates of the point dividing the segment joining (2, 3) and (8, 9) in the ratio 1:2.",
-        "answer": "Using section formula: x = (1×8 + 2×2) / 3 = 12/3 = 4 y = (1×9 + 2×3) / 3 = 15/3 = 5 Point = (4, 5).",
-        "tags": ["section-formula"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q5",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "If area of triangle ABC is zero, then the points A, B, C are:",
-        "options": ["Concurrent", "Coplanar", "Collinear", "None"],
-        "answer": "Collinear",
-        "tags": ["collinearity"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q6",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Find the area of the triangle with vertices (1, 1), (4, 5), and (6, 2).",
-        "answer": "Area = 1/2 |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)| = 1/2 |1(5 − 2) + 4(2 − 1) + 6(1 − 5)| = 1/2 |3 + 4 − 24| = 1/2 × 17 = 8.5 sq. units.",
-        "tags": ["area"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q7",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Find the midpoint of the segment joining (−3, 7) and (5, −1).",
-        "answer": "Midpoint = ((−3 + 5)/2, (7 − 1)/2) = (1, 3).",
-        "tags": ["midpoint"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q8",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Show that the points (2, −1), (4, 3), and (6, 7) are collinear.",
-        "answer": "Area = 1/2 |2(3 − 7) + 4(7 + 1) + 6(−1 − 3)| = 1/2 |2(−4) + 4(8) + 6(−4)| = 1/2 |−8 + 32 − 24| = 1/2 × 0 = 0 Since area = 0, points are collinear.",
-        "tags": ["collinearity", "area"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q9",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A point divides the segment joining A(−2, 4) and B(8, 10) in the ratio 3:2 internally. Find its coordinates.",
-        "answer": "Using section formula: x = (3×8 + 2×(−2)) / 5 = (24 − 4)/5 = 20/5 = 4 y = (3×10 + 2×4) / 5 = (30 + 8)/5 = 38/5 = 7.6 Point = (4, 7.6).",
-        "tags": ["section-formula"]
-      },
-      {
-        "id": "ms-10-m2-ch5-q10",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "The vertices of a triangle are A(1, 2), B(4, 6), and C(−2, 8). Find its area and determine whether it is a right triangle.",
-        "answer": "Area = 1/2 |1(6 − 8) + 4(8 − 2) + (−2)(2 − 6)| = 1/2 |1(−2) + 4(6) + (−2)(−4)| = 1/2 |−2 + 24 + 8| = 1/2 × 30 = 15 sq. units. Check right triangle using distance formula: AB = √[(4 − 1)² + (6 − 2)²] = 5 BC = √[(−2 − 4)² + (8 − 6)²] = √40 CA = √[(1 + 2)² + (2 − 8)²] = √45 Check AB² + BC² = CA²? 25 + 40 ≠ 45 → Not a right triangle.",
-        "tags": ["area", "distance", "classification"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq1",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "Slope of X-axis is:",
-        "options": ["1", "-1", "0", "Cannot be determined"],
-        "answer": "0",
-        "tags": ["slope", "mcq"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq2",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Angle made by the line with positive X-axis is 45°. Find slope.",
-        "answer": "Slope = tan 45° = 1.",
-        "tags": ["slope"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq3",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Find the slope of the line passing through A(2,3) and B(4,7).",
-        "answer": "Slope = (7−3)/(4−2) = 4/2 = 2.",
-        "tags": ["slope", "coordinates"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq4",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Determine whether points A(1,-3), B(2,-5), C(-4,7) are collinear.",
-        "answer": "Slopes AB = -2, AC = -10/ -5 = 2 → Not equal → Not collinear.",
-        "tags": ["collinearity"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq5",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "Distance of point (3, 4) from the origin is:",
-        "options": ["7", "1", "5", "-5"],
-        "answer": "5",
-        "tags": ["distance-formula"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq6",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Angle made by a line with the positive x-axis is 30°. Find its slope.",
-        "answer": "Slope = tan 30° = 1/√3.",
-        "tags": ["slope"]
-      },
-      {
-        "id": "ms-10-m2-ch5-pyq7",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Verify whether points A(1, −3), B(2, −5) and C(−4, 7) are collinear.",
-        "answer": "Slopes are unequal; hence points are not collinear.",
-        "tags": ["collinearity"]
-      }
-    ]
-  }, {
-    "id": "ms-10-m2-ch6",
-    "chapterNumber": 6,
-    "title": "Trigonometry",
-    "slug": "trigonometry",
-    "description": "Introduction to trigonometric ratios, identities, values of standard angles, and applications in height–distance problems.",
-    "topics": [
-      "Trigonometric ratios",
-      "Values of trigonometric ratios",
-      "Trigonometric identities",
-      "Heights and distances",
-      "Right triangle applications"
-    ],
-    "learningObjectives": [
-      "Understand definitions of trigonometric ratios using right triangles.",
-      "Recall and apply standard trigonometric values.",
-      "Use basic identities such as sin²θ + cos²θ = 1.",
-      "Solve height and distance problems using trigonometry.",
-      "Apply trigonometric ratios to real-life measurement situations."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch6-q1",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Define sin θ and cos θ in a right-angled triangle.",
-        "answer": "sin θ = (Opposite side) / (Hypotenuse), cos θ = (Adjacent side) / (Hypotenuse).",
-        "tags": ["ratios"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q2",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "What is the value of tan 45°?",
-        "options": ["0", "1", "√3", "Undefined"],
-        "answer": "1",
-        "tags": ["standard-values"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q3",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "If sin θ = 3/5, find cos θ.",
-        "answer": "sin θ = 3/5 → Opp = 3, Hyp = 5 → Adj = √(5² − 3²) = 4 → cos θ = 4/5.",
-        "tags": ["ratios", "numerical"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q4",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "State the identity relating sin²θ and cos²θ.",
-        "answer": "sin²θ + cos²θ = 1.",
-        "tags": ["identity"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q5",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "If tan θ = 1/√3, what is θ?",
-        "options": ["30°", "45°", "60°", "90°"],
-        "answer": "30°",
-        "tags": ["standard-values"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q6",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Evaluate: cos 30° + sin 60°.",
-        "answer": "cos 30° = √3/2, sin 60° = √3/2 → Sum = √3.",
-        "tags": ["evaluation"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q7",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "If a ladder makes an angle of 60° with the ground and reaches a height of 8 m, find the length of the ladder.",
-        "answer": "sin 60° = √3/2 = 8/L → L = 8 × 2/√3 = 16/√3 = 9.24 m approx.",
-        "tags": ["application", "height-distance"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q8",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "Prove that tan θ = sin θ / cos θ.",
-        "answer": "In a right-angled triangle: tan θ = Opp/Adj, sin θ = Opp/Hyp, cos θ = Adj/Hyp. Thus sin θ / cos θ = (Opp/Hyp) / (Adj/Hyp) = Opp/Adj = tan θ.",
-        "tags": ["identity", "proof"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q9",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "An observer standing 20 m from a tree sees the top at an angle of elevation of 45°. Find the height of the tree.",
-        "answer": "tan 45° = 1 = height / 20 → height = 20 m.",
-        "tags": ["height-distance", "application"]
-      },
-      {
-        "id": "ms-10-m2-ch6-q10",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A man on top of a tower 30 m high sees a car on the road at a distance. The angle of depression is 30°. Find the distance of the car from the tower base.",
-        "answer": "tan 30° = 1/√3 = 30 / d → d = 30√3 ≈ 51.96 m.",
-        "tags": ["distance", "application"]
-      },
-      {
-        "id": "ms-10-m2-ch6-pyq1",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "sinθ × cosecθ equals:",
-        "options": ["1", "0", "1/2", "2"],
-        "answer": "1",
-        "tags": ["trigonometry"]
-      },
-      {
-        "id": "ms-10-m2-ch6-pyq2",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Complete the identity 1/sin²θ + 1/cos²θ = ?",
-        "answer": "1/sin²θ + 1/cos²θ = csc²θ + sec²θ.",
-        "tags": ["identity"]
-      },
-      {
-        "id": "ms-10-m2-ch6-pyq3",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 4,
-        "text": "Given 1/sin²θ + 1/cos²θ + 1/tan²θ + 1/cot²θ + 1/sec²θ + 1/cosec²θ = 3, find θ.",
-        "answer": "Simplify identities → θ = 45°.",
-        "tags": ["identities", "evaluation"]
-      },
-      {
-        "id": "ms-10-m2-ch6-pyq4",
-        "source": "pyq",
-        "type": "activity",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "An observer is 10 m away from a tree and angle of elevation is 60°. Find the height of the tree.",
-        "imageUrl": "/images/maths2/ch6-height-and-distance.png",
-        "answer": "Height of tree = 17.3 m.",
-        "tags": ["height-distance"]
-      },
-      {
-        "id": "ms-10-m2-ch6-pyq5",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "If sin θ = 11/61, find cos θ.",
-        "answer": "cos θ = 60/61.",
-        "tags": ["trigonometric-identity"]
-      },
-      {
-        "id": "ms-10-m2-ch6-pyq6",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 3,
-        "text": "Verify trigonometric identities for θ = 30°.",
-        "answer": "All given identities are verified using standard values.",
-        "tags": ["identities"]
-      }
-    ]
-  }, {
-    "id": "ms-10-m2-ch7",
-    "chapterNumber": 7,
-    "title": "Mensuration",
-    "slug": "mensuration",
-    "description": "Surface areas and volumes of basic solid figures such as cuboid, cylinder, cone, sphere, hemisphere, and frustum.",
-    "topics": [
-      "Surface area of cuboid & cube",
-      "Surface area of cylinder",
-      "Surface area of cone",
-      "Surface area of sphere & hemisphere",
-      "Volume of solids",
-      "Frustum of cone",
-      "Applications of mensuration"
-    ],
-    "learningObjectives": [
-      "Calculate curved and total surface areas of standard solids.",
-      "Find volumes of cubes, cuboids, cylinders, cones, spheres, and hemispheres.",
-      "Apply formulas to solve practical mensuration problems.",
-      "Understand and compute surface area and volume of a frustum.",
-      "Use mensuration concepts in real-life applications involving 3D shapes."
-    ],
-    "questions": [
-      {
-        "id": "ms-10-m2-ch7-q1",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "easy",
-        "marks": 2,
-        "text": "Write the formula for the volume of a cylinder.",
-        "answer": "Volume of cylinder = πr²h.",
-        "tags": ["cylinder", "volume"]
-      },
-      {
-        "id": "ms-10-m2-ch7-q2",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "The curved surface area of a cone is given by:",
-        "options": [
-          "πr²",
-          "πrl",
-          "2πrh",
-          "4πr²"
+        "id": "ms-10-m2-ch2",
+        "chapterNumber": 2,
+        "title": "Pythagoras Theorem",
+        "slug": "pythagoras-theorem",
+        "description": "Properties of right-angled triangles, Pythagoras theorem, its converse, applications, and proofs based on similarity.",
+        "topics": [
+          "Right-angled triangles",
+          "Pythagoras theorem",
+          "Converse of Pythagoras theorem",
+          "Geometric proof using similarity",
+          "Applications in measurement problems"
         ],
-        "answer": "πrl",
-        "tags": ["cone", "surface-area"]
-      },
-      {
-        "id": "ms-10-m2-ch7-q3",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "A hemisphere has radius 7 cm. Find its curved surface area.",
-        "answer": "CSA = 2πr² = 2π(7²) = 98π cm².",
-        "tags": ["hemisphere", "surface-area"]
-      },
-      {
-        "id": "ms-10-m2-ch7-q4",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "A cone has radius 5 cm and slant height 13 cm. Find its curved surface area.",
-        "answer": "CSA = πrl = π × 5 × 13 = 65π cm².",
-        "tags": ["cone", "surface-area"]
-      },
-      {
-        "id": "ms-10-m2-ch7-q5",
-        "source": "balbharati",
-        "type": "mcq",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Which of the following is the formula for the volume of a sphere?",
-        "options": [
-          "(4/3)πr³",
-          "2πr²h",
-          "πr²h",
-          "πrl"
+        "learningObjectives": [
+          "Understand and apply Pythagoras theorem to find sides of right-angled triangles.",
+          "Use the converse of Pythagoras theorem to test if a triangle is right-angled.",
+          "Solve practical and geometrical problems using the theorem.",
+          "Prove the theorem using similarity of triangles."
         ],
-        "answer": "(4/3)πr³",
-        "tags": ["sphere", "volume"]
+        "questions": [
+          {
+            "id": "ms-10-m2-ch2-q1",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "State the Pythagoras theorem.",
+            "answer": "In a right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.",
+            "tags": ["definition", "theorem"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q2",
+            "type": "mcq",
+            "source": "balbharati",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "In a right-angled triangle, the longest side is called the:",
+            "options": ["Base", "Altitude", "Median", "Hypotenuse"],
+            "answer": "Hypotenuse",
+            "tags": ["right-triangle"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q3",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Find the hypotenuse of a right-angled triangle with legs 9 cm and 12 cm.",
+            "answer": "Hypotenuse = √(9² + 12²) = √(81 + 144) = √225 = 15 cm.",
+            "tags": ["numerical"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q4",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Check whether the sides 7 cm, 24 cm, and 25 cm form a right-angled triangle.",
+            "answer": "25² = 625 and 7² + 24² = 49 + 576 = 625 → Satisfies Pythagoras theorem → Yes, it is a right-angled triangle.",
+            "tags": ["converse", "right-triangle"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q5",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "If a triangle has sides 10, 15, and 20 cm, then:",
+            "options": [
+              "It is a right-angled triangle",
+              "It is not a right-angled triangle",
+              "It must be isosceles",
+              "It must be equilateral"
+            ],
+            "answer": "It is not a right-angled triangle",
+            "tags": ["converse"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q6",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "In a right-angled triangle ABC, right-angled at B, AB = 8 cm and AC = 17 cm. Find BC.",
+            "answer": "BC = √(AC² − AB²) = √(289 − 64) = √225 = 15 cm.",
+            "tags": ["numerical"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q7",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "State the converse of the Pythagoras theorem.",
+            "answer": "If in a triangle the square of one side equals the sum of squares of the other two sides, then the triangle is right-angled.",
+            "tags": ["definition", "converse"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q8",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Prove the Pythagoras theorem using similarity of triangles.",
+            "answer": "In right triangle ABC, ∠ABC = 90°. Draw altitude BD on AC. Triangles ABD, CBD, and ABC are similar. From similarity, AB² = AD × AC and BC² = CD × AC. Adding both: AB² + BC² = AC(AD + CD) = AC². Hence proved.",
+            "tags": ["proof", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q9",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A ladder 13 m long is leaning against a wall. Its foot is 5 m away from the wall. Find the height reached by the ladder.",
+            "answer": "Let height reached = h. h² + 5² = 13² → h² + 25 = 169 → h² = 144 → h = 12 m.",
+            "tags": ["application"]
+          },
+          {
+            "id": "ms-10-m2-ch2-q10",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A man walks 8 km west and then 6 km north. How far is he from the starting point?",
+            "answer": "Distance = √(8² + 6²) = √(64 + 36) = √100 = 10 km.",
+            "tags": ["application", "distance"]
+          },
+          {
+            "id": "ms-10-m2-ch2-pyq1",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "Out of the dates given below which date constitutes a Pythagorean triplet?",
+            "options": ["15/8/17", "16/8/16", "3/5/17", "4/9/15"],
+            "answer": "15/8/17 (since 8² + 15² = 17²).",
+            "tags": ["pythagoras", "mcq"]
+          },
+          {
+            "id": "ms-10-m2-ch2-pyq2",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Two circles of radii 5 cm and 3 cm touch each other externally. Find distance between their centres.",
+            "answer": "Distance = 5 + 3 = 8 cm.",
+            "tags": ["geometry", "distance"]
+          },
+          {
+            "id": "ms-10-m2-ch2-pyq3",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Find the length of the hypotenuse of a right triangle whose legs are 9 cm and 12 cm.",
+            "answer": "Hypotenuse = √(9² + 12²) = 15 cm.",
+            "tags": ["pythagoras"]
+          },
+          {
+            "id": "ms-10-m2-ch2-pyq4",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Complete the activity proving sin²θ + cos²θ = 1 using △ABC with ∠B = 90°.",
+            "imageUrl": "/images/geometry/ch2-trig-identity-activity.png",
+            "answer": "Using Pythagoras: AB² + BC² = AC². Divide by AC² → sin²θ + cos²θ = 1.",
+            "tags": ["pythagoras", "trigonometry"]
+          },
+          {
+            "id": "ms-10-m2-ch2-pyq5",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "Which of the following is a Pythagorean triplet?",
+            "options": ["(1, 5, 10)", "(3, 4, 5)", "(2, 2, 2)", "(5, 5, 2)"],
+            "answer": "(3, 4, 5)",
+            "tags": ["pythagoras", "mcq"]
+          },
+          {
+            "id": "ms-10-m2-ch2-pyq6",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "In △MNP, ∠MNP = 90°, MQ = 9 cm and QP = 4 cm. Find NQ.",
+            "imageUrl": "/images/maths2/ch2-right-triangle.png",
+            "answer": "Using Pythagoras theorem, NQ = √(9² − 4²) = √65 cm.",
+            "tags": ["right-triangle"]
+          }
+        ]
       },
       {
-        "id": "ms-10-m2-ch7-q6",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "A cylindrical water tank has radius 4 m and height 6 m. Find its volume.",
-        "answer": "Volume = πr²h = π × 16 × 6 = 96π m³.",
-        "tags": ["cylinder", "volume"]
+        "id": "ms-10-m2-ch3",
+        "chapterNumber": 3,
+        "title": "Circle",
+        "slug": "circle",
+        "description": "Properties of tangents to a circle, perpendicularity of radius to tangent, number of tangents from a point, and applications in geometry.",
+        "topics": [
+          "Tangent to a circle",
+          "Radius-tangent relationship",
+          "Number of tangents from a point",
+          "Properties of tangents",
+          "Length of tangents",
+          "Applications in geometric problems"
+        ],
+        "learningObjectives": [
+          "Understand properties of tangents to a circle.",
+          "Apply the theorem: Tangent is perpendicular to radius.",
+          "Find number of tangents from internal and external points.",
+          "Use tangent properties to solve geometrical problems.",
+          "Prove tangent-related statements using geometry."
+        ],
+        "questions": [
+          {
+            "id": "ms-10-m2-ch3-q1",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Define a tangent to a circle.",
+            "answer": "A tangent is a line that touches the circle at exactly one point.",
+            "tags": ["definition"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q2",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "A tangent to a circle is always ______ to the radius at the point of contact.",
+            "options": ["parallel", "equal", "perpendicular", "secant"],
+            "answer": "perpendicular",
+            "tags": ["tangent-radius"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q3",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "How many tangents can be drawn to a circle from an external point?",
+            "answer": "Exactly two tangents can be drawn from an external point.",
+            "tags": ["tangents"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q4",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "State the theorem related to the radius and tangent at their point of contact.",
+            "answer": "The tangent to a circle is perpendicular to the radius drawn to the point of contact.",
+            "tags": ["theorem"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q5",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "If two tangents are drawn from a point to a circle, then the lengths of the tangents are:",
+            "options": [
+              "Unequal",
+              "Always equal",
+              "Sometimes equal",
+              "Cannot be determined"
+            ],
+            "answer": "Always equal",
+            "tags": ["tangent-length"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q6",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "In a circle, from an external point P, tangents PA and PB are drawn. If PA = 12 cm, find PB.",
+            "answer": "PB = 12 cm (tangents from an external point are equal).",
+            "tags": ["tangent-length"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q7",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "In ΔAPB formed by two tangents PA and PB, show that ∠APB is supplementary to the central angle.",
+            "answer": "In a circle, ∠AOB + ∠APB = 180° because quadrilateral APOB is cyclic.",
+            "tags": ["cyclic", "tangent-properties"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q8",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Prove that the lengths of two tangents drawn from an external point to a circle are equal.",
+            "answer": "Let PA and PB be tangents from point P to the circle with center O. Join OA and OB. PA ⟂ OA and PB ⟂ OB. OA = OB (radii). Right triangles OAP and OBP share OP as common side. By RHS congruence, ΔOAP ≅ ΔOBP → PA = PB.",
+            "tags": ["proof", "tangent-length"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q9",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "From a point 15 cm away from the center of a circle, a tangent of length 9 cm is drawn. Find the radius of the circle.",
+            "answer": "Let O be center, P external point, A point of contact. OP² = OA² + AP² 15² = r² + 9² → 225 = r² + 81 → r² = 144 → r = 12 cm.",
+            "tags": ["numerical", "application"]
+          },
+          {
+            "id": "ms-10-m2-ch3-q10",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Two tangents PA and PB are drawn from a point P to a circle with center O. If ∠APB = 70°, find ∠AOB.",
+            "answer": "∠AOB = 180° − ∠APB (tangent–radius theorem and cyclic quadrilateral). ∠AOB = 180° − 70° = 110°.",
+            "tags": ["angles", "tangent-theorem"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq1",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "A circle having radius 3 cm, then the length of its largest chord is:",
+            "options": ["1.5 cm", "3 cm", "6 cm", "9 cm"],
+            "answer": "6 cm (diameter).",
+            "tags": ["circle", "mcq"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq2",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "△ABC is inscribed in arc ABC. If ∠ABC = 60°, find ∠AOC.",
+            "imageUrl": "/images/geometry/ch3-inscribed-angle.png",
+            "answer": "Central angle = 2 × inscribed angle = 120°.",
+            "tags": ["circle", "central-angle"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq3",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Two circles of radii 5 cm and 3 cm touch each other externally. Find distance between centres.",
+            "answer": "8 cm (sum of radii).",
+            "tags": ["circle", "distance"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq4",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "In a circle, m(arc NS) = 125°, m(arc EF) = 37°. Find measure of ∠NMS.",
+            "imageUrl": "/images/geometry/ch3-arc-angle.png",
+            "answer": "∠NMS = ½ × (difference of arcs) = ½ × (125 − 37) = 44°.",
+            "tags": ["circle", "arc"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq5",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 3,
+            "text": "AB is a chord of a circle with centre O. AT is tangent at A. Find ∠CAT and ∠ABC.",
+            "imageUrl": "/images/geometry/ch3-tangent-chord-theorem.png",
+            "answer": "∠CAT = angle in opposite arc. ∠ABC = inscribed angle subtending same arc. They are equal.",
+            "tags": ["circle", "tangent", "chord"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq6",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "∠ACB is an inscribed angle of a circle. If ∠ACB = 65°, find measure of intercepted arc AXB.",
+            "options": ["65°", "230°", "295°", "130°"],
+            "answer": "130°",
+            "tags": ["circle", "inscribed-angle"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq7",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "A chord subtends a right angle at the centre of a circle of radius 10 cm. Find the area of the minor sector.",
+            "imageUrl": "/images/maths2/ch3-sector-area.png",
+            "answer": "Area of minor sector = 78.5 cm².",
+            "tags": ["sector", "activity"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq8",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "In a cyclic quadrilateral ABCD, if ∠A = 100°, find ∠C.",
+            "answer": "∠C = 80°.",
+            "tags": ["cyclic-quadrilateral"]
+          },
+          {
+            "id": "ms-10-m2-ch3-pyq9",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Chords MN and RS intersect at D. If RD = 15, DS = 4, MD = 8, find DN.",
+            "imageUrl": "/images/maths2/ch3-intersecting-chords.png",
+            "answer": "Using intersecting chords theorem, DN = 7.5 cm.",
+            "tags": ["chords", "activity"]
+          }
+        ]
       },
       {
-        "id": "ms-10-m2-ch7-q7",
-        "source": "balbharati",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "A sphere has radius 3 cm. Find its total surface area.",
-        "answer": "TSA = 4πr² = 4π(3²) = 36π cm².",
-        "tags": ["sphere", "surface-area"]
+        "id": "ms-10-m2-ch4",
+        "chapterNumber": 4,
+        "title": "Geometric Constructions",
+        "slug": "geometric-constructions",
+        "description": "Construction of similar triangles, division of lines, construction of tangents, and geometric reasoning using ruler–compass.",
+        "topics": [
+          "Division of a line segment",
+          "Construction of similar triangles",
+          "Construction using scale factor",
+          "Construction of tangents",
+          "Geometric reasoning in constructions"
+        ],
+        "learningObjectives": [
+          "Construct similar triangles using a given scale factor.",
+          "Divide a line segment into n equal parts using ruler and compass.",
+          "Construct tangents from an external point to a circle.",
+          "Understand geometric reasoning behind each construction step.",
+          "Apply constructions in solving real geometric problems."
+        ],
+        "questions": [
+          {
+            "id": "ms-10-m2-ch4-q1",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "State the steps to divide a line segment AB into 3 equal parts.",
+            "answer": "1. Draw a ray AX making an acute angle with AB. 2. Mark 3 equal points A1, A2, A3 on AX. 3. Join A3 to B. 4. Draw lines through A1 and A2 parallel to A3B using a compass or set square.",
+            "tags": ["division"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q2",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "To construct a triangle similar to a given triangle with scale factor 3/2, we:",
+            "options": [
+              "Reduce the length of sides",
+              "Increase the length of sides",
+              "Reflect the triangle",
+              "Rotate the triangle"
+            ],
+            "answer": "Increase the length of sides",
+            "tags": ["similar-triangles"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q3",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "What is a scale factor in geometric constructions?",
+            "answer": "Scale factor is the ratio by which all sides of a given figure are increased or decreased to construct a similar figure.",
+            "tags": ["scale-factor"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q4",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Describe how to construct a triangle similar to ΔABC with scale factor 2/3.",
+            "answer": "1. Draw a ray from A. 2. Mark 3 equal segments since denominator is 3. 3. Join the 2nd point (numerator) to C. 4. Draw a line parallel to it from the 3rd point to cut AB. 5. Connect appropriately to get the reduced triangle.",
+            "tags": ["construction", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q5",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "How many tangents can be drawn from a point outside a circle?",
+            "options": ["None", "One", "Two", "Infinitely many"],
+            "answer": "Two",
+            "tags": ["tangent-construction"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q6",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Explain why a triangle constructed with scale factor 1/2 is similar to the original triangle.",
+            "answer": "Because each side of the new triangle is proportional to the corresponding side of the original triangle by the ratio 1:2, and proportional sides preserve angle equality, ensuring similarity.",
+            "tags": ["similarity", "reasoning"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q7",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Write steps to construct tangents from an external point P to a circle with center O.",
+            "answer": "1. Join OP. 2. Find midpoint M of OP. 3. Draw a circle with center M and radius MP. 4. The intersections with the given circle give tangent points. 5. Join P to the points of contact.",
+            "tags": ["tangents"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q8",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Construct a triangle similar to ΔABC with scale factor 4/3. Explain each step.",
+            "answer": "Steps: 1. Draw ΔABC. 2. From A, draw a ray making an acute angle with AB. 3. Mark 4 equal segments on the ray (numerator = 4). 4. Join the 3rd mark (denominator = 3) to B. 5. Draw a line from the 4th mark parallel to this line to meet AB extended at B'. 6. From B', draw a line parallel to BC to meet AC produced at C'. ΔAB'C' is similar to ΔABC with scale factor 4/3.",
+            "tags": ["similar-construction", "scale-factor"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q9",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A segment of length 9 cm must be divided in the ratio 4:5. Describe the construction steps.",
+            "answer": "1. Draw segment AB = 9 cm. 2. Draw a ray from A making an acute angle with AB. 3. Mark 9 equal parts on the ray. 4. Join the 9th point to B. 5. Draw a line through the 4th point parallel to the joining line. The intersection on AB gives the point dividing AB in ratio 4:5.",
+            "tags": ["division", "ratio"]
+          },
+          {
+            "id": "ms-10-m2-ch4-q10",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Construct tangents from an external point P to a circle of radius 3 cm and center O, where OP = 8 cm. State the reasoning behind the construction.",
+            "answer": "Construction: 1. Join OP. 2. Find midpoint M of OP. 3. Draw a circle with center M and radius MP. 4. Let it intersect the given circle at points A and B. 5. Lines PA and PB are tangents. Reason: OM = MP creates a right triangle AMP, ensuring PA ⟂ OA at the point of contact.",
+            "tags": ["tangent-construction", "reasoning"]
+          },
+          {
+            "id": "ms-10-m2-ch4-pyq1",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Construct △ABC and △LMN such that △ABC ~ △LMN and BC/ MN = 5/4.",
+            "answer": "Use similarity scaling: MN = (4/5) × BC; construct LMN using proportional reduction.",
+            "tags": ["construction", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch4-pyq2",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Draw a circle of radius 3 cm and draw tangents PA and PB through point P such that ∠APB = 70°.",
+            "imageUrl": "/images/geometry/ch4-tangent-construction.png",
+            "answer": "Construct circle → draw exterior point P → locate tangent points using right-angle property.",
+            "tags": ["construction", "tangents"]
+          },
+          {
+            "id": "ms-10-m2-ch4-pyq3",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 4,
+            "text": "Construct △ABC and △PQR such that corresponding sides are in the ratio 2 : 3.",
+            "imageUrl": "/images/maths2/ch4-triangle-construction.png",
+            "answer": "Construction completed using proportional division method.",
+            "tags": ["construction", "similarity"]
+          },
+          {
+            "id": "ms-10-m2-ch4-pyq4",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 3,
+            "text": "Draw a circle of radius 4.1 cm and construct tangents from a point 7.3 cm away from the centre.",
+            "imageUrl": "/images/maths2/ch4-tangent-construction.png",
+            "answer": "Tangents constructed using right angle at point of contact.",
+            "tags": ["tangent", "construction"]
+          }
+        ]
       },
       {
-        "id": "ms-10-m2-ch7-q8",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A frustum of a cone has radii 6 cm and 10 cm and height 12 cm. Find its volume.",
-        "answer": "Volume of frustum = (1/3)πh(R² + r² + Rr) = (1/3)π × 12 × (10² + 6² + 10×6) = 4π × (100 + 36 + 60) = 4π × 196 = 784π cm³.",
-        "tags": ["frustum", "volume"]
+        "id": "ms-10-m2-ch5",
+        "chapterNumber": 5,
+        "title": "Coordinate Geometry",
+        "slug": "coordinate-geometry",
+        "description": "Distance formula, section formula, area of triangle, midpoint formula, and applications in coordinate geometry.",
+        "topics": [
+          "Distance formula",
+          "Midpoint formula",
+          "Section formula",
+          "Area of triangle",
+          "Collinearity",
+          "Applications of coordinate geometry"
+        ],
+        "learningObjectives": [
+          "Calculate the distance between two points using the distance formula.",
+          "Find the midpoint of a segment joining two points.",
+          "Use the section formula to divide a line segment in a given ratio.",
+          "Calculate the area of a triangle using coordinates.",
+          "Determine collinearity of points using area formula."
+        ],
+        "questions": [
+          {
+            "id": "ms-10-m2-ch5-q1",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Write the distance formula between two points (x₁, y₁) and (x₂, y₂).",
+            "answer": "Distance = √[(x₂ − x₁)² + (y₂ − y₁)²].",
+            "tags": ["distance-formula"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q2",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "What is the midpoint of the segment joining (2, 6) and (4, 10)?",
+            "options": ["(3, 8)", "(6, 16)", "(1, 4)", "(8, 3)"],
+            "answer": "(3, 8)",
+            "tags": ["midpoint"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q3",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Find the distance between the points A(1, 2) and B(7, 5).",
+            "answer": "Distance = √[(7 − 1)² + (5 − 2)²] = √(36 + 9) = √45 = 3√5.",
+            "tags": ["distance-formula"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q4",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Find the coordinates of the point dividing the segment joining (2, 3) and (8, 9) in the ratio 1:2.",
+            "answer": "Using section formula: x = (1×8 + 2×2) / 3 = 12/3 = 4 y = (1×9 + 2×3) / 3 = 15/3 = 5 Point = (4, 5).",
+            "tags": ["section-formula"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q5",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "If area of triangle ABC is zero, then the points A, B, C are:",
+            "options": ["Concurrent", "Coplanar", "Collinear", "None"],
+            "answer": "Collinear",
+            "tags": ["collinearity"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q6",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Find the area of the triangle with vertices (1, 1), (4, 5), and (6, 2).",
+            "answer": "Area = 1/2 |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)| = 1/2 |1(5 − 2) + 4(2 − 1) + 6(1 − 5)| = 1/2 |3 + 4 − 24| = 1/2 × 17 = 8.5 sq. units.",
+            "tags": ["area"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q7",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Find the midpoint of the segment joining (−3, 7) and (5, −1).",
+            "answer": "Midpoint = ((−3 + 5)/2, (7 − 1)/2) = (1, 3).",
+            "tags": ["midpoint"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q8",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Show that the points (2, −1), (4, 3), and (6, 7) are collinear.",
+            "answer": "Area = 1/2 |2(3 − 7) + 4(7 + 1) + 6(−1 − 3)| = 1/2 |2(−4) + 4(8) + 6(−4)| = 1/2 |−8 + 32 − 24| = 1/2 × 0 = 0 Since area = 0, points are collinear.",
+            "tags": ["collinearity", "area"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q9",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A point divides the segment joining A(−2, 4) and B(8, 10) in the ratio 3:2 internally. Find its coordinates.",
+            "answer": "Using section formula: x = (3×8 + 2×(−2)) / 5 = (24 − 4)/5 = 20/5 = 4 y = (3×10 + 2×4) / 5 = (30 + 8)/5 = 38/5 = 7.6 Point = (4, 7.6).",
+            "tags": ["section-formula"]
+          },
+          {
+            "id": "ms-10-m2-ch5-q10",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "The vertices of a triangle are A(1, 2), B(4, 6), and C(−2, 8). Find its area and determine whether it is a right triangle.",
+            "answer": "Area = 1/2 |1(6 − 8) + 4(8 − 2) + (−2)(2 − 6)| = 1/2 |1(−2) + 4(6) + (−2)(−4)| = 1/2 |−2 + 24 + 8| = 1/2 × 30 = 15 sq. units. Check right triangle using distance formula: AB = √[(4 − 1)² + (6 − 2)²] = 5 BC = √[(−2 − 4)² + (8 − 6)²] = √40 CA = √[(1 + 2)² + (2 − 8)²] = √45 Check AB² + BC² = CA²? 25 + 40 ≠ 45 → Not a right triangle.",
+            "tags": ["area", "distance", "classification"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq1",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "Slope of X-axis is:",
+            "options": ["1", "-1", "0", "Cannot be determined"],
+            "answer": "0",
+            "tags": ["slope", "mcq"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq2",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Angle made by the line with positive X-axis is 45°. Find slope.",
+            "answer": "Slope = tan 45° = 1.",
+            "tags": ["slope"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq3",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Find the slope of the line passing through A(2,3) and B(4,7).",
+            "answer": "Slope = (7−3)/(4−2) = 4/2 = 2.",
+            "tags": ["slope", "coordinates"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq4",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Determine whether points A(1,-3), B(2,-5), C(-4,7) are collinear.",
+            "answer": "Slopes AB = -2, AC = -10/ -5 = 2 → Not equal → Not collinear.",
+            "tags": ["collinearity"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq5",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "Distance of point (3, 4) from the origin is:",
+            "options": ["7", "1", "5", "-5"],
+            "answer": "5",
+            "tags": ["distance-formula"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq6",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Angle made by a line with the positive x-axis is 30°. Find its slope.",
+            "answer": "Slope = tan 30° = 1/√3.",
+            "tags": ["slope"]
+          },
+          {
+            "id": "ms-10-m2-ch5-pyq7",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Verify whether points A(1, −3), B(2, −5) and C(−4, 7) are collinear.",
+            "answer": "Slopes are unequal; hence points are not collinear.",
+            "tags": ["collinearity"]
+          }
+        ]
       },
       {
-        "id": "ms-10-m2-ch7-q9",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A cone is melted to form a cylinder of radius 3 cm and height 4 cm. If the radius of the cone is 6 cm, find its height.",
-        "answer": "Volume of cone = Volume of cylinder (1/3)πR²H = πr²h (1/3)π × 6² × H = π × 3² × 4 12H = 36 H = 3 cm.",
-        "tags": ["mensuration", "volume", "conversion"]
+        "id": "ms-10-m2-ch6",
+        "chapterNumber": 6,
+        "title": "Trigonometry",
+        "slug": "trigonometry",
+        "description": "Introduction to trigonometric ratios, identities, values of standard angles, and applications in height–distance problems.",
+        "topics": [
+          "Trigonometric ratios",
+          "Values of trigonometric ratios",
+          "Trigonometric identities",
+          "Heights and distances",
+          "Right triangle applications"
+        ],
+        "learningObjectives": [
+          "Understand definitions of trigonometric ratios using right triangles.",
+          "Recall and apply standard trigonometric values.",
+          "Use basic identities such as sin²θ + cos²θ = 1.",
+          "Solve height and distance problems using trigonometry.",
+          "Apply trigonometric ratios to real-life measurement situations."
+        ],
+        "questions": [
+          {
+            "id": "ms-10-m2-ch6-q1",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Define sin θ and cos θ in a right-angled triangle.",
+            "answer": "sin θ = (Opposite side) / (Hypotenuse), cos θ = (Adjacent side) / (Hypotenuse).",
+            "tags": ["ratios"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q2",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "What is the value of tan 45°?",
+            "options": ["0", "1", "√3", "Undefined"],
+            "answer": "1",
+            "tags": ["standard-values"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q3",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "If sin θ = 3/5, find cos θ.",
+            "answer": "sin θ = 3/5 → Opp = 3, Hyp = 5 → Adj = √(5² − 3²) = 4 → cos θ = 4/5.",
+            "tags": ["ratios", "numerical"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q4",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "State the identity relating sin²θ and cos²θ.",
+            "answer": "sin²θ + cos²θ = 1.",
+            "tags": ["identity"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q5",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "If tan θ = 1/√3, what is θ?",
+            "options": ["30°", "45°", "60°", "90°"],
+            "answer": "30°",
+            "tags": ["standard-values"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q6",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Evaluate: cos 30° + sin 60°.",
+            "answer": "cos 30° = √3/2, sin 60° = √3/2 → Sum = √3.",
+            "tags": ["evaluation"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q7",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "If a ladder makes an angle of 60° with the ground and reaches a height of 8 m, find the length of the ladder.",
+            "answer": "sin 60° = √3/2 = 8/L → L = 8 × 2/√3 = 16/√3 = 9.24 m approx.",
+            "tags": ["application", "height-distance"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q8",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "Prove that tan θ = sin θ / cos θ.",
+            "answer": "In a right-angled triangle: tan θ = Opp/Adj, sin θ = Opp/Hyp, cos θ = Adj/Hyp. Thus sin θ / cos θ = (Opp/Hyp) / (Adj/Hyp) = Opp/Adj = tan θ.",
+            "tags": ["identity", "proof"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q9",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "An observer standing 20 m from a tree sees the top at an angle of elevation of 45°. Find the height of the tree.",
+            "answer": "tan 45° = 1 = height / 20 → height = 20 m.",
+            "tags": ["height-distance", "application"]
+          },
+          {
+            "id": "ms-10-m2-ch6-q10",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A man on top of a tower 30 m high sees a car on the road at a distance. The angle of depression is 30°. Find the distance of the car from the tower base.",
+            "answer": "tan 30° = 1/√3 = 30 / d → d = 30√3 ≈ 51.96 m.",
+            "tags": ["distance", "application"]
+          },
+          {
+            "id": "ms-10-m2-ch6-pyq1",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "sinθ × cosecθ equals:",
+            "options": ["1", "0", "1/2", "2"],
+            "answer": "1",
+            "tags": ["trigonometry"]
+          },
+          {
+            "id": "ms-10-m2-ch6-pyq2",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Complete the identity 1/sin²θ + 1/cos²θ = ?",
+            "answer": "1/sin²θ + 1/cos²θ = csc²θ + sec²θ.",
+            "tags": ["identity"]
+          },
+          {
+            "id": "ms-10-m2-ch6-pyq3",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 4,
+            "text": "Given 1/sin²θ + 1/cos²θ + 1/tan²θ + 1/cot²θ + 1/sec²θ + 1/cosec²θ = 3, find θ.",
+            "answer": "Simplify identities → θ = 45°.",
+            "tags": ["identities", "evaluation"]
+          },
+          {
+            "id": "ms-10-m2-ch6-pyq4",
+            "source": "pyq",
+            "type": "activity",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "An observer is 10 m away from a tree and angle of elevation is 60°. Find the height of the tree.",
+            "imageUrl": "/images/maths2/ch6-height-and-distance.png",
+            "answer": "Height of tree = 17.3 m.",
+            "tags": ["height-distance"]
+          },
+          {
+            "id": "ms-10-m2-ch6-pyq5",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "If sin θ = 11/61, find cos θ.",
+            "answer": "cos θ = 60/61.",
+            "tags": ["trigonometric-identity"]
+          },
+          {
+            "id": "ms-10-m2-ch6-pyq6",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 3,
+            "text": "Verify trigonometric identities for θ = 30°.",
+            "answer": "All given identities are verified using standard values.",
+            "tags": ["identities"]
+          }
+        ]
       },
       {
-        "id": "ms-10-m2-ch7-q10",
-        "source": "balbharati",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 5,
-        "text": "A solid metallic sphere of radius 5 cm is melted and recast into cones of radius 2 cm and height 10 cm. How many cones are formed?",
-        "answer": "Volume of sphere = (4/3)π(5³) = (4/3)π × 125 = 500π/3 Volume of cone = (1/3)πr²h = (1/3)π × 4 × 10 = 40π/3 Number of cones = (500π/3) ÷ (40π/3) = 500/40 = 12.5 → 12 cones (full cones).",
-        "tags": ["sphere", "cone", "mensuration"]
-      },
-      {
-        "id": "ms-10-m2-ch7-pyq1",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 2,
-        "text": "Find the side of a square whose diagonal is 10√2 cm.",
-        "answer": "Side = diagonal / √2 = (10√2)/√2 = 10 cm.",
-        "tags": ["square", "diagonal"]
-      },
-      {
-        "id": "ms-10-m2-ch7-pyq2",
-        "source": "pyq",
-        "type": "short",
-        "difficulty": "medium",
-        "marks": 3,
-        "text": "Find the surface area of a sphere of radius 7 cm.",
-        "answer": "Surface area = 4πr² = 4×π×49 = 616 cm².",
-        "tags": ["surface-area", "sphere"]
-      },
-      {
-        "id": "ms-10-m2-ch7-pyq3",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 4,
-        "text": "A cylinder of radius 12 cm has water up to 20 cm height. A spherical ball dropped raises water by 6.75 cm. Find radius of ball.",
-        "answer": "Volume displaced = πr²h = π×12²×6.75 = volume of sphere. Solve for sphere radius → r ≈ 9 cm.",
-        "tags": ["volume", "sphere", "cylinder"]
-      },
-      {
-        "id": "ms-10-m2-ch7-pyq4",
-        "source": "pyq",
-        "type": "mcq",
-        "difficulty": "easy",
-        "marks": 1,
-        "text": "If radius of a cone is 5 cm and height is 12 cm, find slant height.",
-        "options": ["17 cm", "4 cm", "13 cm", "60 cm"],
-        "answer": "13 cm",
-        "tags": ["cone"]
-      },
-      {
-        "id": "ms-10-m2-ch7-pyq5",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 4,
-        "text": "Find CSA, TSA and volume of a frustum with radii 14 cm and 8 cm and height 8 cm.",
-        "answer": "CSA = 1104.32 cm², TSA = 2370.56 cm², Volume = 3510.08 cm³.",
-        "tags": ["frustum"]
-      },
-      {
-        "id": "ms-10-m2-ch7-pyq6",
-        "source": "pyq",
-        "type": "long",
-        "difficulty": "hard",
-        "marks": 3,
-        "text": "How many solid cylinders of radius 10 cm and height 6 cm can be made by melting a sphere of radius 30 cm?",
-        "answer": "45 cylinders.",
-        "tags": ["volume"]
+        "id": "ms-10-m2-ch7",
+        "chapterNumber": 7,
+        "title": "Mensuration",
+        "slug": "mensuration",
+        "description": "Surface areas and volumes of basic solid figures such as cuboid, cylinder, cone, sphere, hemisphere, and frustum.",
+        "topics": [
+          "Surface area of cuboid & cube",
+          "Surface area of cylinder",
+          "Surface area of cone",
+          "Surface area of sphere & hemisphere",
+          "Volume of solids",
+          "Frustum of cone",
+          "Applications of mensuration"
+        ],
+        "learningObjectives": [
+          "Calculate curved and total surface areas of standard solids.",
+          "Find volumes of cubes, cuboids, cylinders, cones, spheres, and hemispheres.",
+          "Apply formulas to solve practical mensuration problems.",
+          "Understand and compute surface area and volume of a frustum.",
+          "Use mensuration concepts in real-life applications involving 3D shapes."
+        ],
+        "questions": [
+          {
+            "id": "ms-10-m2-ch7-q1",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "easy",
+            "marks": 2,
+            "text": "Write the formula for the volume of a cylinder.",
+            "answer": "Volume of cylinder = πr²h.",
+            "tags": ["cylinder", "volume"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q2",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "The curved surface area of a cone is given by:",
+            "options": ["πr²", "πrl", "2πrh", "4πr²"],
+            "answer": "πrl",
+            "tags": ["cone", "surface-area"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q3",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "A hemisphere has radius 7 cm. Find its curved surface area.",
+            "answer": "CSA = 2πr² = 2π(7²) = 98π cm².",
+            "tags": ["hemisphere", "surface-area"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q4",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "A cone has radius 5 cm and slant height 13 cm. Find its curved surface area.",
+            "answer": "CSA = πrl = π × 5 × 13 = 65π cm².",
+            "tags": ["cone", "surface-area"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q5",
+            "source": "balbharati",
+            "type": "mcq",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Which of the following is the formula for the volume of a sphere?",
+            "options": ["(4/3)πr³", "2πr²h", "πr²h", "πrl"],
+            "answer": "(4/3)πr³",
+            "tags": ["sphere", "volume"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q6",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "A cylindrical water tank has radius 4 m and height 6 m. Find its volume.",
+            "answer": "Volume = πr²h = π × 16 × 6 = 96π m³.",
+            "tags": ["cylinder", "volume"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q7",
+            "source": "balbharati",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "A sphere has radius 3 cm. Find its total surface area.",
+            "answer": "TSA = 4πr² = 4π(3²) = 36π cm².",
+            "tags": ["sphere", "surface-area"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q8",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A frustum of a cone has radii 6 cm and 10 cm and height 12 cm. Find its volume.",
+            "answer": "Volume of frustum = (1/3)πh(R² + r² + Rr) = (1/3)π × 12 × (10² + 6² + 10×6) = 4π × (100 + 36 + 60) = 4π × 196 = 784π cm³.",
+            "tags": ["frustum", "volume"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q9",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A cone is melted to form a cylinder of radius 3 cm and height 4 cm. If the radius of the cone is 6 cm, find its height.",
+            "answer": "Volume of cone = Volume of cylinder (1/3)πR²H = πr²h (1/3)π × 6² × H = π × 3² × 4 12H = 36 H = 3 cm.",
+            "tags": ["mensuration", "volume", "conversion"]
+          },
+          {
+            "id": "ms-10-m2-ch7-q10",
+            "source": "balbharati",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 5,
+            "text": "A solid metallic sphere of radius 5 cm is melted and recast into cones of radius 2 cm and height 10 cm. How many cones are formed?",
+            "answer": "Volume of sphere = (4/3)π(5³) = (4/3)π × 125 = 500π/3 Volume of cone = (1/3)πr²h = (1/3)π × 4 × 10 = 40π/3 Number of cones = (500π/3) ÷ (40π/3) = 500/40 = 12.5 → 12 cones (full cones).",
+            "tags": ["sphere", "cone", "mensuration"]
+          },
+          {
+            "id": "ms-10-m2-ch7-pyq1",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 2,
+            "text": "Find the side of a square whose diagonal is 10√2 cm.",
+            "answer": "Side = diagonal / √2 = (10√2)/√2 = 10 cm.",
+            "tags": ["square", "diagonal"]
+          },
+          {
+            "id": "ms-10-m2-ch7-pyq2",
+            "source": "pyq",
+            "type": "short",
+            "difficulty": "medium",
+            "marks": 3,
+            "text": "Find the surface area of a sphere of radius 7 cm.",
+            "answer": "Surface area = 4πr² = 4×π×49 = 616 cm².",
+            "tags": ["surface-area", "sphere"]
+          },
+          {
+            "id": "ms-10-m2-ch7-pyq3",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 4,
+            "text": "A cylinder of radius 12 cm has water up to 20 cm height. A spherical ball dropped raises water by 6.75 cm. Find radius of ball.",
+            "answer": "Volume displaced = πr²h = π×12²×6.75 = volume of sphere. Solve for sphere radius → r ≈ 9 cm.",
+            "tags": ["volume", "sphere", "cylinder"]
+          },
+          {
+            "id": "ms-10-m2-ch7-pyq4",
+            "source": "pyq",
+            "type": "mcq",
+            "difficulty": "easy",
+            "marks": 1,
+            "text": "If radius of a cone is 5 cm and height is 12 cm, find slant height.",
+            "options": ["17 cm", "4 cm", "13 cm", "60 cm"],
+            "answer": "13 cm",
+            "tags": ["cone"]
+          },
+          {
+            "id": "ms-10-m2-ch7-pyq5",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 4,
+            "text": "Find CSA, TSA and volume of a frustum with radii 14 cm and 8 cm and height 8 cm.",
+            "answer": "CSA = 1104.32 cm², TSA = 2370.56 cm², Volume = 3510.08 cm³.",
+            "tags": ["frustum"]
+          },
+          {
+            "id": "ms-10-m2-ch7-pyq6",
+            "source": "pyq",
+            "type": "long",
+            "difficulty": "hard",
+            "marks": 3,
+            "text": "How many solid cylinders of radius 10 cm and height 6 cm can be made by melting a sphere of radius 30 cm?",
+            "answer": "45 cylinders.",
+            "tags": ["volume"]
+          }
+        ]
       }
     ]
-  }
-    ]
-  }, {
+  },
+  {
+    "id": "ms-eng-10-hist",
     "board": "msbshse",
     "medium": "english",
     "classKey": "10",
@@ -6147,7 +6329,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which philosophical approach emphasised 'scientific method' in history?",
-            "options": ["Annales School", "Positivism", "Romanticism", "Marxism"],
+            "options": [
+              "Annales School",
+              "Positivism",
+              "Romanticism",
+              "Marxism"
+            ],
             "answer": "Positivism",
             "tags": ["positivism"]
           },
@@ -6240,7 +6427,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "The Sanskrit text of ‘Hitopadesh’ was translated into German by:",
-            "options": ["James Mill", "Friedrich Max Muller", "Mountstuart Elphinstone", "Sir John Marshall"],
+            "options": [
+              "James Mill",
+              "Friedrich Max Muller",
+              "Mountstuart Elphinstone",
+              "Sir John Marshall"
+            ],
             "answer": "Friedrich Max Muller",
             "tags": ["western-historiography"]
           },
@@ -6255,7 +6447,8 @@
             "tags": ["foucault"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch2",
         "chapterNumber": 2,
         "title": "Historiography: Indian Tradition",
@@ -6422,7 +6615,8 @@
             "tags": ["bakhar"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch3",
         "chapterNumber": 3,
         "title": "Applied History",
@@ -6452,7 +6646,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Applied History mainly focuses on:",
-            "options": ["Writing poems", "Practical use of historical knowledge", "Making sculptures", "Painting"],
+            "options": [
+              "Writing poems",
+              "Practical use of historical knowledge",
+              "Making sculptures",
+              "Painting"
+            ],
             "answer": "Practical use of historical knowledge",
             "tags": ["definition"]
           },
@@ -6493,7 +6692,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which of the following is NOT a field related to applied history?",
-            "options": ["Tourism", "Archaeology", "Archive Management", "Astronomy"],
+            "options": [
+              "Tourism",
+              "Archaeology",
+              "Archive Management",
+              "Astronomy"
+            ],
             "answer": "Astronomy",
             "tags": ["applied-history"]
           },
@@ -6798,7 +7002,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is a primary mass media source for historians?",
-            "options": ["Poetry books", "Newspapers", "Textbooks", "Dictionaries"],
+            "options": [
+              "Poetry books",
+              "Newspapers",
+              "Textbooks",
+              "Dictionaries"
+            ],
             "answer": "Newspapers",
             "tags": ["newspapers"]
           },
@@ -6915,7 +7124,8 @@
             "tags": ["mass-media"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch6",
         "chapterNumber": 6,
         "title": "Entertainment and History",
@@ -6986,7 +7196,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which entertainment form often uses humor to comment on social and political issues?",
-            "options": ["Animation films", "Cartoons", "Soap operas", "Mystery shows"],
+            "options": [
+              "Animation films",
+              "Cartoons",
+              "Soap operas",
+              "Mystery shows"
+            ],
             "answer": "Cartoons",
             "tags": ["cartoons"]
           },
@@ -7061,7 +7276,8 @@
             "tags": ["films-and-history"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch7",
         "chapterNumber": 7,
         "title": "Sports and History",
@@ -7091,7 +7307,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following can be considered a historical source?",
-            "options": ["Novels", "Sports magazines", "Paintings", "All of the above"],
+            "options": [
+              "Novels",
+              "Sports magazines",
+              "Paintings",
+              "All of the above"
+            ],
             "answer": "All of the above",
             "tags": ["sources"]
           },
@@ -7132,7 +7353,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which form of art is directly linked with cultural heritage?",
-            "options": ["Graffiti", "Classical dance", "Modern comics", "Short films"],
+            "options": [
+              "Graffiti",
+              "Classical dance",
+              "Modern comics",
+              "Short films"
+            ],
             "answer": "Classical dance",
             "tags": ["cultural-heritage"]
           },
@@ -7207,7 +7433,8 @@
             "tags": ["sports-history"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch8",
         "chapterNumber": 8,
         "title": "Tourism and History",
@@ -7237,7 +7464,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "What type of tourism involves visiting historical monuments and heritage sites?",
-            "options": ["Eco-tourism", "Historical tourism", "Medical tourism", "Adventure tourism"],
+            "options": [
+              "Eco-tourism",
+              "Historical tourism",
+              "Medical tourism",
+              "Adventure tourism"
+            ],
             "answer": "Historical tourism",
             "tags": ["tourism-types"]
           },
@@ -7278,7 +7510,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which factor can negatively affect heritage sites?",
-            "options": ["Responsible tourism", "Conservation efforts", "Overcrowding", "Government protection"],
+            "options": [
+              "Responsible tourism",
+              "Conservation efforts",
+              "Overcrowding",
+              "Government protection"
+            ],
             "answer": "Overcrowding",
             "tags": ["heritage-threats"]
           },
@@ -7364,7 +7601,8 @@
             "tags": ["tourism"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch9",
         "chapterNumber": 9,
         "title": "Heritage Management",
@@ -7510,7 +7748,8 @@
             "tags": ["heritage"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch10",
         "chapterNumber": 10,
         "title": "Working of the Constitution",
@@ -7540,7 +7779,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Who is the head of the Union Executive?",
-            "options": ["Prime Minister", "Chief Justice", "President", "Governor"],
+            "options": [
+              "Prime Minister",
+              "Chief Justice",
+              "President",
+              "Governor"
+            ],
             "answer": "President",
             "tags": ["executive"]
           },
@@ -7581,7 +7825,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which institution interprets the Constitution?",
-            "options": ["Parliament", "Election Commission", "Judiciary", "Finance Commission"],
+            "options": [
+              "Parliament",
+              "Election Commission",
+              "Judiciary",
+              "Finance Commission"
+            ],
             "answer": "Judiciary",
             "tags": ["judiciary"]
           },
@@ -7642,7 +7891,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "73rd and 74th Constitutional Amendments gave constitutional status to:",
-            "options": ["Vidhan Sabha", "Local self-governing institutions", "Lok Sabha", "Rajya Sabha"],
+            "options": [
+              "Vidhan Sabha",
+              "Local self-governing institutions",
+              "Lok Sabha",
+              "Rajya Sabha"
+            ],
             "answer": "Local self-governing institutions",
             "tags": ["constitution"]
           },
@@ -7658,7 +7912,8 @@
             "tags": ["constitution"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch11",
         "chapterNumber": 11,
         "title": "The Electoral Process",
@@ -7689,7 +7944,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Who conducts elections in India?",
-            "options": ["Parliament", "Supreme Court", "Election Commission", "President"],
+            "options": [
+              "Parliament",
+              "Supreme Court",
+              "Election Commission",
+              "President"
+            ],
             "answer": "Election Commission",
             "tags": ["election-commission"]
           },
@@ -7730,7 +7990,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "What do candidates submit during the nomination process?",
-            "options": ["A manifesto", "Identity card", "Nomination form and deposit", "Voter ID"],
+            "options": [
+              "A manifesto",
+              "Identity card",
+              "Nomination form and deposit",
+              "Voter ID"
+            ],
             "answer": "Nomination form and deposit",
             "tags": ["nomination"]
           },
@@ -7806,7 +8071,8 @@
             "tags": ["elections"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch12",
         "chapterNumber": 12,
         "title": "Political Parties",
@@ -7882,7 +8148,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which of the following is a feature of a multi-party system?",
-            "options": ["Only one party exists", "Two major parties dominate", "Multiple parties compete for power", "Elections are not held"],
+            "options": [
+              "Only one party exists",
+              "Two major parties dominate",
+              "Multiple parties compete for power",
+              "Elections are not held"
+            ],
             "answer": "Multiple parties compete for power",
             "tags": ["multi-party"]
           },
@@ -7957,7 +8228,8 @@
             "tags": ["political-parties"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch13",
         "chapterNumber": 13,
         "title": "Social and Political Movements",
@@ -7988,7 +8260,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which movement focuses on protecting natural resources and the environment?",
-            "options": ["Women’s Movement", "Environmental Movement", "Dalit Movement", "Farmers’ Movement"],
+            "options": [
+              "Women’s Movement",
+              "Environmental Movement",
+              "Dalit Movement",
+              "Farmers’ Movement"
+            ],
             "answer": "Environmental Movement",
             "tags": ["environmental"]
           },
@@ -8029,7 +8306,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which movement is associated with issues like crop prices and agricultural reforms?",
-            "options": ["Environmental Movement", "Farmers’ Movement", "Dalit Movement", "Students’ Movement"],
+            "options": [
+              "Environmental Movement",
+              "Farmers’ Movement",
+              "Dalit Movement",
+              "Students’ Movement"
+            ],
             "answer": "Farmers’ Movement",
             "tags": ["farmers"]
           },
@@ -8104,7 +8386,8 @@
             "tags": ["social-movements"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-hps-ch14",
         "chapterNumber": 14,
         "title": "Challenges Faced by Indian Democracy",
@@ -8135,7 +8418,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is a major challenge to Indian democracy?",
-            "options": ["High literacy", "Corruption", "Industrial growth", "Technological development"],
+            "options": [
+              "High literacy",
+              "Corruption",
+              "Industrial growth",
+              "Technological development"
+            ],
             "answer": "Corruption",
             "tags": ["corruption"]
           },
@@ -8176,7 +8464,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which social issue threatens unity and harmony in India?",
-            "options": ["Communalism", "Urbanization", "Globalization", "Privatization"],
+            "options": [
+              "Communalism",
+              "Urbanization",
+              "Globalization",
+              "Privatization"
+            ],
             "answer": "Communalism",
             "tags": ["communalism"]
           },
@@ -8237,7 +8530,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "The major challenge faced by all democratic nations is:",
-            "options": ["Religious conflicts", "Naxal activities", "Deepening the roots of democracy", "Muscle power"],
+            "options": [
+              "Religious conflicts",
+              "Naxal activities",
+              "Deepening the roots of democracy",
+              "Muscle power"
+            ],
             "answer": "Deepening the roots of democracy",
             "tags": ["democracy"]
           },
@@ -8255,7 +8553,9 @@
         ]
       }
     ]
-  }, {
+  },
+  {
+    "id": "ms-eng-10-geo",
     "board": "msbshse",
     "medium": "english",
     "classKey": "10",
@@ -8291,7 +8591,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is the first step in organising a field visit?",
-            "options": ["Writing a report", "Planning the visit", "Collecting data", "Preparing questionnaires"],
+            "options": [
+              "Writing a report",
+              "Planning the visit",
+              "Collecting data",
+              "Preparing questionnaires"
+            ],
             "answer": "Planning the visit",
             "tags": ["planning"]
           },
@@ -8332,7 +8637,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which of the following is NOT a tool used in field data collection?",
-            "options": ["Questionnaire", "Measuring tape", "Camera", "Textbook exercises"],
+            "options": [
+              "Questionnaire",
+              "Measuring tape",
+              "Camera",
+              "Textbook exercises"
+            ],
             "answer": "Textbook exercises",
             "tags": ["tools"]
           },
@@ -8393,7 +8703,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "We should carry _____ for a field visit to collect information.",
-            "options": ["Chair", "Black board", "Water bottle", "Questionnaire"],
+            "options": [
+              "Chair",
+              "Black board",
+              "Water bottle",
+              "Questionnaire"
+            ],
             "answer": "Questionnaire",
             "tags": ["field-visit"]
           },
@@ -8418,7 +8733,8 @@
             "tags": ["field-visit"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch2",
         "chapterNumber": 2,
         "title": "Location and Extent",
@@ -8494,12 +8810,7 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which longitude is used as the Standard Meridian of India?",
-            "options": [
-              "82°30'E",
-              "68°7'E",
-              "97°25'E",
-              "90°E"
-            ],
+            "options": ["82°30'E", "68°7'E", "97°25'E", "90°E"],
             "answer": "82°30'E",
             "tags": ["standard-meridian"]
           },
@@ -8576,7 +8887,8 @@
             "tags": ["brazil"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch3",
         "chapterNumber": 3,
         "title": "Physiography and Drainage",
@@ -8648,7 +8960,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which physiographic division is the oldest landmass of India?",
-            "options": ["Himalayas", "Northern Plains", "Peninsular Plateau", "Coastal Plains"],
+            "options": [
+              "Himalayas",
+              "Northern Plains",
+              "Peninsular Plateau",
+              "Coastal Plains"
+            ],
             "answer": "Peninsular Plateau",
             "tags": ["peninsular-plateau"]
           },
@@ -8699,7 +9016,7 @@
             "difficulty": "hard",
             "marks": 5,
             "text": "Discuss the drainage patterns found in India with examples.",
-              "answer": "India has dendritic, trellis, radial, and parallel drainage patterns. - **Dendritic**: Ganga basin. - **Trellis**: Rivers in the Vindhya ranges. - **Radial**: Rivers originating from Amarkantak and volcanic cones. - **Parallel**: Western Ghats region. These patterns reflect geological structure and slope.",
+            "answer": "India has dendritic, trellis, radial, and parallel drainage patterns. - **Dendritic**: Ganga basin. - **Trellis**: Rivers in the Vindhya ranges. - **Radial**: Rivers originating from Amarkantak and volcanic cones. - **Parallel**: Western Ghats region. These patterns reflect geological structure and slope.",
             "tags": ["drainage-patterns"]
           },
           {
@@ -8724,7 +9041,8 @@
             "tags": ["map-work"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch4",
         "chapterNumber": 4,
         "title": "Climate",
@@ -8755,7 +9073,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which factor is mainly responsible for the onset of monsoon in India?",
-            "options": ["Land-Sea breeze", "Low pressure over Northwest India", "Western disturbances", "Snowfall in Himalayas"],
+            "options": [
+              "Land-Sea breeze",
+              "Low pressure over Northwest India",
+              "Western disturbances",
+              "Snowfall in Himalayas"
+            ],
             "answer": "Low pressure over Northwest India",
             "tags": ["monsoon"]
           },
@@ -8796,7 +9119,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which region receives the highest rainfall in India?",
-            "options": ["Western Rajasthan", "Gujarat Plains", "Mawsynram–Meghalaya", "Punjab"],
+            "options": [
+              "Western Rajasthan",
+              "Gujarat Plains",
+              "Mawsynram–Meghalaya",
+              "Punjab"
+            ],
             "answer": "Mawsynram–Meghalaya",
             "tags": ["rainfall"]
           },
@@ -8871,7 +9199,8 @@
             "tags": ["climate"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch5",
         "chapterNumber": 5,
         "title": "Natural Vegetation and Wildlife",
@@ -8902,7 +9231,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which type of forest is found in areas with heavy rainfall?",
-            "options": ["Mangroves", "Desert vegetation", "Evergreen forests", "Thorn forests"],
+            "options": [
+              "Mangroves",
+              "Desert vegetation",
+              "Evergreen forests",
+              "Thorn forests"
+            ],
             "answer": "Evergreen forests",
             "tags": ["forest-types"]
           },
@@ -9019,7 +9353,8 @@
             "tags": ["vegetation"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch6",
         "chapterNumber": 6,
         "title": "Population",
@@ -9091,7 +9426,12 @@
             "difficulty": "medium",
             "marks": 2,
             "text": "Which of the following contributes to population growth?",
-            "options": ["High death rate", "High birth rate", "Low life expectancy", "Migration only"],
+            "options": [
+              "High death rate",
+              "High birth rate",
+              "Low life expectancy",
+              "Migration only"
+            ],
             "answer": "High birth rate",
             "tags": ["growth"]
           },
@@ -9152,7 +9492,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "On the distribution of population _____ factor affects.",
-            "options": ["Physiographic", "Sex ratio", "Literacy", "Life expectancy"],
+            "options": [
+              "Physiographic",
+              "Sex ratio",
+              "Literacy",
+              "Life expectancy"
+            ],
             "answer": "Physiographic",
             "tags": ["population"]
           },
@@ -9168,7 +9513,8 @@
             "tags": ["population", "graph"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch7",
         "chapterNumber": 7,
         "title": "Human Settlements",
@@ -9198,7 +9544,12 @@
             "difficulty": "easy",
             "marks": 1,
             "text": "Which of the following is an example of a rural settlement?",
-            "options": ["Village", "Metropolitan city", "Industrial township", "Mega city"],
+            "options": [
+              "Village",
+              "Metropolitan city",
+              "Industrial township",
+              "Mega city"
+            ],
             "answer": "Village",
             "tags": ["rural"]
           },
@@ -9314,7 +9665,8 @@
             "tags": ["settlements"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch8",
         "chapterNumber": 8,
         "title": "Economy and Occupations",
@@ -9463,7 +9815,8 @@
             "tags": ["economy", "graph"]
           }
         ]
-      }, {
+      },
+      {
         "id": "ms-10-geo-ch9",
         "chapterNumber": 9,
         "title": "Tourism, Transport and Communication",
