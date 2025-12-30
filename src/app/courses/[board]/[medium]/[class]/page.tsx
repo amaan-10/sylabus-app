@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React from "react";
@@ -125,13 +126,13 @@ const ClassSubjectsPage: React.FC = () => {
   const totalElectives = subjects.length - totalCompulsory;
 
   return (
-    <div className="flex items-start bg-white flex-row gap-2 overflow-hidden py-2 px-2 pl-[104px] relative min-h-screen w-full font-poppins">
+    <div className="flex place-content-start items-start bg-slate-50 md:bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-2 md:pl-[104px] relative min-h-screen w-auto font-poppins">
       <Sidebar />
 
-      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_32px_32px] will-change-transform">
+      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
         <div className="w-full">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-sm text-muted-foreground">
+          <nav className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
             <Home className="w-4 h-4" />
             {items.map((item, index) => (
               <span key={index} className="flex items-center gap-1.5">
@@ -150,7 +151,7 @@ const ClassSubjectsPage: React.FC = () => {
 
           {/* Header */}
           <div className="min-h-screen py-10">
-            <div className="px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="px-0 md:px-8 space-y-8">
               {/* Header */}
               <header className="space-y-2">
                 <div className="flex flex-wrap items-center gap-3">
@@ -181,7 +182,7 @@ const ClassSubjectsPage: React.FC = () => {
               </header>
 
               {/* Summary cards */}
-              <section className="grid gap-4 md:grid-cols-3">
+              {/* <section className="grid gap-4 md:grid-cols-3">
                 <SummaryCard
                   label="Total Subjects"
                   value={subjects.length.toString()}
@@ -195,7 +196,7 @@ const ClassSubjectsPage: React.FC = () => {
                   label="Electives / Optional"
                   value={totalElectives.toString()}
                 />
-              </section>
+              </section> */}
 
               {/* Subjects list */}
               <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

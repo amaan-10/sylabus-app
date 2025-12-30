@@ -57,10 +57,10 @@ const BoardDetailsPage = () => {
   ];
 
   return (
-    <div className="flex items-start bg-white flex-row gap-2 overflow-hidden py-2 px-2 pl-[104px] relative min-h-screen w-full font-poppins">
+    <div className="flex place-content-start items-start bg-slate-50 md:bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-2 md:pl-[104px] relative min-h-screen w-auto font-poppins">
       <Sidebar />
 
-      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_32px_32px] will-change-transform">
+      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
         <div className="">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -81,7 +81,7 @@ const BoardDetailsPage = () => {
           </nav>
 
           <div className="min-h-screen py-10">
-            <div className="px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="md:px-8 space-y-8">
               {/* Header */}
               <header className="space-y-2">
                 <div className="flex flex-wrap items-center gap-3">
@@ -114,7 +114,7 @@ const BoardDetailsPage = () => {
                 <div className="col-span-2">
                   <MediumSelector board={board} />
                 </div>
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div className="rounded-2xl col-span-2 md:col-span-1 border border-slate-200 bg-white p-4 shadow-sm">
                   <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
                     Class Range
                   </p>
@@ -397,28 +397,24 @@ const MediumSelector: React.FC<{ board: EducationBoard }> = ({ board }) => {
         Select the medium to view content and structure specific to that
         language.
       </p>
-      <div className="mt-4 flex flex-wrap gap-3">
+      <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-3">
         {board.mediums.slice(0, 3).map((medium) => (
           <Link
             key={medium}
             href={`/courses/${encodeURIComponent(
               board.abbreviation.toLowerCase()
             )}/${slugify(medium)}`}
-            className="group w-full sm:w-40 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition overflow-hidden hover:-translate-y-1 active:scale-[0.97]"
+            className="group rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition overflow-hidden hover:-translate-y-1 active:scale-[0.97]"
           >
             <div className="flex flex-col items-center p-4 space-y-3">
               <div className="h-14 w-14 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden group-hover:bg-emerald-50 transition">
-                {medium ? (
-                  <Image
-                    width={36}
-                    height={36}
-                    src={`/mediums/${medium.toLowerCase()}-med.png`}
-                    alt={medium}
-                    className="h-full w-full object-contain"
-                  />
-                ) : (
-                  <span className="text-2xl">📘</span>
-                )}
+                <Image
+                  width={36}
+                  height={36}
+                  src={`/mediums/${medium.toLowerCase()}-med.png`}
+                  alt={medium}
+                  className="h-full w-full object-contain"
+                />
               </div>
 
               <p className="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 transition">
@@ -448,7 +444,7 @@ const OtherBoardsList: React.FC<{ currentAbbreviation: string }> = ({
       <p className="mt-1 text-xs text-slate-500">
         Jump to medium selection for another board.
       </p>
-      <div className="mt-4 flex flex-wrap gap-5">
+      <div className="mt-4 grid grid-cols-2 gap-4 w-fit">
         {otherBoards.map((board) => (
           <Link
             key={board.abbreviation}

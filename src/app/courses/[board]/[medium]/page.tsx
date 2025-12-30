@@ -119,13 +119,13 @@ const CoursesByBoardMediumPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex items-start bg-white flex-row gap-2 overflow-hidden py-2 px-2 pl-[104px] relative min-h-screen w-full font-poppins">
+    <div className="flex place-content-start items-start bg-slate-50 md:bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-2 md:pl-[104px] relative min-h-screen w-auto font-poppins">
       <Sidebar />
 
-      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_32px_32px] will-change-transform">
+      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
         <div className="">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-sm text-muted-foreground">
+          <nav className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
             <Home className="w-4 h-4" />
             {items.map((item, index) => (
               <span key={index} className="flex items-center gap-1.5">
@@ -144,7 +144,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
 
           {/* Header */}
           <div className="min-h-screen py-10">
-            <div className="px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="px-0 md:px-8 space-y-8">
               {/* Header */}
               <header className="space-y-2">
                 <div className="flex flex-wrap items-center gap-3">
@@ -248,7 +248,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                   <aside
                     className={`grid gap-4 ${
                       otherBoardsForMedium.length > 0
-                        ? "grid-cols-2"
+                        ? "grid-cols-1 md:grid-cols-2"
                         : "grid-cols-1"
                     }`}
                   >
@@ -260,7 +260,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                       <p className="mt-1 text-xs text-slate-500">
                         Quickly change medium for {board.abbreviation}.
                       </p>
-                      <div className="mt-3 flex flex-wrap gap-2">
+                      <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-3">
                         {mediumsForBoard.map((m) => {
                           // const active = m.slug === medium.slug;
                           const baseUrl = `/courses/${encodeURIComponent(
@@ -307,7 +307,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                           Explore how {medium.medium_name} looks in other
                           boards.
                         </p>
-                        <div className="mt-4 flex flex-wrap gap-5">
+                        <div className="mt-4 grid grid-cols-2 gap-4 w-fit">
                           {otherBoardsForMedium.map((b) => {
                             const targetBoardParam =
                               b.abbreviation.toLowerCase();
@@ -444,7 +444,7 @@ export default CoursesByBoardMediumPage;
 // ------------ Small Helper Components ------------
 
 const CLASS_SELECTOR_GRID =
-  "grid gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
+  "grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
 
 type ClassOption = {
   label: string; // what user sees
