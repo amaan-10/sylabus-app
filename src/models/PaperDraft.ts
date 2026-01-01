@@ -14,6 +14,21 @@ const PaperDraftSchema = new Schema(
       trim: true,
     },
 
+    boardSlug: {
+      type: String,
+      required: true,
+    },
+
+    mediumSlug: {
+      type: String,
+      required: true,
+    },
+
+    classKey: {
+      type: String,
+      required: true,
+    },
+
     subjectSlug: {
       type: String,
       required: true,
