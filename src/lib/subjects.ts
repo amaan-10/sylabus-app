@@ -351,26 +351,26 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
     medium: "english",
     classKey: "12-science",
     subjects: [
-      lang("eng", "English Yuvakbharthi", "English"),
+      lang("eng", "English", "English Yuvakbharthi"),
       core("phy", "Physics", "Physics", undefined, "science"),
       core("chem", "Chemistry", "Chemistry", undefined, "science"),
       elective(
-        "maths-1",
-        "Mathematics & Statistics 1",
-        "Maths 1",
+        "maths",
+        "Mathematics & Statistics",
+        "Maths 1 & Maths 2",
         undefined,
         "science"
       ),
-      elective(
-        "maths-2",
-        "Mathematics & Statistics 2",
-        "Maths 2",
-        undefined,
-        "science"
-      ),
+      // elective(
+      //   "maths-2",
+      //   "Mathematics & Statistics 2",
+      //   "Maths 2",
+      //   undefined,
+      //   "science"
+      // ),
       elective("bio", "Biology", "Biology", undefined, "science"),
       elective("geo", "Geography", "Geography", undefined, "all"),
-      elective("hin", "Hindi Yuvakbharthi", "Hindi", undefined, "all"),
+      elective("hin", "Hindi", "Hindi Yuvakbharthi", undefined, "all"),
       elective("it", "Information Technology", "IT", undefined, "all"),
       elective("cs", "Computer Science", "CS", undefined, "all"),
     ],
