@@ -17,11 +17,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { subjectSlug, paperMode, lastUpdated, ...cleanDraft } = draft;
+    const {
+      boardSlug,
+      mediumSlug,
+      classKey,
+      subjectSlug,
+      paperMode,
+      lastUpdated,
+      ...cleanDraft
+    } = draft;
 
     const saved = await PaperDraft.create({
       userId,
       draftName,
+      boardSlug: draft.boardSlug,
+      mediumSlug: draft.mediumSlug,
+      classKey: draft.classKey,
       subjectSlug: draft.subjectSlug,
       paperMode: draft.paperMode,
       draft: cleanDraft,
