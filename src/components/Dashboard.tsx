@@ -462,12 +462,39 @@ const Dashboard = () => {
   };
 
   return (
-    <section className="border border-[rgba(0,0,0,0.08)] place-content-center items-center bg-white rounded-2xl flex flex-[1_0_0] flex-col gap-14 h-min overflow-hidden py-16 px-8 pb-8 relative w-px">
+    <section className="md:border border-[rgba(0,0,0,0.08)] place-content-center items-center bg-white rounded-2xl flex flex-[1_0_0] flex-col gap-6 md:gap-14 h-min overflow-hidden p-[32px_8px_120px] md:py-16 md:px-8 md:pb-8 relative w-px">
+      <div className="relative flex md:hidden flex-col items-start justify-start flex-none gap-2.5 h-min w-full overflow-hidden p-0">
+        <Link
+          href="/"
+          className="relative flex-none shrink-0 w-8 h-6 no-underline text-black fill-current image-pixelated"
+        >
+          <div className="w-full h-full aspect-ratio-[inherit]">
+            <svg
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="100"
+              height="100"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="xMidYMid meet"
+              className="select-none w-full h-full inline-block shrink-0 fill-[#193625] text-[#193625]"
+            >
+              <g
+                transform="translate(0,100) scale(0.1,-0.1)"
+                fill="#193625"
+                stroke="none"
+              >
+                <path d="M626 894 l-49 -75 121 -122 121 -121 75 50 75 50 -147 147 -147 146 -49 -75z" />
+                <path d="M509 743 c-50 -26 -135 -43 -215 -43 l-50 0 -23 -97 c-13 -54 -52 -186 -87 -294 -35 -108 -64 -201 -64 -205 0 -5 81 72 180 171 113 112 178 185 175 194 -9 24 23 61 53 61 35 0 52 -16 52 -50 0 -33 -17 -50 -50 -50 -19 0 -66 -40 -205 -180 -99 -99 -176 -180 -171 -180 4 0 96 29 204 63 109 35 241 75 295 87 l97 24 0 50 c0 80 18 166 45 221 l25 50 -103 103 c-56 56 -104 101 -107 101 -3 -1 -26 -13 -51 -26z" />
+              </g>
+            </svg>
+          </div>
+        </Link>
+      </div>
       <div className="flex place-content-center items-center flex-none flex-col gap-14 h-min max-w-[1200px] overflow-hidden p-0 relative w-full">
-        <div className="flex place-content-center justify-between items-center flex-none flex-row h-min overflow-visible p-0 relative w-full">
+        <div className="flex flex-col md:flex-row place-content-start md:place-content-center justify-baseline md:justify-between items-start md:items-center gap-4 flex-none h-min overflow-visible p-0 relative w-full">
           <div className="flex place-content-center items-center flex-none flex-row gap-2 h-min overflow-hidden p-0 relative w-min">
             <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto">
-              <h4 className="text-2xl text-[#193625] tracking-tight">
+              <h4 className="text-2xl font-medium text-[#193625] tracking-tight">
                 Hi{data?.name && `, ${data.name}`}
               </h4>
             </div>
@@ -545,9 +572,10 @@ const Dashboard = () => {
                       />
                     </div>
                     {/* <div className="flex-none h-full absolute left-0 top-0 overflow-visible w-full z-0 bg-[linear-gradient(#0000_0%,#000_120%)] opacity-100"></div> */}
-                    <div className="flex flex-row items-center justify-between flex-none h-min overflow-hidden p-0 relative w-full">
-                      <div className="flex flex-row items-center justify-center flex-none gap-1.5 h-min w-min overflow-hidden p-3 relative rounded-xl bg-white opacity-100 will-change-transform">
-                        <div className="relative w-5 h-5 aspect-square flex-none shrink-0 text-[#191A20] fill-current opacity-100 image-pixelated">
+                    {feature.title === "Auto-Generate Exam Paper" ||
+                    feature.title === "Quick Quiz Generator" ? (
+                      <div className="flex flex-row items-center justify-between flex-none h-min overflow-hidden p-0 relative w-full">
+                        <div className="relative w-6 h-6 aspect-square flex-none shrink-0 text-[#191A20] fill-current opacity-100 image-pixelated">
                           <div className="w-full h-full aspect-[inherit]">
                             <svg
                               version="1.1"
@@ -555,7 +583,7 @@ const Dashboard = () => {
                               width="512"
                               height="512"
                               viewBox="0 0 512 512"
-                              className="h-5 w-5"
+                              className="h-6 w-6"
                             >
                               <path
                                 d="M0 0 C0.66 0 1.32 0 2 0 C2.13462646 0.91773193 2.13462646 0.91773193 2.27197266 1.85400391 C9.13408279 47.75237695 25.65475774 91.61952695 55 128 C55.45052734 128.56477051 55.90105469 129.12954102 56.36523438 129.71142578 C67.39854296 143.46279396 79.77051088 155.58697501 94 166 C95.04671875 166.76828125 96.0934375 167.5365625 97.171875 168.328125 C123.74924506 187.2364032 153.31760818 199.48534449 185 207 C185 207.66 185 208.32 185 209 C184.35264893 209.17015625 183.70529785 209.3403125 183.03833008 209.515625 C148.8158044 218.59254566 116.61424519 231.37458791 89 254 C88.47631836 254.42216797 87.95263672 254.84433594 87.41308594 255.27929688 C74.22880732 265.9259821 62.37442263 277.65153311 52.27490234 291.28076172 C51.0372902 292.94971322 49.77946181 294.60177553 48.51953125 296.25390625 C22.92720594 330.363455 6.83233034 373.73514065 2 416 C1.34 416 0.68 416 0 416 C-0.13462646 415.08226807 -0.13462646 415.08226807 -0.27197266 414.14599609 C-9.65138438 351.41022975 -38.49059533 290.08058976 -90.23681641 251.32324219 C-91.91269686 250.06551966 -93.57149506 248.7876937 -95.23046875 247.5078125 C-120.70820969 228.22164332 -152.01568617 216.05032291 -183 209 C-183 208.34 -183 207.68 -183 207 C-182.35264893 206.82984375 -181.70529785 206.6596875 -181.03833008 206.484375 C-146.81864141 197.4082068 -114.60970648 184.62803136 -87 162 C-86.47100098 161.57251465 -85.94200195 161.1450293 -85.39697266 160.70458984 C-73.00068343 150.66631063 -61.72905108 139.66999446 -52 127 C-51.5963623 126.48872559 -51.19272461 125.97745117 -50.77685547 125.45068359 C-22.86784215 90.00847111 -5.11794442 44.76291688 0 0 Z "
@@ -570,13 +598,10 @@ const Dashboard = () => {
                             </svg>
                           </div>
                         </div>
-                        <div className="flex flex-col justify-start flex-none shrink-0 outline-none relative w-auto h-auto whitespace-pre opacity-100 transform-none">
-                          <p className="text-[#191a20] font-semibold text-sm">
-                            AI
-                          </p>
-                        </div>
                       </div>
-                    </div>
+                    ) : (
+                      ""
+                    )}
                     <div className="flex place-content-center justify-between items-center flex-none flex-row h-min overflow-hidden p-0 relative w-full"></div>
                     <div className="flex place-content-start items-start flex-none flex-col gap-2 h-min max-w-lg overflow-hidden p-0 relative w-full">
                       <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre-wrap w-full wrap-break-word origin-center">
@@ -788,7 +813,7 @@ const Dashboard = () => {
                 className="flex flex-row place-content-center items-center gap-2 w-min h-min p-0 no-underline relative overflow-hidden"
                 href="./#hero"
               >
-                <div className="relative w-7 h-7">
+                <div className="relative w-5 md:w-7 h-5 md:h-7 mb-[7px] md:mb-0">
                   {/* svg */}
                   <svg
                     version="1.0"
@@ -810,7 +835,9 @@ const Dashboard = () => {
                   </svg>
                 </div>
                 <div className="relative w-auto h-auto text-[#193625]">
-                  <p className="text-[#193625] text-2xl">Sylabus</p>
+                  <p className="text-[#193625] text-base md:text-2xl">
+                    Sylabus
+                  </p>
                 </div>
               </Link>
             </div>
@@ -938,7 +965,7 @@ const normalizeClassLevel = (value?: string) => {
     | "12-humanities";
 };
 
-export const classToSlug = (value?: string): string => {
+const classToSlug = (value?: string): string => {
   if (!value) return "";
 
   const v = value.toLowerCase().trim();

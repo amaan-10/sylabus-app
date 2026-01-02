@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { auth } from "../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { LogOut } from "lucide-react";
 
 type User = {
   name?: string;
@@ -158,14 +159,14 @@ const Account = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen w-full flex items-center justify-center">
         Loading account…
       </div>
     );
   }
 
   return (
-    <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_32px_32px] will-change-transform">
+    <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-white md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
       <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-center content-center justify-start gap-14 w-px max-w-[1200px] h-min overflow-hidden p-0">
         <div className="relative flex flex-row flex-nowrap flex-none items-start content-start justify-between w-full h-min overflow-hidden p-0">
           <div className="relative flex flex-col justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none">
@@ -173,7 +174,7 @@ const Account = () => {
           </div>
         </div>
         <div className="relative flex flex-col flex-nowrap flex-none items-end content-end justify-center gap-2.5 w-full h-min overflow-hidden p-0">
-          <section className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-12 w-full h-min overflow-hidden px-4 py-8">
+          <section className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-12 w-full h-min overflow-hidden md:px-4 py-8">
             <div className="relative flex flex-row flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min p-4 overflow-visible rounded-2xl bg-[#ffffff] border border-[#d9d9d9] shadow-[0_24px_64px_#26214a1a]">
               <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-2.5 w-min h-min p-2 overflow-hidden rounded-lg bg-[#fff8f4] will-change-transform">
                 <div className="flex-none w-8 h-8 relative">
@@ -196,7 +197,7 @@ const Account = () => {
               </div>
               <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-0 w-px h-min overflow-hidden p-0">
                 <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
-                  <p className="text-base font-medium text-[#193625] tracking-tight">
+                  <p className="text-base font-semibold text-[#193625] tracking-tight">
                     {form.name}
                   </p>
                 </div>
@@ -449,10 +450,11 @@ const Account = () => {
                 href="./logout"
                 className="relative flex flex-row flex-nowrap items-center content-center justify-center gap-2 cursor-pointer w-min h-min overflow-hidden px-3 py-2 no-underline rounded-sm bg-[rgb(245,223,223)] opacity-100 will-change-transform"
               >
-                <div className="relative flex flex-col justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none opacity-100">
-                  <p className="text-sm text-[#a60303] tracking-tight cursor-pointer">
-                    Log Out
+                <div className="relative flex flex-row gap-2 justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none opacity-100">
+                  <p className="text-base text-[#a60303] tracking-tight cursor-pointer">
+                    Logout
                   </p>
+                  <LogOut className="h-5 w-5 pt-1 text-[#a60303]" />
                 </div>
               </Link>
             </div>
@@ -467,7 +469,7 @@ const Account = () => {
                   className="flex flex-row place-content-center items-center gap-2 w-min h-min p-0 no-underline relative overflow-hidden"
                   href="./#hero"
                 >
-                  <div className="relative w-7 h-7">
+                  <div className="relative w-5 md:w-7 h-5 md:h-7 mb-[7px] md:mb-0">
                     {/* svg */}
                     <svg
                       version="1.0"
@@ -489,7 +491,9 @@ const Account = () => {
                     </svg>
                   </div>
                   <div className="relative w-auto h-auto text-[#193625]">
-                    <p className="text-[#193625] text-2xl">Sylabus</p>
+                    <p className="text-[#193625] text-base md:text-2xl">
+                      Sylabus
+                    </p>
                   </div>
                 </Link>
               </div>

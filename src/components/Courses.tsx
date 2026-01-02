@@ -146,7 +146,7 @@ const Courses: React.FC<CoursesProps> = ({
   return (
     <div className="border border-[rgba(25,26,32,0.08)] rounded-2xl flex content-center items-center flex-[1_0_0] flex-col gap-0 h-[97.5vh] justify-center overflow-visible p-px relative w-px">
       {/* Search bar */}
-      <div className="flex content-center items-center flex-none flex-row gap-4 h-min justify-center overflow-hidden p-4 relative w-full">
+      <div className="flex content-center items-center flex-none flex-row gap-2 h-min justify-center overflow-hidden px-0 md:px-4 p-4 relative w-full">
         <div className="border-[0.5px] border-[rgba(26,27,33,0.13)] bg-white rounded-lg flex content-center items-center flex-[1_0_0] flex-row gap-2.5 h-11 justify-start overflow-hidden py-3 px-2 pl-3 relative w-px">
           <div className="flex-none h-5 w-5 relative shrink-0 fill-black text-black">
             <div className="svgContainer w-full h-full aspect-[inherit]">
@@ -170,18 +170,46 @@ const Courses: React.FC<CoursesProps> = ({
           <div className="flex-[1_0_0] h-[204%] relative w-px">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Courses"
               className="h-full w-full bg-transparent border-none text-[16px] leading-[1em] font-normal text-[#b8b8b8] outline-none"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
             />
           </div>
         </div>
+        <Link
+          className="border border-[rgba(26,27,33,0.13)] place-content-center justify-start items-center rounded-lg flex md:hidden flex-none flex-row gap-2 h-full overflow-visible py-2 px-4 relative no-underline w-min"
+          href="./courses"
+        >
+          <div className="flex-none h-5 w-5 relative shrink-0 [image-rendering:pixelated] text-[#191a2066]">
+            <div className="svgContainer w-full h-full aspect-[inherit]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#191a2066"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-full h-full lucide lucide-list-filter-icon lucide-list-filter"
+              >
+                <path d="M2 5h20" />
+                <path d="M6 12h12" />
+                <path d="M9 19h6" />
+              </svg>
+            </div>
+          </div>
+          <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto opacity-60">
+            <p className="text-xs text-[#191a20]">Filters</p>
+          </div>
+        </Link>
       </div>
 
       {/* Course cards */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="p-6">
+      <div className="flex-1 overflow-y-auto w-full">
+        <div className="md:p-6">
           {filteredCourses.length === 0 ? (
             <p className="text-sm text-[#5e6b64]">No courses found.</p>
           ) : (
@@ -195,7 +223,7 @@ const Courses: React.FC<CoursesProps> = ({
                     className="bg-white rounded-lg overflow-hidden h-full flex flex-col"
                   >
                     {/* Image */}
-                    <div className="relative h-44 bg-muted overflow-hidden rounded-xl">
+                    <div className="relative bg-muted overflow-hidden rounded-xl">
                       <Image
                         width={512}
                         height={512}

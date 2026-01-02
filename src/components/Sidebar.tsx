@@ -199,7 +199,7 @@ const Sidebar = () => {
                   </div>
 
                   {/* Tooltip Label */}
-                  <span className="absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap text-sm font-medium bg-white text-black px-3 py-2 rounded-xl shadow-md opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
+                  <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full -mt-3 md:left-full md:top-1/2 md:ml-3 md:mt-0 md:translate-x-0 md:-translate-y-1/2 whitespace-nowrap text-sm font-medium bg-white text-black px-3 py-2 rounded-xl shadow-md opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
                     {item.label}
                   </span>
                 </Link>
@@ -207,7 +207,7 @@ const Sidebar = () => {
             })}
           </div>
 
-          <div className="flex flex-row md:flex-col items-center gap-4 p-0 relative">
+          <div className="flex flex-row md:flex-col items-center gap-4 ml-4 md:ml-0 p-0 relative">
             {navItems.slice(4).map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -225,7 +225,7 @@ const Sidebar = () => {
                   </div>
 
                   {/* Tooltip Label */}
-                  <span className=" absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap text-sm font-medium bg-white text-black px-3 py-2 rounded-xl shadow-md opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
+                  <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full -mt-3 md:left-full md:top-1/2 md:ml-3 md:mt-0 md:translate-x-0 md:-translate-y-1/2 whitespace-nowrap text-sm font-medium bg-white text-black px-3 py-2 rounded-xl shadow-md opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
                     {item.label}
                   </span>
                 </Link>

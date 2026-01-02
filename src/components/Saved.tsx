@@ -4,6 +4,9 @@ import {
   BookOpen,
   ChevronLeft,
   ChevronRight,
+  Clock,
+  FileText,
+  Layers,
   NotepadText,
   Sparkles,
 } from "lucide-react";
@@ -35,6 +38,21 @@ type SavedSubject = {
   subjectData: SubjectData;
 };
 
+type SavedPaperDrafts = {
+  _id: string;
+  userId: string;
+  draftName: string;
+  subjectSlug: string;
+  paperMode: string;
+  draft: {
+    selected: any[];
+    sectionedSelected: Record<string, any>;
+  };
+  lastUpdated: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 type UserData = {
   firebaseUid: string;
   name: string;
@@ -51,6 +69,13 @@ const Saved = () => {
   const [loading, setLoading] = useState(true);
   const [savedSubjects, setSavedSubjects] = useState<SavedSubject[]>([]);
   const [savedSubjectIds, setSavedSubjectIds] = useState<string[]>([]);
+  const [savedPaperDrafts, setSavedPaperDrafts] = useState<SavedPaperDrafts[]>(
+    []
+  );
+  const [savedPaperDraftsIds, setSavedPaperDraftsIds] = useState<
+    SavedPaperDrafts[]
+  >([]);
+
   const [userData, setUserData] = useState<UserData>();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -128,6 +153,32 @@ const Saved = () => {
     loadSaved();
   }, [userData?.firebaseUid]);
 
+  useEffect(() => {
+    if (!userData?.firebaseUid) {
+      setLoading(false);
+      return;
+    }
+    const loadSaved = async () => {
+      try {
+        const res = await fetch(
+          `/api/paper-drafts?userId=${userData.firebaseUid}`
+        );
+
+        const data = await res.json();
+        setSavedPaperDrafts(data.drafts);
+        setSavedPaperDraftsIds(data.drafts.map((s: any) => s._id));
+      } catch (err) {
+        console.error("Failed to load saved subjects", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadSaved();
+  }, [userData?.firebaseUid]);
+
+  console.log(savedPaperDrafts, savedSubjects);
+
   const toggleBookmark = async (e: React.MouseEvent, subject: SubjectData) => {
     e.preventDefault();
     e.stopPropagation();
@@ -179,77 +230,121 @@ const Saved = () => {
     }
   };
 
+  const onDelete = async (draftId: string) => {
+    if (!confirm("Delete this paper permanently?")) return;
+
+    await fetch(
+      `/api/paper-drafts?userId=${userData?.firebaseUid}&draftId=${draftId}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ draftId }),
+      }
+    );
+
+    setSavedPaperDrafts((prev) => prev.filter((p) => p._id !== draftId));
+  };
+
   const savedSubjectData = savedSubjects.map((s) => s.subjectData);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center text-slate-500">
+        Loading saved data...
+      </div>
+    );
+  }
+
+  const formatDateTime = (date: string | Date) => {
+    const d = new Date(date);
+
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+
+    let hours = d.getHours();
+    const minutes = String(d.getMinutes()).padStart(2, "0");
+
+    const period = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12;
+    hours = hours === 0 ? 12 : hours; // 12 AM / 12 PM
+
+    const formattedHours = String(hours).padStart(2, "0");
+
+    return `${day}/${month}/${year}, ${formattedHours}:${minutes} ${period}`;
+  };
+
   return (
-    <section className="border border-[rgba(0,0,0,0.08)] bg-white rounded-2xl flex justify-between items-center flex-[1_0_0] flex-col h-[97.5vh] overflow-hidden pt-14 px-8 pb-8 relative w-px gap-5">
-      <div className="flex place-content-center items-center flex-none flex-col gap-5 h-min max-w-[1200px] overflow-hidden p-0 relative w-full">
+    <section className="md:border border-[rgba(0,0,0,0.08)] bg-white rounded-2xl flex justify-between items-center flex-[1_0_0] flex-col h-[97.5vh] overflow-y-auto p-[56px_8px_120px] md:py-16 md:px-8 md:pb-8 relative w-px gap-5">
+      <div
+        className={`flex place-content-center justify-between md:justify-normal items-center flex-none flex-col gap-5 ${
+          savedSubjects.length > 0 ? "h-min" : ""
+        } h-3/4 md:h-min max-w-[1200px] overflow-y-auto p-0 relative w-full`}
+      >
         <div className="flex place-content-start justify-between items-start flex-none flex-row h-min overflow-hidden p-0 relative w-full">
           <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto">
             <h4 className="text-2xl text-[#193625] tracking-tight">Saved</h4>
           </div>
         </div>
-        {savedSubjects.length === 0 && !loading && (
-          <div className="flex place-content-center items-center flex-none flex-row gap-2.5 h-min overflow-hidden p-0 relative w-full">
-            <div className="flex-[1_0_0] h-auto relative w-px">
-              <div className="flex place-content-center items-center flex-row gap-2.5 h-min overflow-hidden p-0 relative w-full">
-                <div className="flex-none h-auto relative w-auto">
-                  <div className="flex place-content-center items-center flex-col gap-6 overflow-hidden p-10 relative bg-[#f9f9f9] rounded-3xl shadow-[0_0_12px_rgba(0,0,0,0.04)_inset] opacity-100">
-                    <div className="aspect-[1.95849/1] flex-none h-[196px] overflow-hidden relative w-full">
-                      <div className="absolute inset-0 rounded-inherit">
-                        <Image
-                          decoding="async"
-                          width="1684"
-                          height="1132"
-                          sizes="calc(100vw - 168px)"
-                          src="/saved.png"
-                          alt=""
-                          className="block w-full h-full rounded-inherit object-center object-contain"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex place-content-center items-center flex-none flex-col gap-5 h-min overflow-visible p-0 relative w-full">
-                      <div className="flex place-content-center items-center flex-none flex-col gap-1 h-min overflow-visible p-0 relative w-full">
-                        <div className="flex-none h-auto relative whitespace-pre-wrap w-full wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-100">
-                          <p className="text-2xl text-[#193625] tracking-tight text-center">
-                            Saved Papers will appear here
-                          </p>
-                        </div>
-                        <div className="flex-none h-auto relative whitespace-pre-wrap w-full wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-60">
-                          <p className="text-sm text-[#193625] tracking-tight text-center">
-                            Add papers to bookmarks to have them appear here
-                          </p>
+        {savedSubjects.length === 0 &&
+          savedPaperDrafts.length === 0 &&
+          !loading && (
+            <div className="flex place-content-center items-center flex-none flex-row gap-2.5 h-min overflow-hidden p-0 relative w-full">
+              <div className="flex-[1_0_0] h-auto relative w-px">
+                <div className="flex place-content-center items-center flex-row gap-2.5 h-min overflow-hidden p-0 relative w-full">
+                  <div className="flex-none h-auto relative w-auto">
+                    <div className="flex place-content-center items-center flex-col gap-6 overflow-hidden p-6 md:p-10 relative bg-[#f9f9f9] rounded-3xl shadow-[0_0_12px_rgba(0,0,0,0.04)_inset] opacity-100 w-[360px] md:w-full h-[456px] md:h-full">
+                      <div className="aspect-[1.95849/1] flex-none h-[196px] overflow-hidden relative w-full">
+                        <div className="absolute inset-0 rounded-inherit">
+                          <Image
+                            decoding="async"
+                            width="1684"
+                            height="1132"
+                            sizes="calc(100vw - 168px)"
+                            src="/saved.png"
+                            alt=""
+                            className="block w-full h-full rounded-inherit object-center object-contain"
+                          />
                         </div>
                       </div>
-                      <div className="flex-none h-auto relative w-auto">
-                        <Link
-                          href="./courses"
-                          className="flex place-content-center items-center cursor-pointer flex-row gap-2 h-min overflow-hidden px-3 py-2 relative no-underline w-min bg-[#191a20] rounded-sm opacity-100 border-0"
-                        >
-                          <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
-                            <p className="text-sm text-white tracking-tight">
-                              Generate and Save Papers
+                      <div className="flex place-content-center items-center flex-none flex-col gap-5 h-min overflow-visible p-0 relative w-full">
+                        <div className="flex place-content-center items-center flex-none flex-col gap-1 h-min overflow-visible p-0 relative w-full">
+                          <div className="flex-none h-auto relative whitespace-pre-wrap w-full wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-100">
+                            <p className="text-xl md:text-2xl font-medium text-[#193625] tracking-tight text-center">
+                              Saved Papers will appear here
                             </p>
                           </div>
-                          <div className="flex-none h-5 w-5 relative shrink-0 opacity-100">
-                            <div className="svgContainer w-full h-full aspect-[inherit] flex items-center justify-center">
-                              <Sparkles className="text-white h-4 w-4" />
-                            </div>
+                          <div className="flex-none h-auto relative whitespace-pre-wrap w-full wrap-break-word outline-none flex flex-col justify-start shrink-0 opacity-60">
+                            <p className="text-[13px] md:text-sm text-[#193625] tracking-tight text-center">
+                              Add papers to bookmarks to have them appear here
+                            </p>
                           </div>
-                        </Link>
+                        </div>
+                        <div className="flex-none h-auto relative w-auto">
+                          <Link
+                            href="./courses"
+                            className="flex place-content-center items-center cursor-pointer flex-row gap-2 h-min overflow-hidden px-3 py-2 relative no-underline w-min bg-[#191a20] rounded-sm opacity-100 border-0"
+                          >
+                            <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
+                              <p className="text-sm text-white tracking-tight">
+                                Generate and Save Papers
+                              </p>
+                            </div>
+                            <div className="flex-none h-5 w-5 relative shrink-0 opacity-100">
+                              <div className="svgContainer w-full h-full aspect-[inherit] flex items-center justify-center">
+                                <Sparkles className="text-white h-4 w-4" />
+                              </div>
+                            </div>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-        {loading && (
-          <div className="flex items-center justify-center py-20">
-            <p className="text-sm opacity-60">Loading saved courses...</p>
-          </div>
-        )}
+          )}
 
         {savedSubjects.length > 0 && (
           <div className="w-full">
@@ -280,7 +375,6 @@ const Saved = () => {
             >
               {savedSubjectData.map((item) => {
                 const isSaved = savedSubjectIds.includes(item.id);
-                console.log(isSaved, item.id, savedSubjectIds);
                 return (
                   <div
                     key={item.id}
@@ -390,7 +484,77 @@ const Saved = () => {
             </div>
           </div>
         )}
+        {savedPaperDrafts.length > 0 && (
+          <div className="w-full">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg">Paper Drafts</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {savedPaperDrafts.map((draft) => {
+                const questionCount = draft.draft?.selected?.length ?? 0;
+
+                return (
+                  <div
+                    key={draft._id}
+                    className="rounded-2xl border border-slate-200 bg-[#f1f5f9] p-5 shadow-sm hover:shadow-md transition"
+                  >
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-semibold text-[#193625] truncate">
+                        {draft.draftName}
+                      </h3>
+
+                      <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700 capitalize">
+                        {draft.paperMode}
+                      </span>
+                    </div>
+
+                    {/* Meta */}
+                    <div className="mt-4 space-y-2 text-sm text-black/70">
+                      <div className="flex items-center gap-2">
+                        <Layers className="h-4 w-4" />
+                        <span>{questionCount} Questions</span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <FileText className="h-4 w-4" />
+                        <span className="capitalize">
+                          Subject: {draft.subjectSlug}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4" />
+                        <span>
+                          Last Updated: {formatDateTime(draft.lastUpdated)}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="mt-5 flex justify-between items-center">
+                      <Link
+                        href={`/saved/draft/${draft._id}`}
+                        className="text-sm font-medium text-emerald-700 hover:underline"
+                      >
+                        Open Draft →
+                      </Link>
+
+                      <button
+                        onClick={() => onDelete(draft._id)}
+                        className="text-sm text-red-600 hover:underline cursor-pointer"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
+
       <div className="flex-none h-auto relative w-full">
         <div className="flex place-content-center items-center flex-col gap-2.5 h-min overflow-hidden p-0 relative w-full">
           <div className="flex place-content-center justify-between items-center flex-none flex-row h-min max-w-[1200px] overflow-visible p-0 relative w-full">
@@ -400,7 +564,7 @@ const Saved = () => {
                 className="flex flex-row place-content-center items-center gap-2 w-min h-min p-0 no-underline relative overflow-hidden"
                 href="./#hero"
               >
-                <div className="relative w-7 h-7">
+                <div className="relative w-5 md:w-7 h-5 md:h-7 mb-[7px] md:mb-0">
                   {/* svg */}
                   <svg
                     version="1.0"
@@ -422,7 +586,9 @@ const Saved = () => {
                   </svg>
                 </div>
                 <div className="relative w-auto h-auto text-[#193625]">
-                  <p className="text-[#193625] text-2xl">Sylabus</p>
+                  <p className="text-[#193625] text-base md:text-2xl">
+                    Sylabus
+                  </p>
                 </div>
               </Link>
             </div>
