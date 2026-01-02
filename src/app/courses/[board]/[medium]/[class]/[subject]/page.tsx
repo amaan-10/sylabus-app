@@ -350,6 +350,9 @@ const SubjectChaptersPage: React.FC = () => {
     if (selected.length === 0) return;
 
     const draft = {
+      boardSlug: boardSlug,
+      mediumSlug: mediumSlugForSubjects,
+      classKey: classKey,
       subjectSlug: subject.slug,
       paperMode,
       selected,
@@ -802,12 +805,12 @@ const SubjectChaptersPage: React.FC = () => {
                           return (
                             <div key={chapter.id}>
                               {chapter.id === "ms-12-maths1-ch1" && (
-                                <div className="text-sm font-medium pl-3 pb-2">
+                                <div className="text-base font-medium pl-3 pb-2">
                                   Mathematics & Statistics 1
                                 </div>
                               )}
                               {chapter.id === "ms-12-maths2-ch1" && (
-                                <div className="text-sm font-medium pl-3 py-2">
+                                <div className="text-base font-medium pl-3 pt-4 pb-2">
                                   Mathematics & Statistics 2
                                 </div>
                               )}
