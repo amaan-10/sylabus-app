@@ -101,7 +101,7 @@ export async function PUT(req: NextRequest) {
   try {
     await connectToDatabase();
 
-    const { userId, draftId, updates } = await req.json();
+    const { userId, draft, draftId, draftName } = await req.json();
 
     if (!userId || !draftId) {
       return NextResponse.json(
@@ -110,10 +110,27 @@ export async function PUT(req: NextRequest) {
       );
     }
 
+    const {
+      boardSlug,
+      mediumSlug,
+      classKey,
+      subjectSlug,
+      paperMode,
+      lastUpdated,
+      ...cleanDraft
+    } = draft;
+
     const updated = await PaperDraft.findOneAndUpdate(
       { userId, _id: draftId },
       {
-        ...updates,
+        userId,
+        draftName,
+        boardSlug: draft.boardSlug,
+        mediumSlug: draft.mediumSlug,
+        classKey: draft.classKey,
+        subjectSlug: draft.subjectSlug,
+        paperMode: draft.paperMode,
+        draft: cleanDraft,
         lastUpdated: new Date(),
       },
       { new: true }
