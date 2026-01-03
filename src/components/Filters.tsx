@@ -1,5 +1,13 @@
 import React from "react";
-import type { FiltersState } from "@/app/courses/page";
+import { X } from "lucide-react";
+
+type FiltersState = {
+  featured: boolean;
+  boards: string[];
+  classes: string[];
+  subjects: string[];
+  medium: string[];
+};
 
 type FiltersProps = {
   filters: FiltersState;
@@ -9,6 +17,7 @@ type FiltersProps = {
   onToggleClass: (cls: string) => void;
   onToggleSchoolMedium: (medium: string) => void;
   onReset: () => void;
+  setIsFiltersOpen?: (open: boolean) => void;
 };
 
 const Filters: React.FC<FiltersProps> = ({
@@ -19,6 +28,7 @@ const Filters: React.FC<FiltersProps> = ({
   onToggleClass,
   onToggleSchoolMedium,
   onReset,
+  setIsFiltersOpen,
 }) => {
   const subjects = [
     {
@@ -63,11 +73,18 @@ const Filters: React.FC<FiltersProps> = ({
   const schoolMediums = ["English", "Hindi", "Marathi", "Semi"];
 
   return (
-    <div className="flex-none h-[97.5vh] relative w-[371px]">
+    <div className="flex-none h-[97.5vh] relative max-w-[371px]">
       <div className="border border-[rgba(25,26,32,0.08)] bg-white rounded-2xl opacity-100 flex place-content-start items-start flex-col gap-0 h-full overflow-visible p-0 relative w-full">
         {/* Header */}
         <div className="flex place-content-center justify-between items-center flex-none flex-row h-min overflow-visible py-5 px-6 relative w-full border-b border-[rgba(25,26,32,0.12)] opacity-100">
           <h4 className="text-2xl text-[#193625] tracking-tight">Filters</h4>
+          <button
+            aria-label="Close filters"
+            onClick={() => setIsFiltersOpen?.(false)}
+            className="md:hidden block p-2 cursor-pointer rounded-full hover:bg-gray-100"
+          >
+            <X className="w-6 h-6" />
+          </button>
         </div>
 
         {/* Body */}

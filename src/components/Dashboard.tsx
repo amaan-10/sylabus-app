@@ -292,6 +292,8 @@ const Dashboard = () => {
   };
   const DEFAULT_SUBJECT_IMAGE = "/subject-default.png";
   const FULL_NAME_SUBJECTS = [
+    "English Yuvakbharthi",
+    "Hindi Yuvakbharthi",
     "Algebra",
     "Geometry",
     "Physics & Chemistry",
@@ -565,7 +567,7 @@ const Dashboard = () => {
                         decoding="async"
                         width="2912"
                         height="1666"
-                        sizes="max((min(max(100vw - 112px, 1px) - 64px, 1200px) - 16px) / 2, 50px)"
+                        quality={95}
                         src={feature.imageSrc}
                         alt={feature.imageAlt}
                         className="block w-full h-full rounded-[inherit] object-center object-cover"
