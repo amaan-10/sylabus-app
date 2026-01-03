@@ -10359,11 +10359,11 @@
     ]
   },
   {
-    "id": "ms-eng-12-sci-maths-1",
+    "id": "ms-eng-12-sci-maths",
     "board": "msbshse",
     "medium": "english",
     "classKey": "12-science",
-    "subjectSlug": "mathematics-statistics-1",
+    "subjectSlug": "mathematics-statistics",
     "chapters": [
       {
         "id": "ms-12-maths1-ch1",
@@ -12003,16 +12003,8 @@
             "tags": ["unbounded-region", "july-2023", "march-2025"]
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "ms-eng-12-sci-maths-2",
-    "board": "msbshse",
-    "medium": "english",
-    "classKey": "12-science",
-    "subjectSlug": "mathematics-statistics-2",
-    "chapters": [
+      },
+
       {
         "id": "ms-12-maths2-ch1",
         "chapterNumber": 1,

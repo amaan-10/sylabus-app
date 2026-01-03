@@ -1270,14 +1270,14 @@ const SelectionGate = ({
       <AnimatePresence>
         {selectionOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-5"
             variants={backdropVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
             <motion.div
-              className="w-[440px] rounded-2xl bg-white shadow-2xl overflow-hidden"
+              className="w-full max-w-[440px] rounded-2xl bg-white shadow-2xl overflow-hidden"
               variants={dialogVariants}
               initial="hidden"
               animate="visible"
@@ -2176,7 +2176,7 @@ const PaperBuilder: React.FC<{
             >
               {/* ---------------- HEADER ---------------- */}
               <div className="sticky top-0 z-10 bg-white border-slate-400 backdrop-blur border-b px-4 py-3">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-6">
                   <div>
                     <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                       Paper Builder

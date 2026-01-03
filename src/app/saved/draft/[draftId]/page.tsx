@@ -1425,7 +1425,7 @@ const PaperBuilder: React.FC<{
             >
               {/* ---------------- HEADER ---------------- */}
               <div className="sticky top-0 z-10 bg-white border-slate-400 backdrop-blur border-b px-4 py-3">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-6">
                   <div>
                     <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
                       Paper Builder

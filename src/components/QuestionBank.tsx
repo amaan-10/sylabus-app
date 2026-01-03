@@ -9,6 +9,7 @@ import {
 } from "@/lib/subjects";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
+import { X } from "lucide-react";
 
 type FiltersState = {
   featured: boolean;
@@ -491,53 +492,127 @@ export default function QuestionBankPage() {
     useState<QuestionSource>("balbharati");
 
   console.log("selectedChapter: ", selectedChapter);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   return (
-    <div className="hidden md:flex place-content-start items-start justify-center flex-[1_0_0] flex-row gap-2 h-[97.5vh] overflow-hidden p-0 relative w-px">
-      <Filters
-        subjects={subjects.map((s) => ({ name: s.name, slug: s.slug }))}
-        chapters={chapters}
-        boards={Object.keys(boardMediumMap).map((b) => ({
-          board: b,
-          slug: b.toLowerCase(),
-        }))}
-        schoolMediums={
-          filters.board
-            ? boardMediumMap[filters.board as keyof typeof boardMediumMap]?.map(
-                (m) => ({
-                  medium: m,
-                  slug: m.toLowerCase().replace(/\s+/g, "-"),
-                })
-              ) ?? []
-            : []
-        }
-        classLevels={
-          filters.board
-            ? boardClassMap[filters.board as keyof typeof boardClassMap]?.map(
-                (c) => ({
-                  classLevel: c,
-                  slug: classToSlug(c),
-                })
-              ) ?? []
-            : []
-        }
-        filters={filters}
-        onToggleFeatured={handleToggleFeatured}
-        onToggleSubject={handleToggleSubject}
-        onToggleChapter={handleToggleChapter}
-        onToggleBoard={handleToggleBoard}
-        onToggleClass={handleToggleClass}
-        onToggleSchoolMedium={handleToggleSchoolMedium}
-        onReset={handleResetFilters}
-      />
-      <section className="border border-[rgba(25,26,32,0.08)] rounded-2xl bg-white flex content-center items-center flex-[1_0_0] flex-col gap-0 h-[97.5vh] justify-center overflow-visible p-px relative w-px">
-        {/* ---------------- QUESTIONS ---------------- */}
-        <main className="flex-1 overflow-y-auto w-full ">
-          <div className="p-6 max-w-5xl mx-auto">
+    <div className="flex flex-col md:flex-row gap-2 h-[97vh] w-full bg-white relative">
+      {/* ---------------- Sidebar (md+) ---------------- */}
+      <aside className="hidden md:block">
+        <div className="sticky">
+          <Filters
+            subjects={subjects.map((s) => ({ name: s.name, slug: s.slug }))}
+            chapters={chapters}
+            boards={Object.keys(boardMediumMap).map((b) => ({
+              board: b,
+              slug: b.toLowerCase(),
+            }))}
+            schoolMediums={
+              filters.board
+                ? boardMediumMap[
+                    filters.board as keyof typeof boardMediumMap
+                  ]?.map((m) => ({
+                    medium: m,
+                    slug: m.toLowerCase().replace(/\s+/g, "-"),
+                  })) ?? []
+                : []
+            }
+            classLevels={
+              filters.board
+                ? boardClassMap[
+                    filters.board as keyof typeof boardClassMap
+                  ]?.map((c) => ({
+                    classLevel: c,
+                    slug: classToSlug(c),
+                  })) ?? []
+                : []
+            }
+            filters={filters}
+            onToggleFeatured={handleToggleFeatured}
+            onToggleSubject={handleToggleSubject}
+            onToggleChapter={handleToggleChapter}
+            onToggleBoard={handleToggleBoard}
+            onToggleClass={handleToggleClass}
+            onToggleSchoolMedium={handleToggleSchoolMedium}
+            onReset={handleResetFilters}
+          />
+        </div>
+      </aside>
+
+      {/* ---------------- Slide-over (mobile) ---------------- */}
+      {/* animate in/out using translate-x */}
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-opacity ${
+          isFiltersOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!isFiltersOpen}
+      >
+        {/* backdrop */}
+        <div
+          className={`absolute inset-0 bg-black/40`}
+          onClick={() => setIsFiltersOpen?.(false)}
+        />
+        {/* panel */}
+        <div
+          className={`absolute left-0 top-0 bottom-0 w-auto max-w-full bg-white shadow-xl transform transition-transform ${
+            isFiltersOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="p-3 overflow-auto">
+            <Filters
+              subjects={subjects.map((s) => ({ name: s.name, slug: s.slug }))}
+              chapters={chapters}
+              boards={Object.keys(boardMediumMap).map((b) => ({
+                board: b,
+                slug: b.toLowerCase(),
+              }))}
+              schoolMediums={
+                filters.board
+                  ? boardMediumMap[
+                      filters.board as keyof typeof boardMediumMap
+                    ]?.map((m) => ({
+                      medium: m,
+                      slug: m.toLowerCase().replace(/\s+/g, "-"),
+                    })) ?? []
+                  : []
+              }
+              classLevels={
+                filters.board
+                  ? boardClassMap[
+                      filters.board as keyof typeof boardClassMap
+                    ]?.map((c) => ({
+                      classLevel: c,
+                      slug: classToSlug(c),
+                    })) ?? []
+                  : []
+              }
+              filters={filters}
+              onToggleFeatured={handleToggleFeatured}
+              onToggleSubject={handleToggleSubject}
+              onToggleChapter={handleToggleChapter}
+              onToggleBoard={handleToggleBoard}
+              onToggleClass={handleToggleClass}
+              onToggleSchoolMedium={handleToggleSchoolMedium}
+              onReset={(...args) => {
+                handleResetFilters(...args);
+                // optionally close drawer on reset
+                setIsFiltersOpen(false);
+              }}
+              setIsFiltersOpen={setIsFiltersOpen}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ---------------- Main content ---------------- */}
+      <section className="flex-1 min-h-[97.5vh] bg-white rounded-2xl border border-[rgba(25,26,32,0.08)] p-0 relative">
+        <main className="w-full h-[97.5vh] overflow-y-auto">
+          <div className="max-w-5xl mx-auto px-4 md:px-8 py-8 pb-28">
             {/* Header */}
-            <header className="flex items-start justify-between mb-6">
-              <div className="flex flex-col gap-4 items-start justify-between">
-                <div className="flex flex-wrap items-center gap-3">
+            <header className="flex flex-col md:items-start md:justify-between gap-4 mb-6">
+              <div className="flex-1 flex flex-col gap-4">
+                <div className="flex items-center gap-3 flex-wrap">
                   {filters.board && (
                     <span className="inline-flex items-center rounded-full bg-slate-900 px-3 py-1 text-xs font-medium uppercase tracking-wide text-slate-50">
                       {filters.board}
@@ -555,14 +630,15 @@ export default function QuestionBankPage() {
                   )}
                   {filters.subject && (
                     <span className="inline-flex items-center rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
-                      {selectedChapter?.id.includes("ms-12-maths1")
+                      {selectedChapter?.id?.includes("ms-12-maths1")
                         ? "Mathematics & Statistics 1"
-                        : selectedChapter?.id.includes("ms-12-maths2")
+                        : selectedChapter?.id?.includes("ms-12-maths2")
                         ? "Mathematics & Statistics 2"
                         : filters.subject}
                     </span>
                   )}
                 </div>
+
                 <div>
                   <h2 className="text-xl font-semibold text-[#193625]">
                     {selectedChapter
@@ -584,25 +660,52 @@ export default function QuestionBankPage() {
                 </div>
               </div>
 
-              {/* Source Tabs */}
-              <div className="inline-flex rounded-full bg-slate-100 p-1 text-xs font-medium cursor-pointer">
-                {(["balbharati", "pyq"] as QuestionSource[]).map((src) => (
-                  <button
-                    key={src}
-                    onClick={() => setActiveSource(src)}
-                    className={`px-3 py-1 rounded-full transition cursor-pointer ${
-                      activeSource === src
-                        ? "bg-white text-slate-900 shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
-                    }`}
+              <div className="flex justify-between">
+                {/* Source Tabs */}
+                <div className="inline-flex w-fit rounded-full bg-slate-100 p-1 text-xs font-medium cursor-pointer">
+                  {(["balbharati", "pyq"] as QuestionSource[]).map((src) => (
+                    <button
+                      key={src}
+                      onClick={() => setActiveSource(src)}
+                      className={`px-3 py-1 rounded-full transition cursor-pointer ${
+                        activeSource === src
+                          ? "bg-white text-slate-900 shadow-sm"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      {src === "balbharati" ? "Textbook" : "PYQ"}
+                    </button>
+                  ))}
+                </div>
+
+                {/* ---------------- Mobile Filter Button ---------------- */}
+                <button
+                  type="button"
+                  aria-label="Open filters"
+                  className="md:hidden inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-2 text-xs font-medium text-white shadow-lg cursor-pointer"
+                  onClick={() => setIsFiltersOpen(true)}
+                >
+                  {/* simple filter icon */}
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
                   >
-                    {src === "balbharati" ? "Textbook" : "PYQ"}
-                  </button>
-                ))}
+                    <path
+                      d="M3 5h18M7 12h10M10 19h4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Filters
+                </button>
               </div>
             </header>
 
-            {/* Content */}
+            {/* Content area (unchanged, only spacing tuned) */}
             {loading ? (
               <div className="py-24 text-center text-gray-400">
                 Loading questions…
@@ -704,6 +807,7 @@ type FiltersProps = {
   onToggleClass: (cls: string) => void;
   onToggleSchoolMedium: (medium: string) => void;
   onReset: () => void;
+  setIsFiltersOpen?: (open: boolean) => void;
 };
 
 const Filters: React.FC<FiltersProps> = ({
@@ -720,14 +824,22 @@ const Filters: React.FC<FiltersProps> = ({
   onToggleClass,
   onToggleSchoolMedium,
   onReset,
+  setIsFiltersOpen,
 }) => {
   console.log(subjects);
   return (
-    <div className="flex-none h-[97.5vh] relative w-[371px]">
+    <div className="flex-none h-[97.5vh] relative max-w-[371px]">
       <div className="border border-[rgba(25,26,32,0.08)] bg-white rounded-2xl opacity-100 flex place-content-start items-start flex-col gap-0 h-full overflow-visible p-0 relative w-full">
         {/* Header */}
         <div className="flex place-content-center justify-between items-center flex-none flex-row h-min overflow-visible py-5 px-6 relative w-full border-b border-[rgba(25,26,32,0.12)] opacity-100">
           <h4 className="text-2xl text-[#193625] tracking-tight">Filters</h4>
+          <button
+            aria-label="Close filters"
+            onClick={() => setIsFiltersOpen?.(false)}
+            className="md:hidden block p-2 cursor-pointer rounded-full hover:bg-gray-100"
+          >
+            <X className="w-6 h-6" />
+          </button>
         </div>
 
         {/* Body */}
