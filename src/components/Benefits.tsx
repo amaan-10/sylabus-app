@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Benefits = () => {
   return (
     <div
-      className="flex flex-col flex-none place-content-center items-center gap-24 w-full max-w-7xl h-min px-12 relative overflow-hidden font-poppins"
+      className="flex flex-col flex-none place-content-center items-center gap-24 w-full max-w-7xl h-min px-4 md:px-8 lg:px-12 relative overflow-hidden font-poppins"
       id="benefits"
     >
       <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[600px] h-min p-0 relative overflow-hidden">

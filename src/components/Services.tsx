@@ -33,11 +33,11 @@ const Services = () => {
   ];
   return (
     <section
-      className="flex flex-col flex-none place-content-center items-center gap-0 w-full h-min px-12 relative overflow-visible scroll-mt-24 font-poppins"
+      className="flex flex-col flex-none place-content-center items-center gap-0 w-full h-min px-4 md:px-8 lg:px-12 relative overflow-visible scroll-mt-24 font-poppins"
       id="services"
     >
-      <div className="flex flex-row flex-none place-content-start items-start gap-16 w-full max-w-7xl h-min p-0 relative overflow-visible">
-        <div className="z-1 flex flex-col flex-[1_0_0] place-content-start items-start gap-6 w-px h-min p-0 sticky top-[100px] overflow-visible">
+      <div className="flex flex-col md:flex-row flex-none place-content-start items-start gap-12 lg:gap-16 w-full max-w-[600px] md:max-w-7xl h-min p-0 relative overflow-visible">
+        <div className="z-1 flex flex-col flex-[1_0_0] place-content-start items-start gap-6 h-min p-0 md:sticky top-[100px] overflow-visible">
           <div className="flex-none w-auto h-auto relative">
             <div className="h-min flex flex-row place-content-center items-center gap-1.5 w-min px-4 py-1.5 relative overflow-hidden rounded-4xl opacity-100 bg-[rgb(240,244,243)]">
               <div className="flex-none w-auto h-auto relative">
@@ -46,12 +46,12 @@ const Services = () => {
             </div>
           </div>
           <div className="flex-none w-full h-auto relative">
-            <h1 className="text-5xl text-[#193625] tracking-tighter w-3/5">
+            <h1 className="text-[34px] md:text-[40px] lg:text-5xl text-[#193625] leading-[1.1] tracking-tighter w-full">
               Your partner in smarter exam creation
             </h1>
           </div>
           <div className="flex-none w-full max-w-[620px] h-auto relative">
-            <p className="text-[#5e6b64] w-4/5">
+            <p className="text-[#5e6b64]">
               We help teachers and institutions streamline the entire question
               paper setting process. Whether you&apos;re preparing routine tests
               or designing major exams, we make it effortless, accurate, and
@@ -59,13 +59,13 @@ const Services = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col flex-[1_0_0] place-content-start items-start gap-12 w-px h-min p-0 relative">
+        <div className="flex flex-col flex-[1_0_0] place-content-start items-start gap-12 h-min p-0 relative w-full">
           {services.map((service, key) => (
             <div
               key={key}
               className="flex flex-row flex-none place-content-center items-center gap-2.5 w-full h-min p-0 relative"
             >
-              <div className="flex-[1_0_0] w-px h-auto relative">
+              <div className="flex-[1_0_0] w-full md:w-px h-auto relative">
                 <Link
                   className="cursor-pointer flex flex-col place-content-start items-start gap-5 h-min p-0 no-underline relative overflow-hidden w-full opacity-100"
                   data-framer-name="Default"
@@ -123,7 +123,7 @@ const Services = () => {
                   <div className="flex flex-col flex-none place-content-start items-start gap-4 w-full h-min pr-6 pl-0 relative overflow-hidden">
                     <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full h-min p-0 relative overflow-hidden">
                       <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
-                        <h3 className="text-[32px] text-[#193625] tracking-tighter">
+                        <h3 className="text-2xl md:text-[28px] lg:text-[32px] text-[#193625] tracking-tighter">
                           {service.title}
                         </h3>
                       </div>

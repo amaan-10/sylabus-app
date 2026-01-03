@@ -150,14 +150,9 @@ const Login = () => {
   );
 
   return (
-    <div
-      className="flex flex-col flex-nowrap items-center content-center justify-start gap-0 h-min min-h-screen overflow-hidden p-0 relative w-auto font-poppins"
-      style={{
-        backgroundColor: "#13261b",
-      }}
-    >
-      <article className="flex content-center items-center flex-none flex-row flex-nowrap gap-0 justify-end max-w-7xl min-h-screen overflow-hidden p-0 relative w-full z-1">
-        <div className="flex flex-none flex-col flex-nowrap content-start items-start h-full justify-between overflow-hidden min-h-screen px-12 py-[62px] relative w-1/2 z-1">
+    <div className="flex flex-col flex-nowrap items-center content-center justify-start gap-0 h-min min-h-screen overflow-hidden p-0 relative w-auto font-poppins">
+      <article className="flex content-center items-center flex-none flex-row flex-nowrap gap-0 justify-end min-h-screen overflow-hidden p-0 relative w-full z-1">
+        <div className="hidden lg:flex flex-none flex-col flex-nowrap content-start items-start h-full justify-between overflow-hidden min-h-screen px-12 py-[62px] relative w-1/2 bg-[#13261b]">
           <div className="flex-none h-auto w-auto relative">
             <div className="content-center items-center cursor-pointer flex flex-row flex-nowrap gap-2 h-min justify-center overflow-hidden p-0 relative w-min">
               <div className="flex h-5 w-5 relative">
@@ -249,7 +244,7 @@ const Login = () => {
             </div>
 
             <div className="flex flex-col flex-none flex-nowrap content-start items-start gap-4 h-min justify-start overflow-hidden p-0 relative w-full">
-              <div className="flex flex-col justify-start flex-none shrink-0 h-auto w-auto relative whitespace-pre outline-none">
+              <div className="flex flex-col justify-start flex-none shrink-0 h-auto w-auto relative outline-none">
                 <h4 className="text-[#fafafaeb] text-4xl tracking-tighter">
                   Our App, Your Perfect Papers
                 </h4>
@@ -283,7 +278,7 @@ const Login = () => {
                         </g>
                       </svg>
                     </div>
-                    <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto w-auto relative whitespace-pre">
+                    <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto w-auto relative">
                       <p className="text-[#fafafaeb] text-base">{label}</p>
                     </div>
                   </div>
@@ -293,16 +288,16 @@ const Login = () => {
           </div>
           <div></div>
         </div>
-        <div className="content-center items-center flex flex-none flex-col flex-nowrap gap-4 h-full justify-center overflow-visible px-12 py-0 relative w-1/2 bg-[#ffffff]">
+        <div className="content-center items-center flex flex-none flex-col flex-nowrap gap-4 h-full justify-center overflow-visible px-4 md:px-8 lg:px-12 py-0 relative w-full lg:w-1/2 bg-[#ffffff]">
           <div className="flex flex-col flex-none flex-nowrap content-start items-start gap-4 h-min justify-start overflow-visible p-0 relative w-full">
             <header className="flex flex-col flex-none flex-nowrap content-start items-center gap-2 h-min justify-start overflow-visible p-0 relative w-full">
-              <div className="outline-none flex flex-col justify-center shrink-0 flex-none h-auto w-auto relative whitespace-pre">
-                <h1 className="text-[42px] text-[#193625] tracking-tighter text-center">
+              <div className="outline-none flex flex-col justify-center shrink-0 flex-none h-auto w-auto relative">
+                <h1 className="text-[32px] md:text-[42px] text-[#193625] tracking-tighter text-center">
                   {step === "phone" && "Login to Your Account"}
                   {step === "otp" && "Verify OTP to Login"}
                 </h1>
               </div>
-              <div className="outline-none flex flex-col justify-center shrink-0 flex-none h-auto w-auto relative whitespace-pre">
+              <div className="outline-none flex flex-col justify-center shrink-0 flex-none h-auto w-auto relative">
                 <h1 className="text-base text-[#5e6b64] tracking-tighter text-center">
                   {step === "phone" &&
                     "Welcome back, Please enter your credentials."}
@@ -357,17 +352,11 @@ const Login = () => {
                           placeholder="Phone number"
                           value={phoneNumber}
                           onChange={(e: any) => setPhoneNumber(e.target.value)}
-                          className="flex-1 p-2.5 rounded-xl border border-slate-300 focus:border-[#13261b] focus:ring-2 focus:ring-[#13261b]/20 text-sm bg-white outline-none"
+                          className="flex-1 p-2.5 rounded-xl border border-slate-300 focus:border-[#13261b] focus:ring-2 focus:ring-[#13261b]/20 text-sm bg-white outline-none w-full"
                         />
                       </div>
                     </div>
 
-                    {/* <button
-                      type="submit"
-                      className="w-full py-3 rounded-full bg-[#13261b] text-white text-sm font-medium hover:bg-[#a85613] transition cursor-pointer"
-                    >
-                      Send OTP
-                    </button> */}
                     <button
                       type="submit"
                       className="relative w-full h-10 rounded-xl bg-linear-to-b from-[#3a3a3a] via-[#111111] to-[#000000] text-white text-sm font-medium tracking-wide shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_2px_6px_rgba(0,0,0,0.6)] hover:brightness-110 active:scale-[0.98] transition flex items-center justify-center gap-2 cursor-pointer"
@@ -382,10 +371,6 @@ const Login = () => {
                   <form onSubmit={handleVerifyOtp} className="space-y-4">
                     <div className="space-y-4">
                       <div className="flex flex-col gap-2">
-                        {/* <label className="text-sm font-medium text-gray-700">
-                          Enter OTP
-                        </label> */}
-
                         <OtpInput value={otp} onChange={setOtp} />
                       </div>
                       <button
@@ -395,14 +380,6 @@ const Login = () => {
                         Verify & Continue
                       </button>
                     </div>
-
-                    {/* <button
-                      type="button"
-                      onClick={() => setStep("phone")}
-                      className="w-full text-sm text-gray-500 underline cursor-pointer"
-                    >
-                      Change phone number
-                    </button> */}
                   </form>
                 )}
 
@@ -670,17 +647,6 @@ const Login = () => {
                   </svg>
                   <span className="pl-1">Continue with Google</span>
                 </button>
-
-                {/* FOOTER */}
-                {/* <p className="mt-6 text-center text-sm text-gray-500">
-                  Already have an account?{" "}
-                  <Link
-                    href="/signin"
-                    className="font-medium text-[#193625] hover:underline"
-                  >
-                    Sign In
-                  </Link>
-                </p> */}
               </div>
             </div>
 
@@ -695,7 +661,6 @@ const Login = () => {
           </div>
         </div>
       </article>
-      <div className="absolute top-0 right-0 bottom-0 w-1/2 flex-none overflow-hidden z-0 bg-[#ffffff]"></div>
     </div>
   );
 };

@@ -8,19 +8,19 @@ import { motion } from "framer-motion";
 const Hero = () => {
   const steps = [
     {
-      title: "Log In to Your Dashboard",
+      title: "Log In to Dashboard",
       description: "Access your dashboard and start creating papers instantly.",
       imageSrc: "/step1.png",
       imageAlt: "dashboard preview",
     },
     {
-      title: "Choose Your Paper Requirements",
+      title: "Choose Paper Requirements",
       description: "Select class, chapters, marks, and difficulty settings.",
       imageSrc: "/step2.png",
       imageAlt: "paper requirements",
     },
     {
-      title: "Generate Your Question Paper",
+      title: "Generate Question Paper",
       description:
         "Prepares a clean, structured, syllabus-aligned paper quickly.",
       imageSrc: "/step3.png",
@@ -28,26 +28,27 @@ const Hero = () => {
     },
     {
       title: "Download & Print Instantly",
-      description: "Export your ready-to-use paper in one click.",
+      description:
+        "Get your paper in PDF format for easy printing and distribution.",
       imageSrc: "/step4.png",
       imageAlt: "download instantly",
     },
   ];
   return (
     <section
-      className="flex flex-col flex-none place-content-center items-center gap-24 w-full h-min pt-[100px] px-12 pb-0 relative overflow-visible font-poppins"
+      className="flex flex-col flex-none place-content-center items-center gap-16 md:gap-24 w-full h-min pt-[100px] px-4 md:px-8 lg:px-12 pb-0 relative overflow-visible font-poppins"
       id="hero"
     >
       <motion.div
         variants={parentStagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex flex-col flex-none place-content-center items-center gap-16 w-full max-w-7xl h-min p-0 relative overflow-visible"
       >
         <motion.div
           variants={parentStagger}
-          className="flex flex-col flex-none place-content-center items-center gap-12 w-full max-w-[800px] h-min p-0 relative overflow-visible"
+          className="flex flex-col flex-none place-content-center items-center gap-12 w-full max-w-[575px] md:max-w-[800px] h-min p-0 relative overflow-visible"
         >
           <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full h-min p-0 relative overflow-visible">
             <div className="flex-none w-auto h-auto relative">
@@ -65,7 +66,7 @@ const Hero = () => {
               <div className="flex-none w-full h-auto relative">
                 <motion.h1
                   variants={fadeUp}
-                  className="text-[80px] text-[#193625] leading-20 text-center tracking-tighter"
+                  className="text-[51px] md:text-[64px] lg:text-[80px] text-[#193625] leading-[51px] md:leading-16 lg:leading-20 text-center tracking-tighter"
                 >
                   Generate Custom Papers Instantly
                 </motion.h1>
@@ -151,9 +152,9 @@ const Hero = () => {
         variants={parentStagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="grid flex-none gap-5 auto-rows-fr h-min justify-center overflow-visible p-0 relative w-full
-             grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+             grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
       >
         {steps.map((step, key) => (
           <motion.div

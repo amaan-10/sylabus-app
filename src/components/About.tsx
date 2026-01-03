@@ -22,11 +22,11 @@ const About = () => {
 
   return (
     <section
-      className="flex flex-col flex-none place-content-center items-center gap-0 w-full h-min relative overflow-visible font-poppins"
+      className="flex flex-col flex-none place-content-center items-center px-4 md:px-8 lg:px-12 gap-0 w-full h-min relative overflow-visible font-poppins"
       id="about"
     >
       <div className="flex flex-col flex-none place-content-center items-center gap-12 w-full max-w-7xl h-min p-0 relative overflow-visible">
-        <div className="z-1 flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[950px] h-min p-0 relative overflow-visible">
+        <div className="z-1 flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[600px] md:max-w-[900px] lg:max-w-[950px] h-min p-0 relative overflow-visible">
           <div className="flex-none w-auto h-auto relative">
             <div className="h-min flex flex-row place-content-center items-center gap-1.5 w-min px-4 py-1.5 relative overflow-hidden rounded-4xl opacity-100 bg-[rgb(240,244,243)]">
               <div className="flex-none w-auto h-auto relative">
@@ -39,8 +39,8 @@ const About = () => {
               variants={wordParent}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-5xl text-center leading-[1.1] tracking-tighter"
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-[34px] md:text-[40px] lg:text-5xl text-center leading-[1.1] tracking-tighter"
             >
               {segments.map((seg, i) => (
                 <span key={i} className={seg.className}>
