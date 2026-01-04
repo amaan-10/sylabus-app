@@ -3,6 +3,13 @@ import Image from "next/image";
 import React from "react";
 import CountUp from "./CountUp";
 import { motion } from "framer-motion";
+const ringPulse = {
+  animate: {
+    scale: [0.7, 1.05, 0.7],
+    opacity: [0.35, 1, 0.35],
+  },
+};
+
 const Benefits = () => {
   return (
     <div
@@ -329,52 +336,96 @@ const Benefits = () => {
                     opacity="1"
                     className="block"
                   >
-                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <motion.g
+                      animate={{
+                        scale: [0.7, 1.05, 0.7],
+                        opacity: [0.35, 1, 0.35],
+                      }}
+                      transition={{
+                        duration: 4,
+                        delay: 1.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      transform="translate(180 180)"
+                    >
                       <path
                         fill="rgb(131,155,195)"
                         fillOpacity="1"
                         d=" M0,-50 C27.594999313354492,-50 50,-27.594999313354492 50,0 C50,27.594999313354492 27.594999313354492,50 0,50 C-27.594999313354492,50 -50,27.594999313354492 -50,0 C-50,-27.594999313354492 -27.594999313354492,-50 0,-50z"
                       ></path>
-                    </g>
+                    </motion.g>
                   </g>
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="0.5194413749999958"
                     className="block"
                   >
-                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <motion.g
+                      variants={ringPulse}
+                      animate="animate"
+                      transition={{
+                        duration: 4,
+                        delay: 0.6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      transform="translate(180 180)"
+                      opacity="1"
+                    >
                       <path
                         fill="rgb(95,128,178)"
                         fillOpacity="1"
                         d=" M0,-106.08203125 C58.54667282104492,-106.08203125 106.08203125,-58.54667282104492 106.08203125,0 C106.08203125,58.54667282104492 58.54667282104492,106.08203125 0,106.08203125 C-58.54667282104492,106.08203125 -106.08203125,58.54667282104492 -106.08203125,0 C-106.08203125,-58.54667282104492 -58.54667282104492,-106.08203125 0,-106.08203125z"
                       ></path>
-                    </g>
+                    </motion.g>
                   </g>
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="0.8166071428571382"
                     className="block"
                   >
-                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <motion.g
+                      variants={ringPulse}
+                      animate="animate"
+                      transition={{
+                        duration: 4,
+                        delay: 0.6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      transform="translate(180 180)"
+                      opacity="1"
+                    >
                       <path
                         fill="rgb(110,142,190)"
                         fillOpacity="1"
                         d=" M0,-61.61309814453125 C34.004268646240234,-61.61309814453125 61.61309814453125,-34.004268646240234 61.61309814453125,0 C61.61309814453125,34.004268646240234 34.004268646240234,61.61309814453125 0,61.61309814453125 C-34.004268646240234,61.61309814453125 -61.61309814453125,34.004268646240234 -61.61309814453125,0 C-61.61309814453125,-34.004268646240234 -34.004268646240234,-61.61309814453125 0,-61.61309814453125z"
                       ></path>
-                    </g>
+                    </motion.g>
                   </g>
                   <g
                     transform="matrix(1,0,0,1,180,180)"
                     opacity="0.0022727272727223638"
                     className="block"
                   >
-                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <motion.g
+                      variants={ringPulse}
+                      animate="animate"
+                      transition={{
+                        duration: 4,
+                        delay: 1.8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      transform="translate(180 180)"
+                    >
                       <path
                         fill="rgb(131,155,195)"
                         fillOpacity="1"
                         d=" M0,-179.99781799316406 C99.3407974243164,-179.99781799316406 179.99781799316406,-99.3407974243164 179.99781799316406,0 C179.99781799316406,99.3407974243164 99.3407974243164,179.99781799316406 0,179.99781799316406 C-99.3407974243164,179.99781799316406 -179.99781799316406,99.3407974243164 -179.99781799316406,0 C-179.99781799316406,-99.3407974243164 -99.3407974243164,-179.99781799316406 0,-179.99781799316406z"
                       ></path>
-                    </g>
+                    </motion.g>
                   </g>
                 </g>
               </svg>

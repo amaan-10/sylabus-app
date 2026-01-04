@@ -200,7 +200,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   const [schoolName, setSchoolName] = useState("");
   const [paperMode, setPaperMode] = useState<PaperMode>("custom");
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<UserData>();
+  const [userData, setUserData] = useState<UserData>();
   const [openDraftNameDailog, setOpenDraftNameDailog] = useState(false);
   const [draftName, setDraftName] = useState("");
   const [saving, setSaving] = useState(false);
@@ -254,26 +254,28 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   }, [formattedBoard, formattedMedium, formattedClassLevel]);
 
   // ---------- Set Account Data ----------
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      // Firebase user exists but session may be gone
       if (!user) {
+        setUserData(undefined);
         setLoading(false);
         return;
       }
 
       try {
-        const res = await fetch("/api/account/me", {
-          headers: {
-            "x-user-uid": user.uid,
-          },
-        });
+        const res = await fetch("/api/account/me");
 
-        if (!res.ok) throw new Error("Failed to load user");
+        // Session expired or logged out
+        if (res.status === 401) {
+          await auth.signOut(); // force cleanup
+          setUserData(undefined);
+          return;
+        }
 
         const data = await res.json();
 
-        setData({
+        setUserData({
           firebaseUid: data.firebaseUid ?? "",
           name: data.name ?? "",
           phone: data.phone ?? "",
@@ -397,13 +399,13 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
 
   const saveDraftToDB = async (draftName: string) => {
     const raw = localStorage.getItem("paper:draft");
-    if (!raw || !data?.firebaseUid) return;
+    if (!raw || !userData?.firebaseUid) return;
 
     await fetch("/api/paper-drafts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userId: data.firebaseUid,
+        userId: userData.firebaseUid,
         draftName,
         draft: JSON.parse(raw),
       }),
@@ -1152,7 +1154,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
           boardParam={boardParam}
           mediumSlug={mediumSlug}
           classKey={classKey}
-          firebaseUid={data?.firebaseUid}
+          firebaseUid={userData?.firebaseUid}
           allowRoute={allowRoute}
         />
       )}

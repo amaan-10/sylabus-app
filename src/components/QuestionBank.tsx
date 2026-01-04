@@ -106,7 +106,7 @@ const boardClassMap = {
 
 export default function QuestionBankPage() {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<UserData>();
+  const [userData, setUserData] = useState<UserData>();
   const [subjectStats, setSubjectStats] = useState<
     Record<string, { chapterCount: number; questionCount: number }>
   >({});
@@ -117,9 +117,9 @@ export default function QuestionBankPage() {
   const [chaptersLoading, setChaptersLoading] = useState(true);
   const [chaptersError, setChaptersError] = useState<string | null>(null);
 
-  const formattedBoard = data?.board.toLowerCase();
-  const formattedMedium = normalizeMedium(data?.medium);
-  const formattedClassLevel = normalizeClassLevel(data?.classLevel);
+  const formattedBoard = userData?.board.toLowerCase();
+  const formattedMedium = normalizeMedium(userData?.medium);
+  const formattedClassLevel = normalizeClassLevel(userData?.classLevel);
 
   const subjects = getSubjectsFor(
     formattedBoard as BoardSlug,
@@ -165,7 +165,7 @@ export default function QuestionBankPage() {
   ];
 
   useEffect(() => {
-    if (!subjects.length || !data) return;
+    if (!subjects.length || !userData) return;
 
     const loadStats = async () => {
       const entries = await Promise.all(
@@ -183,7 +183,7 @@ export default function QuestionBankPage() {
     };
 
     loadStats();
-  }, [subjects, data]);
+  }, [subjects, userData]);
 
   const subjectsData: SubjectData[] = subjects.map((subject, index) => {
     const subjectSlug = subject.slug.toLowerCase();
@@ -197,7 +197,7 @@ export default function QuestionBankPage() {
         `${formattedBoard?.slice(0, 2)}-${formattedMedium?.slice(
           0,
           3
-        )}-${classToSlug(data?.classLevel)}-${subject.code}` || "",
+        )}-${classToSlug(userData?.classLevel)}-${subject.code}` || "",
 
       imgSrc: SUBJECT_IMAGE_MAP[subject.code] ?? DEFAULT_SUBJECT_IMAGE,
 
@@ -207,14 +207,16 @@ export default function QuestionBankPage() {
         ? subject.name ?? subject.shortName ?? "Unknown Subject"
         : subject.shortName ?? subject.name ?? "Unknown Subject",
 
-      board: data?.board?.toUpperCase() ?? "",
+      board: userData?.board?.toUpperCase() ?? "",
 
-      medium: data?.medium ? `${data.medium.replace("-", " ")} Medium` : "",
+      medium: userData?.medium
+        ? `${userData.medium.replace("-", " ")} Medium`
+        : "",
 
       chapterCount: stats.chapterCount,
       questionCount: stats.questionCount,
 
-      classLevel: data?.classLevel?.replace("-", " ") ?? "",
+      classLevel: userData?.classLevel?.replace("-", " ") ?? "",
 
       // details: [
       //   `${Array.isArray(subject)
@@ -231,23 +233,26 @@ export default function QuestionBankPage() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      // Firebase user exists but session may be gone
       if (!user) {
+        setUserData(undefined);
         setLoading(false);
         return;
       }
 
       try {
-        const res = await fetch("/api/account/me", {
-          headers: {
-            "x-user-uid": user.uid,
-          },
-        });
+        const res = await fetch("/api/account/me");
 
-        if (!res.ok) throw new Error("Failed to load user");
+        // Session expired or logged out
+        if (res.status === 401) {
+          await auth.signOut(); // force cleanup
+          setUserData(undefined);
+          return;
+        }
 
         const data = await res.json();
 
-        setData({
+        setUserData({
           firebaseUid: data.firebaseUid ?? "",
           name: data.name ?? "",
           phone: data.phone ?? "",
@@ -361,16 +366,16 @@ export default function QuestionBankPage() {
     setFilters((prev) => ({
       ...prev,
       subject: subject?.name || null,
-      board: data?.board || null,
-      medium: data?.medium || null,
-      classLevel: data?.classLevel || null,
+      board: userData?.board || null,
+      medium: userData?.medium || null,
+      classLevel: userData?.classLevel || null,
       chapter: selectedChapter?.title || null,
     }));
   }, [
     subject?.name,
-    data?.board,
-    data?.medium,
-    data?.classLevel,
+    userData?.board,
+    userData?.medium,
+    userData?.classLevel,
     selectedChapter?.title,
   ]);
 
@@ -384,16 +389,16 @@ export default function QuestionBankPage() {
       medium: null,
       classLevel: null,
     }));
-    setData({
-      firebaseUid: data?.firebaseUid ?? "",
-      name: data?.name ?? "",
-      phone: data?.phone ?? "",
-      gender: data?.gender ?? "",
-      role: data?.role ?? "",
+    setUserData({
+      firebaseUid: userData?.firebaseUid ?? "",
+      name: userData?.name ?? "",
+      phone: userData?.phone ?? "",
+      gender: userData?.gender ?? "",
+      role: userData?.role ?? "",
       board: board,
       medium: "",
       classLevel: "",
-      userTier: data?.userTier ?? "",
+      userTier: userData?.userTier ?? "",
     });
   };
 
@@ -410,16 +415,16 @@ export default function QuestionBankPage() {
       medium: prev.medium === medium ? null : medium,
       classLevel: null,
     }));
-    setData({
-      firebaseUid: data?.firebaseUid ?? "",
-      name: data?.name ?? "",
-      phone: data?.phone ?? "",
-      gender: data?.gender ?? "",
-      role: data?.role ?? "",
-      board: data?.board ?? "",
+    setUserData({
+      firebaseUid: userData?.firebaseUid ?? "",
+      name: userData?.name ?? "",
+      phone: userData?.phone ?? "",
+      gender: userData?.gender ?? "",
+      role: userData?.role ?? "",
+      board: userData?.board ?? "",
       medium: medium,
-      classLevel: data?.classLevel ?? "",
-      userTier: data?.userTier ?? "",
+      classLevel: userData?.classLevel ?? "",
+      userTier: userData?.userTier ?? "",
     });
   };
 
@@ -428,16 +433,16 @@ export default function QuestionBankPage() {
       ...prev,
       classLevel: prev.classLevel === cls ? null : cls,
     }));
-    setData({
-      firebaseUid: data?.firebaseUid ?? "",
-      name: data?.name ?? "",
-      phone: data?.phone ?? "",
-      gender: data?.gender ?? "",
-      role: data?.role ?? "",
-      board: data?.board ?? "",
-      medium: data?.medium ?? "",
+    setUserData({
+      firebaseUid: userData?.firebaseUid ?? "",
+      name: userData?.name ?? "",
+      phone: userData?.phone ?? "",
+      gender: userData?.gender ?? "",
+      role: userData?.role ?? "",
+      board: userData?.board ?? "",
+      medium: userData?.medium ?? "",
       classLevel: cls,
-      userTier: data?.userTier ?? "",
+      userTier: userData?.userTier ?? "",
     });
   };
 

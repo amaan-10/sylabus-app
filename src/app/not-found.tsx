@@ -19,15 +19,15 @@ export default function NotFound() {
             className="block w-full h-full rounded-inherit object-cover object-center"
           />
         </div>
-        <div className="relative flex flex-col flex-nowrap items-start justify-center flex-none gap-2 h-min w-full overflow-hidden p-20 bg-linear-to-b from-[#191a20] via-transparent">
+        <div className="relative flex flex-col flex-nowrap items-start justify-center flex-none gap-2 h-min w-full overflow-hidden p-10 md:p-20 bg-linear-to-b from-[#191a20] via-transparent">
           <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none opacity-100 transform-[perspective(1200px)] will-change-transform">
-            <h1 className="text-[196px] font-medium text-white leading-[200px]">
+            <h1 className="text-[160px] md:text-[196px] font-medium text-white leading-none">
               404
             </h1>
           </div>
           <div className="relative flex flex-col flex-nowrap items-start justify-start flex-none gap-14 h-min w-full overflow-visible p-0 opacity-100 transform-[perspective(1200px)] will-change-transform">
             <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none opacity-100 transform-[perspective(1200px)] will-change-transform">
-              <p className="text-xl text-white">
+              <p className="text-lg md:text-xl text-white">
                 Oops! We couldn't find that page :(
               </p>
             </div>

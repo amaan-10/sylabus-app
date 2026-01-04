@@ -1,6 +1,7 @@
 "use client";
 import {
   ConfirmationResult,
+  getAuth,
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth";
@@ -110,6 +111,19 @@ const Login = () => {
             phone: firebaseUser.phoneNumber,
           }),
         });
+
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        if (user) {
+          const token = await user.getIdToken();
+
+          await fetch("/api/auth/session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token }),
+          });
+        }
 
         const data = await res.json();
 

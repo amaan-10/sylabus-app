@@ -80,13 +80,22 @@ const Account = () => {
       }
 
       try {
-        const res = await fetch("/api/account/me", {
-          headers: {
-            "x-user-uid": user.uid,
-          },
-        });
+        const res = await fetch("/api/account/me");
 
-        if (!res.ok) throw new Error("Failed to load user");
+        // Session expired or logged out
+        if (res.status === 401) {
+          await auth.signOut(); // force cleanup
+          setForm({
+            name: "",
+            phone: "",
+            gender: "",
+            role: "",
+            board: "",
+            medium: "",
+            classLevel: "",
+          });
+          return;
+        }
 
         const data = await res.json();
 

@@ -249,15 +249,15 @@ const Dashboard = () => {
   //   },
   // ];
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<UserData>();
+  const [userData, setUserData] = useState<UserData>();
   const [savedSubjectIds, setSavedSubjectIds] = useState<string[]>([]);
   const [subjectStats, setSubjectStats] = useState<
     Record<string, { chapterCount: number; questionCount: number }>
   >({});
 
-  const formattedBoard = data?.board.toLowerCase();
-  const formattedMedium = normalizeMedium(data?.medium);
-  const formattedClassLevel = normalizeClassLevel(data?.classLevel);
+  const formattedBoard = userData?.board.toLowerCase();
+  const formattedMedium = normalizeMedium(userData?.medium);
+  const formattedClassLevel = normalizeClassLevel(userData?.classLevel);
 
   const subjects = getSubjectsFor(
     formattedBoard as BoardSlug,
@@ -305,7 +305,7 @@ const Dashboard = () => {
   ];
 
   useEffect(() => {
-    if (!subjects.length || !data) return;
+    if (!subjects.length || !userData) return;
 
     const loadStats = async () => {
       const entries = await Promise.all(
@@ -323,7 +323,7 @@ const Dashboard = () => {
     };
 
     loadStats();
-  }, [subjects, data]);
+  }, [subjects, userData]);
 
   const subjectsData: SubjectData[] = subjects.map((subject, index) => {
     const subjectSlug = subject.slug.toLowerCase();
@@ -337,7 +337,7 @@ const Dashboard = () => {
         `${formattedBoard?.slice(0, 2)}-${formattedMedium?.slice(
           0,
           3
-        )}-${classToSlug(data?.classLevel)}-${subject.code}` || "",
+        )}-${classToSlug(userData?.classLevel)}-${subject.code}` || "",
 
       imgSrc: SUBJECT_IMAGE_MAP[subject.code] ?? DEFAULT_SUBJECT_IMAGE,
 
@@ -347,14 +347,16 @@ const Dashboard = () => {
         ? subject.name ?? subject.shortName ?? "Unknown Subject"
         : subject.shortName ?? subject.name ?? "Unknown Subject",
 
-      board: data?.board?.toUpperCase() ?? "",
+      board: userData?.board?.toUpperCase() ?? "",
 
-      medium: data?.medium ? `${data.medium.replace("-", " ")} Medium` : "",
+      medium: userData?.medium
+        ? `${userData.medium.replace("-", " ")} Medium`
+        : "",
 
       chapterCount: stats.chapterCount,
       questionCount: stats.questionCount,
 
-      classLevel: data?.classLevel?.replace("-", " ") ?? "",
+      classLevel: userData?.classLevel?.replace("-", " ") ?? "",
 
       // details: [
       //   `${Array.isArray(subject)
@@ -373,23 +375,26 @@ const Dashboard = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      // Firebase user exists but session may be gone
       if (!user) {
+        setUserData(undefined);
         setLoading(false);
         return;
       }
 
       try {
-        const res = await fetch("/api/account/me", {
-          headers: {
-            "x-user-uid": user.uid,
-          },
-        });
+        const res = await fetch("/api/account/me");
 
-        if (!res.ok) throw new Error("Failed to load user");
+        // Session expired or logged out
+        if (res.status === 401) {
+          await auth.signOut(); // force cleanup
+          setUserData(undefined);
+          return;
+        }
 
         const data = await res.json();
 
-        setData({
+        setUserData({
           firebaseUid: data.firebaseUid ?? "",
           name: data.name ?? "",
           phone: data.phone ?? "",
@@ -411,10 +416,12 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    if (!data?.firebaseUid) return;
+    if (!userData?.firebaseUid) return;
 
     const loadSaved = async () => {
-      const res = await fetch(`/api/saved-subjects?userId=${data.firebaseUid}`);
+      const res = await fetch(
+        `/api/saved-subjects?userId=${userData.firebaseUid}`
+      );
 
       const saved = await res.json();
 
@@ -422,7 +429,7 @@ const Dashboard = () => {
     };
 
     loadSaved();
-  }, [data?.firebaseUid]);
+  }, [userData?.firebaseUid]);
 
   const toggleBookmark = async (e: React.MouseEvent, subject: SubjectData) => {
     e.preventDefault();
@@ -440,7 +447,7 @@ const Dashboard = () => {
         method: isSaved ? "DELETE" : "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          userId: data?.firebaseUid,
+          userId: userData?.firebaseUid,
           subjectId: subject.id,
           subjectData: subject, // 🔥 FULL OBJECT
         }),
@@ -453,8 +460,8 @@ const Dashboard = () => {
     }
   };
 
-  const userTier = data?.userTier
-    ? data.userTier.charAt(0).toUpperCase() + data.userTier.slice(1)
+  const userTier = userData?.userTier
+    ? userData.userTier.charAt(0).toUpperCase() + userData.userTier.slice(1)
     : "";
 
   const tierColors = {
@@ -497,7 +504,7 @@ const Dashboard = () => {
           <div className="flex place-content-center items-center flex-none flex-row gap-2 h-min overflow-hidden p-0 relative w-min">
             <div className="outline-none flex flex-col justify-start shrink-0 flex-none h-auto relative whitespace-pre w-auto">
               <h4 className="text-2xl font-medium text-[#193625] tracking-tight">
-                Hi{data?.name && `, ${data.name}`}
+                Hi{userData?.name && `, ${userData.name}`}
               </h4>
             </div>
             <div className="flex place-content-center items-center flex-none flex-row gap-1 h-min overflow-hidden p-0 relative w-min">
@@ -623,15 +630,15 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        {!loading && data && (
+        {!loading && userData && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
             <SelectField
               label="Board"
-              value={data.board}
+              value={userData.board}
               options={Object.keys(boardMediumMap)}
               onChange={(v) =>
-                setData({
-                  ...data,
+                setUserData({
+                  ...userData,
                   board: v,
                   medium: "",
                   classLevel: "",
@@ -641,24 +648,26 @@ const Dashboard = () => {
 
             <SelectField
               label="Medium"
-              value={data.medium}
+              value={userData.medium}
               options={
-                data.board
-                  ? boardMediumMap[data.board as keyof typeof boardMediumMap]
+                userData.board
+                  ? boardMediumMap[
+                      userData.board as keyof typeof boardMediumMap
+                    ]
                   : []
               }
-              onChange={(v) => setData({ ...data, medium: v })}
+              onChange={(v) => setUserData({ ...userData, medium: v })}
             />
 
             <SelectField
               label="Class"
-              value={data.classLevel}
+              value={userData.classLevel}
               options={
-                data.board
-                  ? boardClassMap[data.board as keyof typeof boardClassMap]
+                userData.board
+                  ? boardClassMap[userData.board as keyof typeof boardClassMap]
                   : []
               }
-              onChange={(v) => setData({ ...data, classLevel: v })}
+              onChange={(v) => setUserData({ ...userData, classLevel: v })}
             />
           </div>
         )}
