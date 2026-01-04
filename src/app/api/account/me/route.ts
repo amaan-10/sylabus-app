@@ -1,14 +1,20 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { User } from "@/models/User";
+import { cookies } from "next/headers";
+import { getAuth } from "firebase-admin/auth";
 
 export async function GET(req: Request) {
   try {
-    const firebaseUid = req.headers.get("x-user-uid");
+    const session = (await cookies()).get("session")?.value;
 
-    if (!firebaseUid) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!session) {
+      return new Response("Unauthorized", { status: 401 });
     }
+
+    const decoded = await getAuth().verifySessionCookie(session, true);
+
+    const firebaseUid = decoded.uid;
 
     await connectToDatabase();
 
