@@ -122,7 +122,7 @@ const Navbar: React.FC<{ hasSession: boolean }> = ({ hasSession }) => {
               </div>
 
               <div className="flex flex-row flex-none place-content-center items-center gap-6 w-min h-[41px] p-0 relative overflow-hidden">
-                {["Home", "Services", "About", "Contact"].map((label) => (
+                {["Home", "Services", "About", "Benefits"].map((label) => (
                   <div key={label} className="relative w-auto h-auto">
                     <a
                       href={`/#${label.toLowerCase()}`}
@@ -281,7 +281,7 @@ function MobileNavbar({
       className="md:hidden fixed top-0 left-0 right-0 z-50 font-poppins bg-white"
     >
       {/* Top Bar */}
-      <div className="flex items-center justify-between px-4 h-16 bg-white">
+      <div className="flex items-center justify-between pt-2 px-4 h-16 bg-white">
         {/* Logo */}
         <Link
           aria-label="Logo"
@@ -366,7 +366,7 @@ function MobileNavbar({
             className="fixed inset-0 bg-white pt-24 px-4 -z-1"
           >
             <nav className="flex flex-col gap-6">
-              {["Home", "Services", "About", "Contact"].map((item) => (
+              {["Home", "Services", "About", "Benefits"].map((item) => (
                 <Link
                   key={item}
                   href={`/#${item.toLowerCase()}`}

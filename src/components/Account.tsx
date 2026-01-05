@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { auth } from "../../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { LogOut } from "lucide-react";
+import LoaderWrapper from "./PageLoader";
+import { useRouter } from "next/navigation";
 
 type User = {
   name?: string;
@@ -71,6 +73,7 @@ const Account = () => {
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -166,148 +169,156 @@ const Account = () => {
     return phone;
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen w-full flex items-center justify-center">
-        Loading account…
-      </div>
-    );
-  }
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", {
+        method: "POST",
+      });
+      await signOut(getAuth()); // sign out from client side as well
+      router.replace("/"); // go to home
+      router.refresh(); // revalidate session
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+  };
 
   return (
-    <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-white md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
-      <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-center content-center justify-start gap-14 w-px max-w-[1200px] h-min overflow-hidden p-0">
-        <div className="relative flex flex-row flex-nowrap flex-none items-start content-start justify-between w-full h-min overflow-hidden p-0">
-          <div className="relative flex flex-col justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none">
-            <h4 className="text-2xl text-[#193625] tracking-tight">Account</h4>
+    <LoaderWrapper isLoading={loading}>
+      <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-white md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
+        <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-center content-center justify-start gap-14 w-px max-w-[1200px] h-min overflow-hidden p-0">
+          <div className="relative flex flex-row flex-nowrap flex-none items-start content-start justify-between w-full h-min overflow-hidden p-0">
+            <div className="relative flex flex-col justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none">
+              <h4 className="text-2xl text-[#193625] tracking-tight">
+                Account
+              </h4>
+            </div>
           </div>
-        </div>
-        <div className="relative flex flex-col flex-nowrap flex-none items-end content-end justify-center gap-2.5 w-full h-min overflow-hidden p-0">
-          <section className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-12 w-full h-min overflow-hidden md:px-4 py-8">
-            <div className="relative flex flex-row flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min p-4 overflow-visible rounded-2xl bg-[#ffffff] border border-[#d9d9d9] shadow-[0_24px_64px_#26214a1a]">
-              <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-2.5 w-min h-min p-2 overflow-hidden rounded-lg bg-[#fff8f4] will-change-transform">
-                <div className="flex-none w-8 h-8 relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                    color="var(--token-5c28b080-63a4-416d-b638-2f3867ab529e, rgb(255, 102, 37))"
-                    className="w-full h-full"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
+          <div className="relative flex flex-col flex-nowrap flex-none items-end content-end justify-center gap-2.5 w-full h-min overflow-hidden p-0">
+            <section className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-12 w-full h-min overflow-hidden md:px-4 py-8">
+              <div className="relative flex flex-row flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min p-4 overflow-visible rounded-2xl bg-[#ffffff] border border-[#d9d9d9] shadow-[0_24px_64px_#26214a1a]">
+                <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-2.5 w-min h-min p-2 overflow-hidden rounded-lg bg-[#fff8f4] will-change-transform">
+                  <div className="flex-none w-8 h-8 relative">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      data-slot="icon"
+                      color="var(--token-5c28b080-63a4-416d-b638-2f3867ab529e, rgb(255, 102, 37))"
+                      className="w-full h-full"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-0 w-px h-min overflow-hidden p-0">
+                  <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
+                    <p className="text-base font-semibold text-[#193625] tracking-tight">
+                      {form.name}
+                    </p>
+                  </div>
+                  <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word opacity-50 outline-none">
+                    <p className="text-sm">{formatIndianPhone(form.phone)}</p>
+                  </div>
                 </div>
               </div>
-              <div className="relative flex flex-col flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-0 w-px h-min overflow-hidden p-0">
+              <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min overflow-hidden p-0">
                 <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
-                  <p className="text-base font-semibold text-[#193625] tracking-tight">
-                    {form.name}
+                  <p className="text-base text-[#193625] tracking-tight">
+                    Account info
                   </p>
                 </div>
-                <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word opacity-50 outline-none">
-                  <p className="text-sm">{formatIndianPhone(form.phone)}</p>
-                </div>
-              </div>
-            </div>
-            <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min overflow-hidden p-0">
-              <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
-                <p className="text-base text-[#193625] tracking-tight">
-                  Account info
-                </p>
-              </div>
-              <div className="flex-none w-full h-auto relative">
-                <div className="relative w-full h-full flex justify-center items-center">
-                  <form
-                    onSubmit={handleSave}
-                    className="relative flex flex-col w-full h-auto gap-4"
-                  >
-                    {/* Email (still read-only) */}
-                    {/* <Input label="Email" value={form.email} disabled /> */}
-
-                    {/* Name */}
-                    <Input
-                      label="Full Name"
-                      value={form.name}
-                      onChange={(v) => setForm({ ...form, name: v })}
-                    />
-
-                    {/* Gender */}
-                    <Select
-                      label="Gender"
-                      value={form.gender}
-                      options={["Male", "Female", "Other"]}
-                      onChange={(v) => setForm({ ...form, gender: v })}
-                    />
-
-                    {/* Role */}
-                    <Select
-                      label="Role"
-                      value={form.role}
-                      options={["Teacher", "Student"]}
-                      onChange={(v) => setForm({ ...form, role: v })}
-                    />
-
-                    {/* Board */}
-                    <Select
-                      label="Board"
-                      value={form.board}
-                      options={Object.keys(boardMediumMap)}
-                      onChange={(v) =>
-                        setForm({
-                          ...form,
-                          board: v,
-                          medium: "",
-                          classLevel: "",
-                        })
-                      }
-                    />
-
-                    {/* Medium (depends on board) */}
-                    <Select
-                      label="Medium"
-                      value={form.medium}
-                      options={
-                        form.board
-                          ? boardMediumMap[
-                              form.board as keyof typeof boardMediumMap
-                            ]
-                          : []
-                      }
-                      onChange={(v) => setForm({ ...form, medium: v })}
-                    />
-
-                    {/* Class (depends on board) */}
-                    <Select
-                      label="Class"
-                      value={form.classLevel}
-                      options={
-                        form.board
-                          ? boardClassMap[
-                              form.board as keyof typeof boardClassMap
-                            ]
-                          : []
-                      }
-                      onChange={(v) => setForm({ ...form, classLevel: v })}
-                    />
-
-                    {/* SAVE */}
-                    <button
-                      type="submit"
-                      className="appearance-none w-full p-4 rounded-lg bg-[#191a20] text-white cursor-pointer"
+                <div className="flex-none w-full h-auto relative">
+                  <div className="relative w-full h-full flex justify-center items-center">
+                    <form
+                      onSubmit={handleSave}
+                      className="relative flex flex-col w-full h-auto gap-4"
                     >
-                      Save Changes
-                    </button>
-                  </form>
+                      {/* Email (still read-only) */}
+                      {/* <Input label="Email" value={form.email} disabled /> */}
+
+                      {/* Name */}
+                      <Input
+                        label="Full Name"
+                        value={form.name}
+                        onChange={(v) => setForm({ ...form, name: v })}
+                      />
+
+                      {/* Gender */}
+                      <Select
+                        label="Gender"
+                        value={form.gender}
+                        options={["Male", "Female", "Other"]}
+                        onChange={(v) => setForm({ ...form, gender: v })}
+                      />
+
+                      {/* Role */}
+                      <Select
+                        label="Role"
+                        value={form.role}
+                        options={["Teacher", "Student"]}
+                        onChange={(v) => setForm({ ...form, role: v })}
+                      />
+
+                      {/* Board */}
+                      <Select
+                        label="Board"
+                        value={form.board}
+                        options={Object.keys(boardMediumMap)}
+                        onChange={(v) =>
+                          setForm({
+                            ...form,
+                            board: v,
+                            medium: "",
+                            classLevel: "",
+                          })
+                        }
+                      />
+
+                      {/* Medium (depends on board) */}
+                      <Select
+                        label="Medium"
+                        value={form.medium}
+                        options={
+                          form.board
+                            ? boardMediumMap[
+                                form.board as keyof typeof boardMediumMap
+                              ]
+                            : []
+                        }
+                        onChange={(v) => setForm({ ...form, medium: v })}
+                      />
+
+                      {/* Class (depends on board) */}
+                      <Select
+                        label="Class"
+                        value={form.classLevel}
+                        options={
+                          form.board
+                            ? boardClassMap[
+                                form.board as keyof typeof boardClassMap
+                              ]
+                            : []
+                        }
+                        onChange={(v) => setForm({ ...form, classLevel: v })}
+                      />
+
+                      {/* SAVE */}
+                      <button
+                        type="submit"
+                        className="appearance-none w-full p-4 rounded-lg bg-[#191a20] text-white cursor-pointer"
+                      >
+                        Save Changes
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min overflow-hidden pt-12 border-t border-[#d9d9d9]">
+              {/* <div className="relative flex flex-col flex-nowrap flex-none items-center content-center justify-center gap-4 w-full max-w-[400px] h-min overflow-hidden pt-12 border-t border-[#d9d9d9]">
               <div className="relative flex flex-col justify-start flex-none shrink-0 w-full h-auto whitespace-pre-wrap wrap-break-word outline-none">
                 <p className="text-base text-[#193625] tracking-tight">
                   Change password
@@ -452,87 +463,90 @@ const Account = () => {
                 </div>
               </div>
             </div> */}
-          </section>
-          <div className="relative flex flex-row flex-nowrap flex-none items-center content-center justify-center gap-0 w-full h-min overflow-visible p-0 rounded-xl bg-white">
-            <div className="flex-none w-auto h-auto relative">
-              <Link
-                href="./logout"
-                className="relative flex flex-row flex-nowrap items-center content-center justify-center gap-2 cursor-pointer w-min h-min overflow-hidden px-3 py-2 no-underline rounded-sm bg-[rgb(245,223,223)] opacity-100 will-change-transform"
-              >
-                <div className="relative flex flex-row gap-2 justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none opacity-100">
-                  <p className="text-base text-[#a60303] tracking-tight cursor-pointer">
-                    Logout
-                  </p>
-                  <LogOut className="h-5 w-5 pt-1 text-[#a60303]" />
-                </div>
-              </Link>
+            </section>
+            <div className="relative flex flex-row flex-nowrap flex-none items-center content-center justify-center gap-0 w-full h-min overflow-visible p-0 rounded-xl bg-white">
+              <div className="flex-none w-auto h-auto relative">
+                <button
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                  className="relative flex flex-row flex-nowrap items-center content-center justify-center gap-2 cursor-pointer w-min h-min overflow-hidden px-4 py-2 no-underline rounded-lg bg-[rgb(245,223,223)] opacity-100 will-change-transform"
+                >
+                  <div className="relative flex flex-row gap-2 justify-start flex-none shrink-0 w-auto h-auto whitespace-pre outline-none opacity-100">
+                    <p className="text-base text-[#a60303] tracking-tight cursor-pointer">
+                      Logout
+                    </p>
+                    <LogOut className="h-5 w-5 pt-1 text-[#a60303]" />
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex-none h-auto relative w-full">
-          <div className="flex place-content-center items-center flex-col gap-2.5 h-min overflow-hidden p-0 relative w-full">
-            <div className="flex place-content-center justify-between items-center flex-none flex-row h-min max-w-[1200px] overflow-visible p-0 relative w-full">
-              <div className="relative w-auto h-auto">
-                <Link
-                  aria-label="Logo"
-                  className="flex flex-row place-content-center items-center gap-2 w-min h-min p-0 no-underline relative overflow-hidden"
-                  href="./#hero"
-                >
-                  <div className="relative w-5 md:w-7 h-5 md:h-7 mb-[7px] md:mb-0">
-                    {/* svg */}
-                    <svg
-                      version="1.0"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="100"
-                      height="100"
-                      viewBox="0 0 100 100"
-                      preserveAspectRatio="xMidYMid meet"
-                      className="select-none w-full h-full inline-block shrink-0 fill-[#193625] text-[#193625]"
-                    >
-                      <g
-                        transform="translate(0,100) scale(0.1,-0.1)"
-                        fill="#193625"
-                        stroke="none"
+          <div className="flex-none h-auto relative w-full">
+            <div className="flex place-content-center items-center flex-col gap-2.5 h-min overflow-hidden p-0 relative w-full">
+              <div className="flex place-content-center justify-between items-center flex-none flex-row h-min max-w-[1200px] overflow-visible p-0 relative w-full">
+                <div className="relative w-auto h-auto">
+                  <Link
+                    aria-label="Logo"
+                    className="flex flex-row place-content-center items-center gap-2 w-min h-min p-0 no-underline relative overflow-hidden"
+                    href="./#hero"
+                  >
+                    <div className="relative w-5 md:w-7 h-5 md:h-7 mb-[7px] md:mb-0">
+                      {/* svg */}
+                      <svg
+                        version="1.0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="xMidYMid meet"
+                        className="select-none w-full h-full inline-block shrink-0 fill-[#193625] text-[#193625]"
                       >
-                        <path d="M626 894 l-49 -75 121 -122 121 -121 75 50 75 50 -147 147 -147 146 -49 -75z" />
-                        <path d="M509 743 c-50 -26 -135 -43 -215 -43 l-50 0 -23 -97 c-13 -54 -52 -186 -87 -294 -35 -108 -64 -201 -64 -205 0 -5 81 72 180 171 113 112 178 185 175 194 -9 24 23 61 53 61 35 0 52 -16 52 -50 0 -33 -17 -50 -50 -50 -19 0 -66 -40 -205 -180 -99 -99 -176 -180 -171 -180 4 0 96 29 204 63 109 35 241 75 295 87 l97 24 0 50 c0 80 18 166 45 221 l25 50 -103 103 c-56 56 -104 101 -107 101 -3 -1 -26 -13 -51 -26z" />
-                      </g>
-                    </svg>
-                  </div>
-                  <div className="relative w-auto h-auto text-[#193625]">
-                    <p className="text-[#193625] text-base md:text-2xl">
-                      Sylabus
+                        <g
+                          transform="translate(0,100) scale(0.1,-0.1)"
+                          fill="#193625"
+                          stroke="none"
+                        >
+                          <path d="M626 894 l-49 -75 121 -122 121 -121 75 50 75 50 -147 147 -147 146 -49 -75z" />
+                          <path d="M509 743 c-50 -26 -135 -43 -215 -43 l-50 0 -23 -97 c-13 -54 -52 -186 -87 -294 -35 -108 -64 -201 -64 -205 0 -5 81 72 180 171 113 112 178 185 175 194 -9 24 23 61 53 61 35 0 52 -16 52 -50 0 -33 -17 -50 -50 -50 -19 0 -66 -40 -205 -180 -99 -99 -176 -180 -171 -180 4 0 96 29 204 63 109 35 241 75 295 87 l97 24 0 50 c0 80 18 166 45 221 l25 50 -103 103 c-56 56 -104 101 -107 101 -3 -1 -26 -13 -51 -26z" />
+                        </g>
+                      </svg>
+                    </div>
+                    <div className="relative w-auto h-auto text-[#193625]">
+                      <p className="text-[#193625] text-base md:text-2xl">
+                        Sylabus
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+                <div className="flex place-content-center items-center flex-none flex-row gap-3 h-min overflow-hidden p-0 relative w-min">
+                  <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
+                    <p className="text-xs text-[#193625]">
+                      <Link
+                        className="text-xs text-[#193625]"
+                        href="./policies/privacy-policy"
+                      >
+                        Privacy Policy
+                      </Link>
                     </p>
                   </div>
-                </Link>
-              </div>
-              <div className="flex place-content-center items-center flex-none flex-row gap-3 h-min overflow-hidden p-0 relative w-min">
-                <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
-                  <p className="text-xs text-[#193625]">
-                    <Link
-                      className="text-xs text-[#193625]"
-                      href="./privacy-policy"
-                    >
-                      Privacy Policy
-                    </Link>
-                  </p>
-                </div>
-                <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
-                  <p className="text-xs text-[#193625]">
-                    <Link
-                      className="text-xs text-[#193625]"
-                      href="./terms-of-service"
-                    >
-                      Terms of Service{" "}
-                    </Link>
-                  </p>
+                  <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
+                    <p className="text-xs text-[#193625]">
+                      <Link
+                        className="text-xs text-[#193625]"
+                        href="./policies/terms-of-service"
+                      >
+                        Terms of Service{" "}
+                      </Link>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </LoaderWrapper>
   );
 };
 

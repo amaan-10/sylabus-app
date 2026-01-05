@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import CountUp from "./CountUp";
 import { motion } from "framer-motion";
+import { useWindowWidth } from "@/hook/useWindowWidth";
 const ringPulse = {
   animate: {
     scale: [0.7, 1.05, 0.7],
@@ -11,12 +12,13 @@ const ringPulse = {
 };
 
 const Benefits = () => {
+  const width = useWindowWidth();
   return (
     <div
-      className="flex flex-col flex-none place-content-center items-center gap-24 w-full max-w-7xl h-min px-4 md:px-8 lg:px-12 relative overflow-hidden font-poppins"
+      className="flex flex-col flex-none place-content-center items-center gap-16 lg:gap-24 w-full max-w-7xl h-min px-4 md:px-8 lg:px-12 relative overflow-hidden font-poppins"
       id="benefits"
     >
-      <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[600px] h-min p-0 relative overflow-hidden">
+      <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[568px] md:max-w-[600px] h-min p-0 relative overflow-hidden">
         <div className="flex-none w-auto h-auto relative">
           <div className="h-min flex flex-row place-content-center items-center gap-1.5 w-min px-4 py-1.5 relative overflow-hidden rounded-4xl opacity-100 bg-[rgb(240,244,243)]">
             <div className="flex-none w-auto h-auto relative">
@@ -25,7 +27,7 @@ const Benefits = () => {
           </div>
         </div>
         <div className="flex-none w-full h-auto relative">
-          <h1 className="text-5xl text-[#193625] tracking-tighter text-center">
+          <h1 className="text-[34px] md:text-[40px] lg:text-5xl text-[#193625] tracking-tighter text-center">
             Why choose us?
           </h1>
         </div>
@@ -37,33 +39,45 @@ const Benefits = () => {
           </p>
         </div>
       </div>
-      <div className="flex-none grid grid-rows-7 grid-cols-[repeat(3,minmax(50px,1fr))] auto-rows-fr justify-center gap-6 w-full h-[856px] p-0 relative overflow-hidden">
+      <div className="flex-none grid grid-rows-6 md:grid-rows-7 md:grid-cols-[repeat(3,minmax(50px,1fr))] auto-rows-fr justify-center gap-6 max-w-[400px] md:max-w-full w-full md:h-[856px] p-0 relative overflow-hidden">
         <div
-          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none place-content-start self-center items-start gap-2.5 w-full h-full p-6 relative"
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none place-content-start self-center items-start gap-2.5 w-full h-[350px] md:h-full p-6 relative"
           id="bento-1"
-          style={{ gridArea: "span 3 / span 2" }}
+          style={(width ?? 0) > 768 ? { gridArea: "span 3 / span 2" } : {}}
         >
           <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full h-min p-0 relative overflow-hidden">
             <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
-              <h3 className="text-[32px] text-[#193625] tracking-tighter">
+              <h3 className="text-2xl md:text-[28px] lg:text-[32px] text-[#193625] tracking-tighter">
                 Improve Paper Quality
               </h3>
             </div>
             <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
               <p className="text-[#5e6b64]">
                 Get structured, balanced papers with clear sections, accurate
-                marking schemes, and syllabus alignment.
+                marking, and syllabus alignment.
               </p>
             </div>
           </div>
           <motion.div
-            initial={{ x: -200 }}
-            whileInView={{ x: 0 }}
+            initial={
+              (width ?? 0) < 768
+                ? { x: 80 }
+                : (width ?? 0) < 1024
+                ? { x: -50 }
+                : { x: -200 }
+            }
+            whileInView={
+              (width ?? 0) < 768
+                ? { x: 175 }
+                : (width ?? 0) < 1024
+                ? { x: 50 }
+                : { x: 0 }
+            }
             transition={{
               duration: 1.2,
               ease: "easeOut",
             }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.1 }}
             className="z-1 flex flex-row flex-none place-content-center items-center gap-0 w-min h-min p-0 absolute top-[150px] right-[345px] overflow-hidden"
           >
             <div className="flex-none w-[527px] h-1.5 relative overflow-hidden bg-[#13261b]"></div>
@@ -99,13 +113,19 @@ const Benefits = () => {
             </div>
           </motion.div>
           <motion.div
-            initial={{ x: -200, y: "-50%" }}
-            whileInView={{ x: 0, y: "-50%" }}
+            initial={
+              (width ?? 0) < 768
+                ? { x: -50, y: "-50%" }
+                : { x: -200, y: "-50%" }
+            }
+            whileInView={
+              (width ?? 0) < 768 ? { x: 100, y: "-50%" } : { x: 0, y: "-50%" }
+            }
             transition={{
               duration: 1.2,
               ease: "easeOut",
             }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.1 }}
             className="z-1 flex flex-row flex-none place-content-center items-center gap-0 w-min h-min p-0 absolute top-[76%] right-[164px] overflow-hidden"
           >
             <div className="flex-none w-[623px] h-1.5 relative overflow-hidden bg-[#13261b]"></div>
@@ -151,23 +171,25 @@ const Benefits = () => {
           </motion.div>
         </div>
         <div
-          className="rounded-[20px] flex flex-col flex-none place-content-start items-center gap-2.5 w-full h-full p-6 relative bg-[#f0f4f3] self-center"
-          style={{
-            backgroundColor:
-              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
-            gridRow: "span 4",
-          }}
+          className="rounded-[20px] flex flex-col flex-none place-content-start items-center gap-2.5 w-full h-[350px] md:h-full p-6 relative bg-[#f0f4f3] self-center"
+          style={
+            (width ?? 0) > 768
+              ? {
+                  gridRow: "span 4",
+                }
+              : {}
+          }
           id="bento-2"
         >
           <motion.div
-            initial={{ x: 0 }}
-            whileInView={{ x: -150 }}
+            initial={(width ?? 0) < 1024 ? { x: 60 } : { x: 0 }}
+            whileInView={(width ?? 0) < 1024 ? { x: -75 } : { x: -150 }}
             transition={{
               duration: 1.2,
               ease: "easeOut",
             }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="z-1 flex-none absolute w-[441px] h-[254px] aspect-[1.733] top-2/5 left-1/2 overflow-visible"
+            viewport={{ once: false, amount: 0.1 }}
+            className="z-1 flex-none absolute w-[376px] md:w-[441px] h-[216px] md:h-[254px] aspect-[1.733] top-[35%] md:top-2/5 left-[37%] md:left-1/2 overflow-visible"
           >
             <div className="absolute rounded-[inherit] inset-0">
               <Image
@@ -184,41 +206,42 @@ const Benefits = () => {
 
           <div className="flex flex-col flex-none place-content-start items-start gap-2 w-full max-w-lg h-min p-0 relative overflow-hidden">
             <div className="flex-none w-full h-auto relative">
-              <h1 className="text-[32px] text-[#193625] tracking-tighter">
+              <h1 className="text-2xl md:text-[28px] lg:text-[32px] text-[#193625] tracking-tighter">
                 Save Hours of Work
               </h1>
             </div>
             <div className="flex-none w-full max-w-[620px] h-auto relative">
               <p className="text-[#5e6b64]">
-                Generate complete question papers in minutes instead of manually
-                compiling questions.
+                Generate complete question papers in minutes instead of manual
+                compilation.
               </p>
             </div>
           </div>
         </div>
         <div
-          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none place-content-center items-center gap-2.5 w-full h-full p-6 relative self-center"
-          style={{
-            backgroundColor:
-              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
-            gridArea: "span 2 / span 2",
-          }}
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none place-content-center items-center gap-2.5 w-full h-[350px] md:h-full p-6 relative self-center"
+          style={
+            (width ?? 0) > 768
+              ? {
+                  gridArea: "span 2 / span 2",
+                }
+              : {}
+          }
           id="bento-3"
         >
           <div className="flex-none w-full h-auto relative">
-            <div className="cursor-pointer flex flex-wrap place-content-center items-center gap-2.5 w-full h-min p-0 relative overflow-visible">
+            <div className="cursor-pointer flex flex-wrap place-content-center items-center gap-[0px_10px] w-full h-min p-0 relative overflow-visible">
               <div className="whitespace-pre flex-none w-auto h-auto relative">
-                <div className="text-5xl text-[#193625] tracking-tighter text-center">
+                <div className="text-3xl lg:text-5xl text-[#193625] leading-[1.3] tracking-tighter text-center">
                   Boost Teaching{" "}
                 </div>
               </div>
-              <div className="flex-none w-auto h-12 relative">
-                <div className="cursor-pointer w-28 h-full relative overflow-hidden">
+              <div className="flex-none w-auto h-8 lg:h-12 relative">
+                <div className="cursor-pointer w-20 lg:w-28 h-full relative overflow-hidden">
                   <div
-                    className="flex-none w-12 absolute top-0 bottom-0 overflow-hidden rounded-[56px]"
+                    className="flex-none w-8 lg:w-12 absolute left-6 lg:left-[calc(50%-24px)] top-0 bottom-0 overflow-hidden rounded-[56px]"
                     style={{
                       willChange: "transform",
-                      left: "calc(50% - 24px)",
                       mask: "radial-gradient(57% 57% at -18.3% 50%, rgba(0,0,0,0) 99.99%, rgb(0,0,0) 100%)",
                       transform: "none",
                       transformOrigin: "50% 50% 0px",
@@ -237,7 +260,7 @@ const Benefits = () => {
                     </div>
                   </div>
                   <div
-                    className="flex-none w-12 absolute top-0 bottom-0 right-0 overflow-hidden rounded-[56px]"
+                    className="flex-none w-8 lg:w-12 absolute top-0 bottom-0 right-0 overflow-hidden rounded-[56px]"
                     style={{
                       willChange: "transform",
                       mask: "radial-gradient(57% 57% at -18.3% 50%, rgba(0,0,0,0) 99.99%, rgb(0,0,0) 100%)",
@@ -258,7 +281,7 @@ const Benefits = () => {
                     </div>
                   </div>
                   <div
-                    className="flex-none w-12 absolute top-0 bottom-0 left-0 overflow-hidden rounded-[56px]"
+                    className="flex-none w-8 lg:w-12 absolute top-0 bottom-0 left-0 overflow-hidden rounded-[56px]"
                     style={{
                       willChange: "transform",
                       transform: "none",
@@ -280,7 +303,7 @@ const Benefits = () => {
                 </div>
               </div>
               <div className="whitespace-pre flex-none w-auto h-auto relative">
-                <div className="text-5xl text-[#193625] tracking-tighter text-center">
+                <div className="text-3xl lg:text-5xl text-[#193625] leading-[1.1] tracking-tighter text-center">
                   {" "}
                   Efficiency
                 </div>
@@ -295,16 +318,11 @@ const Benefits = () => {
           </div>
         </div>
         <div
-          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none row-span-3 place-content-start self-center items-start gap-2.5 w-full h-full p-6 relative overflow-hidden"
-          style={{
-            backgroundColor:
-              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
-            willChange: "transform",
-          }}
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none md:row-span-3 place-content-start self-center items-start gap-2.5 w-full h-[350px] md:h-full p-6 relative overflow-hidden"
           id="bento-4"
         >
-          <div className="whitespace-pre-wrap wrap-break-word z-1 flex-none w-[284px] h-auto relative">
-            <h3 className="text-[32px] text-[#193625] tracking-tight leading-9">
+          <div>
+            <h3 className="text-2xl md:text-[28px] lg:text-[32px] text-[#193625] tracking-tight leading-9">
               Ensure Accuracy & Consistency
             </h3>
           </div>
@@ -433,27 +451,24 @@ const Benefits = () => {
           </div>
         </div>
         <div
-          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none row-span-2 place-content-start self-center items-center gap-6 w-full h-full p-6 relative overflow-hidden"
-          style={{
-            backgroundColor:
-              "var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, #f0f4f3)",
-            willChange: "transform",
-          }}
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-col flex-none md:row-span-2 place-content-start self-center items-center gap-6 w-full h-[350px] md:h-full p-6 relative overflow-hidden"
           id="bento-5"
         >
           <div className="flex flex-col flex-none place-content-center items-center gap-[15px] w-full max-w-lg h-min p-0 relative overflow-hidden">
             <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
-              <h3 className="text-[32px] text-[#193625] tracking-tight">
+              <h3 className="text-2xl md:text-[28px] lg:text-[32px] text-[#193625] tracking-tight">
                 Trusted by Educators
               </h3>
             </div>
           </div>
           <motion.div
             initial={{ y: 75 }}
-            whileInView={{ y: -30 }}
+            whileInView={
+              (width ?? 0) < 1024 && (width ?? 0) > 768 ? { y: 0 } : { y: -30 }
+            }
             transition={{ duration: 1.2, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.1 }}
-            className="aspect-[0.672131] z-1 flex-none w-[246px] h-[366px] absolute top-1/2 left-1/2 -translate-x-1/2 overflow-visible"
+            className="aspect-[0.672131] z-1 flex-none w-[246px] md:w-[193px] lg:w-[246px] h-[366px] md:h-[287px] lg:h-[366px] absolute top-1/2 left-1/2 -translate-x-1/2 overflow-visible"
           >
             <div className="absolute rounded-[inherit] inset-0">
               <Image
@@ -469,7 +484,7 @@ const Benefits = () => {
           </motion.div>
         </div>
         <div
-          className="bg-[#f0f4f3] rounded-[20px] flex flex-row flex-none row-span-2 place-content-center self-center items-center gap-2.5 w-full h-full p-6 relative"
+          className="bg-[#f0f4f3] rounded-[20px] flex flex-row flex-none md:row-span-2 place-content-center self-center items-center gap-2.5 w-full h-[350px] md:h-full p-6 relative"
           id="bento-6"
         >
           <div className="flex flex-col flex-[1_0_0] place-content-center items-center gap-[15px] w-px max-w-lg h-min p-0 relative overflow-hidden">
@@ -575,7 +590,7 @@ const Benefits = () => {
                       from={0}
                       to={54}
                       duration={2}
-                      className="m-0 pointer-events-none select-none text-center font-normal text-[58px]"
+                      className="m-0 pointer-events-none select-none text-center font-normal text-[58px] leading-none"
                       threshold={0.4} // optional: how much must be visible to trigger
                       once={false} // optional: set true to whileInView only the first time
                     />
@@ -583,7 +598,7 @@ const Benefits = () => {
                 </div>
 
                 <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
-                  <h3 className="text-[32px] text-[#193625] tracking-tight text-center">
+                  <h3 className="text-2xl md:text-[28px] lg:text-[32px] text-[#193625] tracking-tight text-center">
                     Happy clients
                   </h3>
                 </div>

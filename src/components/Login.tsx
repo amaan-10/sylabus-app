@@ -84,7 +84,7 @@ const Login = () => {
         console.error(err);
         setResendCountdown(0);
 
-        setError(err.code || "Failed to send OTP");
+        setError("Failed to send OTP");
       }
     });
   };
@@ -133,12 +133,11 @@ const Login = () => {
           router.replace("/dashboard");
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
 
         setError("Failed to verify OTP. Please check the OTP.");
       }
     });
-    console.log({ formattedPhone, otp });
   };
 
   const loadingIndicator = (

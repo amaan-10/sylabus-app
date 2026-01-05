@@ -78,7 +78,7 @@ function OtpLogin() {
         await confirmationResult?.confirm(otp);
         router.replace("/");
       } catch (error) {
-        console.log(error);
+        console.error(error);
 
         setError("Failed to verify OTP. Please check the OTP.");
       }

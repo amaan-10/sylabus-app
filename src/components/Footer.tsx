@@ -1,3 +1,4 @@
+import { Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -43,16 +44,20 @@ const Footer = () => {
                 Effortless Paper Setting for Educators.
               </p>
             </div>
+            {/* <div className="flex gap-4">
+              <Instagram className="w-6 h-6 flex self-center text-white hover:text-gray-300 cursor-pointer" />
+              <Youtube className="w-7 h-7 text-white hover:text-gray-300 cursor-pointer" />
+            </div> */}
           </div>
           <div className="flex flex-col flex-none place-content-start items-start gap-8 w-min h-min p-0 relative overflow-visible">
-            <div className="whitespace-pre flex-none w-auto h-auto relative">
+            {/* <div className="whitespace-pre flex-none w-auto h-auto relative">
               <p className="text-white text-2xl">Pages</p>
-            </div>
+            </div> */}
             <nav className="flex flex-col flex-none place-content-start items-start gap-4 w-min h-min p-0 relative overflow-visible">
-              {["Home", "About", "Services", "Blog"].map((label) => (
+              {["Home", "About", "Services", "Benefits"].map((label) => (
                 <div key={label} className="flex-none w-auto h-auto relative">
                   <Link
-                    href="./#hero"
+                    href={`./#${label.toLowerCase()}`}
                     className="group cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
                   >
                     <div className="whitespace-pre flex-none w-auto h-auto relative">
@@ -66,19 +71,27 @@ const Footer = () => {
             </nav>
           </div>
           <div className="flex flex-col flex-none place-content-start items-start gap-8 w-min h-min p-0 relative overflow-visible">
-            <div className="whitespace-pre flex-none w-auto h-auto relative">
+            {/* <div className="whitespace-pre flex-none w-auto h-auto relative">
               <p className="text-white text-2xl">Information</p>
-            </div>
+            </div> */}
             <nav className="flex flex-col flex-none place-content-start items-start gap-4 w-min h-min p-0 relative overflow-visible">
-              {["Contact", "Privacy Policy", "Terms", "404"].map((label) => (
-                <div key={label} className="flex-none w-auto h-auto relative">
+              {[
+                { label: "Get Started", href: "/signin" },
+                { label: "Dashboard", href: "/dashboard" },
+                { label: "Contact", href: "/contact" },
+                { label: "Terms", href: "/policies/terms-of-service" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex-none w-auto h-auto relative"
+                >
                   <Link
-                    href="./#hero"
+                    href={item.href}
                     className="group cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
                   >
                     <div className="whitespace-pre flex-none w-auto h-auto relative">
                       <span className="text-base text-white/60 transition-colors duration-200 motion-safe:transition-transform motion-safe:duration-300 group-hover:text-[#ffffff] group-hover:-translate-y-0.5 motion-safe:group-hover:-translate-y-0.5 inline-block">
-                        {label}
+                        {item.label}
                       </span>
                     </div>
                   </Link>
@@ -87,11 +100,33 @@ const Footer = () => {
             </nav>
           </div>
         </div>
-        <div className="flex flex-row flex-none place-content-center items-center gap-24 w-full h-min pt-12 pl-0 pr-0 relative overflow-visible border-t border-[#969696] border-solid opacity-100">
-          <div className="whitespace-pre-wrap wrap-break-word flex-[1_0_0] h-auto relative">
+        <div className="flex flex-wrap flex-row flex-none justify-between place-content-center items-center gap-5 w-full h-min pt-12 pl-0 pr-0 relative overflow-visible border-t border-[#969696] border-solid opacity-100">
+          <div>
             <p className="text-white text-sm">
               © 2025 Sylabus, All rights reserved
             </p>
+          </div>
+          <div className="flex place-content-center items-center flex-none flex-row gap-3 h-min overflow-hidden p-0 relative w-min">
+            <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
+              <p className="text-xs ">
+                <Link
+                  className="text-xs text-white"
+                  href="/policies/privacy-policy"
+                >
+                  Privacy Policy
+                </Link>
+              </p>
+            </div>
+            <div className="flex-none h-auto relative whitespace-pre w-auto outline-none flex flex-col justify-start shrink-0 opacity-100">
+              <p className="text-xs">
+                <Link
+                  className="text-xs text-white"
+                  href="/policies/terms-of-service"
+                >
+                  Terms of Service{" "}
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

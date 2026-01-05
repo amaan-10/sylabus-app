@@ -63,9 +63,7 @@ const About = () => {
           <div className="flex-none w-auto h-auto relative">
             <Link
               className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[rgb(19,38,27)] hover:bg-[rgb(168,86,19)] transition-colors duration-300 rounded-[37px] shadow-xl shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
-              href="https://cal.com/"
-              target="_blank"
-              rel="noopener"
+              href="/about"
             >
               <div className="h-min flex flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">
                 <div className="flex-none w-auto h-auto relative">

@@ -328,7 +328,6 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
     }
   }, [boardParam, mediumParam, classParam, subjectParam]);
 
-  console.log(boardParam);
   const board = BOARDS.find((b) =>
     b.abbreviation.toLowerCase().includes(boardParam)
   );
@@ -588,8 +587,6 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
       : getQuestionTypesForSubject(subject, questionSource);
 
   const addQuestionsToPaper = (qs: Question[]) => {
-    console.log("qs", qs);
-
     if (paperMode === "custom") {
       setSelected((prev) => {
         const map = new Map(prev.map((p) => [p.id, p]));

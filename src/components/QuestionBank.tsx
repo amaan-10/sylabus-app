@@ -303,13 +303,6 @@ export default function QuestionBankPage() {
     }
   };
 
-  console.log(
-    formattedBoard,
-    formattedMedium,
-    formattedClassLevel,
-    subject.slug
-  );
-
   useEffect(() => {
     if (
       !subject.slug ||
@@ -496,7 +489,6 @@ export default function QuestionBankPage() {
   const [activeSource, setActiveSource] =
     useState<QuestionSource>("balbharati");
 
-  console.log("selectedChapter: ", selectedChapter);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   return (
@@ -831,7 +823,6 @@ const Filters: React.FC<FiltersProps> = ({
   onReset,
   setIsFiltersOpen,
 }) => {
-  console.log(subjects);
   return (
     <div className="flex-none h-[97.5vh] relative max-w-[371px]">
       <div className="border border-[rgba(25,26,32,0.08)] bg-white rounded-2xl opacity-100 flex place-content-start items-start flex-col gap-0 h-full overflow-visible p-0 relative w-full">

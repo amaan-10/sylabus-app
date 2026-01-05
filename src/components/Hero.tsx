@@ -5,7 +5,7 @@ import Link from "next/link";
 import { fadeUp, fadeUpFromBottom, parentStagger } from "./animations";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ hasSession }: { hasSession: boolean }) => {
   const steps = [
     {
       title: "Log In to Dashboard",
@@ -90,9 +90,7 @@ const Hero = () => {
             >
               <Link
                 className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[#13261b] hover:bg-[#a85613] transition-colors duration-300 rounded-[37px] shadow-xl shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
-                href="https://cal.com/"
-                target="_blank"
-                rel="noopener"
+                href={hasSession ? "/dashboard" : "/signin"}
               >
                 <div className="h-min flex flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">
                   <div className="flex-none w-auto h-auto relative">
