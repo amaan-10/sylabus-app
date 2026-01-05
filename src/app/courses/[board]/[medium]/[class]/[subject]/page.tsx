@@ -487,8 +487,6 @@ const SubjectChaptersPage: React.FC = () => {
       : getQuestionTypesForSubject(subject, questionSource);
 
   const addQuestionsToPaper = (qs: Question[]) => {
-    console.log("qs", qs);
-
     if (paperMode === "custom") {
       setSelected((prev) => {
         const map = new Map(prev.map((p) => [p.id, p]));

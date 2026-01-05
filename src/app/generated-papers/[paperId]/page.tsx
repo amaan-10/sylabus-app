@@ -31,6 +31,7 @@ import {
 import { Subject } from "@/lib/subjects";
 import { CSS } from "@dnd-kit/utilities";
 import Sidebar from "@/components/Sidebar";
+import LoaderWrapper from "@/components/PageLoader";
 
 type Question = any;
 type PaperMode = "exam" | "custom";
@@ -42,7 +43,7 @@ const SavedPaperDetailPage = () => {
 
   const [loading, setLoading] = useState(true);
   const [paper, setPaper] = useState<any>(null);
-
+  const [subject, setSubject] = useState<any>(null);
   const [selected, setSelected] = useState<Question[]>([]);
   const [paperMode, setPaperMode] = useState<PaperMode>("custom");
   const [sectionedSelected, setSectionedSelected] =
@@ -51,41 +52,42 @@ const SavedPaperDetailPage = () => {
   const [previewOpen, setPreviewOpen] = useState(false);
 
   useEffect(() => {
-    async function loadPaper() {
-      const res = await fetch(`/api/question-papers/${paperId}`);
-      if (!res.ok) {
-        alert("Failed to load paper");
-        router.push("/generated-papers");
-        return;
+    if (!paperId) return;
+    const loadPaper = async () => {
+      try {
+        const res = await fetch(`/api/question-papers/${paperId}`);
+        if (!res.ok) {
+          alert("Failed to load paper");
+          router.push("/generated-papers");
+          return;
+        }
+
+        const data = await res.json();
+        const p = data.paper;
+
+        setPaper(p);
+        setSubject({
+          slug: p.meta.subjectSlug,
+          name: p.meta.subjectName,
+        });
+        setPaperMode(p.paperMode);
+        setSchoolName(p.schoolName || "");
+        setSelected(p.questions || []);
+        setSectionedSelected(p.examSections || {});
+      } catch (err) {
+        console.error("Failed to load generated paper", err);
+      } finally {
+        setLoading(false);
       }
-
-      const data = await res.json();
-      const p = data.paper;
-      console.log(p);
-
-      setPaper(p);
-      setPaperMode(p.paperMode);
-      setSchoolName(p.schoolName || "");
-      setSelected(p.questions || []);
-      setSectionedSelected(p.examSections || {});
-      setLoading(false);
-    }
+    };
 
     loadPaper();
   }, [paperId, router]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-slate-500">
-        Loading paper…
-      </div>
-    );
-  }
-
-  const subject = {
-    slug: paper.meta.subjectSlug,
-    name: paper.meta.subjectName,
-  };
+  // const subject = {
+  //   slug: paper.meta.subjectSlug,
+  //   name: paper.meta.subjectName,
+  // };
 
   const selectedForPDF =
     paperMode === "exam" ? Object.values(sectionedSelected).flat() : selected;
@@ -93,11 +95,12 @@ const SavedPaperDetailPage = () => {
   return (
     <div className="flex place-content-start items-start bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-[104px] relative min-h-screen w-auto font-poppins">
       <Sidebar />
-      <section className="border border-[rgba(0,0,0,0.08)] bg-white rounded-2xl flex place-content-between justify-center items-center flex-[1_0_0] flex-col h-[97.5vh] overflow-hidden pt-14 px-8 pb-8 relative w-full gap-5">
-        <div className="min-h-screen w-full px-4 py-6">
-          <div className="max-w-7xl mx-auto space-y-4">
-            {/* ---------- Header ---------- */}
-            {/* <div className="flex items-center justify-between">
+      <LoaderWrapper isLoading={loading}>
+        <section className="border border-[rgba(0,0,0,0.08)] bg-white rounded-2xl flex place-content-between justify-center items-center flex-[1_0_0] flex-col h-[97.5vh] overflow-hidden pt-14 px-8 pb-8 relative w-full gap-5">
+          <div className="min-h-screen w-full px-4 py-6">
+            <div className="max-w-7xl mx-auto space-y-4">
+              {/* ---------- Header ---------- */}
+              {/* <div className="flex items-center justify-between">
               <button
                 onClick={() => router.push("/generated-papers")}
                 className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900"
@@ -129,8 +132,8 @@ const SavedPaperDetailPage = () => {
               </PDFDownloadLink>
             </div> */}
 
-            {/* ---------- Meta ---------- */}
-            {/* <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm">
+              {/* ---------- Meta ---------- */}
+              {/* <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm">
               <h1 className="text-lg font-semibold text-slate-900">
                 {paper.meta.subjectName}
               </h1>
@@ -146,8 +149,8 @@ const SavedPaperDetailPage = () => {
               </p>
             </div> */}
 
-            {/* ---------- Paper Builder ---------- */}
-            {/* <PaperBuilder
+              {/* ---------- Paper Builder ---------- */}
+              {/* <PaperBuilder
               selected={selected}
               setSelected={setSelected}
               removeFromPaper={(id: any) =>
@@ -165,24 +168,27 @@ const SavedPaperDetailPage = () => {
               setPaperMode={setPaperMode}
             /> */}
 
-            {/* ---------- PDF Preview ---------- */}
-            <PDFPreviewModal
-              open={true}
-              onClose={() => setPreviewOpen(false)}
-              schoolName={schoolName}
-              subject={subject}
-              selected={selected}
-              paperMode={paperMode}
-              sectionedSelected={sectionedSelected}
-              boardParam={paper.meta.board}
-              mediumSlug={paper.meta.medium}
-              classKey={paper.meta.classKey}
-              firebaseUid={paper.userId}
-              examPatternTotalMarks={paper.totalMarks}
-            />
+              {/* ---------- PDF Preview ---------- */}
+              {paper && subject && (
+                <PDFPreviewModal
+                  open={true}
+                  onClose={() => setPreviewOpen(false)}
+                  schoolName={schoolName}
+                  subject={subject}
+                  selected={selected}
+                  paperMode={paperMode}
+                  sectionedSelected={sectionedSelected}
+                  boardParam={paper.meta.board}
+                  mediumSlug={paper.meta.medium}
+                  classKey={paper.meta.classKey}
+                  firebaseUid={paper.userId}
+                  examPatternTotalMarks={paper.totalMarks}
+                />
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </LoaderWrapper>
     </div>
   );
 };

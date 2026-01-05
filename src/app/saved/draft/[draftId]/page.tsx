@@ -142,7 +142,6 @@ const SavedPage = () => {
     useState<SectionedSelection>({});
   const [selected, setSelected] = useState<Question[]>([]);
 
-  console.log("selected: ", selected);
   const [schoolDialogOpen, setSchoolDialogOpen] = useState(false);
 
   useEffect(() => {
@@ -208,7 +207,6 @@ const SavedPage = () => {
         setDraftName(data.draft?.draftName || "");
 
         if (data.draft?.paperMode === "exam") {
-          console.log("exam mode set: ", data.draft?.paperMode);
           setPaperMode("exam");
           setSectionedSelected(data.draft?.draft?.sectionedSelected || {});
         }
@@ -222,8 +220,6 @@ const SavedPage = () => {
 
     loadSaved();
   }, [userData?.firebaseUid]);
-
-  console.log(paperMode);
 
   useEffect(() => {
     if (!savedPaperDraft) return;
@@ -317,8 +313,6 @@ const SavedPage = () => {
   const mediumLabel = medium?.medium_name || "All Mediums";
 
   const addQuestionsToPaper = (qs: Question[]) => {
-    console.log("qs", qs);
-
     if (paperMode === "custom") {
       setSelected((prev) => {
         const map = new Map(prev.map((p) => [p.id, p]));
@@ -474,9 +468,7 @@ const SavedPage = () => {
     draftId: string
   ) => {
     const raw = localStorage.getItem("paper:draft");
-    console.log("raw");
     if (!raw || !userId || !draftId) return;
-    console.log("saving to db...");
     await fetch("/api/paper-drafts", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col place-content-start items-center gap-20 md:gap-32 lg:gap-40 h-min min-h-screen w-auto p-0 relative overflow-visible">
       <Navbar hasSession={hasSession} />
-      <Hero />
+      <Hero hasSession={hasSession} />
       <About />
       <Services />
       <Benefits />

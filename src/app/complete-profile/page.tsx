@@ -293,7 +293,6 @@ export default function CompleteProfile() {
 
               <button
                 onClick={() => {
-                  console.log("FINAL FORM DATA:", form);
                   handleSubmit();
                 }}
                 className="w-full h-11 rounded-full bg-[#13261b] text-white cursor-pointer"
