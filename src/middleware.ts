@@ -21,11 +21,17 @@ export function middleware(req: NextRequest) {
     (path) => pathname === path || pathname.startsWith(`${path}/`)
   );
 
-  // 🔒 Block protected routes if not logged in
+  // Redirect logged-in users away from auth pages
+  if (
+    session &&
+    (pathname === "/" || pathname === "/signin" || pathname === "/signup")
+  ) {
+    return NextResponse.redirect(new URL("/dashboard", req.url));
+  }
+
+  // Block protected routes if not logged in
   if (!session && isProtected) {
-    const url = new URL("/", req.url);
-    // url.searchParams.set("redirect", pathname); // optional
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(new URL("/", req.url));
   }
 
   return NextResponse.next();
@@ -33,10 +39,17 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
+    "/",
+    "/signin",
+    "/signup",
     "/dashboard/:path*",
     "/courses/:path*",
     "/generated-papers/:path*",
     "/saved/:path*",
-    "/account",
+    "/account/:path*",
+    "/auto-generate/:path*",
+    "/custom-paper/:path*",
+    "/quick-quiz/:path*",
+    "/question-bank/:path*",
   ],
 };
