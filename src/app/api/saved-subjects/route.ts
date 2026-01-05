@@ -6,8 +6,6 @@ export async function POST(req: Request) {
   try {
     const { userId, subjectId, subjectData } = await req.json();
 
-    console.log(userId, subjectId);
-
     if (!userId || !subjectId) {
       return NextResponse.json(
         { error: "userId and subjectId are required" },
