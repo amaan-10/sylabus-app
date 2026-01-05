@@ -1,8 +1,10 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { User } from "@/models/User";
 import { cookies } from "next/headers";
-import { getAuth } from "firebase-admin/auth";
+import { adminAuth } from "@/lib/firebase-admin";
 
 export async function GET(req: Request) {
   try {
@@ -12,7 +14,7 @@ export async function GET(req: Request) {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    const decoded = await getAuth().verifySessionCookie(session, true);
+    const decoded = await adminAuth.verifySessionCookie(session, true);
 
     const firebaseUid = decoded.uid;
 
