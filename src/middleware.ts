@@ -23,9 +23,9 @@ export function middleware(req: NextRequest) {
 
   // Redirect logged-in users away from auth pages
   if (
-    session &&
-    // pathname === "/" ||
-    (pathname === "/signin" || pathname === "/signup")
+    (session && pathname === "/") ||
+    pathname === "/signin" ||
+    pathname === "/signup"
   ) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
