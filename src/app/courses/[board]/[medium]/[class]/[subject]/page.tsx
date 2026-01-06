@@ -18,7 +18,15 @@ import {
   Subject,
 } from "@/lib/subjects";
 import Sidebar from "@/components/Sidebar";
-import { ChevronRight, Home, X, Trash2, FileText, Minus } from "lucide-react";
+import {
+  ChevronRight,
+  Home,
+  X,
+  Trash2,
+  FileText,
+  Minus,
+  ChevronLeft,
+} from "lucide-react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../../../../../firebase";
 
@@ -350,7 +358,14 @@ const SubjectChaptersPage: React.FC = () => {
 
   // persist selected to localStorage
   useEffect(() => {
-    if (selected.length === 0) return;
+    if (selected.length === 0) {
+      localStorage.removeItem("paper:draft");
+      return;
+    }
+    if (sectionedSelected && Object.keys(sectionedSelected).length === 0) {
+      localStorage.removeItem("paper:draft");
+      return;
+    }
 
     const draft = {
       boardSlug: boardSlug,
@@ -503,6 +518,13 @@ const SubjectChaptersPage: React.FC = () => {
 
   const removeFromPaper = (id: string) => {
     setSelected((prev) => prev.filter((p) => p.id !== id));
+    setSectionedSelected((prev) => {
+      const next: SectionedSelection = {};
+      for (const secKey in prev) {
+        next[secKey] = prev[secKey].filter((q) => q.id !== id);
+      }
+      return next;
+    });
   };
 
   const clearPaper = () => {
@@ -685,7 +707,7 @@ const SubjectChaptersPage: React.FC = () => {
       )}
 
       <LoaderWrapper isLoading={chaptersLoading}>
-        <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[56px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
+        <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[40px_8px_120px] md:p-[56px_32px_32px] will-change-transform">
           <div className="w-full">
             {/* Breadcrumb */}
             <nav className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
@@ -728,7 +750,7 @@ const SubjectChaptersPage: React.FC = () => {
                   </div>
 
                   <h1 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                    {subject.name} — {board.board_name} (
+                    {subject.name} — {board.abbreviation} (
                     {getClassLabel(classKey)})
                   </h1>
 
@@ -849,7 +871,7 @@ const SubjectChaptersPage: React.FC = () => {
                                             {chapter.description}
                                           </p>
                                         )}
-                                        {chapter.topics &&
+                                        {/* {chapter.topics &&
                                           chapter.topics.length > 0 && (
                                             <div>
                                               <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
@@ -883,7 +905,7 @@ const SubjectChaptersPage: React.FC = () => {
                                                 )}
                                               </ul>
                                             </div>
-                                          )}
+                                          )} */}
                                       </div>
                                     )}
 
@@ -943,6 +965,7 @@ const SubjectChaptersPage: React.FC = () => {
           subject={subject}
           paperMode={paperMode}
           sectionedSelected={sectionedSelected}
+          chapters={chapters}
           openSpec={openQuestionType}
           onClose={() => setOpenQuestionType(null)}
           onAddToPaper={(qs) => addQuestionsToPaper(qs)}
@@ -957,7 +980,7 @@ const SubjectChaptersPage: React.FC = () => {
       <PaperBuilder
         selected={selected}
         setSelected={setSelected}
-        removeFromPaper={paperMode === "custom" ? removeFromPaper : () => {}}
+        removeFromPaper={removeFromPaper}
         clearPaper={clearPaper}
         exportPrintable={exportPrintable}
         exportJSON={exportJSON}
@@ -1023,6 +1046,7 @@ const QuestionTypePanel: React.FC<{
     chapterNumber?: number;
     source: QuestionSource;
   };
+  chapters: Chapter[];
   onClose: () => void;
   onAddToPaper: (qs: Question[]) => void;
   // let panel show which are already selected globally (checkbox checked)
@@ -1040,6 +1064,7 @@ const QuestionTypePanel: React.FC<{
   classKey,
   subject,
   openSpec,
+  chapters,
   onClose,
   onAddToPaper,
   selectedIds,
@@ -1063,6 +1088,18 @@ const QuestionTypePanel: React.FC<{
   const [localSelectedIds, setLocalSelectedIds] = useState<Set<string>>(
     new Set()
   );
+  const [activeChapterSlug, setActiveChapterSlug] = useState(
+    openSpec.chapterSlug
+  );
+
+  const initialIndex = Math.max(
+    0,
+    chapters.findIndex((c) => c.slug === openSpec.chapterSlug)
+  );
+
+  const [chapterIndex, setChapterIndex] = useState(initialIndex);
+
+  const activeChapter = chapters[chapterIndex];
 
   useEffect(() => {
     const controller = new AbortController();
@@ -1080,8 +1117,7 @@ const QuestionTypePanel: React.FC<{
           source: openSpec.source ?? "",
         });
 
-        if (openSpec.chapterSlug)
-          params.set("chapterSlug", openSpec.chapterSlug);
+        if (activeChapter?.slug) params.set("chapterSlug", activeChapter.slug);
 
         const res = await fetch(`/api/question-bank?${params.toString()}`, {
           signal: controller.signal,
@@ -1121,7 +1157,7 @@ const QuestionTypePanel: React.FC<{
     mediumSlug,
     classKey,
     subject,
-    openSpec.chapterSlug,
+    chapterIndex,
     openSpec.questionTypeLabel,
     openSpec.source,
   ]);
@@ -1224,6 +1260,9 @@ const QuestionTypePanel: React.FC<{
 
     return current.length >= limit;
   };
+  useEffect(() => {
+    setLocalSelectedIds(new Set());
+  }, [chapterIndex]);
 
   const capitalize = (s: string) =>
     s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
@@ -1234,35 +1273,61 @@ const QuestionTypePanel: React.FC<{
       role="dialog"
       aria-modal="true"
     >
-      <div className="p-6 border-b border-slate-200 flex items-start justify-between gap-4">
-        <div>
-          <div className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-medium text-sky-900">
-            {subject.name}
+      <div className="p-6 border-b border-slate-200">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-medium text-sky-900">
+              {subject.name}
+            </div>
           </div>
-          <h2 className="mt-2 text-lg font-semibold text-slate-900">
-            {openSpec.questionTypeLabel} — {chapterTitle || "Chapter"}
-          </h2>
-          <p className="text-xs text-slate-500">
-            Select questions and click{" "}
-            <span className="font-medium">Add to paper</span>.
-          </p>
+
+          <div className="flex items-center gap-2">
+            <div className="text-xs text-slate-500 mr-2">
+              {loading
+                ? "Loading…"
+                : `${questions.length} q • ${totalMarks} marks`}
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-full p-2 hover:bg-slate-100 cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="text-xs text-slate-500 mr-2">
-            {loading
-              ? "Loading…"
-              : `${questions.length} q • ${totalMarks} marks`}
-          </div>
+        <div className="flex items-center gap-2 py-2">
           <button
-            type="button"
-            onClick={onClose}
-            className="rounded-full p-2 hover:bg-slate-100 cursor-pointer"
-            aria-label="Close"
+            onClick={() => setChapterIndex((i) => Math.max(0, i - 1))}
+            disabled={chapterIndex === 0}
+            className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40"
+            aria-label="Previous chapter"
           >
-            <X className="w-4 h-4" />
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
+          <h2 className="text-lg font-semibold leading-[1.2] text-slate-900">
+            {openSpec.questionTypeLabel} — Chapter{" "}
+            {activeChapter?.chapterNumber}: {activeChapter?.title}
+          </h2>
+
+          <button
+            onClick={() =>
+              setChapterIndex((i) => Math.min(chapters.length - 1, i + 1))
+            }
+            disabled={chapterIndex === chapters.length - 1}
+            className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40"
+            aria-label="Next chapter"
+          >
+            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
+        <p className="text-xs text-slate-500">
+          Select questions and click{" "}
+          <span className="font-medium">Add to paper</span>.
+        </p>
       </div>
 
       <div className="p-6 space-y-4">
@@ -1282,11 +1347,11 @@ const QuestionTypePanel: React.FC<{
 
         {!loading && !error && questions.length > 0 && (
           <>
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleAddSelectedToPaper}
-                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-sm font-medium text-white hover:opacity-95"
+                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-xs md:text-sm font-medium text-white hover:opacity-95"
                 >
                   Add to paper
                 </button>
@@ -1314,7 +1379,7 @@ const QuestionTypePanel: React.FC<{
                       });
                     }
                   }}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 hover:bg-slate-50"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs md:text-sm text-slate-700 hover:bg-slate-50"
                 >
                   Toggle select all
                 </button>
