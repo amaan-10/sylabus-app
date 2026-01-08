@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { fadeUp, fadeUpFromBottom, parentStagger } from "./animations";
+import { fadeUp, fadeUpFromBottom, parentStagger } from "../animations";
 import { motion } from "framer-motion";
 
 const Hero = ({ hasSession }: { hasSession: boolean }) => {

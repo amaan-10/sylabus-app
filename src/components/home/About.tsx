@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { wordChild, wordParent } from "./animations";
+import { wordChild, wordParent } from "../animations";
 import { motion } from "framer-motion";
 
 const About = () => {

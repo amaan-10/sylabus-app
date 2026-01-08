@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import CountUp from "./CountUp";
+import CountUp from "../CountUp";
 import { motion } from "framer-motion";
 import { useWindowWidth } from "@/hook/useWindowWidth";
 const ringPulse = {

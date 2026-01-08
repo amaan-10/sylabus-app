@@ -1,9 +1,9 @@
-import About from "@/components/About";
-import Benefits from "@/components/Benefits";
+import About from "@/components/home/About";
+import Benefits from "@/components/home/Benefits";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import Hero from "@/components/home/Hero";
 import Navbar from "@/components/Navbar";
-import Services from "@/components/Services";
+import Services from "@/components/home/Services";
 import { cookies } from "next/headers";
 
 export default async function Home() {
