@@ -349,6 +349,7 @@ const SubjectChaptersPage: React.FC = () => {
   // panel open state for question-type slide-over (same as before)
   const [openQuestionType, setOpenQuestionType] = useState<{
     questionTypeLabel: string;
+    marks: number;
     questionTypeSlug: string;
     chapterSlug: string;
     chapterTitle?: string;
@@ -482,24 +483,33 @@ const SubjectChaptersPage: React.FC = () => {
     const chapter = chapters.find((c) => c.id === openChapterId);
     if (!chapter || !chapter.questions) return [];
 
-    const set = new Set<string>();
+    const map = new Map<string, { label: string; marks: number }>();
 
     for (const q of chapter.questions) {
       if (q.source && q.source !== questionSource) continue;
 
-      const candidate = prettifyType(q.type || "");
-      if (candidate) set.add(candidate.trim());
+      const label = prettifyType(q.type || "").trim();
+      if (!label || typeof q.marks !== "number") continue;
+
+      const key = `${label}-${q.marks}`;
+
+      if (!map.has(key)) {
+        map.set(key, { label, marks: q.marks });
+      }
     }
 
-    return Array.from(set);
+    return Array.from(map.entries()).map(([key, value]) => ({
+      key,
+      label: value.label,
+      marks: value.marks,
+    }));
   }, [chapters, openChapterId, questionSource]);
 
   const questionTypes =
-    questionTypesFromOpenChapter.length > 0
-      ? questionTypesFromOpenChapter
-      : questionTypesFromData.length > 0
-      ? questionTypesFromData
-      : getQuestionTypesForSubject(subject, questionSource);
+    questionTypesFromOpenChapter.length > 0 ? questionTypesFromOpenChapter : [];
+  // : questionTypesFromData.length > 0
+  // ? questionTypesFromData
+  // : getQuestionTypesForSubject(subject, questionSource);
 
   const addQuestionsToPaper = (qs: Question[]) => {
     if (paperMode === "custom") {
@@ -577,12 +587,14 @@ const SubjectChaptersPage: React.FC = () => {
 
   const handleOpenQuestionType = (
     label: string,
+    marks: number,
     chapterSlug: string,
     chapterTitle?: string,
     chapterNumber?: number
   ) => {
     setOpenQuestionType({
       questionTypeLabel: label,
+      marks,
       questionTypeSlug: questionTypeToSlug(label),
       chapterSlug,
       chapterTitle,
@@ -921,21 +933,47 @@ const SubjectChaptersPage: React.FC = () => {
                                       <div className="space-y-2 mt-1">
                                         {questionTypes.map((type) => (
                                           <button
-                                            key={type}
+                                            key={type.key}
                                             onClick={() =>
                                               handleOpenQuestionType(
-                                                type,
+                                                type.label,
+                                                type.marks,
                                                 chapter.slug,
                                                 chapter.title,
                                                 chapter.chapterNumber
                                               )
                                             }
-                                            className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs sm:text-sm text-slate-800 hover:bg-emerald-50 hover:border-emerald-300 transition"
+                                            className="group flex w-full items-center justify-between rounded-2xl border border-slate-200
+    bg-slate-50 px-4 py-3
+    text-sm text-slate-800
+    shadow-sm
+    transition-all
+    hover:-translate-y-px
+    hover:border-emerald-300
+    hover:bg-emerald-50
+    hover:shadow-md
+    focus:outline-none focus:ring-2 focus:ring-emerald-200
+  "
                                           >
-                                            <span>{type}</span>
-                                            <span className="text-[10px] text-slate-500">
-                                              Open →
-                                            </span>
+                                            {/* Left content */}
+                                            <div className="flex flex-col items-start">
+                                              <span className="font-medium leading-tight">
+                                                {type.label}
+                                              </span>
+                                              <span className="mt-0.5 text-xs text-slate-500">
+                                                {type.marks} Marks
+                                              </span>
+                                            </div>
+
+                                            {/* Right action */}
+                                            <div className="flex items-center gap-1 text-xs font-medium text-emerald-600">
+                                              <span className="opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+                                                Open
+                                              </span>
+                                              <span className="text-base leading-none">
+                                                →
+                                              </span>
+                                            </div>
                                           </button>
                                         ))}
                                       </div>
@@ -1040,6 +1078,7 @@ const QuestionTypePanel: React.FC<{
   subject: Subject;
   openSpec: {
     questionTypeLabel: string;
+    marks: number;
     questionTypeSlug: string;
     chapterSlug: string;
     chapterTitle?: string;
@@ -1088,9 +1127,6 @@ const QuestionTypePanel: React.FC<{
   const [localSelectedIds, setLocalSelectedIds] = useState<Set<string>>(
     new Set()
   );
-  const [activeChapterSlug, setActiveChapterSlug] = useState(
-    openSpec.chapterSlug
-  );
 
   const initialIndex = Math.max(
     0,
@@ -1098,6 +1134,10 @@ const QuestionTypePanel: React.FC<{
   );
 
   const [chapterIndex, setChapterIndex] = useState(initialIndex);
+
+  useEffect(() => {
+    setChapterIndex(chapters.findIndex((c) => c.slug === openSpec.chapterSlug));
+  }, [openSpec]);
 
   const activeChapter = chapters[chapterIndex];
 
@@ -1113,8 +1153,9 @@ const QuestionTypePanel: React.FC<{
           medium: mediumSlug ?? "",
           classKey: classKey ?? "",
           subjectSlug: subject ? subject.slug : "",
-          questionTypeLabel: openSpec.questionTypeLabel ?? "",
+          questionTypeSlug: openSpec.questionTypeSlug ?? "",
           source: openSpec.source ?? "",
+          marks: String(openSpec.marks ?? 0),
         });
 
         if (activeChapter?.slug) params.set("chapterSlug", activeChapter.slug);
@@ -1302,7 +1343,7 @@ const QuestionTypePanel: React.FC<{
           <button
             onClick={() => setChapterIndex((i) => Math.max(0, i - 1))}
             disabled={chapterIndex === 0}
-            className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40"
+            className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40  cursor-pointer"
             aria-label="Previous chapter"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -1318,7 +1359,7 @@ const QuestionTypePanel: React.FC<{
               setChapterIndex((i) => Math.min(chapters.length - 1, i + 1))
             }
             disabled={chapterIndex === chapters.length - 1}
-            className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40"
+            className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40  cursor-pointer"
             aria-label="Next chapter"
           >
             <ChevronRight className="w-4 h-4" />
@@ -1349,12 +1390,12 @@ const QuestionTypePanel: React.FC<{
           <>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
-                <button
+                {/* <button
                   onClick={handleAddSelectedToPaper}
                   className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-xs md:text-sm font-medium text-white hover:opacity-95"
                 >
                   Add to paper
-                </button>
+                </button> */}
                 <button
                   onClick={() => {
                     // toggle select all / none locally
@@ -1379,7 +1420,8 @@ const QuestionTypePanel: React.FC<{
                       });
                     }
                   }}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs md:text-sm text-slate-700 hover:bg-slate-50"
+                  // className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs md:text-sm text-slate-700 hover:bg-slate-50"
+                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-xs md:text-sm font-medium text-white hover:opacity-95 cursor-pointer"
                 >
                   Toggle select all
                 </button>

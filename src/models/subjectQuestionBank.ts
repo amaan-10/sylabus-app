@@ -3,13 +3,19 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 
 export type QuestionType =
   | "mcq"
-  | "short"
-  | "very-short"
-  | "long"
-  | "numerical"
   | "true-false"
   | "fill"
+  | "very-short"
+  | "short"
+  | "long"
+  | "numerical"
+  | "diagram"
+  | "match"
+  | "case-study"
+  | "word-problem"
+  | "short-note"
   | "activity";
+
 export type Difficulty = "easy" | "medium" | "hard";
 export type QuestionSource = "balbharati" | "pyq";
 

@@ -1603,7 +1603,7 @@ const QuestionTypePanel: React.FC<{
           medium: mediumSlug ?? "",
           classKey: classKey ?? "",
           subjectSlug: subject ? subject.slug : "",
-          questionTypeLabel: openSpec.questionTypeLabel ?? "",
+          questionTypeSlug: openSpec.questionTypeSlug ?? "",
           source: openSpec.source ?? "",
         });
 
