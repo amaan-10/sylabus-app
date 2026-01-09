@@ -22,6 +22,7 @@ export type QuestionSource = "balbharati" | "pyq";
 export interface Question {
   id: string;
   type: QuestionType;
+  examSectionType?: string;
   difficulty: Difficulty;
   marks: number;
   text: string;
@@ -60,6 +61,9 @@ const QuestionSchema = new Schema<Question>(
       type: String,
       enum: ["mcq", "short", "long", "numerical"],
       required: true,
+    },
+    examSectionType: {
+      type: String,
     },
     difficulty: {
       type: String,
