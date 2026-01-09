@@ -24,6 +24,7 @@ export async function GET(req: Request) {
       (searchParams.get("source") as QuestionSource) || "balbharati";
     const marksParam = searchParams.get("marks");
     const marks = marksParam !== null ? Number(marksParam) : undefined;
+    const paperMode = searchParams.get("paperMode");
 
     if (!board || !medium || !classKey || !subjectSlug) {
       return NextResponse.json(
@@ -59,12 +60,12 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: "Chapter not found" }, { status: 404 });
     }
 
-    const filteredQuestions = filterQuestionsByType(
-      chapter.questions,
-      questionTypeSlug as QuestionType,
+    const filteredQuestions = filterQuestions(chapter.questions, {
       source,
-      marks
-    );
+      type: questionTypeSlug as QuestionType,
+      marks,
+      paperMode,
+    });
 
     const totalMarks = filteredQuestions.reduce(
       (sum, q) => sum + (q.marks || 0),
@@ -86,28 +87,43 @@ export async function GET(req: Request) {
   }
 }
 
-function filterQuestionsByType(
+function filterQuestions(
   questions: Question[],
-  type: QuestionType,
-  source?: QuestionSource,
-  marks?: number
+  {
+    source,
+    type,
+    marks,
+    paperMode,
+  }: {
+    source?: QuestionSource;
+    type?: QuestionType;
+    marks?: number;
+    paperMode?: string | null;
+  }
 ): Question[] {
-  const s = source?.toLowerCase();
-
-  // ---------- SOURCE FILTER (strict) ----------
   let filtered = questions;
 
-  if (s) {
-    filtered = filtered.filter((q) => {
-      if (!q.source) return false;
-      return q.source.toLowerCase() === s;
-    });
+  // ---------- SOURCE FILTER (always applied) ----------
+  if (source) {
+    filtered = filtered.filter(
+      (q) => q.source?.toLowerCase() === source.toLowerCase()
+    );
   }
 
-  // ---------- TYPE FILTER ----------
-  filtered = filtered.filter((q) => q.type === type);
+  // ---------- PYQ MODE ----------
+  if (paperMode === "exam" || paperMode === "pyq") {
+    // ONLY marks matter
+    if (typeof marks === "number" && !isNaN(marks)) {
+      filtered = filtered.filter((q) => q.marks === marks);
+    }
+    return filtered;
+  }
 
-  // ---------- MARKS FILTER (optional) ----------
+  // ---------- TEXTBOOK / CUSTOM MODE ----------
+  if (type) {
+    filtered = filtered.filter((q) => q.type === type);
+  }
+
   if (typeof marks === "number" && !isNaN(marks)) {
     filtered = filtered.filter((q) => q.marks === marks);
   }
