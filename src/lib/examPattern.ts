@@ -46,7 +46,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
       {
         key: "B",
         title: "SECTION – B",
-        type: "Short answer",
+        type: "Short answer 1",
         marks: 2,
         total: 12,
         attemptAny: 8,
@@ -54,7 +54,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
       {
         key: "C",
         title: "SECTION – C",
-        type: "Numerical problems",
+        type: "Short answer 2",
         marks: 3,
         total: 12,
         attemptAny: 8,
