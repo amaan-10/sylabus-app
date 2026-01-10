@@ -15,19 +15,24 @@ const PROTECTED_PATHS = [
 
 export function middleware(req: NextRequest) {
   const session = req.cookies.get("session")?.value;
+  console.log(session);
   const { pathname } = req.nextUrl;
 
   const isProtected = PROTECTED_PATHS.some(
     (path) => pathname === path || pathname.startsWith(`${path}/`)
   );
 
-  // Redirect logged-in users away from auth pages
+  // If session exists, prevent access to auth pages and home
   if (
-    (session && pathname === "/") ||
-    pathname === "/signin" ||
-    pathname === "/signup"
+    session &&
+    (pathname === "/" || pathname === "/signin" || pathname === "/signup")
   ) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
+  }
+
+  // If session does NOT exist, allow /signin and /signup
+  if (!session && (pathname === "/signin" || pathname === "/signup")) {
+    return NextResponse.next();
   }
 
   // Block protected routes if not logged in
