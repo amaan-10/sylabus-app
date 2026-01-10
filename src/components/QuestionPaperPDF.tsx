@@ -150,6 +150,8 @@ export const QuestionPaperPDF = ({
     paperMode === "exam" &&
     ["physics", "chemistry", "biology"].includes(examKey);
 
+  console.log(selected);
+
   const pattern = isExamSupported
     ? EXAM_PATTERN_12_SCIENCE[examKey as ScienceSubjectKey]
     : null;
@@ -372,8 +374,10 @@ export const QuestionPaperPDF = ({
             {pattern.sections.map((sec) => {
               const qs = selected.filter(
                 (q: any) =>
-                  prettifyType(q.type) === sec.type && q.marks === sec.marks
+                  prettifyType(q.examSectionType) === sec.type &&
+                  q.marks === sec.marks
               );
+              console.log(sec.type);
 
               if (!qs.length) return null;
 
@@ -588,6 +592,8 @@ const prettifyType = (t?: string): string => {
     "multiple choice": "MCQ",
     "multiple choice questions": "MCQ",
     short: "Short answer",
+    "short-1": "Short answer 1",
+    "short-2": "Short answer 2",
     "very-short": "Very short answer",
     "very short": "Very short answer",
     long: "Long answer",
