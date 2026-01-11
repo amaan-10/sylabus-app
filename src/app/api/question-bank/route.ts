@@ -65,6 +65,7 @@ export async function GET(req: Request) {
       type: questionTypeSlug as QuestionType,
       marks,
       paperMode,
+      examSectionType: questionTypeSlug ?? undefined,
     });
 
     const totalMarks = filteredQuestions.reduce(
@@ -94,38 +95,49 @@ function filterQuestions(
     type,
     marks,
     paperMode,
+    examSectionType,
   }: {
     source?: QuestionSource;
     type?: QuestionType;
     marks?: number;
     paperMode?: string | null;
+    examSectionType?: string;
   }
 ): Question[] {
   let filtered = questions;
 
-  // ---------- SOURCE FILTER (always applied) ----------
+  // ---------- SOURCE FILTER (always) ----------
   if (source) {
     filtered = filtered.filter(
       (q) => q.source?.toLowerCase() === source.toLowerCase()
     );
   }
 
-  // ---------- PYQ MODE ----------
-  if (paperMode === "exam" || paperMode === "pyq") {
-    // ONLY marks matter
-    if (typeof marks === "number" && !isNaN(marks)) {
+  // ---------- EXAM MODE ----------
+  if (paperMode === "exam") {
+    if (!examSectionType) return [];
+
+    filtered = filtered.filter((q) => q.examSectionType === examSectionType);
+
+    // optional safety: keep marks aligned
+    if (typeof marks === "number") {
       filtered = filtered.filter((q) => q.marks === marks);
     }
+
     return filtered;
   }
 
-  // ---------- TEXTBOOK / CUSTOM MODE ----------
-  if (type) {
-    filtered = filtered.filter((q) => q.type === type);
-  }
+  // ---------- CUSTOM MODE ----------
+  if (paperMode === "custom") {
+    if (type) {
+      filtered = filtered.filter((q) => q.type === type);
+    }
 
-  if (typeof marks === "number" && !isNaN(marks)) {
-    filtered = filtered.filter((q) => q.marks === marks);
+    if (typeof marks === "number") {
+      filtered = filtered.filter((q) => q.marks === marks);
+    }
+
+    return filtered;
   }
 
   return filtered;
