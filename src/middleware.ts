@@ -15,7 +15,6 @@ const PROTECTED_PATHS = [
 
 export function middleware(req: NextRequest) {
   const session = req.cookies.get("session")?.value;
-  console.log(session);
   const { pathname } = req.nextUrl;
 
   const isProtected = PROTECTED_PATHS.some(
