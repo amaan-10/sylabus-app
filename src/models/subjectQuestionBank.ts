@@ -30,6 +30,7 @@ export interface Question {
   source?: QuestionSource;
   options?: string[]; // only for MCQ
   tags: string[];
+  imageUrl?: string;
 }
 
 export interface Chapter {
@@ -73,6 +74,7 @@ const QuestionSchema = new Schema<Question>(
     marks: { type: Number, required: true },
     text: { type: String, required: true },
     answer: { type: String, required: true },
+    imageUrl: { type: String },
     source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
     tags: { type: [String], default: [] },
