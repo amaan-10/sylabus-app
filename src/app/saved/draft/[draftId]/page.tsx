@@ -629,7 +629,7 @@ const SavedPage = () => {
                   </div>
 
                   <h1 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                    {subject && subject.name} — {board && board.board_name} (
+                    {subject && subject.name} - {board && board.board_name} (
                     {savedPaperDraft && getClassLabel(savedPaperDraft.classKey)}
                     )
                   </h1>
@@ -1120,7 +1120,7 @@ const QuestionTypePanel: React.FC<{
             {subject.name}
           </div>
           <h2 className="mt-2 text-lg font-semibold text-slate-900">
-            {openSpec.questionTypeLabel} — {chapterTitle || "Chapter"}
+            {openSpec.questionTypeLabel} - {chapterTitle || "Chapter"}
           </h2>
           <p className="text-xs text-slate-500">
             Select questions and click{" "}
@@ -1926,7 +1926,7 @@ const getClassLabel = (classKey: ClassKey): string => {
   const streamLabel = getStreamLabel(
     stream as "science" | "commerce" | "arts" | "humanities" | "all"
   );
-  return `${stdLabel} — ${streamLabel}`;
+  return `${stdLabel} - ${streamLabel}`;
 };
 
 const getStreamLabel = (
