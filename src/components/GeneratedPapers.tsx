@@ -348,7 +348,7 @@ const getClassLabel = (classKey: ClassKey): string => {
   const streamLabel = getStreamLabel(
     stream as "science" | "commerce" | "arts" | "humanities" | "all"
   );
-  return `${stdLabel} — ${streamLabel}`;
+  return `${stdLabel} - ${streamLabel}`;
 };
 
 const getStreamLabel = (

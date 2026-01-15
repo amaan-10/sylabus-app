@@ -9,7 +9,7 @@ const Services = () => {
     {
       title: "AI Question Generation",
       description:
-        "Create high-quality, syllabus-aligned questions instantly—customized by chapter, marks, and difficulty.",
+        "Create high-quality, syllabus-aligned questions instantly-customized by chapter, marks, and difficulty.",
       imageSrc: "/ai-paper-generator.png",
       imageAlt: "AI Question Generation",
       href: "",
@@ -192,7 +192,7 @@ const Services = () => {
                     </div>
                     <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
                       <p className="text-[#5e6b64]">
-                        Measure your emissions with clarity—laying the
+                        Measure your emissions with clarity-laying the
                         foundation for smarter action.
                       </p>
                     </div>
@@ -257,7 +257,7 @@ const Services = () => {
                     </div>
                     <div className="whitespace-pre-wrap wrap-break-word flex-none w-full h-auto relative">
                       <p className="text-[#5e6b64]">
-                        Measure your emissions with clarity—laying the
+                        Measure your emissions with clarity-laying the
                         foundation for smarter action.
                       </p>
                     </div>

@@ -242,6 +242,8 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
     source: QuestionSource;
   } | null>(null);
 
+  const [examPatternTotalMarks, setExamPatternTotalMarks] = useState(0);
+
   const formattedBoard = selectedBoard?.toLowerCase() as BoardSlug;
 
   const formattedMedium = `${selectedMedium
@@ -635,6 +637,13 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
 
   const removeFromPaper = (id: string) => {
     setSelected((prev) => prev.filter((p) => p.id !== id));
+    setSectionedSelected((prev) => {
+      const next: SectionedSelection = {};
+      for (const secKey in prev) {
+        next[secKey] = prev[secKey].filter((q) => q.id !== id);
+      }
+      return next;
+    });
   };
 
   const clearPaper = () => {
@@ -706,8 +715,6 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   const handleToggleChapter = (id: string) => {
     setOpenChapterId((prev) => (prev === id ? null : id));
   };
-
-  let examPatternTotalMarks = 0;
 
   const items = [
     { label: "Courses", href: "/courses" },
@@ -882,7 +889,8 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
         setPaperMode={setPaperMode}
         handleOpenQuestionType={handleOpenQuestionType}
         chapters={chapters}
-        examPatternTotalMarks={examPatternTotalMarks}
+        setExamPatternTotalMarks={setExamPatternTotalMarks}
+        board={boardSlug}
       />
 
       <SchoolNameDialog

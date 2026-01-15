@@ -157,7 +157,7 @@ export const QuestionPaperPDF = ({
     paperMode === "exam" &&
     ["physics", "chemistry", "biology"].includes(examKey);
 
-  console.log(selected);
+  selected;
 
   const pattern = isExamSupported
     ? EXAM_PATTERN_12_SCIENCE[examKey as ScienceSubjectKey]
@@ -384,7 +384,7 @@ export const QuestionPaperPDF = ({
                   prettifyType(q.examSectionType) === sec.type &&
                   q.marks === sec.marks
               );
-              console.log(sec.type);
+              sec.type;
 
               if (!qs.length) return null;
 

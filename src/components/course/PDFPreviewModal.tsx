@@ -120,7 +120,7 @@ export const PDFPreviewModal = ({
                 <QuestionPaperPDF
                   schoolName={schoolName}
                   subject={subject}
-                  selected={selected}
+                  selected={selectedForPDF}
                   paperMode={paperMode}
                   examPatternTotalMarks={examPatternTotalMarks}
                 />

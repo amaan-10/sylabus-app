@@ -149,7 +149,7 @@ const Account = () => {
   };
 
   const formatIndianPhone = (phone?: string) => {
-    if (!phone) return "—";
+    if (!phone) return "-";
 
     // Remove spaces
     const clean = phone.replace(/\s+/g, "");
