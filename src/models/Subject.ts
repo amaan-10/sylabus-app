@@ -27,6 +27,8 @@ const QuestionSchema = new Schema(
     tags: [String],
     imageUrl: String,
     subQuestions: [String],
+    createdBy: String,
+    author: String,
   },
   { _id: false }
 );
