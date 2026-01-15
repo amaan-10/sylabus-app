@@ -132,7 +132,7 @@ export function SubjectWorkspace({
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
-                PYQ
+                Previous Year Questions
               </button>
             </div>
 

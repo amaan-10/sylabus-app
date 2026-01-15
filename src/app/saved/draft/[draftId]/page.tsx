@@ -414,6 +414,8 @@ const SavedPage = () => {
   const clearPaper = () => {
     if (!confirm("Clear all selected questions?")) return;
     setSelected([]);
+    setSectionedSelected({});
+    localStorage.removeItem("paper:draft");
   };
 
   // export selected to JSON file

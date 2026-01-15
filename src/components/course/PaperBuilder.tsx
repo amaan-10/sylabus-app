@@ -390,26 +390,26 @@ export const PaperBuilder: React.FC<{
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="rounded-xl border-2 border-slate-200 bg-white p-3 space-y-2"
+                          onClick={() =>
+                            handleOpenQuestionType(
+                              questionTypeToSlug(sec.type),
+                              sec.marks,
+                              chapters[0].slug,
+                              chapters[0].title,
+                              chapters[0].chapterNumber
+                            )
+                          }
                         >
-                          <div
-                            onClick={() =>
-                              handleOpenQuestionType(
-                                questionTypeToSlug(sec.type),
-                                sec.marks,
-                                chapters[0].slug,
-                                chapters[0].title,
-                                chapters[0].chapterNumber
-                              )
-                            }
-                            className="flex justify-between items-center cursor-pointer"
-                          >
-                            <div>
-                              <p className="text-sm font-semibold text-slate-800">
-                                {sec.title}
-                              </p>
-                              <p className="text-[11px] text-slate-500">
-                                {sec.type} • {sec.marks} marks each
-                              </p>
+                          <div className="flex justify-between items-center cursor-pointer mb-0">
+                            <div className="flex items-center justify-between gap-3">
+                              <div>
+                                <p className="text-sm font-semibold text-slate-800">
+                                  {sec.title}
+                                </p>
+                                <p className="text-[11px] text-slate-500">
+                                  {sec.type} • {sec.marks} marks each
+                                </p>
+                              </div>
                             </div>
 
                             <span className="text-xs font-semibold text-slate-600">
@@ -418,23 +418,21 @@ export const PaperBuilder: React.FC<{
                               {sec.total * sec.marks} M
                             </span>
                           </div>
+                          {qs.length === sec.total && (
+                            <div className="flex justify-end items-center mb-0 cursor-pointer">
+                              <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-[11px] font-medium text-red-700">
+                                Section Full
+                              </span>
+                            </div>
+                          )}
+                          <div className="h-0.5" />
+
                           <SortableContext
                             items={qs.map((q) => q.id)}
                             strategy={verticalListSortingStrategy}
                           >
                             {qs.length === 0 ? (
-                              <p
-                                onClick={() =>
-                                  handleOpenQuestionType(
-                                    questionTypeToSlug(sec.type),
-                                    sec.marks,
-                                    chapters[0].slug,
-                                    chapters[0].title,
-                                    chapters[0].chapterNumber
-                                  )
-                                }
-                                className="text-xs text-slate-400 italic cursor-pointer"
-                              >
+                              <p className="text-xs text-slate-400 italic cursor-pointer">
                                 No questions added in this section
                               </p>
                             ) : (
@@ -510,6 +508,10 @@ const SortableQuestionItem = ({
     <div
       ref={setNodeRef}
       style={style}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
       className="rounded-xl border border-slate-200 bg-slate-50 p-3 flex gap-3 items-start"
     >
       {/* Drag handle */}

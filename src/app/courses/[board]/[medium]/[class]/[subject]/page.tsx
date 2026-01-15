@@ -522,6 +522,8 @@ const SubjectChaptersPage: React.FC = () => {
   const clearPaper = () => {
     if (!confirm("Clear all selected questions?")) return;
     setSelected([]);
+    setSectionedSelected({});
+    localStorage.removeItem("paper:draft");
   };
 
   const moveUp = (index: number) => {
