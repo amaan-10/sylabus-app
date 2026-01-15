@@ -104,7 +104,7 @@ export default function CompleteProfile() {
     <div className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-white via-slate-100 to-slate-200 px-4 font-poppins">
       <div className="w-full max-w-xl bg-white/90 backdrop-blur rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] p-8 overflow-hidden">
         <AnimatePresence mode="wait">
-          {/* STEP 1 — ROLE */}
+          {/* STEP 1 - ROLE */}
           {step === 1 && (
             <motion.div key="role" {...anim} className="space-y-6">
               <h2 className="text-2xl font-semibold text-[#193625] tracking-tight">
@@ -140,7 +140,7 @@ export default function CompleteProfile() {
             </motion.div>
           )}
 
-          {/* STEP 2 — NAME + GENDER */}
+          {/* STEP 2 - NAME + GENDER */}
           {step === 2 && (
             <motion.div key="name" {...anim} className="space-y-6">
               <Back onClick={back} />
@@ -203,7 +203,7 @@ export default function CompleteProfile() {
             </motion.div>
           )}
 
-          {/* STEP 3 — BOARD & MEDIUM */}
+          {/* STEP 3 - BOARD & MEDIUM */}
           {step === 3 && (
             <motion.div key="board-medium" {...anim} className="space-y-6">
               <Back onClick={back} />
@@ -278,7 +278,7 @@ export default function CompleteProfile() {
             </motion.div>
           )}
 
-          {/* STEP 5 — DONE */}
+          {/* STEP 5 - DONE */}
           {step === 5 && (
             <motion.div key="done" {...anim} className="text-center space-y-4">
               <div className="text-6xl animate-bounce">🎉</div>

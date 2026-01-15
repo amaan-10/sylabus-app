@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import CustomPaper from "@/components/CustomPaper";
+import CustomPaper from "@/components/course/CustomPaper";
 import Sidebar from "@/components/Sidebar";
 
 const CustomPaperPage = () => {

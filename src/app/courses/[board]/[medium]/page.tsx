@@ -167,7 +167,7 @@ const CoursesByBoardMediumPage: React.FC = () => {
                 </div>
 
                 <h1 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                  {board.board_name} — {medium.medium_name} Courses (8th–12th)
+                  {board.board_name} - {medium.medium_name} Courses (8th - 12th)
                 </h1>
 
                 <p className="max-w-3xl text-sm text-slate-600">
@@ -199,11 +199,11 @@ const CoursesByBoardMediumPage: React.FC = () => {
               {/* Class Selector for this Board + Medium */}
               <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <h2 className="text-base font-semibold text-slate-900">
-                  Choose Class (8th – 12th)
+                  Choose Class (8th - 12th)
                 </h2>
                 <p className="mt-1 text-xs text-slate-500">
                   Select your class to view courses and resources for{" "}
-                  {board.abbreviation} — {medium.medium_name}.
+                  {board.abbreviation} - {medium.medium_name}.
                 </p>
 
                 <div className="mt-4">

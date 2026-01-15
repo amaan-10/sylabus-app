@@ -92,9 +92,9 @@ const ClassSubjectsPage: React.FC = () => {
     return (
       <NotFoundBlock
         title="No subjects configured"
-        message={`We don't have subject data yet for ${board.abbreviation.toUpperCase()} — ${
+        message={`We don't have subject data yet for ${board.abbreviation.toUpperCase()} - ${
           mediumForLabel.medium_name
-        } — ${getClassLabel(classKey)}.`}
+        } - ${getClassLabel(classKey)}.`}
         href={`/courses/${boardParam}/${mediumSegment}`}
         cta="Back to board & medium"
       />
@@ -170,7 +170,7 @@ const ClassSubjectsPage: React.FC = () => {
                 </div>
 
                 <h1 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                  {board.board_name} — {mediumForLabel.medium_name} —{" "}
+                  {board.board_name} - {mediumForLabel.medium_name} -{" "}
                   {getClassLabel(classKey)}
                 </h1>
 
@@ -378,7 +378,7 @@ const getClassLabel = (classKey: ClassKey): string => {
   const streamLabel = getStreamLabel(
     stream as "science" | "commerce" | "arts" | "humanities" | "all" | "none"
   );
-  return `${stdLabel} — ${streamLabel}`;
+  return `${stdLabel} - ${streamLabel}`;
 };
 
 const getStreamLabel = (

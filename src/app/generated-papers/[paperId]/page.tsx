@@ -11,7 +11,7 @@ import {
   Minus,
   Trash2,
 } from "lucide-react";
-import { QuestionPaperPDF } from "@/components/QuestionPaperPDF";
+import { QuestionPaperPDF } from "@/components/course/QuestionPaperPDF";
 import { PDFViewer, PDFDownloadLink, BlobProvider } from "@react-pdf/renderer";
 import {
   motion,
