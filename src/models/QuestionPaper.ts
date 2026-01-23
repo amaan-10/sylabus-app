@@ -13,7 +13,7 @@ const QuestionSchema = new Schema(
     explanation: String,
     source: String,
   },
-  { _id: false }
+  { _id: false },
 );
 
 const QuestionPaperSchema = new Schema(
@@ -31,6 +31,18 @@ const QuestionPaperSchema = new Schema(
 
     schoolName: String,
 
+    paperInfo: {
+      schoolName: String,
+      className: String,
+      subjectName: String,
+      testName: String,
+      examDate: String,
+      time: Number,
+      includeInstructions: Boolean,
+      logo: File,
+      watermark: String,
+    },
+
     paperMode: {
       type: String,
       enum: ["exam", "custom"],
@@ -45,7 +57,7 @@ const QuestionPaperSchema = new Schema(
 
     createdAt: { type: Date, default: Date.now },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.models.QuestionPaper ||
