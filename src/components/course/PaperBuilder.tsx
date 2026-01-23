@@ -33,6 +33,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, Trash2 } from "lucide-react";
+import SmartMathJax from "../SmartMathJax";
 
 type PaperMode = "exam" | "custom";
 type SectionedSelection = Record<string, Question[]>;
@@ -44,8 +45,6 @@ export const PaperBuilder: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<Question[]>>;
   exportJSON: () => void;
   exportPrintable: () => void;
-  schoolName: string;
-  setSchoolName: (v: string) => void;
   paperMode: PaperMode;
   sectionedSelected: SectionedSelection;
   setSectionedSelected: React.Dispatch<
@@ -58,7 +57,7 @@ export const PaperBuilder: React.FC<{
     marks: number,
     chapterSlug: string,
     chapterTitle?: string,
-    chapterNumber?: number
+    chapterNumber?: number,
   ) => void;
   chapters: Chapter[];
   setExamPatternTotalMarks: React.Dispatch<React.SetStateAction<number>>;
@@ -70,8 +69,6 @@ export const PaperBuilder: React.FC<{
   setSelected,
   exportJSON,
   exportPrintable,
-  schoolName,
-  setSchoolName,
   paperMode,
   sectionedSelected,
   subject,
@@ -145,7 +142,7 @@ export const PaperBuilder: React.FC<{
         delay: 200, // long-press delay (key for mobile)
         tolerance: 8, // finger movement allowed
       },
-    })
+    }),
   );
 
   return (
@@ -315,10 +312,10 @@ export const PaperBuilder: React.FC<{
 
                       setSelected((items) => {
                         const oldIndex = items.findIndex(
-                          (i) => i.id === e.active.id
+                          (i) => i.id === e.active.id,
                         );
                         const newIndex = items.findIndex(
-                          (i) => i.id === e.over!.id
+                          (i) => i.id === e.over!.id,
                         );
                         return arrayMove(items, oldIndex, newIndex);
                       });
@@ -350,7 +347,7 @@ export const PaperBuilder: React.FC<{
                 ) : (
                   Object.entries(
                     EXAM_PATTERN_12_SCIENCE[subject.slug as ScienceSubjectKey]
-                      .sections
+                      .sections,
                   ).map(([_, sec]) => {
                     const qs = sectionedSelected[sec.key] || [];
 
@@ -366,16 +363,16 @@ export const PaperBuilder: React.FC<{
                             const sectionKey = sec.key;
                             const sectionItems = prev[sectionKey] || [];
                             const oldIndex = sectionItems.findIndex(
-                              (i) => i.id === e.active.id
+                              (i) => i.id === e.active.id,
                             );
                             const newIndex = sectionItems.findIndex(
-                              (i) => i.id === e.over!.id
+                              (i) => i.id === e.over!.id,
                             );
                             if (oldIndex === -1 || newIndex === -1) return prev;
                             const newSectionItems = arrayMove(
                               sectionItems,
                               oldIndex,
-                              newIndex
+                              newIndex,
                             );
                             return {
                               ...prev,
@@ -396,7 +393,7 @@ export const PaperBuilder: React.FC<{
                               sec.marks,
                               chapters[0].slug,
                               chapters[0].title,
-                              chapters[0].chapterNumber
+                              chapters[0].chapterNumber,
                             )
                           }
                         >
@@ -454,26 +451,27 @@ export const PaperBuilder: React.FC<{
               </motion.div>
 
               {/* ---------------- FOOTER ---------------- */}
-              <div className="border-t border-slate-400 bg-white px-4 py-3 flex justify-between items-center">
+              <div
+                className="flex items-center justify-between
+                px-6 py-4
+                bg-white
+                ring-1 ring-black/5"
+              >
                 <button
                   onClick={clearPaper}
-                  className="text-xs font-medium text-red-600 hover:text-red-700 bg-transparent hover:bg-red-600/20 px-4 py-1.5 rounded-lg cursor-pointer"
+                  className="rounded-full px-4 py-1.5
+               text-xs font-medium text-red-500
+               hover:bg-slate-100 cursor-pointer"
                 >
                   Clear all
                 </button>
 
-                <div className="flex gap-2">
-                  {/* <button
-                onClick={exportJSON}
-                className="rounded-lg border-slate-400 border px-3 py-1.5 text-xs hover:bg-slate-50"
-              >
-                <Download className="w-3 h-3 inline mr-1" />
-                JSON
-              </button> */}
-
+                <div className="flex items-center gap-2">
                   <button
                     onClick={exportPrintable}
-                    className="rounded-lg bg-emerald-600 px-4 py-1.5 text-xs font-medium text-white hover:bg-emerald-700 cursor-pointer"
+                    className="rounded-full bg-slate-900
+                 px-5 py-1.5 text-xs font-medium text-white
+                 hover:bg-slate-800 cursor-pointer"
                   >
                     Preview / PDF
                   </button>
@@ -527,7 +525,7 @@ const SortableQuestionItem = ({
       {/* Content */}
       <div className="flex-1">
         <p className="text-sm font-medium text-slate-900">
-          {index + 1}. {truncate(q.text, 70)}
+          {index + 1}. <SmartMathJax text={q.text} />
         </p>
         <p className="text-xs text-slate-500 mt-0.5">
           {q.type} • {q.marks} marks
@@ -575,7 +573,7 @@ const SortableExamQuestionItem = ({
       </button>
 
       <div className="flex-1">
-        {index + 1}. {truncate(q.text, 70)} ({q.marks})
+        {index + 1}. <SmartMathJax text={q.text} /> ({q.marks})
       </div>
     </div>
   );

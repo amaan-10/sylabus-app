@@ -1,9 +1,8 @@
 // src/app/custom-paper/page.tsx
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { BOARDS } from "@/lib/boards";
 import { MEDIUMS } from "@/lib/mediums";
@@ -12,14 +11,12 @@ import {
   BoardSlug,
   MediumSlug,
   ClassKey,
-  Subject,
 } from "@/lib/subjects";
-import Sidebar from "@/components/Sidebar";
 import {
   Chapter,
   getChaptersFor,
   getClassLabel,
-  getQuestionTypesForSubject,
+  getClassLabelforPaper,
   PaperMode,
   prettifyType,
   Question,
@@ -30,20 +27,7 @@ import {
   SectionedSelection,
   UserData,
 } from "@/lib/utility/helper";
-import { ChevronRight, Home, X, Trash2, FileText, Minus } from "lucide-react";
 import { onAuthStateChanged } from "firebase/auth";
-import { DndContext, closestCenter } from "@dnd-kit/core";
-import {
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy,
-  arrayMove,
-} from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { GripVertical } from "lucide-react";
-import { Maximize2, Minimize2 } from "lucide-react";
-import { PDFViewer, PDFDownloadLink, BlobProvider } from "@react-pdf/renderer";
-import { QuestionPaperPDF } from "@/components/course/QuestionPaperPDF";
 import {
   EXAM_PATTERN_12_SCIENCE,
   ExamPattern,
@@ -115,6 +99,18 @@ type PaperSelection = {
   subject: string | null;
 };
 
+type DialogData = {
+  schoolName: string;
+  className: string;
+  subjectName: string;
+  testName: string;
+  examDate: string;
+  time: number;
+  includeInstructions: boolean;
+  logo?: File | null;
+  watermark: string;
+};
+
 /* ---------------------- Main Page Component ---------------------- */
 const CustomPaper: React.FC = () => {
   const searchParams = useSearchParams();
@@ -182,16 +178,16 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   const [selectionOpen, setSelectionOpen] = useState(false);
 
   const [selectedBoard, setSelectedBoard] = useState<string | null>(
-    boardParam || null
+    boardParam || null,
   );
   const [selectedMedium, setSelectedMedium] = useState<string | null>(
-    mediumParam || null
+    mediumParam || null,
   );
   const [selectedClass, setSelectedClass] = useState<string | null>(
-    classParam || null
+    classParam || null,
   );
   const [selectedSubject, setSelectedSubject] = useState<string | null>(
-    subjectParam || null
+    subjectParam || null,
   );
 
   // Chapters state
@@ -202,7 +198,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   const [questionSource, setQuestionSource] =
     useState<QuestionSource>("balbharati");
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [schoolName, setSchoolName] = useState("");
+  // const [schoolName, setSchoolName] = useState("");
   const [paperMode, setPaperMode] = useState<PaperMode>("custom");
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState<UserData>();
@@ -243,6 +239,19 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   } | null>(null);
 
   const [examPatternTotalMarks, setExamPatternTotalMarks] = useState(0);
+
+  const today = new Date().toISOString().split("T")[0];
+  const [paperInfo, setPaperInfo] = useState<DialogData>({
+    schoolName: "",
+    className: "",
+    subjectName: "",
+    testName: "",
+    examDate: today,
+    includeInstructions: true,
+    logo: null,
+    watermark: "",
+    time: 0,
+  });
 
   const formattedBoard = selectedBoard?.toLowerCase() as BoardSlug;
 
@@ -337,7 +346,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   }, [boardParam, mediumParam, classParam, subjectParam]);
 
   const board = BOARDS.find((b) =>
-    b.abbreviation.toLowerCase().includes(boardParam)
+    b.abbreviation.toLowerCase().includes(boardParam),
   );
 
   if (!board) {
@@ -370,8 +379,8 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
       (m) =>
         m.slug === mediumSlug &&
         m.used_in_boards.some(
-          (abbr) => abbr.toLowerCase() === board.abbreviation.toLowerCase()
-        )
+          (abbr) => abbr.toLowerCase() === board.abbreviation.toLowerCase(),
+        ),
     ) || null;
 
   const mediumSlugForSubjects = (mediumSlug || "english") as MediumSlug;
@@ -383,12 +392,12 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   const subjectsForCombo = getSubjectsFor(
     boardSlug,
     mediumSlugForSubjects,
-    classKey
+    classKey,
   );
 
   const subject =
     subjectsForCombo.find(
-      (s) => s.slug.toLowerCase() === subjectParam.toLowerCase()
+      (s) => s.slug.toLowerCase() === subjectParam.toLowerCase(),
     ) || null;
 
   if (!subject) {
@@ -396,7 +405,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
       <NotFoundBlock
         title="Subject not found"
         message={`We couldn't find subject "${subjectParam}" for ${board.abbreviation.toUpperCase()} - ${mediumLabel} - ${getClassLabel(
-          classKey
+          classKey,
         )}.`}
         href={`/courses/${boardParam}/${mediumParam}`}
         cta="Back to courses"
@@ -476,7 +485,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
 
   const findExamSection = (
     q: Question,
-    pattern?: ExamPattern
+    pattern?: ExamPattern,
   ): ExamSection | undefined => {
     if (!pattern || !Array.isArray(pattern.sections)) {
       return undefined;
@@ -484,7 +493,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
 
     return pattern.sections.find(
       (sec) =>
-        prettifyType(q.examSectionType) === sec.type && q.marks === sec.marks
+        prettifyType(q.examSectionType) === sec.type && q.marks === sec.marks,
     );
   };
 
@@ -502,7 +511,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
           safeBoardSlug,
           mediumSlugForSubjects,
           classKey,
-          subjectSlug
+          subjectSlug,
         );
 
         if (!cancelled) {
@@ -629,10 +638,6 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
       });
       return;
     }
-
-    // -------- EXAM MODE --------
-    const examKey = subject.slug.toLowerCase() as ScienceSubjectKey;
-    const pattern = EXAM_PATTERN_12_SCIENCE[examKey];
   };
 
   const removeFromPaper = (id: string) => {
@@ -678,7 +683,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
     const data = JSON.stringify(
       { meta: { board: boardParam, medium: mediumSlug, classKey }, selected },
       null,
-      2
+      2,
     );
     const blob = new Blob([data], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -701,7 +706,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
     marks: number,
     chapterSlug: string,
     chapterTitle?: string,
-    chapterNumber?: number
+    chapterNumber?: number,
   ) => {
     setOpenQuestionType({
       questionTypeLabel: label,
@@ -717,6 +722,10 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
   const handleToggleChapter = (id: string) => {
     setOpenChapterId((prev) => (prev === id ? null : id));
   };
+
+  // -------- EXAM MODE --------
+  const examKey = subject.slug.toLowerCase() as ScienceSubjectKey;
+  const pattern = EXAM_PATTERN_12_SCIENCE[examKey];
 
   const items = [
     { label: "Courses", href: "/courses" },
@@ -882,8 +891,6 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
         clearPaper={clearPaper}
         exportPrintable={exportPrintable}
         exportJSON={exportJSON}
-        schoolName={schoolName}
-        setSchoolName={setSchoolName}
         paperMode={paperMode}
         sectionedSelected={sectionedSelected}
         setSectionedSelected={setSectionedSelected}
@@ -897,15 +904,35 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
 
       <SchoolNameDialog
         open={schoolDialogOpen}
-        initialValue={schoolName}
+        initialValue={{
+          schoolName: "",
+          className: getClassLabelforPaper(classKey),
+          subjectName: subject.name,
+          testName: "",
+          examDate: today,
+          time: pattern.time,
+          includeInstructions: true,
+          logo: null,
+          watermark: "",
+        }}
         onClose={() => setSchoolDialogOpen(false)}
-        continueWithoutInfo={(value) => {
-          setSchoolName(value);
+        continueWithoutInfo={() => {
+          setPaperInfo({
+            schoolName: "",
+            className: getClassLabelforPaper(classKey),
+            subjectName: subject.name,
+            testName: "",
+            examDate: today,
+            time: pattern.time,
+            includeInstructions: true,
+            logo: null,
+            watermark: "",
+          });
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
         }}
         onSave={(value) => {
-          setSchoolName(value);
+          setPaperInfo(value);
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
         }}
@@ -915,7 +942,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
         <PDFPreviewModal
           open={previewOpen}
           onClose={() => setPreviewOpen(false)}
-          schoolName={schoolName}
+          paperInfo={paperInfo}
           subject={subject}
           selected={selected}
           paperMode={paperMode}
@@ -982,16 +1009,16 @@ const SelectionGate = ({
   const [selectionOpen, setSelectionOpen] = useState(true);
 
   const [selectedBoard, setSelectedBoard] = useState<string | null>(
-    boardParam ?? null
+    boardParam ?? null,
   );
   const [selectedMedium, setSelectedMedium] = useState<string | null>(
-    mediumParam ?? null
+    mediumParam ?? null,
   );
   const [selectedClass, setSelectedClass] = useState<string | null>(
-    classParam ?? null
+    classParam ?? null,
   );
   const [selectedSubject, setSelectedSubject] = useState<string | null>(
-    subjectParam ?? null
+    subjectParam ?? null,
   );
 
   // ---------------- Derived ----------------

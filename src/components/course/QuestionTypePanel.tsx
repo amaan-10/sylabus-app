@@ -12,6 +12,10 @@ import {
 import { EXAM_PATTERN_12_SCIENCE, ScienceSubjectKey } from "@/lib/examPattern";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
+import "katex/dist/katex.min.css";
+import { BlockMath } from "react-katex";
+import { MathJax, MathJaxContext } from "better-react-mathjax";
+import SmartMathJax from "../SmartMathJax";
 
 type PaperMode = "exam" | "custom";
 type SectionedSelection = Record<string, Question[]>;
@@ -62,22 +66,22 @@ export const QuestionTypePanel: React.FC<{
 }) => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [chapterTitle, setChapterTitle] = useState<string>(
-    openSpec.chapterTitle || ""
+    openSpec.chapterTitle || "",
   );
   const [chapterNumber, setChapterNumber] = useState<number>(
-    openSpec.chapterNumber || 0
+    openSpec.chapterNumber || 0,
   );
   const [totalMarks, setTotalMarks] = useState<number>(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   // local selection within panel (for faster checkboxes)
   const [localSelectedIds, setLocalSelectedIds] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
 
   const initialIndex = Math.max(
     0,
-    chapters.findIndex((c) => c.slug === openSpec.chapterSlug)
+    chapters.findIndex((c) => c.slug === openSpec.chapterSlug),
   );
 
   const [chapterIndex, setChapterIndex] = useState(initialIndex);
@@ -87,7 +91,7 @@ export const QuestionTypePanel: React.FC<{
 
   useEffect(() => {
     setQuestionTypeIndex(
-      questionTypes.findIndex((c) => c.label === openSpec.questionTypeLabel)
+      questionTypes.findIndex((c) => c.label === openSpec.questionTypeLabel),
     );
   }, [openSpec]);
 
@@ -245,7 +249,7 @@ export const QuestionTypePanel: React.FC<{
     const pattern = EXAM_PATTERN_12_SCIENCE[examKey];
 
     return pattern.sections.find(
-      (s) => prettifyType(q.examSectionType) === s.type && q.marks === s.marks
+      (s) => prettifyType(q.examSectionType) === s.type && q.marks === s.marks,
     );
   };
 
@@ -315,7 +319,7 @@ export const QuestionTypePanel: React.FC<{
           <button
             onClick={() =>
               setQuestionTypeIndex((i) =>
-                Math.min(questionTypes.length - 1, i + 1)
+                Math.min(questionTypes.length - 1, i + 1),
               )
             }
             disabled={questionTypeIndex === questionTypes.length - 1}
@@ -387,13 +391,13 @@ export const QuestionTypePanel: React.FC<{
                     // toggle select all / none locally
                     const allIds = new Set(questions.map((q) => q.id));
                     const allSelected = questions.every((q) =>
-                      localSelectedIds.has(q.id)
+                      localSelectedIds.has(q.id),
                     );
                     if (allSelected) {
                       // clear local selected and remove these from global
                       setLocalSelectedIds(new Set());
                       setSelectedGlobal((g) =>
-                        g.filter((p) => !allIds.has(p.id))
+                        g.filter((p) => !allIds.has(p.id)),
                       );
                     } else {
                       setLocalSelectedIds(allIds);
@@ -444,9 +448,13 @@ export const QuestionTypePanel: React.FC<{
                     />
 
                     <div className="flex-1">
-                      <p className="font-medium">
-                        Q{idx + 1}. {q.text}
-                      </p>
+                      <div className="w-1/2">
+                        <span>Q. {idx + 1}. </span>
+                        <span className="relative left-14 -ml-10">
+                          <SmartMathJax text={q.text} />
+                        </span>
+                        <span className=" absolute right-0">({q.marks})</span>
+                      </div>
 
                       {q.imageUrl && (
                         <Image
@@ -470,14 +478,17 @@ export const QuestionTypePanel: React.FC<{
                       {q.options && q.options.length > 0 && (
                         <ul className="list-disc pl-5 mt-2 text-sm space-y-1">
                           {q.options.map((opt, i) => (
-                            <li key={i}>{opt}</li>
+                            <li key={i}>
+                              <SmartMathJax text={opt} />
+                            </li>
                           ))}
                         </ul>
                       )}
 
                       {q.answer && (
                         <p className="mt-2 text-sm">
-                          <strong>Answer:</strong> {q.answer}
+                          <strong>Answer:</strong>{" "}
+                          <SmartMathJax text={q.answer} />
                         </p>
                       )}
 

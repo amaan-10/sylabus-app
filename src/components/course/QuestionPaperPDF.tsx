@@ -9,6 +9,7 @@ import {
   Image,
 } from "@react-pdf/renderer";
 import { Font } from "@react-pdf/renderer";
+import SmartMathPDFPlain from "../SmartMathPDFPlain";
 
 /* ---------------- FONTS ---------------- */
 
@@ -382,7 +383,7 @@ export const QuestionPaperPDF = ({
               const qs = selected.filter(
                 (q: any) =>
                   prettifyType(q.examSectionType) === sec.type &&
-                  q.marks === sec.marks
+                  q.marks === sec.marks,
               );
               sec.type;
 
@@ -452,7 +453,9 @@ export const QuestionPaperPDF = ({
                           >
                             <Text style={{ width: "10%" }}>({toRoman(i)})</Text>
                             <View style={{ flex: 1 }}>
-                              <Text style={styles.questionText}>{q.text}</Text>
+                              <Text style={styles.questionText}>
+                                <SmartMathPDFPlain text={q.text} />
+                              </Text>
 
                               {q.imageUrl && (
                                 <Image
@@ -515,7 +518,9 @@ export const QuestionPaperPDF = ({
                           >
                             <Text style={{ width: "10%" }}>({toRoman(i)})</Text>
                             <View style={{ flex: 1 }}>
-                              <Text style={styles.questionText}>{q.text}</Text>
+                              <Text style={styles.questionText}>
+                                <SmartMathPDFPlain text={q.text} />
+                              </Text>
 
                               {q.imageUrl && (
                                 <Image
@@ -554,7 +559,9 @@ export const QuestionPaperPDF = ({
                             </Text>
 
                             <View style={{ flex: 1 }}>
-                              <Text style={styles.questionText}>{q.text}</Text>
+                              <Text style={styles.questionText}>
+                                <SmartMathPDFPlain text={q.text} />
+                              </Text>
 
                               {q.imageUrl && (
                                 <Image
@@ -584,7 +591,7 @@ export const QuestionPaperPDF = ({
               acc[q.type] = acc[q.type] || [];
               acc[q.type].push(q);
               return acc;
-            }, {})
+            }, {}),
           ).map(([type, qs]: any, idx: number) => (
             <View key={type} wrap>
               {" "}
@@ -600,7 +607,9 @@ export const QuestionPaperPDF = ({
                       Q. {questionCounter}.
                     </Text>{" "}
                     <View style={{ flex: 1 }}>
-                      <Text style={styles.questionText}>{q.text}</Text>
+                      <Text style={styles.questionText}>
+                        <SmartMathPDFPlain text={q.text} />
+                      </Text>
 
                       {q.imageUrl && (
                         <Image
