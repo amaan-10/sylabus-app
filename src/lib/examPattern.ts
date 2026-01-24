@@ -17,14 +17,14 @@ export type ExamSection = {
 };
 
 export type ExamPattern = {
-  time: string;
+  time: number;
   maxMarks: number;
   sections: ExamSection[];
 };
 
 export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   physics: {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 70,
     sections: [
       {
@@ -71,7 +71,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   chemistry: {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 70,
     sections: [
       {
@@ -118,7 +118,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   biology: {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 70,
     sections: [
       {
@@ -165,7 +165,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   "mathematics-statistics": {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 80,
     sections: [
       {
@@ -212,7 +212,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   english: {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 80,
     sections: [
       {
@@ -259,7 +259,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   geography: {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 80,
     sections: [
       {
@@ -362,7 +362,7 @@ export const EXAM_PATTERN_12_SCIENCE: Record<ScienceSubjectKey, ExamPattern> = {
   },
 
   hindi: {
-    time: "3 Hrs.",
+    time: 180,
     maxMarks: 80,
     sections: [
       {

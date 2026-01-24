@@ -68,7 +68,7 @@ export const questionTypeToSlug = (label: string): string => {
 
 export const getQuestionTypesForSubject = (
   subject: Subject,
-  source: QuestionSource
+  source: QuestionSource,
 ): string[] => {
   const slug = subject.slug.toLowerCase();
 
@@ -226,13 +226,25 @@ export const getClassLabel = (classKey: ClassKey): string => {
   const [std, stream] = classKey.split("-");
   const stdLabel = `Class ${std}`;
   const streamLabel = getStreamLabel(
-    stream as "science" | "commerce" | "arts" | "humanities" | "all"
+    stream as "science" | "commerce" | "arts" | "humanities" | "all",
   );
   return `${stdLabel} - ${streamLabel}`;
 };
 
+export const getClassLabelforPaper = (classKey: ClassKey): string => {
+  if (classKey === "8" || classKey === "9" || classKey === "10") {
+    return `${classKey}`;
+  }
+  const [std, stream] = classKey.split("-");
+  const stdLabel = `${std}`;
+  const streamLabel = getStreamLabel(
+    stream as "science" | "commerce" | "arts" | "humanities" | "all",
+  );
+  return `${stdLabel}th ${streamLabel}`;
+};
+
 export const getStreamLabel = (
-  stream: "science" | "commerce" | "arts" | "humanities" | "all"
+  stream: "science" | "commerce" | "arts" | "humanities" | "all",
 ): string => {
   switch (stream) {
     case "science":
@@ -254,7 +266,7 @@ export const getChaptersFor = async (
   board: BoardSlug,
   medium: MediumSlug,
   classKey: ClassKey,
-  subjectSlug: string
+  subjectSlug: string,
 ): Promise<Chapter[]> => {
   const params = new URLSearchParams({
     board,
