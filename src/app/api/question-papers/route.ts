@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     const {
       userId,
       meta,
-      schoolName,
+      paperInfo,
       paperMode,
       questions,
       examSections,
@@ -22,14 +22,14 @@ export async function POST(req: Request) {
     if (!questions || questions.length === 0) {
       return NextResponse.json(
         { error: "No questions provided" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     const paper = await QuestionPaper.create({
       userId,
       meta,
-      schoolName,
+      paperInfo,
       paperMode,
       questions,
       examSections,
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     console.error("Save paper error:", err);
     return NextResponse.json(
       { error: "Failed to save paper" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -64,7 +64,7 @@ export async function GET(req: Request) {
     console.error("Fetch papers error:", err);
     return NextResponse.json(
       { error: "Failed to fetch papers" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -86,7 +86,7 @@ export async function DELETE(req: Request) {
     console.error("Delete paper error:", err);
     return NextResponse.json(
       { error: "Failed to delete paper" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
