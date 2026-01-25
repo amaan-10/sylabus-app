@@ -29,6 +29,7 @@ import {
   Chapter,
   getChaptersFor,
   getClassLabel,
+  getClassLabelforPaper,
   PaperMode,
   prettifyType,
   Question,
@@ -48,6 +49,17 @@ import { PaperBuilder } from "@/components/course/PaperBuilder";
 import { PDFPreviewModal } from "@/components/course/PDFPreviewModal";
 
 /* ---------------------- Main Page Component ---------------------- */
+type DialogData = {
+  schoolName: string;
+  className: string;
+  subjectName: string;
+  testName: string;
+  examDate: string;
+  time: number;
+  includeInstructions: boolean;
+  logo?: string;
+  watermark: string;
+};
 
 const SubjectChaptersPage: React.FC = () => {
   const params = useParams();
@@ -58,7 +70,7 @@ const SubjectChaptersPage: React.FC = () => {
   const subjectSegment = String(params?.subject || "").toLowerCase();
 
   const board = BOARDS.find((b) =>
-    b.abbreviation.toLowerCase().includes(boardParam)
+    b.abbreviation.toLowerCase().includes(boardParam),
   );
 
   if (!board) {
@@ -91,8 +103,8 @@ const SubjectChaptersPage: React.FC = () => {
       (m) =>
         m.slug === mediumSlug &&
         m.used_in_boards.some(
-          (abbr) => abbr.toLowerCase() === board.abbreviation.toLowerCase()
-        )
+          (abbr) => abbr.toLowerCase() === board.abbreviation.toLowerCase(),
+        ),
     ) || null;
 
   const mediumSlugForSubjects = (mediumSlug || "english") as MediumSlug;
@@ -104,12 +116,12 @@ const SubjectChaptersPage: React.FC = () => {
   const subjectsForCombo = getSubjectsFor(
     boardSlug,
     mediumSlugForSubjects,
-    classKey
+    classKey,
   );
 
   const subject =
     subjectsForCombo.find(
-      (s) => s.slug.toLowerCase() === subjectSegment.toLowerCase()
+      (s) => s.slug.toLowerCase() === subjectSegment.toLowerCase(),
     ) || null;
 
   if (!subject) {
@@ -117,7 +129,7 @@ const SubjectChaptersPage: React.FC = () => {
       <NotFoundBlock
         title="Subject not found"
         message={`We couldn't find subject "${subjectSegment}" for ${board.abbreviation.toUpperCase()} - ${mediumLabel} - ${getClassLabel(
-          classKey
+          classKey,
         )}.`}
         href={`/courses/${boardParam}/${mediumSegment}`}
         cta="Back to courses"
@@ -133,7 +145,7 @@ const SubjectChaptersPage: React.FC = () => {
   const [questionSource, setQuestionSource] =
     useState<QuestionSource>("balbharati");
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [schoolName, setSchoolName] = useState("");
+  // const [schoolName, setSchoolName] = useState("");
   const [paperMode, setPaperMode] = useState<PaperMode>("custom");
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState<UserData>();
@@ -323,6 +335,19 @@ const SubjectChaptersPage: React.FC = () => {
 
   const [examPatternTotalMarks, setExamPatternTotalMarks] = useState(0);
 
+  const today = new Date().toISOString().split("T")[0];
+  const [paperInfo, setPaperInfo] = useState<DialogData>({
+    schoolName: "",
+    className: "",
+    subjectName: "",
+    testName: "",
+    examDate: today,
+    includeInstructions: true,
+    logo: "",
+    watermark: "",
+    time: 0,
+  });
+
   // persist selected to localStorage
   useEffect(() => {
     if (selected.length === 0) {
@@ -350,7 +375,7 @@ const SubjectChaptersPage: React.FC = () => {
 
   const findExamSection = (
     q: Question,
-    pattern?: ExamPattern
+    pattern?: ExamPattern,
   ): ExamSection | undefined => {
     if (!pattern || !Array.isArray(pattern.sections)) {
       return undefined;
@@ -358,7 +383,7 @@ const SubjectChaptersPage: React.FC = () => {
 
     return pattern.sections.find(
       (sec) =>
-        prettifyType(q.examSectionType) === sec.type && q.marks === sec.marks
+        prettifyType(q.examSectionType) === sec.type && q.marks === sec.marks,
     );
   };
 
@@ -376,7 +401,7 @@ const SubjectChaptersPage: React.FC = () => {
           safeBoardSlug,
           mediumSlugForSubjects,
           classKey,
-          subjectSlug
+          subjectSlug,
         );
 
         if (!cancelled) {
@@ -551,7 +576,7 @@ const SubjectChaptersPage: React.FC = () => {
     const data = JSON.stringify(
       { meta: { board: boardParam, medium: mediumSlug, classKey }, selected },
       null,
-      2
+      2,
     );
     const blob = new Blob([data], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -574,7 +599,7 @@ const SubjectChaptersPage: React.FC = () => {
     marks: number,
     chapterSlug: string,
     chapterTitle?: string,
-    chapterNumber?: number
+    chapterNumber?: number,
   ) => {
     setOpenQuestionType({
       questionTypeLabel: label,
@@ -613,6 +638,10 @@ const SubjectChaptersPage: React.FC = () => {
       active: true,
     },
   ];
+
+  // -------- EXAM MODE --------
+  const examKey = subject.slug.toLowerCase() as ScienceSubjectKey;
+  const pattern = EXAM_PATTERN_12_SCIENCE[examKey];
 
   return (
     <div className="flex place-content-start items-start bg-slate-50 md:bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-2 md:pl-[104px] relative min-h-screen w-auto font-poppins">
@@ -682,8 +711,6 @@ const SubjectChaptersPage: React.FC = () => {
         clearPaper={clearPaper}
         exportPrintable={exportPrintable}
         exportJSON={exportJSON}
-        schoolName={schoolName}
-        setSchoolName={setSchoolName}
         paperMode={paperMode}
         sectionedSelected={sectionedSelected}
         setSectionedSelected={setSectionedSelected}
@@ -697,15 +724,36 @@ const SubjectChaptersPage: React.FC = () => {
 
       <SchoolNameDialog
         open={schoolDialogOpen}
-        initialValue={schoolName}
+        initialValue={{
+          schoolName: "",
+          className: getClassLabelforPaper(classKey),
+          subjectName: subject?.name,
+          testName: "",
+          examDate: today,
+          time: pattern.time,
+          includeInstructions: true,
+          logo: "",
+          watermark: "",
+        }}
         onClose={() => setSchoolDialogOpen(false)}
-        continueWithoutInfo={(value) => {
-          setSchoolName(value);
+        continueWithoutInfo={() => {
+          setPaperInfo({
+            schoolName: "",
+            className: getClassLabelforPaper(classKey),
+            subjectName: subject?.name || "",
+            testName: "",
+            examDate: today,
+            time: pattern.time,
+            includeInstructions: true,
+            logo: "",
+            watermark: "",
+          });
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
         }}
         onSave={(value) => {
-          setSchoolName(value);
+          console.log("value", value);
+          setPaperInfo(value);
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
         }}
@@ -715,7 +763,7 @@ const SubjectChaptersPage: React.FC = () => {
         <PDFPreviewModal
           open={previewOpen}
           onClose={() => setPreviewOpen(false)}
-          schoolName={schoolName}
+          paperInfo={paperInfo}
           subject={subject}
           selected={selected}
           paperMode={paperMode}

@@ -4,22 +4,10 @@ import Sidebar from "@/components/Sidebar";
 import React, { useEffect, useState } from "react";
 import LoaderWrapper from "@/components/PageLoader";
 import {
-  ChevronRight,
-  FileText,
-  GripVertical,
-  Home,
-  Maximize2,
-  Minimize2,
-  Minus,
-  Trash2,
-  X,
-} from "lucide-react";
-import {
   BoardSlug,
   ClassKey,
   getSubjectsFor,
   MediumSlug,
-  Subject,
 } from "@/lib/subjects";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../../../firebase";
@@ -27,28 +15,13 @@ import { useParams } from "next/navigation";
 import { BOARDS } from "@/lib/boards";
 import { MEDIUMS } from "@/lib/mediums";
 import { EXAM_PATTERN_12_SCIENCE, ScienceSubjectKey } from "@/lib/examPattern";
-import {
-  easeIn,
-  easeOut,
-  Variants,
-  motion,
-  AnimatePresence,
-} from "framer-motion";
-import { closestCenter, DndContext } from "@dnd-kit/core";
-import {
-  arrayMove,
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 import { SchoolNameDialog } from "@/components/course/SchoolNameDialog";
-import { BlobProvider, PDFDownloadLink } from "@react-pdf/renderer";
-import { QuestionPaperPDF } from "@/components/course/QuestionPaperPDF";
 import { useLeaveGuard } from "@/hook/useLeaveGuard";
 import {
   Chapter,
   getChaptersFor,
+  getClassLabel,
+  getClassLabelforPaper,
   PaperMode,
   prettifyType,
   Question,
@@ -82,6 +55,18 @@ type SavedPaperDrafts = {
   updatedAt: string;
 };
 
+type DialogData = {
+  schoolName: string;
+  className: string;
+  subjectName: string;
+  testName: string;
+  examDate: string;
+  time: number;
+  includeInstructions: boolean;
+  logo?: string;
+  watermark: string;
+};
+
 const SavedPage = () => {
   const params = useParams();
 
@@ -97,7 +82,7 @@ const SavedPage = () => {
   const [questionSource, setQuestionSource] =
     useState<QuestionSource>("balbharati");
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [schoolName, setSchoolName] = useState("");
+  // const [schoolName, setSchoolName] = useState("");
   const [paperMode, setPaperMode] = useState<PaperMode>("custom");
   const [loading, setLoading] = useState(true);
   const [openDraftNameDialog, setOpenDraftNameDialog] = useState(false);
@@ -119,6 +104,19 @@ const SavedPage = () => {
   const [schoolDialogOpen, setSchoolDialogOpen] = useState(false);
 
   const [examPatternTotalMarks, setExamPatternTotalMarks] = useState(0);
+
+  const today = new Date().toISOString().split("T")[0];
+  const [paperInfo, setPaperInfo] = useState<DialogData>({
+    schoolName: "",
+    className: "",
+    subjectName: "",
+    testName: "",
+    examDate: today,
+    includeInstructions: true,
+    logo: "",
+    watermark: "",
+    time: 0,
+  });
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -170,7 +168,7 @@ const SavedPage = () => {
     const loadSaved = async () => {
       try {
         const res = await fetch(
-          `/api/paper-drafts?userId=${userData.firebaseUid}&draftId=${draftId}`
+          `/api/paper-drafts?userId=${userData.firebaseUid}&draftId=${draftId}`,
         );
 
         const data = await res.json();
@@ -178,7 +176,7 @@ const SavedPage = () => {
         setSelected(
           data.draft?.draft?.selected
             ? (data.draft.draft.selected as Question[])
-            : []
+            : [],
         );
         setDraftName(data.draft?.draftName || "");
 
@@ -213,7 +211,7 @@ const SavedPage = () => {
           draft.boardSlug,
           draft.mediumSlug,
           draft.classKey,
-          draft.subjectSlug
+          draft.subjectSlug,
         );
 
         if (!cancelled) {
@@ -241,7 +239,7 @@ const SavedPage = () => {
     marks: number,
     chapterSlug: string,
     chapterTitle?: string,
-    chapterNumber?: number
+    chapterNumber?: number,
   ) => {
     setOpenQuestionType({
       questionTypeLabel: label,
@@ -262,20 +260,21 @@ const SavedPage = () => {
     ? getSubjectsFor(
         savedPaperDraft.boardSlug,
         savedPaperDraft.mediumSlug,
-        savedPaperDraft.classKey
+        savedPaperDraft.classKey,
       )
     : [];
 
   const subject =
     subjectsForCombo.find(
-      (s) => s.slug.toLowerCase() === savedPaperDraft?.subjectSlug.toLowerCase()
+      (s) =>
+        s.slug.toLowerCase() === savedPaperDraft?.subjectSlug.toLowerCase(),
     ) || null;
 
   const board = savedPaperDraft
     ? BOARDS.find((b) =>
         b.abbreviation
           .toLowerCase()
-          .includes(savedPaperDraft.boardSlug.toLowerCase())
+          .includes(savedPaperDraft.boardSlug.toLowerCase()),
       )
     : undefined;
 
@@ -284,8 +283,8 @@ const SavedPage = () => {
       (m) =>
         m.slug === savedPaperDraft?.mediumSlug &&
         m.used_in_boards.some(
-          (abbr) => abbr.toLowerCase() === board?.abbreviation.toLowerCase()
-        )
+          (abbr) => abbr.toLowerCase() === board?.abbreviation.toLowerCase(),
+        ),
     ) || null;
 
   const mediumLabel = medium?.medium_name || "All Mediums";
@@ -430,7 +429,7 @@ const SavedPage = () => {
         selected,
       },
       null,
-      2
+      2,
     );
     const blob = new Blob([data], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -477,7 +476,7 @@ const SavedPage = () => {
   const saveDraftToDB = async (
     draftName: string,
     userId: string,
-    draftId: string
+    draftId: string,
   ) => {
     const raw = localStorage.getItem("paper:draft");
     if (!raw || !userId || !draftId) return;
@@ -494,6 +493,10 @@ const SavedPage = () => {
 
     localStorage.removeItem("paper:draft");
   };
+
+  // -------- EXAM MODE --------
+  const examKey = subject?.slug.toLowerCase() as ScienceSubjectKey;
+  const pattern = EXAM_PATTERN_12_SCIENCE[examKey];
 
   return (
     <div className="flex place-content-start items-start bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-2 md:pl-[104px] relative min-h-screen w-auto font-poppins">
@@ -563,8 +566,6 @@ const SavedPage = () => {
           clearPaper={clearPaper}
           exportPrintable={exportPrintable}
           exportJSON={exportJSON}
-          schoolName={schoolName}
-          setSchoolName={setSchoolName}
           paperMode={paperMode}
           sectionedSelected={sectionedSelected}
           setSectionedSelected={setSectionedSelected}
@@ -579,15 +580,35 @@ const SavedPage = () => {
 
       <SchoolNameDialog
         open={schoolDialogOpen}
-        initialValue={schoolName}
+        initialValue={{
+          schoolName: "",
+          className: getClassLabelforPaper(savedPaperDraft?.classKey || "10"),
+          subjectName: subject?.name,
+          testName: "",
+          examDate: today,
+          time: pattern?.time,
+          includeInstructions: true,
+          logo: "",
+          watermark: "",
+        }}
         onClose={() => setSchoolDialogOpen(false)}
-        continueWithoutInfo={(value) => {
-          setSchoolName(value);
+        continueWithoutInfo={() => {
+          setPaperInfo({
+            schoolName: "",
+            className: getClassLabelforPaper(savedPaperDraft?.classKey || "10"),
+            subjectName: subject?.name || "",
+            testName: "",
+            examDate: today,
+            time: pattern?.time,
+            includeInstructions: true,
+            logo: "",
+            watermark: "",
+          });
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
         }}
         onSave={(value) => {
-          setSchoolName(value);
+          setPaperInfo(value);
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
         }}
@@ -597,7 +618,7 @@ const SavedPage = () => {
         <PDFPreviewModal
           open={previewOpen}
           onClose={() => setPreviewOpen(false)}
-          schoolName={schoolName}
+          paperInfo={paperInfo}
           subject={subject}
           selected={selected}
           paperMode={paperMode}
