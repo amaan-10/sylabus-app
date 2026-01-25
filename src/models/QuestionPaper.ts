@@ -39,7 +39,7 @@ const QuestionPaperSchema = new Schema(
       examDate: String,
       time: Number,
       includeInstructions: Boolean,
-      logo: File,
+      logo: String,
       watermark: String,
     },
 
