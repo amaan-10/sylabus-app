@@ -491,6 +491,7 @@ ${
                   <li>Use of log table is allowed. Calculator is <b>not</b> allowed.</li>
                   <li>The numbers to the right of the questions indicate full marks.</li>
                   <li>In case of MCQs, only the <b>first attempt</b> will be evaluated.</li>
+                  <li>Start answer to each section on a new page.</li>
                 </ol>
               </div>
 

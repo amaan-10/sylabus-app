@@ -55,7 +55,7 @@ const core = (
   shortName: string,
   description?: string,
   stream: Subject["stream"] = undefined,
-  isCompulsory = true
+  isCompulsory = true,
 ): Subject => ({
   code,
   name,
@@ -73,7 +73,7 @@ const elective = (
   shortName: string,
   description?: string,
   stream: Subject["stream"] = undefined,
-  isCompulsory = false
+  isCompulsory = false,
 ): Subject => ({
   code,
   name,
@@ -89,12 +89,12 @@ const lang = (
   code: string,
   name: string,
   shortName: string,
-  description?: string
+  description?: string,
 ): Subject => ({
   code,
   name,
   shortName,
-  slug: toSlug(shortName), // 👈 NEW
+  slug: toSlug(name), // 👈 NEW
   category: "language",
   isCompulsory: true,
   stream: undefined,
@@ -261,21 +261,21 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "Organization of Commerce & Management",
         "OCM",
         undefined,
-        "commerce"
+        "commerce",
       ),
       elective(
         "maths-1",
         "Mathematics & Statistics 1",
         "Maths 1",
         undefined,
-        "commerce"
+        "commerce",
       ),
       elective(
         "maths-2",
         "Mathematics & Statistics 2",
         "Maths 2",
         undefined,
-        "commerce"
+        "commerce",
       ),
       elective("it", "Information Technology", "IT", undefined, "commerce"),
     ],
@@ -295,21 +295,21 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "Organization of Commerce & Management",
         "OCM",
         undefined,
-        "commerce"
+        "commerce",
       ),
       elective(
         "maths-1",
         "Mathematics & Statistics 1",
         "Maths 1",
         undefined,
-        "commerce"
+        "commerce",
       ),
       elective(
         "maths-2",
         "Mathematics & Statistics 2",
         "Maths 2",
         undefined,
-        "commerce"
+        "commerce",
       ),
       elective("it", "Information Technology", "IT", undefined, "commerce"),
     ],
@@ -329,14 +329,14 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "Mathematics & Statistics 1",
         "Maths 1",
         undefined,
-        "science"
+        "science",
       ),
       elective(
         "maths-2",
         "Mathematics & Statistics 2",
         "Maths 2",
         undefined,
-        "science"
+        "science",
       ),
       elective("bio", "Biology", "Biology", undefined, "science"),
       elective("geo", "Geography", "Geography", undefined, "all"),
@@ -359,7 +359,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "Mathematics & Statistics",
         "Maths 1 & Maths 2",
         undefined,
-        "science"
+        "science",
       ),
       // elective(
       //   "maths-2",
@@ -414,7 +414,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "AI",
         "all",
         undefined,
-        false
+        false,
       ),
       elective("it", "Information Technology", "IT"),
     ],
@@ -438,7 +438,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "AI",
         undefined,
         "all",
-        false
+        false,
       ),
     ],
   },
@@ -457,7 +457,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "Political Science",
         "Pol Science",
         undefined,
-        "humanities"
+        "humanities",
       ),
       elective("psy", "Psychology", "Psychology", "humanities"),
       elective("soc", "Sociology", "Sociology", "humanities"),
@@ -478,7 +478,7 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
         "Political Science",
         "Pol Science",
         undefined,
-        "humanities"
+        "humanities",
       ),
       elective("psy", "Psychology", "Psychology", "humanities"),
       elective("soc", "Sociology", "Sociology", "humanities"),
@@ -595,14 +595,14 @@ export const BOARD_MEDIUM_CLASS_SUBJECTS: BoardMediumClassSubjects[] = [
 export const getSubjectsFor = (
   board: BoardSlug,
   medium: MediumSlug,
-  classKey: ClassKey
+  classKey: ClassKey,
 ): Subject[] => {
   // Try exact match (board + medium)
   const exact = BOARD_MEDIUM_CLASS_SUBJECTS.find(
     (entry) =>
       entry.board === board &&
       entry.medium === medium &&
-      entry.classKey === classKey
+      entry.classKey === classKey,
   );
   if (exact) return exact.subjects;
 
@@ -611,7 +611,7 @@ export const getSubjectsFor = (
     (entry) =>
       entry.board === board &&
       entry.medium === "all" &&
-      entry.classKey === classKey
+      entry.classKey === classKey,
   );
   return fallback ? fallback.subjects : [];
 };
