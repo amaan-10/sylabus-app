@@ -26,7 +26,8 @@ export interface Question {
   difficulty: Difficulty;
   marks: number;
   text: string;
-  answer: string;
+  subQuestions?: Question[];
+  answer?: string;
   source?: QuestionSource;
   options?: string[]; // only for MCQ
   tags: string[];
@@ -44,18 +45,48 @@ export interface Chapter {
   questions: Question[];
 }
 
+export interface SectionQuestion {
+  id: string;
+  type: string;
+  examSectionType: string;
+  passageText?: string;
+  marks: number;
+
+  difficulty: Difficulty;
+  question?: string;
+  answer?: string;
+  source?: QuestionSource;
+  options?: string[];
+  imageUrl?: string;
+
+  subQuestions?: Question[];
+  tags: string[];
+}
+
+export interface Section {
+  id: string;
+  sectionType: string;
+  title: string;
+  description?: string;
+  questions: SectionQuestion[];
+  tags: string[];
+}
+
 export interface SubjectQuestionBank extends Document {
   id: string;
   board: string; // "msbshse"
   medium: string; // "english"
   classKey: string; // "10"
   subjectSlug: string; // "science-technology-1"
-  chapters: Chapter[];
+
+  subjectType: "language" | "academic";
+
+  chapters?: Chapter[]; // science, maths, etc.
+  sections?: Section[]; // english, hindi, marathi
 }
 
 // ---------------- SCHEMAS ----------------
-
-const QuestionSchema = new Schema<Question>(
+export const QuestionSchema = new Schema<Question>(
   {
     id: { type: String, required: true },
     type: {
@@ -73,14 +104,23 @@ const QuestionSchema = new Schema<Question>(
     },
     marks: { type: Number, required: true },
     text: { type: String, required: true },
-    answer: { type: String, required: true },
+    answer: { type: String },
     imageUrl: { type: String },
     source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
     tags: { type: [String], default: [] },
   },
-  { _id: false }
+  { _id: false },
 );
+
+/* 🔑 Add recursive field AFTER schema creation */
+QuestionSchema.add({
+  subQuestions: {
+    type: [QuestionSchema],
+    required: false,
+    default: undefined,
+  },
+});
 
 const ChapterSchema = new Schema<Chapter>(
   {
@@ -93,7 +133,53 @@ const ChapterSchema = new Schema<Chapter>(
     learningObjectives: { type: [String], default: [] },
     questions: { type: [QuestionSchema], default: [] },
   },
-  { _id: false }
+  { _id: false },
+);
+
+const SectionQuestionSchema = new Schema<SectionQuestion>(
+  {
+    id: { type: String, required: true },
+    type: {
+      type: String,
+      enum: ["mcq", "short", "long", "numerical"],
+      required: true,
+    },
+    examSectionType: {
+      type: String,
+    },
+    passageText: {
+      type: String,
+    },
+    difficulty: {
+      type: String,
+      enum: ["easy", "medium", "hard"],
+      required: true,
+    },
+    marks: { type: Number, required: true },
+    question: { type: String },
+    answer: { type: String },
+    imageUrl: { type: String },
+    source: { type: String, default: "balbharati" },
+    options: { type: [String], default: undefined },
+    subQuestions: { type: [QuestionSchema] },
+    tags: { type: [String], default: [] },
+  },
+  { _id: false },
+);
+
+const SectionSchema = new Schema<Section>(
+  {
+    id: { type: String, required: true },
+    sectionType: {
+      type: String,
+      required: true,
+    },
+    title: { type: String, required: true },
+    description: { type: String },
+    questions: { type: [SectionQuestionSchema], default: [] },
+    tags: { type: [String], default: [] },
+  },
+  { _id: false },
 );
 
 const SubjectQuestionBankSchema = new Schema<SubjectQuestionBank>(
@@ -103,11 +189,17 @@ const SubjectQuestionBankSchema = new Schema<SubjectQuestionBank>(
     medium: { type: String, required: true, index: true },
     classKey: { type: String, required: true, index: true },
     subjectSlug: { type: String, required: true, index: true },
-    chapters: { type: [ChapterSchema], default: [] },
+
+    subjectType: {
+      type: String,
+      enum: ["language", "academic"],
+      required: true,
+    },
+
+    chapters: { type: [ChapterSchema], default: undefined },
+    sections: { type: [SectionSchema], default: undefined },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true },
 );
 
 // avoid OverwriteModelError in Next.js
@@ -115,5 +207,5 @@ export const SubjectQuestionBankModel: Model<SubjectQuestionBank> =
   mongoose.models.SubjectQuestionBank ||
   mongoose.model<SubjectQuestionBank>(
     "SubjectQuestionBank",
-    SubjectQuestionBankSchema
+    SubjectQuestionBankSchema,
   );
