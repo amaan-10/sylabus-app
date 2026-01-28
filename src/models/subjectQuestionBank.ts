@@ -30,6 +30,8 @@ export interface Question {
   answer?: string;
   source?: QuestionSource;
   options?: string[]; // only for MCQ
+  columnA?: any;
+  columnB?: any;
   tags: string[];
   imageUrl?: string;
 }
@@ -57,6 +59,8 @@ export interface SectionQuestion {
   answer?: string;
   source?: QuestionSource;
   options?: string[];
+  columnA?: any;
+  columnB?: any;
   imageUrl?: string;
 
   subQuestions?: Question[];
@@ -108,6 +112,8 @@ export const QuestionSchema = new Schema<Question>(
     imageUrl: { type: String },
     source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
+    columnA: { type: Object },
+    columnB: { type: Object },
     tags: { type: [String], default: [] },
   },
   { _id: false },
@@ -158,6 +164,8 @@ const SectionQuestionSchema = new Schema<SectionQuestion>(
     marks: { type: Number, required: true },
     question: { type: String },
     answer: { type: String },
+    columnA: { type: Object },
+    columnB: { type: Object },
     imageUrl: { type: String },
     source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
