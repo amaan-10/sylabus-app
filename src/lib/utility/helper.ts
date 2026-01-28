@@ -1,4 +1,5 @@
 import { BoardSlug, MediumSlug, ClassKey, Subject } from "@/lib/subjects";
+import { Section } from "@/models/subjectQuestionBank";
 
 export type QuestionSource = "balbharati" | "pyq";
 
@@ -288,6 +289,46 @@ export const getChaptersFor = async (
     return (data.chapters as Chapter[]) || [];
   } catch (err) {
     console.error("getChaptersFor fetch error:", err);
+    return [];
+  }
+};
+
+const ALLOWED_SUBJECTS = ["english", "hindi", "marathi"] as const;
+
+export const getSectionsFor = async (
+  board: BoardSlug,
+  medium: MediumSlug,
+  classKey: ClassKey,
+  subjectSlug: string,
+): Promise<Section[]> => {
+  // 🔐 Guard: only language subjects
+  if (!ALLOWED_SUBJECTS.includes(subjectSlug as any)) {
+    console.warn(
+      `getSectionsFor skipped: subject "${subjectSlug}" has no sections`,
+    );
+    return [];
+  }
+
+  const params = new URLSearchParams({
+    board,
+    medium,
+    classKey,
+    subjectSlug,
+  });
+
+  try {
+    const res = await fetch(`/api/sections?${params.toString()}`);
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      console.error("getSectionsFor error:", res.status, body);
+      return [];
+    }
+
+    const data = await res.json();
+    return (data.sections as Section[]) || [];
+  } catch (err) {
+    console.error("getSectionsFor fetch error:", err);
     return [];
   }
 };

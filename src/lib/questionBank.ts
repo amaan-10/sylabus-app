@@ -1,7 +1,11 @@
 // lib/questionBank.ts
 import { connectToDatabase } from "./mongodb";
 import { SubjectQuestionBankModel } from "@/models/subjectQuestionBank";
-import type { SubjectQuestionBank, Chapter, Question } from "@/models/subjectQuestionBank";
+import type {
+  SubjectQuestionBank,
+  Chapter,
+  Question,
+} from "@/models/subjectQuestionBank";
 
 type SubjectKey = {
   board: string;
@@ -12,30 +16,33 @@ type SubjectKey = {
 
 // 1. Get entire subject with all chapters + questions
 export async function getSubjectQuestionBank(
-  key: SubjectKey
+  key: SubjectKey,
 ): Promise<SubjectQuestionBank | null> {
   await connectToDatabase();
 
-  const subject = await SubjectQuestionBankModel.findOne(key).lean<SubjectQuestionBank | null>();
+  const subject = await SubjectQuestionBankModel.findOne(
+    key,
+  ).lean<SubjectQuestionBank | null>();
   return subject;
 }
 
 // 2. Get a single chapter by slug
 export async function getChapterBySlug(
   key: SubjectKey,
-  chapterSlug: string
+  chapterSlug: string,
 ): Promise<Chapter | null> {
   const subject = await getSubjectQuestionBank(key);
   if (!subject) return null;
 
-  const chapter = subject.chapters.find((ch) => ch.slug === chapterSlug);
+  const chapter =
+    subject.chapters?.find((ch) => ch.slug === chapterSlug) ?? null;
   return chapter ?? null;
 }
 
 // 3. Get all questions for a chapter
 export async function getQuestionsForChapter(
   key: SubjectKey,
-  chapterSlug: string
+  chapterSlug: string,
 ): Promise<Question[]> {
   const chapter = await getChapterBySlug(key, chapterSlug);
   return chapter?.questions ?? [];
@@ -45,7 +52,7 @@ export async function getQuestionsForChapter(
 export async function getFilteredQuestions(
   key: SubjectKey,
   chapterSlug: string,
-  opts?: { type?: string; difficulty?: string }
+  opts?: { type?: string; difficulty?: string },
 ): Promise<Question[]> {
   const questions = await getQuestionsForChapter(key, chapterSlug);
 
