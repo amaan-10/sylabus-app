@@ -211,6 +211,9 @@ export const getQuestionTypesForSubject = (
   ];
 };
 
+export const capitalize = (s: string) =>
+  s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+
 export const resolveBoardSlug = (abbreviation: string): BoardSlug | null => {
   const abbr = abbreviation.toLowerCase();
   if (abbr.includes("cbse")) return "cbse";
