@@ -71,6 +71,7 @@ export interface Section {
   id: string;
   sectionType: string;
   title: string;
+  slug: string;
   description?: string;
   questions: SectionQuestion[];
   tags: string[];
@@ -183,6 +184,7 @@ const SectionSchema = new Schema<Section>(
       required: true,
     },
     title: { type: String, required: true },
+    slug: { type: String, required: true },
     description: { type: String },
     questions: { type: [SectionQuestionSchema], default: [] },
     tags: { type: [String], default: [] },
