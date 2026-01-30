@@ -6,6 +6,7 @@ import type {
   Question,
   Chapter,
   QuestionType,
+  Section,
 } from "@/models/subjectQuestionBank";
 
 type QuestionSource = "balbharati" | "pyq";
@@ -19,6 +20,7 @@ export async function GET(req: Request) {
     const classKey = searchParams.get("classKey");
     const subjectSlug = searchParams.get("subjectSlug");
     const chapterSlug = searchParams.get("chapterSlug");
+    const sectionSlug = searchParams.get("sectionSlug");
     const questionTypeSlug = searchParams.get("questionTypeSlug");
     const source =
       (searchParams.get("source") as QuestionSource) || "balbharati";
@@ -29,7 +31,14 @@ export async function GET(req: Request) {
     if (!board || !medium || !classKey || !subjectSlug) {
       return NextResponse.json(
         { error: "Missing required params" },
-        { status: 400 }
+        { status: 400 },
+      );
+    }
+
+    if (chapterSlug && sectionSlug) {
+      return NextResponse.json(
+        { error: "Provide either chapterSlug or sectionId, not both" },
+        { status: 400 },
       );
     }
 
@@ -40,27 +49,55 @@ export async function GET(req: Request) {
       subjectSlug,
     });
 
-    if (
-      !subjectDoc ||
-      !subjectDoc.chapters ||
-      subjectDoc.chapters.length === 0
-    ) {
-      return NextResponse.json(
-        { error: "No chapters found for this subject" },
-        { status: 404 }
-      );
+    let container:
+      | (Chapter & { kind: "chapter" })
+      | (Section & { kind: "section" })
+      | null = null;
+
+    // ---------- CHAPTER ----------
+    if (chapterSlug) {
+      const chapters = subjectDoc?.chapters ?? [];
+      const chapter = chapters.find((ch) => ch.slug === chapterSlug);
+
+      if (!chapter) {
+        return NextResponse.json(
+          { error: "Chapter not found" },
+          { status: 404 },
+        );
+      }
+
+      container = { ...chapter, kind: "chapter" };
     }
 
-    const chapters: Chapter[] = subjectDoc.chapters;
-    const chapter = chapterSlug
-      ? chapters.find((ch) => ch.slug === chapterSlug)
-      : chapters[0];
+    // ---------- SECTION ----------
+    else if (sectionSlug) {
+      const sections = subjectDoc?.sections ?? [];
+      const section = sections.find((sec) => sec.slug === sectionSlug);
 
-    if (!chapter) {
-      return NextResponse.json({ error: "Chapter not found" }, { status: 404 });
+      if (!section) {
+        return NextResponse.json(
+          { error: "Section not found" },
+          { status: 404 },
+        );
+      }
+
+      container = { ...section, kind: "section" };
     }
 
-    const filteredQuestions = filterQuestions(chapter.questions, {
+    // ---------- DEFAULT ----------
+    else {
+      // fallback: first chapter
+      const chapter = subjectDoc?.chapters?.[0];
+      if (!chapter) {
+        return NextResponse.json(
+          { error: "No container found" },
+          { status: 404 },
+        );
+      }
+      container = { ...chapter, kind: "chapter" };
+    }
+
+    const filteredQuestions = filterQuestions(container.questions ?? [], {
       source,
       type: questionTypeSlug as QuestionType,
       marks,
@@ -70,12 +107,13 @@ export async function GET(req: Request) {
 
     const totalMarks = filteredQuestions.reduce(
       (sum, q) => sum + (q.marks || 0),
-      0
+      0,
     );
 
     return NextResponse.json({
-      chapterTitle: chapter.title,
-      chapterNumber: chapter.chapterNumber,
+      containerTitle: container.title,
+      containerNumber:
+        container.kind === "chapter" ? container.chapterNumber : undefined,
       questions: filteredQuestions,
       totalMarks,
     });
@@ -83,7 +121,7 @@ export async function GET(req: Request) {
     console.error("question-bank API error:", err);
     return NextResponse.json(
       { error: err.message ?? "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -102,14 +140,14 @@ function filterQuestions(
     marks?: number;
     paperMode?: string | null;
     examSectionType?: string;
-  }
+  },
 ): Question[] {
   let filtered = questions;
 
   // ---------- SOURCE FILTER (always) ----------
   if (source) {
     filtered = filtered.filter(
-      (q) => q.source?.toLowerCase() === source.toLowerCase()
+      (q) => q.source?.toLowerCase() === source.toLowerCase(),
     );
   }
 
