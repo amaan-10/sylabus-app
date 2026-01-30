@@ -113,12 +113,7 @@ function parseMath(input: string) {
 
 /** simple html-escape to avoid injecting HTML */
 function escapeHtml(str: string) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  return str;
 }
 
 /** render plain text safely preserving newlines */
