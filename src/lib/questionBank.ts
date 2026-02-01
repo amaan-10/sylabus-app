@@ -1,11 +1,11 @@
 // lib/questionBank.ts
-import { connectToDatabase } from "./mongodb";
-import { SubjectQuestionBankModel } from "@/models/subjectQuestionBank";
+import { connectToDatabase } from "./db-connect/sylabus-db";
+import { SubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
 import type {
   SubjectQuestionBank,
   Chapter,
   Question,
-} from "@/models/subjectQuestionBank";
+} from "@/models/for-sylabus-app/subjectQuestionBank";
 
 type SubjectKey = {
   board: string;
