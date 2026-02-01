@@ -6,8 +6,11 @@ import {
   getClassLabel,
   prettifyType,
   QuestionSource,
+  ScienceSubjectKey,
 } from "@/lib/utility/helper";
 import { ChapterSkeleton } from "./ChapterSkeleton";
+import { EXAM_PATTERN_12_SCIENCE } from "@/lib/examPattern";
+import { Section } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 interface SubjectWorkspaceProps {
   items?: any[];
@@ -18,17 +21,17 @@ interface SubjectWorkspaceProps {
   subject: any;
   questionSource: string;
   setQuestionSource: React.Dispatch<React.SetStateAction<QuestionSource>>;
-  chapters: Chapter[];
-  openChapterId: any;
-  chaptersLoading: boolean;
-  handleToggleChapter: (id: string) => void;
+  activeContainers: Chapter[] | Section[];
+  openContainerId: any;
+  loading: boolean;
+  handleToggleContainer: (id: string) => void;
   questionTypes: any;
   handleOpenQuestionType: (
     label: string,
     marks: number,
     chapterSlug: string,
     chapterTitle?: string,
-    chapterNumber?: number
+    chapterNumber?: number,
   ) => void;
 }
 
@@ -41,13 +44,20 @@ export function SubjectWorkspace({
   subject,
   questionSource,
   setQuestionSource,
-  chapters,
-  openChapterId,
-  chaptersLoading,
-  handleToggleChapter,
+  activeContainers,
+  openContainerId,
+  loading,
+  handleToggleContainer,
   questionTypes,
   handleOpenQuestionType,
 }: SubjectWorkspaceProps) {
+  const isLanguageSubject = ["english", "hindi", "marathi"].includes(
+    subject.name.toLowerCase(),
+  );
+
+  const examKey = subject.slug.toLowerCase() as ScienceSubjectKey;
+  const languageSections = EXAM_PATTERN_12_SCIENCE[examKey]?.sections ?? [];
+
   return (
     <section className="relative flex flex-row flex-nowrap flex-[1_0_0] items-start content-start justify-center gap-14 w-px min-h-screen h-min rounded-2xl bg-slate-50 md:border border-[rgba(0,0,0,0.08)] overflow-hidden p-[40px_8px_120px] md:p-[40px_32px_32px] will-change-transform">
       <div className="w-full">
@@ -140,7 +150,7 @@ export function SubjectWorkspace({
             <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <h2 className="text-base font-semibold text-slate-900">
-                  Chapters
+                  {isLanguageSubject ? "Paper Sections" : "Chapters"}
                 </h2>
                 <p className="text-xs text-slate-500">
                   Select questions to add them to the paper.
@@ -148,36 +158,46 @@ export function SubjectWorkspace({
               </div>
 
               <div className="mt-4 space-y-3">
-                {chaptersLoading ? (
+                {loading ? (
                   <ChapterSkeleton />
                 ) : (
                   <>
-                    {chapters.map((chapter) => {
-                      const isOpen = chapter.id === openChapterId;
+                    {activeContainers?.map((container: any) => {
+                      const isOpen = container.id === openContainerId;
+
                       return (
-                        <div key={chapter.id}>
-                          {chapter.id === "ms-12-maths1-ch1" && (
-                            <div className="text-base font-medium pl-3 pb-2">
-                              Mathematics & Statistics 1
-                            </div>
-                          )}
-                          {chapter.id === "ms-12-maths2-ch1" && (
-                            <div className="text-base font-medium pl-3 pt-4 pb-2">
-                              Mathematics & Statistics 2
-                            </div>
-                          )}
+                        <div key={container.id}>
+                          {/* Optional Math headers (chapters only) */}
+                          {!isLanguageSubject &&
+                            container.id === "ms-12-maths1-ch1" && (
+                              <div className="text-base font-medium pl-3 pb-2">
+                                Mathematics & Statistics 1
+                              </div>
+                            )}
+                          {!isLanguageSubject &&
+                            container.id === "ms-12-maths2-ch1" && (
+                              <div className="text-base font-medium pl-3 pt-4 pb-2">
+                                Mathematics & Statistics 2
+                              </div>
+                            )}
+
                           <div className="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden">
                             <button
                               type="button"
-                              onClick={() => handleToggleChapter(chapter.id)}
+                              onClick={() => {
+                                handleToggleContainer(container.id);
+                              }}
                               className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-slate-800 hover:bg-slate-100 transition cursor-pointer"
                             >
                               <div className="flex flex-col gap-0.5">
                                 <span className="text-[11px] uppercase tracking-wide text-slate-500">
-                                  Chapter {chapter.chapterNumber}
+                                  {isLanguageSubject
+                                    ? container.title // Section title
+                                    : `Chapter ${container.chapterNumber}`}
                                 </span>
-                                <span>{chapter.title}</span>
+                                <span>{container.title}</span>
                               </div>
+
                               <span
                                 className={`inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-xs transition-transform ${
                                   isOpen ? "rotate-90" : ""
@@ -189,19 +209,14 @@ export function SubjectWorkspace({
 
                             {isOpen && (
                               <div className="border-t border-slate-200 bg-white px-4 py-4 text-sm text-slate-700 space-y-4">
-                                {(chapter.description ||
-                                  chapter.topics ||
-                                  chapter.learningObjectives) && (
-                                  <div className="space-y-2">
-                                    {chapter.description && (
-                                      <p className="text-xs text-slate-600">
-                                        {chapter.description}
-                                      </p>
-                                    )}
-                                  </div>
+                                {/* Description (chapter or section) */}
+                                {container.description && (
+                                  <p className="text-xs text-slate-600">
+                                    {container.description}
+                                  </p>
                                 )}
 
-                                {/* Question types for this chapter: BUTTONS open panel */}
+                                {/* Question types */}
                                 <div className="space-y-2">
                                   <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
                                     Practice by Question Type (
@@ -210,6 +225,7 @@ export function SubjectWorkspace({
                                       : "PYQ"}
                                     )
                                   </p>
+
                                   <div className="space-y-2 mt-1">
                                     {questionTypes.map((type: any) => (
                                       <button
@@ -218,14 +234,13 @@ export function SubjectWorkspace({
                                           handleOpenQuestionType(
                                             type.label,
                                             type.marks,
-                                            chapter.slug,
-                                            chapter.title,
-                                            chapter.chapterNumber
+                                            container.slug,
+                                            container.title,
+                                            container.chapterNumber,
                                           )
                                         }
                                         className="group flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 shadow-sm transition-all hover:-translate-y-px hover:border-emerald-300 hover:bg-emerald-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-200 cursor-pointer"
                                       >
-                                        {/* Left content */}
                                         <div className="flex flex-col items-start">
                                           <span className="font-medium leading-tight">
                                             {prettifyType(type.label)}
@@ -235,7 +250,6 @@ export function SubjectWorkspace({
                                           </span>
                                         </div>
 
-                                        {/* Right action */}
                                         <div className="flex items-center gap-1 text-xs font-medium text-emerald-600">
                                           <span className="opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
                                             Open

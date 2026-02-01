@@ -34,6 +34,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, Trash2 } from "lucide-react";
 import SmartMathJax from "../SmartMathJax";
+import { Section } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 type PaperMode = "exam" | "custom";
 type SectionedSelection = Record<string, Question[]>;
@@ -59,9 +60,11 @@ export const PaperBuilder: React.FC<{
     chapterTitle?: string,
     chapterNumber?: number,
   ) => void;
-  chapters: Chapter[];
+  activeContainers: Chapter[] | Section[];
+  handleToggleContainer: (id: string) => void;
   setExamPatternTotalMarks: React.Dispatch<React.SetStateAction<number>>;
   board: string;
+  isLanguageSubject: boolean;
 }> = ({
   selected,
   removeFromPaper,
@@ -75,9 +78,11 @@ export const PaperBuilder: React.FC<{
   setSectionedSelected,
   setPaperMode,
   handleOpenQuestionType,
-  chapters,
+  activeContainers,
+  handleToggleContainer,
   setExamPatternTotalMarks,
   board,
+  isLanguageSubject,
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -145,6 +150,9 @@ export const PaperBuilder: React.FC<{
     }),
   );
 
+  const getContainerIdAt = (index: number) =>
+    activeContainers[index]?.id ?? null;
+
   return (
     <>
       {isMinimized && (
@@ -159,7 +167,7 @@ export const PaperBuilder: React.FC<{
             title="Open Paper Builder"
           >
             {selected.length > 0 && (
-              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-white text-[#193625] text-xs font-bold flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-white text-[#193625] text-[11px] font-bold flex items-center justify-center">
                 {selected.length}
               </span>
             )}
@@ -387,15 +395,17 @@ export const PaperBuilder: React.FC<{
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="rounded-xl border-2 border-slate-200 bg-white p-3 space-y-2"
-                          onClick={() =>
-                            handleOpenQuestionType(
-                              questionTypeToSlug(sec.type),
-                              sec.marks,
-                              chapters[0].slug,
-                              chapters[0].title,
-                              chapters[0].chapterNumber,
-                            )
-                          }
+                          onClick={() => {
+                            isLanguageSubject
+                              ? ""
+                              : // handleToggleContainer(getContainerIdAt(containerIndex + 1)!)
+                                handleOpenQuestionType(
+                                  questionTypeToSlug(sec.type),
+                                  sec.marks,
+                                  activeContainers[0].slug,
+                                  activeContainers[0].title,
+                                );
+                          }}
                         >
                           <div className="flex justify-between items-center cursor-pointer mb-0">
                             <div className="flex items-center justify-between gap-3">

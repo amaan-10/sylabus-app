@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BoardSlug, MediumSlug, ClassKey, Subject } from "@/lib/subjects";
 import {
+  capitalize,
   Chapter,
   prettifyType,
   Question,
@@ -10,12 +11,17 @@ import {
   questionTypeToSlug,
 } from "@/lib/utility/helper";
 import { EXAM_PATTERN_12_SCIENCE, ScienceSubjectKey } from "@/lib/examPattern";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 import "katex/dist/katex.min.css";
-import { BlockMath } from "react-katex";
-import { MathJax, MathJaxContext } from "better-react-mathjax";
 import SmartMathJax from "../SmartMathJax";
+import { Section } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 type PaperMode = "exam" | "custom";
 type SectionedSelection = Record<string, Question[]>;
@@ -29,12 +35,13 @@ export const QuestionTypePanel: React.FC<{
     questionTypeLabel: string;
     marks: number;
     questionTypeSlug: string;
-    chapterSlug: string;
-    chapterTitle?: string;
-    chapterNumber?: number;
+    containerId: string;
+    containerTitle?: string;
+    containerNumber?: number;
     source: QuestionSource;
   };
-  chapters: Chapter[];
+  handleToggleContainer: (id: string) => void;
+  activeContainers: Chapter[] | Section[];
   onClose: () => void;
   onAddToPaper: (qs: Question[]) => void;
   // let panel show which are already selected globally (checkbox checked)
@@ -47,13 +54,15 @@ export const QuestionTypePanel: React.FC<{
     React.SetStateAction<SectionedSelection>
   >;
   questionTypes: { key: string; label: string; marks: number }[];
+  isLanguageSubject: boolean;
 }> = ({
   boardSlug,
   mediumSlug,
   classKey,
   subject,
   openSpec,
-  chapters,
+  handleToggleContainer,
+  activeContainers,
   onClose,
   onAddToPaper,
   selectedIds,
@@ -63,13 +72,18 @@ export const QuestionTypePanel: React.FC<{
   sectionedSelected,
   setSectionedSelected,
   questionTypes,
+  isLanguageSubject,
 }) => {
+  const isChapter = (c: Chapter | Section): c is Chapter => {
+    return "chapterNumber" in c;
+  };
+
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [chapterTitle, setChapterTitle] = useState<string>(
-    openSpec.chapterTitle || "",
+  const [containerTitle, setContainerTitle] = useState<string>(
+    openSpec.containerTitle || "",
   );
-  const [chapterNumber, setChapterNumber] = useState<number>(
-    openSpec.chapterNumber || 0,
+  const [containerNumber, setContainerNumber] = useState<number>(
+    openSpec.containerNumber || 0,
   );
   const [totalMarks, setTotalMarks] = useState<number>(0);
   const [loading, setLoading] = useState(true);
@@ -81,10 +95,10 @@ export const QuestionTypePanel: React.FC<{
 
   const initialIndex = Math.max(
     0,
-    chapters.findIndex((c) => c.slug === openSpec.chapterSlug),
+    activeContainers.findIndex((c) => c.slug === openSpec.containerId),
   );
 
-  const [chapterIndex, setChapterIndex] = useState(initialIndex);
+  const [containerIndex, setContainerIndex] = useState(initialIndex);
   const [questionTypeIndex, setQuestionTypeIndex] = useState(0);
 
   const activeQuestionType = questionTypes[questionTypeIndex];
@@ -95,11 +109,13 @@ export const QuestionTypePanel: React.FC<{
     );
   }, [openSpec]);
 
-  const activeChapter = chapters[chapterIndex];
+  const activeContainer = activeContainers[containerIndex];
 
   useEffect(() => {
-    setChapterIndex(chapters.findIndex((c) => c.slug === openSpec.chapterSlug));
-  }, [openSpec]);
+    setContainerIndex(
+      activeContainers.findIndex((c) => c.slug === openSpec.containerId),
+    );
+  }, [openSpec, activeContainers]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -119,7 +135,15 @@ export const QuestionTypePanel: React.FC<{
           paperMode: paperMode,
         });
 
-        if (activeChapter?.slug) params.set("chapterSlug", activeChapter.slug);
+        if (activeContainer) {
+          if (isLanguageSubject) {
+            // section
+            params.set("sectionSlug", activeContainer.slug);
+          } else {
+            // chapter
+            params.set("chapterSlug", activeContainer.slug);
+          }
+        }
 
         const res = await fetch(`/api/question-bank?${params.toString()}`, {
           signal: controller.signal,
@@ -132,8 +156,11 @@ export const QuestionTypePanel: React.FC<{
 
         const data = await res.json();
         setQuestions(data.questions || []);
-        setChapterTitle(data.chapterTitle || openSpec.chapterTitle || "");
-        setChapterNumber(data.chapterNumber || openSpec.chapterNumber || 0);
+        setContainerTitle(data.containerTitle || openSpec.containerTitle || "");
+        setContainerNumber(
+          data.containerNumber || openSpec.containerNumber || 0,
+        );
+
         setTotalMarks(data.totalMarks || 0);
 
         // pre-check already globally selected
@@ -159,7 +186,7 @@ export const QuestionTypePanel: React.FC<{
     mediumSlug,
     classKey,
     subject,
-    chapterIndex,
+    containerIndex,
     questionTypeIndex,
     openSpec.marks,
     openSpec.questionTypeLabel,
@@ -248,9 +275,16 @@ export const QuestionTypePanel: React.FC<{
     const examKey = subject.slug.toLowerCase() as ScienceSubjectKey;
     const pattern = EXAM_PATTERN_12_SCIENCE[examKey];
 
-    return pattern.sections.find(
-      (s) => prettifyType(q.examSectionType) === s.type && q.marks === s.marks,
-    );
+    if (isLanguageSubject) {
+      return pattern.sections.find(
+        (s) => prettifyType(q.examSectionType) === s.type,
+      );
+    } else {
+      return pattern.sections.find(
+        (s) =>
+          prettifyType(q.examSectionType) === s.type && q.marks === s.marks,
+      );
+    }
   };
 
   const isSectionFull = (q: Question): boolean => {
@@ -266,10 +300,24 @@ export const QuestionTypePanel: React.FC<{
   };
   useEffect(() => {
     setLocalSelectedIds(new Set());
-  }, [chapterIndex]);
+  }, [containerIndex]);
 
-  const capitalize = (s: string) =>
-    s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+  const sectionCount = useMemo(() => {
+    if (!isExamMode) return localSelectedIds.size;
+
+    const sectionQuestionIds = new Set(questions.map((q) => q.id));
+
+    return Object.values(sectionedSelected)
+      .flat()
+      .filter((x) => sectionQuestionIds.has(x.id)).length;
+  }, [isExamMode, sectionedSelected, localSelectedIds, questions]);
+
+  const totalSelected = isExamMode
+    ? Object.values(sectionedSelected).flat().length
+    : selectedGlobal.length;
+
+  const getContainerIdAt = (index: number) =>
+    activeContainers[index]?.id ?? null;
 
   return (
     <div
@@ -332,8 +380,11 @@ export const QuestionTypePanel: React.FC<{
 
         <div className="flex items-center gap-2 pb-2">
           <button
-            onClick={() => setChapterIndex((i) => Math.max(0, i - 1))}
-            disabled={chapterIndex === 0}
+            onClick={() => {
+              setContainerIndex((i) => Math.max(0, i - 1));
+              handleToggleContainer(getContainerIdAt(containerIndex - 1)!);
+            }}
+            disabled={containerIndex === 0}
             className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40  cursor-pointer"
             aria-label="Previous chapter"
           >
@@ -341,14 +392,22 @@ export const QuestionTypePanel: React.FC<{
           </button>
 
           <h2 className="text-lg font-semibold leading-[1.2] text-slate-900">
-            Chapter {activeChapter?.chapterNumber}: {activeChapter?.title}
+            <h2 className="text-lg font-semibold leading-[1.2] text-slate-900">
+              {containerNumber && isChapter(activeContainer)
+                ? `Chapter ${activeContainer?.chapterNumber}: `
+                : ""}
+              {activeContainer?.title}
+            </h2>
           </h2>
 
           <button
-            onClick={() =>
-              setChapterIndex((i) => Math.min(chapters.length - 1, i + 1))
-            }
-            disabled={chapterIndex === chapters.length - 1}
+            onClick={() => {
+              setContainerIndex((i) =>
+                Math.min(activeContainers.length - 1, i + 1),
+              );
+              handleToggleContainer(getContainerIdAt(containerIndex + 1)!);
+            }}
+            disabled={containerIndex === activeContainers.length - 1}
             className="rounded-full p-1.5 hover:bg-slate-100 disabled:opacity-40  cursor-pointer"
             aria-label="Next chapter"
           >
@@ -356,8 +415,8 @@ export const QuestionTypePanel: React.FC<{
           </button>
         </div>
         <p className="text-xs text-slate-500">
-          Select questions and click{" "}
-          <span className="font-medium">Add to paper</span>.
+          <span className="font-medium">Select questions </span>to include in
+          the paper.
         </p>
       </div>
 
@@ -379,13 +438,13 @@ export const QuestionTypePanel: React.FC<{
         {!loading && !error && questions.length > 0 && (
           <>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                {/* <button
+              {/* <div className="flex items-center gap-2">
+                <button
                   onClick={handleAddSelectedToPaper}
                   className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-xs md:text-sm font-medium text-white hover:opacity-95"
                 >
                   Add to paper
-                </button> */}
+                </button>
                 <button
                   onClick={() => {
                     // toggle select all / none locally
@@ -415,11 +474,12 @@ export const QuestionTypePanel: React.FC<{
                 >
                   Toggle select all
                 </button>
-              </div>
+              </div> */}
 
               <div className="text-xs text-slate-500">
-                Selected in paper:{" "}
-                <span className="font-medium">{selectedGlobal.length}</span>
+                Total selected:{" "}
+                <span className="font-medium">{totalSelected}</span> • This
+                section: <span className="font-medium">{sectionCount}</span>
               </div>
             </div>
 
@@ -447,57 +507,12 @@ export const QuestionTypePanel: React.FC<{
                       aria-label={`Select question ${idx + 1}`}
                     />
 
-                    <div className="flex-1">
-                      <div className="w-1/2">
-                        <span>Q. {idx + 1}. </span>
-                        <span className="relative left-14 -ml-10">
-                          <SmartMathJax text={q.text} />
-                        </span>
-                        <span className=" absolute right-0">({q.marks})</span>
-                      </div>
+                    {isLanguageSubject ? (
+                      <SectionQuestionRenderer q={q} idx={idx} />
+                    ) : (
+                      <ChapterQuestionUI q={q} idx={idx} />
+                    )}
 
-                      {q.imageUrl && (
-                        <Image
-                          src={q.imageUrl}
-                          width={160}
-                          height={160}
-                          alt={q.id}
-                          className="py-2"
-                        />
-                      )}
-
-                      <p className="mt-1 text-[12px] text-slate-500">
-                        Type: <span className="font-medium">{q.type}</span> •
-                        Marks: <span className="font-medium">{q.marks}</span> •
-                        Difficulty:{" "}
-                        <span className="font-medium">
-                          {capitalize(String(q.difficulty))}
-                        </span>
-                      </p>
-
-                      {q.options && q.options.length > 0 && (
-                        <ul className="list-disc pl-5 mt-2 text-sm space-y-1">
-                          {q.options.map((opt, i) => (
-                            <li key={i}>
-                              <SmartMathJax text={opt} />
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {q.answer && (
-                        <p className="mt-2 text-sm">
-                          <strong>Answer:</strong>{" "}
-                          <SmartMathJax text={q.answer} />
-                        </p>
-                      )}
-
-                      {q.explanation && (
-                        <p className="mt-1 text-sm text-slate-500">
-                          <strong>Explanation:</strong> {q.explanation}
-                        </p>
-                      )}
-                    </div>
                     {isExamMode && isSectionFull(q) && !checked && (
                       <p className="text-[11px] text-red-500 mt-1">
                         Section full
@@ -510,6 +525,239 @@ export const QuestionTypePanel: React.FC<{
           </>
         )}
       </div>
+    </div>
+  );
+};
+
+const ChapterQuestionUI = ({ q, idx }: any) => {
+  return (
+    <div className="flex-1">
+      <div className="w-full">
+        <span className="font-semibold">Q. {idx + 1}.</span>
+        <span className="relative left-5 -ml-3">
+          <SmartMathJax text={q.text} />
+        </span>
+      </div>
+
+      {q.imageUrl && (
+        <Image
+          src={q.imageUrl}
+          width={160}
+          height={160}
+          alt={q.id}
+          className="py-2"
+        />
+      )}
+
+      <p className="mt-1 text-[12px] text-slate-500">
+        Type: <span className="font-medium">{q.type}</span> • Marks:{" "}
+        <span className="font-medium">{q.marks}</span> • Difficulty:{" "}
+        <span className="font-medium">{capitalize(String(q.difficulty))}</span>
+      </p>
+
+      {q.options && q.options.length > 0 && (
+        <ul className="list-disc pl-5 mt-2 text-sm space-y-1">
+          {q.options.map((opt: any, i: any) => (
+            <li key={i}>
+              <SmartMathJax text={opt} />
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {q.answer && (
+        <p className="mt-2 text-sm">
+          <strong>Answer:</strong> <SmartMathJax text={q.answer} />
+        </p>
+      )}
+
+      {q.explanation && (
+        <p className="mt-1 text-sm text-slate-500">
+          <strong>Explanation:</strong> {q.explanation}
+        </p>
+      )}
+    </div>
+  );
+};
+
+const QuestionBlock = ({
+  q,
+  idx,
+  isSubQuestion,
+}: {
+  q: any;
+  idx?: number;
+  isSubQuestion?: boolean;
+}) => {
+  const capitalize = (s: string) =>
+    s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+
+  return (
+    <div className="my-2">
+      <div className="w-full">
+        {idx !== undefined &&
+          (isSubQuestion ? (
+            <span className="font-semibold">A{idx + 1}.</span>
+          ) : (
+            <span>{String.fromCharCode(97 + idx)})</span>
+          ))}
+        <span className="relative left-5 -ml-3">
+          <SmartMathJax text={q.text || q.question || ""} />
+        </span>
+      </div>
+
+      {q.imageUrl && (
+        <Image
+          src={q.imageUrl}
+          width={160}
+          height={160}
+          alt={q.id}
+          className="py-2"
+        />
+      )}
+
+      {isSubQuestion ? (
+        <p className="mt-1 text-[12px] text-slate-500">
+          Type: <span className="font-medium">{q.type}</span> • Marks:{" "}
+          <span className="font-medium">{q.marks}</span> • Difficulty:{" "}
+          <span className="font-medium">
+            {capitalize(String(q.difficulty))}
+          </span>
+        </p>
+      ) : (
+        ""
+      )}
+
+      {q.options && q.options.length > 0 && (
+        <ul className="list-disc pl-5 mt-2 text-sm space-y-1">
+          {q.options.map((opt: string, i: number) => (
+            <li key={i}>
+              <SmartMathJax text={opt} />
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {q.answer && (
+        <p className="mt-2 text-sm">
+          <strong>Answer:</strong> <SmartMathJax text={q.answer} />
+        </p>
+      )}
+    </div>
+  );
+};
+
+const SubQuestionRenderer = ({
+  questions,
+  level = 1,
+}: {
+  questions: any[];
+  level?: number;
+}) => {
+  let isSubQuestion = false;
+  if (level === 1) {
+    isSubQuestion = true;
+  }
+
+  return (
+    <div className={`space-y-3 pl-${level * 4}`}>
+      {questions.map((sq, idx) => (
+        <div
+          className={`${level === 1 ? "rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700" : ""}`}
+          key={sq.id}
+        >
+          <QuestionBlock isSubQuestion={isSubQuestion} idx={idx} q={sq} />
+
+          {sq.subQuestions && sq.subQuestions.length > 0 && (
+            <SubQuestionRenderer
+              questions={sq.subQuestions}
+              level={level + 1}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const SectionQuestionRenderer = ({ q, idx }: any) => {
+  return (
+    <div className="space-y-6">
+      <div
+        key={q.id}
+        className="rounded-2xl border border-slate-300 bg-white p-4 space-y-3"
+      >
+        {/* Passage-based question */}
+        <span className="font-semibold">
+          Q. {idx + 1}. {q.question}
+        </span>
+
+        {q.passageText && <CollapsiblePassage text={q.passageText} />}
+
+        {/* Main question (if exists) */}
+        {/* {q.question && (
+          <QuestionBlock q={{ ...q, text: q.question }} idx={idx} />
+        )} */}
+
+        <p className="mt-1 text-[12px] text-slate-500">
+          Type: <span className="font-medium">{q.type}</span> • Marks:{" "}
+          <span className="font-medium">{q.marks}</span> • Difficulty:{" "}
+          <span className="font-medium">
+            {capitalize(String(q.difficulty))}
+          </span>
+        </p>
+
+        {q.text && <QuestionBlock q={{ ...q, text: q.text }} idx={idx} />}
+
+        {/* Sub-questions (recursive) */}
+        {q.subQuestions && q.subQuestions.length > 0 && (
+          <SubQuestionRenderer questions={q.subQuestions} />
+        )}
+      </div>
+    </div>
+  );
+};
+
+const CollapsiblePassage = ({
+  text,
+  collapsedHeight = 96, // px (≈ 4–5 lines)
+}: {
+  text: string;
+  collapsedHeight?: number;
+}) => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm mt-2">
+      <div
+        className="relative overflow-hidden transition-all duration-300"
+        style={{
+          maxHeight: expanded ? "none" : collapsedHeight,
+        }}
+      >
+        <SmartMathJax text={text} />
+
+        {/* Fade overlay when collapsed */}
+        {!expanded && (
+          <div className="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-linear-to-t from-slate-50 to-transparent" />
+        )}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => setExpanded((v) => !v)}
+        className="mt-2 mr-2 text-xs font-semibold text-emerald-600 cursor-pointer flex justify-self-end"
+      >
+        {expanded ? (
+          <>
+            Show less <ChevronUp size={16} />{" "}
+          </>
+        ) : (
+          <>
+            Read More <ChevronDown size={16} />{" "}
+          </>
+        )}
+      </button>
     </div>
   );
 };

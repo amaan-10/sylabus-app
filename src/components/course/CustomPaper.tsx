@@ -107,7 +107,7 @@ type DialogData = {
   examDate: string;
   time: number;
   includeInstructions: boolean;
-  logo?: File | null;
+  logo?: string;
   watermark: string;
 };
 
@@ -248,7 +248,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
     testName: "",
     examDate: today,
     includeInstructions: true,
-    logo: null,
+    logo: "",
     watermark: "",
     time: 0,
   });
@@ -622,13 +622,6 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
       ? [...examQuestionTypes].sort((a, b) => a.marks - b.marks)
       : [...questionTypesFromOpenChapter].sort((a, b) => a.marks - b.marks);
 
-  // const questionTypes =
-  //   questionTypesFromOpenChapter.length > 0
-  //     ? questionTypesFromOpenChapter
-  //     : questionTypesFromData.length > 0
-  //     ? questionTypesFromData
-  //     : getQuestionTypesForSubject(subject, questionSource);
-
   const addQuestionsToPaper = (qs: Question[]) => {
     if (paperMode === "custom") {
       setSelected((prev) => {
@@ -912,7 +905,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
           examDate: today,
           time: pattern.time,
           includeInstructions: true,
-          logo: null,
+          logo: "",
           watermark: "",
         }}
         onClose={() => setSchoolDialogOpen(false)}
@@ -925,7 +918,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
             examDate: today,
             time: pattern.time,
             includeInstructions: true,
-            logo: null,
+            logo: "",
             watermark: "",
           });
           setSchoolDialogOpen(false);

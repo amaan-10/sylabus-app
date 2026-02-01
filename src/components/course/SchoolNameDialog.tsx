@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Upload } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type DialogData = {
   schoolName: string;
@@ -10,7 +10,7 @@ type DialogData = {
   examDate: string;
   time: number;
   includeInstructions: boolean;
-  logo?: File | null;
+  logo?: string;
   watermark: string;
 };
 
@@ -38,10 +38,13 @@ export const SchoolNameDialog: React.FC<Props> = ({
     testName: "",
     examDate: today,
     includeInstructions: true,
-    logo: null,
+    logo: "",
     watermark: "",
     time: 0,
   });
+
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     setData((prev) => ({ ...prev, ...initialValue }));
@@ -49,6 +52,43 @@ export const SchoolNameDialog: React.FC<Props> = ({
 
   const update = <K extends keyof DialogData>(key: K, value: DialogData[K]) =>
     setData((p) => ({ ...p, [key]: value }));
+
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!["image/png", "image/jpeg"].includes(file.type)) {
+      alert("Only PNG and JPG images are allowed");
+      e.target.value = "";
+      return;
+    }
+
+    setImageFile(file);
+  };
+
+  const uploadImage = async () => {
+    if (!imageFile) return "";
+
+    const formData = new FormData();
+    formData.append("image", imageFile);
+
+    const res = await fetch("/api/upload-question-image", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!res.ok) {
+      throw new Error("Image upload failed");
+    }
+
+    const data = await res.json();
+    return data.url as string;
+  };
+
+  const removeFile = () => {
+    setImageFile(null);
+    if (inputRef.current) inputRef.current.value = "";
+  };
 
   return (
     <AnimatePresence>
@@ -91,7 +131,7 @@ export const SchoolNameDialog: React.FC<Props> = ({
             {/* Body */}
             <div className="px-6 py-5 space-y-4">
               <Input
-                label="School / Institution"
+                label="School / Institute Name"
                 placeholder="ABC Junior College"
                 value={data.schoolName}
                 onChange={(e) => update("schoolName", e.target.value)}
@@ -149,7 +189,7 @@ export const SchoolNameDialog: React.FC<Props> = ({
                 {/* Logo */}
                 <div className="space-y-1 w-full">
                   <label className="text-[11px] font-medium text-slate-500">
-                    Institute Logo
+                    Institute Logo (optional)
                   </label>
                   <label
                     className="flex cursor-pointer items-center justify-center gap-2
@@ -158,13 +198,32 @@ export const SchoolNameDialog: React.FC<Props> = ({
                            hover:bg-slate-100"
                   >
                     <Upload size={14} />
-                    Upload logo (optional)
+                    {imageFile ? (
+                      <span className="truncate max-w-[180px]">
+                        {imageFile.name}
+                      </span>
+                    ) : (
+                      <span>Upload logo</span>
+                    )}
+
+                    {imageFile && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault(); // prevent file picker
+                          removeFile();
+                        }}
+                        className="rounded-full p-1 hover:bg-slate-200 cursor-pointer"
+                      >
+                        <X size={14} />
+                      </button>
+                    )}
+
                     <input
+                      ref={inputRef}
                       type="file"
-                      accept="image/*"
-                      onChange={(e) =>
-                        update("logo", e.target.files?.[0] || null)
-                      }
+                      accept="image/png, image/jpeg"
+                      onChange={handleImageSelect}
                       className="hidden"
                     />
                   </label>
@@ -193,7 +252,14 @@ export const SchoolNameDialog: React.FC<Props> = ({
                 Skip
               </button>
               <button
-                onClick={() => onSave(data)}
+                onClick={async () => {
+                  const imageUrl = await uploadImage();
+                  console.log("imageUrl", imageUrl);
+                  onSave({
+                    ...data,
+                    logo: imageUrl,
+                  });
+                }}
                 className="rounded-full bg-slate-900 px-5 py-1.5 text-xs text-white hover:bg-slate-800 cursor-pointer"
               >
                 Save
