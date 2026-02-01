@@ -1,5 +1,5 @@
 import { BoardSlug, MediumSlug, ClassKey, Subject } from "@/lib/subjects";
-import { Section } from "@/models/subjectQuestionBank";
+import { Section } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 export type QuestionSource = "balbharati" | "pyq";
 
@@ -393,3 +393,35 @@ export const prettifyType = (t?: string): string => {
 
 export const truncate = (s: string, n = 60) =>
   s.length > n ? s.slice(0, n - 1).trim() + "…" : s;
+
+export function toRoman(num: number): string {
+  if (num <= 0 || num >= 4000) return "";
+
+  const map: [number, string][] = [
+    [1000, "M"],
+    [900, "CM"],
+    [500, "D"],
+    [400, "CD"],
+    [100, "C"],
+    [90, "XC"],
+    [50, "L"],
+    [40, "XL"],
+    [10, "X"],
+    [9, "IX"],
+    [5, "V"],
+    [4, "IV"],
+    [1, "I"],
+  ];
+
+  let result = "";
+  let remaining = num;
+
+  for (const [value, symbol] of map) {
+    while (remaining >= value) {
+      result += symbol;
+      remaining -= value;
+    }
+  }
+
+  return result;
+}
