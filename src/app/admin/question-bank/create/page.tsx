@@ -420,15 +420,15 @@ export default function QuestionBankPage() {
                       {type === "mcq"
                         ? "MCQ"
                         : type === "short"
-                        ? "Short Answer"
-                        : "Long Answer"}{" "}
+                          ? "Short Answer"
+                          : "Long Answer"}{" "}
                       ({items.length})
                     </div>
 
                     {/* QUESTIONS */}
                     {items.map((q, i) => {
                       const globalIndex = questions.findIndex(
-                        (qq) => qq.id === q.id
+                        (qq) => qq.id === q.id,
                       );
 
                       return (
@@ -519,7 +519,7 @@ export default function QuestionBankPage() {
                             </span>
                             <span className="text-stone-900">{o}</span>
                           </div>
-                        )
+                        ),
                     )}
                   </div>
                 )}
@@ -603,8 +603,8 @@ export default function QuestionBankPage() {
                     !meta.chapters.length
                       ? "text-stone-300 bg-stone-100 cursor-not-allowed"
                       : !chapterId
-                      ? "text-stone-400"
-                      : "text-stone-900"
+                        ? "text-stone-400"
+                        : "text-stone-900"
                   }`}
                 >
                   <option value="" disabled>
@@ -629,8 +629,8 @@ export default function QuestionBankPage() {
                     !meta.chapters.length
                       ? "text-stone-300"
                       : !chapterId
-                      ? "text-stone-400"
-                      : "text-stone-700"
+                        ? "text-stone-400"
+                        : "text-stone-700"
                   }`}
                 />
               </div>
