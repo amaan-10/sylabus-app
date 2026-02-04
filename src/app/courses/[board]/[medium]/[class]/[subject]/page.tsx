@@ -30,6 +30,7 @@ import {
   getChaptersFor,
   getClassLabel,
   getClassLabelforPaper,
+  getSectionsFor,
   PaperMode,
   prettifyType,
   Question,
@@ -47,6 +48,7 @@ import { QuestionTypePanel } from "@/components/course/QuestionTypePanel";
 import { NotFoundBlock } from "@/components/course/NotFoundBlock";
 import { PaperBuilder } from "@/components/course/PaperBuilder";
 import { PDFPreviewModal } from "@/components/course/PDFPreviewModal";
+import { Section } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 /* ---------------------- Main Page Component ---------------------- */
 type DialogData = {
@@ -285,6 +287,17 @@ const SubjectChaptersPage: React.FC = () => {
 
   const [schoolDialogOpen, setSchoolDialogOpen] = useState(false);
 
+  const [sections, setSections] = useState<Section[]>([]);
+  const [sectionsLoading, setSectionsLoading] = useState(false);
+  const [sectionsError, setSectionsError] = useState<string | null>(null);
+  const [openSectionId, setOpenSectionId] = useState<string | null>(null);
+
+  const LANGUAGE_SUBJECTS = ["english", "hindi", "marathi"] as const;
+  const isLanguageSubject = LANGUAGE_SUBJECTS.includes(subject.slug as any);
+
+  const activeContainers = isLanguageSubject ? sections : chapters;
+  const openContainerId = isLanguageSubject ? openSectionId : openChapterId;
+
   const shouldBlock = previewOpen ? false : selected.length > 0;
 
   const {
@@ -327,9 +340,11 @@ const SubjectChaptersPage: React.FC = () => {
     questionTypeLabel: string;
     marks: number;
     questionTypeSlug: string;
-    chapterSlug: string;
-    chapterTitle?: string;
-    chapterNumber?: number;
+
+    containerId: string; // replaces chapterSlug
+    containerTitle?: string; // chapter title OR section title
+    containerNumber?: number; // chapterNumber (undefined for sections)
+
     source: QuestionSource;
   } | null>(null);
 
@@ -426,11 +441,51 @@ const SubjectChaptersPage: React.FC = () => {
     };
   }, [boardSlug, mediumSlugForSubjects, classKey, subject]);
 
-  const examQuestionTypes = React.useMemo(() => {
-    if (paperMode !== "exam" || !openChapterId) return [];
+  useEffect(() => {
+    let cancelled = false;
 
-    const chapter = chapters.find((c) => c.id === openChapterId);
-    if (!chapter || !chapter.questions) return [];
+    const safeBoardSlug = boardSlug as BoardSlug;
+    const subjectSlug = subject.slug;
+
+    async function loadSections() {
+      try {
+        setSectionsLoading(true);
+        setSectionsError(null);
+
+        const data = await getSectionsFor(
+          safeBoardSlug,
+          mediumSlugForSubjects,
+          classKey,
+          subjectSlug,
+        );
+
+        if (!cancelled) {
+          setSections(data);
+          if (data.length > 0) {
+            setOpenSectionId(data[0].id);
+          }
+        }
+      } catch (err: any) {
+        if (!cancelled) {
+          setSectionsError(err.message ?? "Failed to load sections");
+        }
+      } finally {
+        if (!cancelled) setSectionsLoading(false);
+      }
+    }
+
+    loadSections();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [boardSlug, mediumSlugForSubjects, classKey, subject]);
+
+  const examQuestionTypes = React.useMemo(() => {
+    if (paperMode !== "exam" || !openContainerId) return [];
+
+    const container = activeContainers.find((c) => c.id === openContainerId);
+    if (!container || !container.questions) return [];
 
     const map = new Map<
       string,
@@ -442,7 +497,7 @@ const SubjectChaptersPage: React.FC = () => {
       }
     >();
 
-    for (const q of chapter.questions) {
+    for (const q of container.questions) {
       if (q.source !== questionSource) continue;
       if (!q.examSectionType || typeof q.marks !== "number") continue;
 
@@ -459,35 +514,17 @@ const SubjectChaptersPage: React.FC = () => {
     }
 
     return Array.from(map.values());
-  }, [paperMode, chapters, openChapterId, questionSource]);
+  }, [paperMode, activeContainers, openContainerId, questionSource]);
 
-  const questionTypesFromData = React.useMemo(() => {
-    const set = new Set<string>();
+  const questionTypesFromOpenContainer = React.useMemo(() => {
+    if (!openContainerId) return [];
 
-    for (const ch of chapters) {
-      if (!ch.questions) continue;
-
-      for (const q of ch.questions) {
-        if (q.source && q.source !== questionSource) continue;
-
-        const candidate = prettifyType(q.type) || "";
-
-        if (candidate) set.add(candidate.trim());
-      }
-    }
-
-    return Array.from(set);
-  }, [chapters, questionSource]);
-
-  const questionTypesFromOpenChapter = React.useMemo(() => {
-    if (!openChapterId) return [];
-
-    const chapter = chapters.find((c) => c.id === openChapterId);
-    if (!chapter || !chapter.questions) return [];
+    const container = activeContainers.find((c) => c.id === openContainerId);
+    if (!container || !container.questions) return [];
 
     const map = new Map<string, { label: string; marks: number }>();
 
-    for (const q of chapter.questions) {
+    for (const q of container.questions) {
       if (q.source && q.source !== questionSource) continue;
 
       const label = prettifyType(q.type || "").trim();
@@ -505,18 +542,12 @@ const SubjectChaptersPage: React.FC = () => {
       label: value.label,
       marks: value.marks,
     }));
-  }, [chapters, openChapterId, questionSource]);
+  }, [activeContainers, openContainerId, questionSource]);
 
   const questionTypes =
     paperMode === "exam"
       ? [...examQuestionTypes].sort((a, b) => a.marks - b.marks)
-      : [...questionTypesFromOpenChapter].sort((a, b) => a.marks - b.marks);
-
-  // const questionTypes =
-  //   questionTypesFromOpenChapter.length > 0 ? questionTypesFromOpenChapter : [];
-  // : questionTypesFromData.length > 0
-  // ? questionTypesFromData
-  // : getQuestionTypesForSubject(subject, questionSource);
+      : [...questionTypesFromOpenContainer].sort((a, b) => a.marks - b.marks);
 
   const addQuestionsToPaper = (qs: Question[]) => {
     if (paperMode === "custom") {
@@ -551,26 +582,6 @@ const SubjectChaptersPage: React.FC = () => {
     localStorage.removeItem("paper:draft");
   };
 
-  const moveUp = (index: number) => {
-    if (index <= 0) return;
-    setSelected((prev) => {
-      const arr = [...prev];
-      const el = arr.splice(index, 1)[0];
-      arr.splice(index - 1, 0, el);
-      return arr;
-    });
-  };
-
-  const moveDown = (index: number) => {
-    setSelected((prev) => {
-      if (index >= prev.length - 1) return prev;
-      const arr = [...prev];
-      const el = arr.splice(index, 1)[0];
-      arr.splice(index + 1, 0, el);
-      return arr;
-    });
-  };
-
   // export selected to JSON file
   const exportJSON = () => {
     const data = JSON.stringify(
@@ -597,23 +608,35 @@ const SubjectChaptersPage: React.FC = () => {
   const handleOpenQuestionType = (
     label: string,
     marks: number,
-    chapterSlug: string,
-    chapterTitle?: string,
-    chapterNumber?: number,
+    containerId: string,
+    containerTitle?: string,
+    containerNumber?: number,
   ) => {
     setOpenQuestionType({
       questionTypeLabel: label,
       marks,
       questionTypeSlug: questionTypeToSlug(label),
-      chapterSlug,
-      chapterTitle,
-      chapterNumber,
+      containerId,
+      containerTitle,
+      containerNumber,
       source: questionSource,
     });
   };
 
   const handleToggleChapter = (id: string) => {
     setOpenChapterId((prev) => (prev === id ? null : id));
+  };
+
+  const handleToggleSection = (id: string) => {
+    setOpenSectionId((prev) => (prev === id ? null : id));
+  };
+
+  const handleToggleContainer = (id: string) => {
+    if (isLanguageSubject) {
+      handleToggleSection(id);
+    } else {
+      handleToggleChapter(id);
+    }
   };
 
   const items = [
@@ -664,7 +687,9 @@ const SubjectChaptersPage: React.FC = () => {
         />
       )}
 
-      <LoaderWrapper isLoading={chaptersLoading}>
+      <LoaderWrapper
+        isLoading={isLanguageSubject ? sectionsLoading : chaptersLoading}
+      >
         <SubjectWorkspace
           items={items}
           board={board}
@@ -673,10 +698,10 @@ const SubjectChaptersPage: React.FC = () => {
           subject={subject}
           questionSource={questionSource}
           setQuestionSource={setQuestionSource}
-          chapters={chapters}
-          openChapterId={openChapterId}
-          chaptersLoading={chaptersLoading}
-          handleToggleChapter={handleToggleChapter}
+          activeContainers={activeContainers}
+          openContainerId={openContainerId}
+          loading={isLanguageSubject ? sectionsLoading : chaptersLoading}
+          handleToggleContainer={handleToggleContainer}
           questionTypes={questionTypes}
           handleOpenQuestionType={handleOpenQuestionType}
         />
@@ -691,8 +716,9 @@ const SubjectChaptersPage: React.FC = () => {
           subject={subject}
           paperMode={paperMode}
           sectionedSelected={sectionedSelected}
-          chapters={chapters}
+          activeContainers={activeContainers}
           openSpec={openQuestionType}
+          handleToggleContainer={handleToggleContainer}
           onClose={() => setOpenQuestionType(null)}
           onAddToPaper={(qs) => addQuestionsToPaper(qs)}
           selectedIds={new Set(selected.map((s) => s.id))}
@@ -700,6 +726,7 @@ const SubjectChaptersPage: React.FC = () => {
           setSelectedGlobal={setSelected}
           setSectionedSelected={setSectionedSelected}
           questionTypes={questionTypes}
+          isLanguageSubject={isLanguageSubject}
         />
       )}
 
@@ -717,9 +744,11 @@ const SubjectChaptersPage: React.FC = () => {
         subject={subject}
         setPaperMode={setPaperMode}
         handleOpenQuestionType={handleOpenQuestionType}
-        chapters={chapters}
+        activeContainers={activeContainers}
+        handleToggleContainer={handleToggleContainer}
         setExamPatternTotalMarks={setExamPatternTotalMarks}
         board={boardSlug}
+        isLanguageSubject={isLanguageSubject}
       />
 
       <SchoolNameDialog
@@ -752,7 +781,6 @@ const SubjectChaptersPage: React.FC = () => {
           setPreviewOpen(true);
         }}
         onSave={(value) => {
-          console.log("value", value);
           setPaperInfo(value);
           setSchoolDialogOpen(false);
           setPreviewOpen(true);
