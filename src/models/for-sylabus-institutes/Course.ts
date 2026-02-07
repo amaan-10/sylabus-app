@@ -26,6 +26,12 @@ const CourseSchema = new Schema(
       required: true,
     },
 
+    instituteId: {
+      type: Schema.Types.ObjectId,
+      ref: "Institute",
+      required: true,
+    },
+
     semester: {
       type: Number,
       required: true,
