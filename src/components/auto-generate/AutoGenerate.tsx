@@ -6,7 +6,23 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { toRoman } from "@/lib/utility/helper";
 import { easeIn, easeOut, Variants } from "framer-motion";
 import LoaderWrapper from "@/components/PageLoader";
-import { Book, ChevronDown, NotepadText, Trash2 } from "lucide-react";
+import {
+  Book,
+  Check,
+  ChevronDown,
+  NotepadText,
+  Pencil,
+  Trash2,
+  X,
+} from "lucide-react";
+import Image from "next/image";
+import SectionWiseBloomTable from "../SectionWiseBloomTable";
+
+type QuestionRendererProps = {
+  question: any;
+  index: number;
+  onUpdate: (updatedQuestion: any) => void;
+};
 
 /* ---------------------- Main Page Component ---------------------- */
 const AutoGenerate: React.FC = () => {
@@ -16,10 +32,15 @@ const AutoGenerate: React.FC = () => {
   const programParam = searchParams.get("program");
   const semesterParam = searchParams.get("semester");
   const courseParam = searchParams.get("course");
+  const paperSetsParam = searchParams.get("paperSets");
   const blueprintParam = searchParams.get("blueprint");
 
   const isSelectionComplete =
-    !!programParam && !!semesterParam && !!courseParam && !!blueprintParam;
+    !!programParam &&
+    !!semesterParam &&
+    !!courseParam &&
+    !!paperSetsParam &&
+    !!blueprintParam;
 
   useEffect(() => {
     if (!isSelectionComplete) {
@@ -38,6 +59,7 @@ const AutoGenerate: React.FC = () => {
       programParam={programParam}
       semesterParam={semesterParam}
       courseParam={courseParam}
+      paperSetsParam={paperSetsParam}
       blueprintParam={blueprintParam}
     />
   );
@@ -49,6 +71,7 @@ type BuilderProps = {
   programParam: string;
   semesterParam: string;
   courseParam: string;
+  paperSetsParam: string;
   blueprintParam: string;
 };
 
@@ -56,6 +79,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
   programParam,
   semesterParam,
   courseParam,
+  paperSetsParam,
   blueprintParam,
 }) => {
   const [loading, setLoading] = useState(true);
@@ -79,6 +103,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
             program: programParam,
             semester: semesterParam,
             course: courseParam,
+            paperSets: paperSetsParam,
             blueprint: blueprintParam,
           }),
         });
@@ -101,48 +126,255 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
   }, []);
 
   return (
-    <section className="min-h-screen bg-slate-50 px-6 py-10 w-full">
-      <LoaderWrapper isLoading={loading}>
+    <LoaderWrapper isLoading={loading}>
+      <section className="md:border border-[rgba(0,0,0,0.08)] place-content-center items-center bg-white rounded-2xl flex flex-[1_0_0] flex-col gap-6 md:gap-14 h-min overflow-hidden p-[32px_8px_120px] md:py-16 md:px-8 md:pb-8 relative w-px">
         {error && (
-          <div className="max-w-3xl mx-auto rounded-xl bg-red-50 border border-red-200 p-6 text-red-600">
+          <div className="rounded-xl bg-red-50 border border-red-200 p-6 text-red-600">
             {error}
           </div>
         )}
 
-        {!loading && paper && <GeneratedPaperView paper={paper} />}
-      </LoaderWrapper>
-    </section>
+        {!loading && paper && <GeneratedPaperView initialPaper={paper} />}
+      </section>
+    </LoaderWrapper>
   );
 };
 
-const GeneratedPaperView = ({ paper }: { paper: any }) => {
+const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
+  const [institute, setInstitute] = useState<any>(null);
+  const [user, setUser] = useState<any>(null);
+  const [currentSetIndex, setCurrentSetIndex] = useState(0);
+
+  const [paperSets, setPaperSets] = useState<any[]>(
+    initialPaper.paperSets || [],
+  );
+  const [paper, setPaper] = useState<any>(initialPaper);
+
+  const currentPaperSet = paper.paperSets[currentSetIndex];
+
+  useEffect(() => {
+    const fetchMe = async () => {
+      const res = await fetch("/api/institute/auth/me");
+
+      const data = await res.json();
+      setUser(data.user);
+      setInstitute(data.user.instituteId);
+    };
+
+    fetchMe();
+  }, []);
+
+  function numberToWords(n: number) {
+    const words = [
+      "Zero",
+      "One",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine",
+      "Ten",
+      "Eleven",
+      "Twelve",
+      "Thirteen",
+      "Fourteen",
+      "Fifteen",
+      "Sixteen",
+      "Seventeen",
+      "Eighteen",
+      "Nineteen",
+      "Twenty",
+    ];
+    return words[n] || n.toString();
+  }
+
+  async function downloadPaper(paperSet: any) {
+    // const blob = new Blob([JSON.stringify(paperSet, null, 2)], {
+    //   type: "application/json",
+    // });
+
+    // const url = URL.createObjectURL(blob);
+    // const a = document.createElement("a");
+    // a.href = url;
+    // a.download = `${paperSet.setName}.json`;
+    // a.click();
+    // URL.revokeObjectURL(url);
+    try {
+      const res = await fetch("/api/institute/export/pdf", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(paperSet),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to generate PDF");
+      }
+
+      const blob = await res.blob();
+
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+
+      a.href = url;
+      a.download = `${paperSet.setName}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("PDF download failed:", error);
+      alert("Failed to download PDF. Please try again.");
+    }
+  }
+
   return (
-    <div className="max-w-5xl mx-auto space-y-8">
+    <div className="w-full px-10 space-y-8">
       {/* Header */}
       <div className="rounded-2xl border border-slate-200 bg-white p-6">
-        <h1 className="text-xl font-semibold text-slate-900">Question Paper</h1>
-        <p className="mt-1 text-sm text-slate-500">
-          Course Code: {paper.courseCode} • Semester {paper.semester}
-        </p>
+        {institute && (
+          <div className="flex gap-4">
+            <Image
+              src={institute.logoUrl || "/institute-placeholder.png"}
+              alt="Institute Logo"
+              width={128}
+              height={128}
+              className="rounded-lg border border-slate-200 bg-white p-2 w-auto h-32 object-contain"
+            />
+            <div className="flex flex-col justify-center items-center font-georgia w-full text-center">
+              <div className="mb-1">
+                <p className="font-black leading-none">{institute.society}</p>
+                <h1 className="text-3xl text-slate-900  font-black ">
+                  {institute.name}
+                </h1>{" "}
+                <p className="font-black text-lg leading-none">
+                  {institute.description}{" "}
+                  {institute.autonomous ? "(Autonomous)" : ""}
+                </p>
+              </div>
+
+              <p className="font-bold ">{institute.affiliation}</p>
+              <p className="font-bold ">
+                End Semester Examination {paper.courseMeta.paperTitle}
+              </p>
+
+              <div className="mt-2 font-cambria">
+                <p className="font-black text-xl">{paper.courseMeta.degree}</p>
+                <p className="font-bold text-lg leading-none">
+                  {paper.courseMeta.pattern} Pattern{" "}
+                  {paper.courseMeta.semester
+                    ? `(Semester – ${toRoman(paper.courseMeta.semester)})`
+                    : ""}
+                </p>
+                <h1 className="mt-1 text-xl font-bold text-slate-900 leading-none">
+                  {paper.courseMeta.courseCode}: {paper.courseMeta.courseTitle}{" "}
+                  ({paper.courseMeta.credits} Credits)
+                </h1>{" "}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="flex items-center justify-between mt-7">
+        {/* Left spacer (no previous button anymore) */}
+        <div className="w-56" />
+
+        {/* Center info */}
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="">
+            <span className="font-semibold text-xl font-georgia">
+              {currentPaperSet ? currentPaperSet.setName : ""}
+            </span>
+          </div>
+
+          <div className="text-sm font-medium text-slate-600 flex gap-1.5 items-center">
+            Click <Pencil size={16} className="text-slate-600" /> to edit
+            questions
+          </div>
+        </div>
+
+        {/* Right action */}
+        {currentSetIndex < paperSets.length ? (
+          <button
+            onClick={async () => {
+              // 1️⃣ Download current set
+              await downloadPaper(currentPaperSet);
+
+              // 2️⃣ Move to next set
+              // setCurrentSetIndex((i) => i + 1);
+            }}
+            className="rounded-lg bg-slate-900 px-5 py-2 text-white hover:bg-slate-800 cursor-pointer"
+          >
+            Download {currentPaperSet.setName}
+          </button>
+        ) : (
+          <span className="text-sm font-semibold text-green-600">
+            ✅ All paper sets downloaded
+          </span>
+        )}
       </div>
 
       {/* Sections */}
-      {paper.sections.map((section: any, idx: number) => (
+      {currentPaperSet.sections.map((section: any, sectionIdx: number) => (
         <div
-          key={idx}
+          key={sectionIdx}
           className="rounded-2xl border border-slate-200 bg-white p-6"
         >
-          <h2 className="text-lg font-semibold text-slate-900 mb-4">
-            {section.sectionTitle}
-          </h2>
+          <div className="flex justify-between gap-3">
+            <span className="text-lg font-semibold text-slate-900 mb-2">
+              Q. {sectionIdx + 1}. {section.sectionTitle}{" "}
+              {section.questionsToAttempt !== section.questions.length ? (
+                <span>
+                  (Attempt{" "}
+                  <span className="underline uppercase">
+                    Any {numberToWords(section.questionsToAttempt)}
+                  </span>
+                  )
+                </span>
+              ) : null}
+            </span>
+            <span className="text-lg font-semibold text-slate-900 mb-2 mr-5">
+              [
+              {section.questions
+                .map((q: any) => q.marks)
+                .sort((a: any, b: any) => b - a)
+                .slice(0, section.questionsToAttempt)
+                .reduce((sum: any, m: any) => sum + m, 0)}
+              ]
+            </span>
+          </div>
 
-          <div className="space-y-6">
+          <div className="space-y-2 ml-8">
             {section.questions.map((q: any, qIdx: number) => (
-              <QuestionRenderer key={q.id || qIdx} question={q} index={qIdx} />
+              <QuestionRenderer
+                key={q.id || qIdx}
+                question={q}
+                index={qIdx}
+                onUpdate={(updatedQuestion) => {
+                  setPaper((prev: any) => {
+                    const copy = structuredClone(prev);
+
+                    copy.paperSets[currentSetIndex].sections[
+                      sectionIdx
+                    ].questions[qIdx] = updatedQuestion;
+
+                    return copy;
+                  });
+                }}
+              />
             ))}
           </div>
         </div>
       ))}
+
+      <div className="text-center font-semibold">- END -</div>
+      <SectionWiseBloomTable sections={currentPaperSet.sections} />
     </div>
   );
 };
@@ -150,29 +382,91 @@ const GeneratedPaperView = ({ paper }: { paper: any }) => {
 const QuestionRenderer = ({
   question,
   index,
-}: {
-  question: any;
-  index: number;
-}) => {
+  onUpdate,
+}: QuestionRendererProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [draft, setDraft] = useState(question.question);
+
+  const handleSave = () => {
+    if (!draft.trim()) return;
+
+    onUpdate({
+      ...question,
+      question: draft.trim(),
+    });
+
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setDraft(question.question);
+    setIsEditing(false);
+  };
+
   return (
-    <div className="space-y-2">
-      <p className="font-medium text-slate-900">
-        {index + 1}. {question.question}
-        <span className="ml-2 text-sm text-slate-500">
-          ({question.marks} marks)
+    <div className="space-y-2 rounded-lg p-2 mb-1 hover:bg-slate-50 transition">
+      {/* Question line */}
+      <div className="flex items-start gap-2 mr-5">
+        <span className="font-medium text-slate-900">
+          {String.fromCharCode(97 + index)}.
         </span>
-      </p>
+
+        {!isEditing ? (
+          <>
+            <p className="flex-1 font-medium text-slate-900">
+              {question.question}
+            </p>
+
+            <button
+              onClick={() => setIsEditing(true)}
+              className="text-slate-400 hover:text-slate-600 cursor-pointer"
+              title="Edit question"
+            >
+              <Pencil size={16} />
+            </button>
+          </>
+        ) : (
+          <div className="flex-1 space-y-2">
+            <input
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSave();
+                if (e.key === "Escape") handleCancel();
+              }}
+              className="w-full rounded-md border px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300"
+              autoFocus
+            />
+
+            <div className="flex gap-2">
+              <button
+                onClick={handleSave}
+                className="inline-flex items-center gap-1 rounded-md bg-slate-900 px-3 py-1 text-xs text-white cursor-pointer"
+              >
+                <Check size={14} /> Save
+              </button>
+
+              <button
+                onClick={handleCancel}
+                className="inline-flex items-center gap-1 rounded-md border px-3 py-1 text-xs cursor-pointer"
+              >
+                <X size={14} /> Cancel
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Image */}
       {question.image?.required && (
-        <div className="mt-2 rounded-lg border bg-slate-50 p-3 text-sm text-slate-600">
+        <div className="ml-5 rounded-lg border bg-slate-50 p-3 text-sm text-slate-600">
           Diagram/Image required: {question.image.description}
         </div>
       )}
 
       {/* MCQ */}
       {question.questionType === "MCQ" && (
-        <ul className="ml-6 list-disc text-sm text-slate-700">
+        <ul className="ml-8 list-disc text-sm text-slate-700">
           {question.options.map((opt: string, i: number) => (
             <li key={i}>{opt}</li>
           ))}
@@ -181,27 +475,23 @@ const QuestionRenderer = ({
 
       {/* Sub Questions */}
       {question.subQuestions?.length > 0 && (
-        <div className="ml-6 space-y-1">
+        <div className="ml-8 space-y-1">
           {question.subQuestions.map((sq: any, i: number) => (
             <p key={i} className="text-sm text-slate-700">
-              {sq.label} {sq.question} ({sq.marks})
+              {sq.label}. {sq.question} ({sq.marks})
             </p>
           ))}
         </div>
       )}
 
       {/* Internal Choice */}
-      {question.internalChoice && (
-        <div className="mt-3 rounded-lg border border-dashed p-3 text-sm">
-          <p className="font-medium">
-            {question.internalChoice.type.toUpperCase()}
+      {question.internalChoice?.question && (
+        <div className="ml-5 mt-3 rounded-lg border border-dashed p-3 text-sm">
+          <p className="font-medium">OR</p>
+          <p className="mt-1 text-slate-700">
+            {question.internalChoice.question} ({question.internalChoice.marks}{" "}
+            marks)
           </p>
-
-          {question.internalChoice.alternatives.map((alt: any, i: number) => (
-            <p key={i} className="mt-1 text-slate-700">
-              {alt.question}
-            </p>
-          ))}
         </div>
       )}
     </div>
@@ -249,6 +539,7 @@ const SelectionGate = () => {
 
   type SubQuestion = {
     label: string;
+    questionType: string;
     questionsToShow: number;
     questionsToAttempt: number;
     marksPerQuestion: number;
@@ -263,15 +554,15 @@ const SelectionGate = () => {
 
   type BlueprintSection = {
     sectionTitle: string;
-    questionType: string;
-    questionsToShow: number;
-    questionsToAttempt: number;
-    marksPerQuestion: number;
-    hasInternalChoice: boolean;
-    choiceType: string;
+    questionType?: string;
+    questionsToShow?: number;
+    questionsToAttempt?: number;
+    marksPerQuestion?: number;
+    hasInternalChoice?: boolean;
+    choiceType?: string;
     hasSubQuestions?: boolean;
-    subQuestions: SubQuestion[];
-    difficultyMix: {
+    subQuestions?: SubQuestion[];
+    difficultyMix?: {
       easy: number;
       medium: number;
       hard: number;
@@ -280,10 +571,10 @@ const SelectionGate = () => {
 
   const [blueprint, setBlueprint] = useState<BlueprintSection[]>([
     {
-      sectionTitle: "Q. 1.",
+      sectionTitle: "",
       questionType: "",
-      questionsToShow: 10,
-      questionsToAttempt: 10,
+      questionsToShow: 0,
+      questionsToAttempt: 0,
       marksPerQuestion: 1,
       hasInternalChoice: false,
       choiceType: "none",
@@ -301,7 +592,7 @@ const SelectionGate = () => {
   const [courseResults, setCourseResults] = useState<any[]>([]);
   const [selectedCourse, setSelectedCourse] = useState<any>(null);
   const [courseLoading, setCourseLoading] = useState(false);
-  const [semester, setSemester] = useState("1");
+  const [paperSets, setPaperSets] = useState(0);
   const [user, setUser] = useState<any>(null);
   const [institute, setInstitute] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -354,7 +645,7 @@ const SelectionGate = () => {
   }, [programQuery, institute]);
 
   useEffect(() => {
-    if (!courseQuery || !semester) {
+    if (!courseQuery || !institute?._id) {
       setCourseResults([]);
       return;
     }
@@ -377,7 +668,7 @@ const SelectionGate = () => {
     }, 300);
 
     return () => clearTimeout(timeout);
-  }, [courseQuery, semester, institute]);
+  }, [courseQuery, institute]);
 
   useEffect(() => {
     setActiveIndex(0);
@@ -407,7 +698,7 @@ const SelectionGate = () => {
 
         return {
           ...section,
-          subQuestions: section.subQuestions.map((sub, j) => {
+          subQuestions: section.subQuestions?.map((sub, j) => {
             if (j !== subIndex) return sub;
             return { ...sub, [field]: value };
           }),
@@ -423,7 +714,9 @@ const SelectionGate = () => {
   ) => {
     setBlueprint((prev) => {
       const updated = [...prev];
-      updated[index].difficultyMix[level] = value;
+      if (updated[index].difficultyMix) {
+        updated[index].difficultyMix[level] = value;
+      }
       return updated;
     });
   };
@@ -440,7 +733,7 @@ const SelectionGate = () => {
 
         return {
           ...section,
-          subQuestions: section.subQuestions.map((sub, j) => {
+          subQuestions: section.subQuestions?.map((sub, j) => {
             if (j !== subIndex) return sub;
 
             return {
@@ -464,6 +757,7 @@ const SelectionGate = () => {
       ...currentSubQuestions,
       {
         label: nextLabel,
+        questionType: "",
         questionsToShow: 1,
         questionsToAttempt: 1,
         marksPerQuestion: 5,
@@ -485,11 +779,11 @@ const SelectionGate = () => {
     setBlueprint((prev) => [
       ...prev,
       {
-        sectionTitle: "Q. " + (prev.length + 1),
+        sectionTitle: "",
         questionType: "Short Answer",
-        questionsToShow: 5,
-        questionsToAttempt: 5,
-        marksPerQuestion: 2,
+        questionsToShow: 0,
+        questionsToAttempt: 0,
+        marksPerQuestion: 1,
         hasInternalChoice: false,
         choiceType: "none",
         hasSubQuestions: false,
@@ -502,14 +796,29 @@ const SelectionGate = () => {
   const removeSection = (index: number) => {
     setBlueprint((prev) => prev.filter((_, i) => i !== index));
   };
+  const [totalMarks, setTotalMarks] = useState(0);
+  useEffect(() => {
+    let total = 0;
+    blueprint.forEach((section) => {
+      if (section.hasSubQuestions && section.subQuestions) {
+        section.subQuestions.forEach((sub) => {
+          total += sub.questionsToAttempt * sub.marksPerQuestion;
+        });
+      } else {
+        total +=
+          (section.questionsToAttempt || 0) * (section.marksPerQuestion || 0);
+      }
+    });
+    setTotalMarks(total);
+  }, [blueprint]);
 
   const handleGeneratePaper = async () => {
     router.push(
-      `./auto-generate?program=${selectedProgram._id}&semester=${semester}&course=${selectedCourse.courseCode}&blueprint=${encodeURIComponent(JSON.stringify(blueprint))}`,
+      `./auto-generate?program=${selectedCourse.programId}&semester=${selectedCourse.semester}&course=${selectedCourse.courseCode}&paperSets=${paperSets}&blueprint=${encodeURIComponent(JSON.stringify(blueprint))}`,
     );
   };
 
-  console.log(selectedProgram);
+  console.log(selectedCourse);
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-100 flex items-center justify-center p-4 font-poppins">
@@ -609,43 +918,45 @@ const SelectionGate = () => {
                                   ${isActive ? "bg-slate-100" : "hover:bg-slate-50"}
                                 `}
                               >
-                                <div className="flex items-start justify-between gap-3">
+                                <div>
                                   <div>
-                                    {/* Course Code */}
-                                    <div className="text-sm font-semibold text-slate-900">
-                                      {c.courseCode}
-                                    </div>
-
-                                    {/* Degree + Semester */}
-                                    <div className="mt-0.5 text-xs text-slate-500">
-                                      {c.degree} • Semester{" "}
-                                      {toRoman(c.semester)}
-                                    </div>
-
-                                    {/* Title */}
-                                    <div className="mt-1 text-sm text-slate-700">
-                                      {c.courseTitle}
-                                    </div>
-                                  </div>
-
-                                  {/* Badges */}
-                                  <div className="flex flex-col items-end gap-2">
-                                    <span
-                                      className={`rounded-full px-3 py-1 text-xs font-medium capitalize
+                                    <div className="flex items-start justify-between gap-3">
+                                      {/* Course Code */}
+                                      <div className="text-sm font-semibold text-slate-900">
+                                        {c.courseCode}
+                                      </div>
+                                      <span
+                                        className={`rounded-full px-3 py-1 text-[10px] font-medium capitalize
                                         ${
                                           isCore
                                             ? "bg-blue-100 text-blue-600"
                                             : "bg-emerald-100 text-emerald-600"
                                         }
                                       `}
-                                    >
-                                      {c.courseType}
-                                    </span>
+                                      >
+                                        {c.courseType}
+                                      </span>
+                                    </div>
+                                    <div className="flex items-start justify-between gap-3">
+                                      <div className="w-4/5">
+                                        {/* Degree + Semester */}
+                                        <div className="mt-0.5 text-xs text-slate-500">
+                                          {c.degree} • Semester{" "}
+                                          {toRoman(c.semester)}
+                                        </div>
 
-                                    <span className="rounded-full bg-slate-200/70 px-3 py-1 text-xs font-medium text-slate-600">
-                                      {c.credits} Credits
-                                    </span>
+                                        {/* Title */}
+                                        <div className="mt-1 text-sm text-slate-700">
+                                          {c.courseTitle}
+                                        </div>
+                                      </div>
+                                      <span className="mt-2 rounded-full bg-slate-200/70 px-3 py-1 text-[10px] font-medium text-slate-600">
+                                        {c.credits} Credits
+                                      </span>
+                                    </div>
                                   </div>
+
+                                  {/* Badges */}
                                 </div>
 
                                 {/* Divider */}
@@ -665,6 +976,35 @@ const SelectionGate = () => {
                         )}
                       </div>
                     )}
+
+                  {/* No. of Paper Sets to Generate */}
+                  <div className="relative mt-3">
+                    <label className="text-xs font-semibold uppercase text-slate-500 mb-1">
+                      No. of Paper Sets to Generate
+                    </label>
+
+                    <div className="relative">
+                      <select
+                        value={paperSets}
+                        onChange={(e) => setPaperSets(Number(e.target.value))}
+                        className="mt-2 w-full h-11 rounded-xl border border-slate-300 px-4 pr-10 text-sm bg-white cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-black"
+                      >
+                        <option value="" disabled>
+                          Select No. of Sets
+                        </option>
+
+                        {[1, 2, 3].map((s) => (
+                          <option key={s} value={s}>
+                            Set {s}
+                          </option>
+                        ))}
+                      </select>
+
+                      <span className="pointer-events-none absolute inset-y-0 top-2 right-3 flex items-center">
+                        <ChevronDown size={16} className="text-slate-400" />
+                      </span>
+                    </div>
+                  </div>
 
                   <div className="mt-6 rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-5 shadow-sm">
                     <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
@@ -722,9 +1062,14 @@ const SelectionGate = () => {
 
             {step === "blueprint" && (
               <div className="space-y-6">
-                <p className="text-xs font-semibold uppercase text-slate-500">
-                  Question Blueprint
-                </p>
+                <div className="flex justify-between items-center gap-3">
+                  <span className="text-xs font-semibold uppercase text-slate-500">
+                    Question Blueprint
+                  </span>
+                  <span className="text-xs font-semibold uppercase text-slate-500">
+                    Total Marks: {totalMarks}
+                  </span>
+                </div>
 
                 {blueprint.map((section, index) => (
                   <div
@@ -733,7 +1078,7 @@ const SelectionGate = () => {
                   >
                     <div className="flex items-center justify-between">
                       <p className="text-xs font-semibold uppercase text-slate-500">
-                        Q. {index + 1}
+                        Q. {index + 1}.
                       </p>
 
                       <button
@@ -921,7 +1266,7 @@ const SelectionGate = () => {
                     )}
 
                     {!section.hasSubQuestions &&
-                      section.subQuestions.length === 0 && (
+                      section.subQuestions?.length === 0 && (
                         <>
                           {/* Question Type */}
                           <p className="text-xs text-slate-500 m-0">
@@ -961,7 +1306,7 @@ const SelectionGate = () => {
                           <div className="grid grid-cols-3 gap-3">
                             <EditableNumber
                               label="Questions Given"
-                              value={section.questionsToShow}
+                              value={section.questionsToShow || 0}
                               onChange={(v: number) =>
                                 updateSection(index, "questionsToShow", v)
                               }
@@ -969,7 +1314,7 @@ const SelectionGate = () => {
 
                             <EditableNumber
                               label="Attempt Any"
-                              value={section.questionsToAttempt}
+                              value={section.questionsToAttempt || 0}
                               onChange={(v: number) =>
                                 updateSection(index, "questionsToAttempt", v)
                               }
@@ -977,7 +1322,7 @@ const SelectionGate = () => {
 
                             <EditableNumber
                               label="Marks Each"
-                              value={section.marksPerQuestion}
+                              value={section.marksPerQuestion || 0}
                               onChange={(v: number) =>
                                 updateSection(index, "marksPerQuestion", v)
                               }
@@ -1087,7 +1432,7 @@ const SelectionGate = () => {
                                 <EditableSlider
                                   key={lvl}
                                   label={lvl}
-                                  value={section.difficultyMix[lvl]}
+                                  value={section.difficultyMix?.[lvl] || 0}
                                   onChange={(v: number) =>
                                     updateDifficulty(index, lvl, v)
                                   }
@@ -1258,8 +1603,12 @@ const EditableNumber: React.FC<{
     <p className="text-xs text-slate-500">{label}</p>
     <input
       type="number"
+      min={0}
       value={value}
-      onChange={(e) => onChange(Number(e.target.value))}
+      onChange={(e) => {
+        const v = Number(e.target.value);
+        onChange(v < 0 || isNaN(v) ? 0 : v);
+      }}
       className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
     />
   </div>
