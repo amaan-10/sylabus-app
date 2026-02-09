@@ -1,0 +1,47 @@
+{
+  "institutes": [
+    {
+      "name": "Abeda Inamdar Senior College",
+      "description": "of Arts, Science and Commerce",
+      "logoUrl": "/institutes/logo/aisc.png",
+      "abbreviation": "AISC",
+      "society": "M.C.E. Society's",
+      "affiliation": "Affiliated to Savitribai Phule Pune University (formerly University of Pune)",
+      "autonomous": true,
+      "naac": "A",
+      "location": "Camp, Pune-1",
+      "programs": [
+        {
+          "academicLevel": "UG",
+          "stream": "Science",
+          "degree": "B.Sc.",
+          "program": "Botany"
+        },
+        {
+          "academicLevel": "UG",
+          "stream": "Science",
+          "degree": "B.Sc.",
+          "program": "Zoology"
+        },
+        {
+          "academicLevel": "UG",
+          "stream": "Commerce",
+          "degree": "B.Com.BM",
+          "program": ""
+        },
+        {
+          "academicLevel": "UG",
+          "stream": "Commerce",
+          "degree": "B.Com.",
+          "program": "Costing"
+        },
+        {
+          "academicLevel": "UG",
+          "stream": "Commerce",
+          "degree": "B.Com.",
+          "program": "Marketing"
+        }
+      ]
+    }
+  ]
+}
