@@ -183,6 +183,7 @@ No extra text.
       "questionPool": [
         {
           "question": "string",
+          "questionType": "string",
           "marks": number,
           "difficulty": "easy | medium | hard",
           "bloomsLevel": "Remember | Understand | Apply | Analyze | Evaluate | Create",

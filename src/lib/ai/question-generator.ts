@@ -22,6 +22,7 @@ export type PaperSet = {
 
 export type Question = {
   question: string;
+  questionType: string;
   marks: number;
   difficulty: "easy" | "medium" | "hard";
   options?: string[];
