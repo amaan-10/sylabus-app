@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import QuestionPaper from "@/models/QuestionPaper";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import QuestionPaper from "@/models/for-sylabus-app/QuestionPaper";
 
 /* ---------------- POST: saved papers ---------------- */
 export async function POST(req: Request) {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import { User } from "@/models/User";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import { User } from "@/models/for-sylabus-app/User";
 
 export async function POST(req: Request) {
   const body = await req.json();

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import { User } from "@/models/User";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import { User } from "@/models/for-sylabus-app/User";
 import { getAuth } from "firebase-admin/auth";
 import "@/lib/firebase-admin"; // init admin SDK
 
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
   await User.findOneAndUpdate(
     { firebaseUid: decoded.uid },
-    { name, gender, role, board, medium, classLevel }
+    { name, gender, role, board, medium, classLevel },
   );
 
   return NextResponse.json({ success: true });

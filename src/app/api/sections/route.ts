@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 import { getSubjectQuestionBank } from "@/lib/questionBank";
-import type { Section } from "@/models/subjectQuestionBank";
+import type { Section } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 const ALLOWED_SUBJECTS = ["english", "hindi", "marathi"];
 

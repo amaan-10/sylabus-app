@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import Subject from "@/models/Subject";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import Subject from "@/models/for-sylabus-app/Subject";
 import fs from "fs";
 import path from "path";
 
@@ -24,13 +24,13 @@ export async function POST(req: Request) {
       },
       {
         "chapters.$": 1,
-      }
+      },
     );
 
     if (!subject || !subject.chapters?.length) {
       return NextResponse.json(
         { message: "Chapter not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
         $push: {
           "chapters.$.questions": questionWithId,
         },
-      }
+      },
     );
 
     return NextResponse.json({
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
     console.error("QUESTION SAVE ERROR:", err);
     return NextResponse.json(
       { message: "Failed to save question" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -83,7 +83,7 @@ export async function GET(req: Request) {
     if (!subject) {
       return NextResponse.json(
         { message: "Subject not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -113,13 +113,13 @@ export async function DELETE(req: Request) {
       },
       {
         "chapters.$": 1,
-      }
+      },
     ).lean();
 
     if (!subject || !subject.chapters?.length) {
       return NextResponse.json(
         { message: "Question not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -145,13 +145,13 @@ export async function DELETE(req: Request) {
         $pull: {
           "chapters.$.questions": { id: questionId },
         },
-      }
+      },
     );
 
     if (result.modifiedCount === 0) {
       return NextResponse.json(
         { message: "Failed to delete question" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 

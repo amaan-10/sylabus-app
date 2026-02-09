@@ -1,8 +1,8 @@
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import { User } from "@/models/User";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import { User } from "@/models/for-sylabus-app/User";
 import { cookies } from "next/headers";
 import { adminAuth } from "@/lib/firebase-admin";
 

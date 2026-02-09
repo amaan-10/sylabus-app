@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/seed/route.ts
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import { SubjectQuestionBankModel } from "@/models/subjectQuestionBank";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import { SubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
 // import subjects from "@/data/msbshse-10.json";
 import subjects from "@/data/msbshse-12-science.json";
 
@@ -13,7 +13,7 @@ export async function POST() {
     if (!Array.isArray(subjects)) {
       return NextResponse.json(
         { success: false, error: "Data must be an array" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -29,7 +29,7 @@ export async function POST() {
           subjectSlug: subject.subjectSlug,
         },
         subject,
-        { upsert: true, new: true }
+        { upsert: true, new: true },
       );
 
       results.push({
@@ -44,12 +44,12 @@ export async function POST() {
         message: "All subjects seeded successfully",
         results,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err: any) {
     return NextResponse.json(
       { success: false, error: err.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -7,7 +7,7 @@ import type {
   Chapter,
   QuestionType,
   Section,
-} from "@/models/subjectQuestionBank";
+} from "@/models/for-sylabus-app/subjectQuestionBank";
 
 type QuestionSource = "balbharati" | "pyq";
 

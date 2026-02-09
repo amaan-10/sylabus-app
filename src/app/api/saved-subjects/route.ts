@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import SavedSubject from "@/models/SavedSubject";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import SavedSubject from "@/models/for-sylabus-app/SavedSubject";
 
 export async function POST(req: Request) {
   try {
@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     if (!userId || !subjectId) {
       return NextResponse.json(
         { error: "userId and subjectId are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -40,7 +40,7 @@ export async function GET(req: Request) {
     if (!userId) {
       return NextResponse.json(
         { error: "userId is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -63,7 +63,7 @@ export async function DELETE(req: Request) {
     if (!userId || !subjectId) {
       return NextResponse.json(
         { error: "userId and subjectId are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 

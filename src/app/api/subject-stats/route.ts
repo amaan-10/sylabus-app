@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import { SubjectQuestionBankModel } from "@/models/subjectQuestionBank";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import { SubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);

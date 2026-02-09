@@ -2,7 +2,7 @@
 // src/app/api/chapters/route.ts
 import { NextResponse } from "next/server";
 import { getSubjectQuestionBank } from "@/lib/questionBank"; // <-- your DB helper
-import type { Chapter } from "@/models/subjectQuestionBank"; // or wherever Chapter is
+import type { Chapter } from "@/models/for-sylabus-app/subjectQuestionBank"; // or wherever Chapter is
 
 export async function GET(req: Request) {
   try {
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
     if (!board || !medium || !classKey || !subjectSlug) {
       return NextResponse.json(
         { error: "Missing required params" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -27,10 +27,14 @@ export async function GET(req: Request) {
       subjectSlug,
     });
 
-    if (!subjectDoc || !subjectDoc.chapters || subjectDoc.chapters.length === 0) {
+    if (
+      !subjectDoc ||
+      !subjectDoc.chapters ||
+      subjectDoc.chapters.length === 0
+    ) {
       return NextResponse.json(
         { error: "No chapters found for this combination" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -41,13 +45,13 @@ export async function GET(req: Request) {
         chapters,
         count: chapters.length,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err: any) {
     console.error("GET /api/chapters error:", err);
     return NextResponse.json(
       { error: err.message ?? "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

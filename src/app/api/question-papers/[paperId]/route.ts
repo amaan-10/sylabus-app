@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import QuestionPaper from "@/models/QuestionPaper";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import QuestionPaper from "@/models/for-sylabus-app/QuestionPaper";
 
 export async function GET(
   req: Request,
-  context: { params: Promise<{ paperId: string }> }
+  context: { params: Promise<{ paperId: string }> },
 ) {
   try {
     await connectToDatabase();
@@ -26,7 +26,7 @@ export async function GET(
     console.error("Fetch paper error:", err);
     return NextResponse.json(
       { error: "Failed to fetch paper" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

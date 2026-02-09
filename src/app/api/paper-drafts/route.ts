@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
-import PaperDraft from "@/models/PaperDraft";
+import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
+import PaperDraft from "@/models/for-sylabus-app/PaperDraft";
 
 /* -------------------------------- POST -------------------------------- */
 /* Create new draft every time */
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     if (!userId || !draft?.subjectSlug) {
       return NextResponse.json(
         { error: "userId and subjectSlug required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     console.error("POST paper-draft error:", err);
     return NextResponse.json(
       { error: "Failed to save draft" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
     if (!userId) {
       return NextResponse.json(
         { error: "userId is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -90,7 +90,7 @@ export async function GET(req: NextRequest) {
     console.error("GET paper-draft error:", err);
     return NextResponse.json(
       { error: "Failed to fetch drafts" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -106,7 +106,7 @@ export async function PUT(req: NextRequest) {
     if (!userId || !draftId) {
       return NextResponse.json(
         { error: "userId and draftId required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -133,7 +133,7 @@ export async function PUT(req: NextRequest) {
         draft: cleanDraft,
         lastUpdated: new Date(),
       },
-      { new: true }
+      { new: true },
     );
 
     return NextResponse.json({ draft: updated });
@@ -141,7 +141,7 @@ export async function PUT(req: NextRequest) {
     console.error("PUT paper-draft error:", err);
     return NextResponse.json(
       { error: "Failed to update draft" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -171,7 +171,7 @@ export async function DELETE(req: NextRequest) {
     console.error("DELETE paper-draft error:", err);
     return NextResponse.json(
       { error: "Failed to delete draft(s)" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
