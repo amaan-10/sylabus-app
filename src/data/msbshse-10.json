@@ -1265,7 +1265,7 @@
             "difficulty": "hard",
             "marks": 5,
             "text": "Explain the working of a compound microscope.",
-            "answer": "A compound microscope uses two convex lenses—the objective lens and eyepiece. The objective lens forms a magnified real image of the object near its focus. The eyepiece further magnifies this image, producing a highly enlarged virtual image.",
+            "answer": "A compound microscope uses two convex lenses-the objective lens and eyepiece. The objective lens forms a magnified real image of the object near its focus. The eyepiece further magnifies this image, producing a highly enlarged virtual image.",
             "tags": ["application", "microscope"]
           },
           {
@@ -1295,7 +1295,7 @@
             "type": "match",
             "difficulty": "easy",
             "marks": 2,
-            "text": "Match: Simple microscope — used to observe minute objects.",
+            "text": "Match: Simple microscope - used to observe minute objects.",
             "answer": "Simple microscope → observe minute objects.",
             "tags": ["optical-instruments"]
           },
@@ -1888,7 +1888,7 @@
             "difficulty": "medium",
             "marks": 3,
             "text": "Explain translation and translocation in protein synthesis.",
-            "answer": "Translation is the process by which tRNA brings amino acids to the mRNA codons to form proteins. Ribosomes move one codon at a time along mRNA—this movement is called translocation.",
+            "answer": "Translation is the process by which tRNA brings amino acids to the mRNA codons to form proteins. Ribosomes move one codon at a time along mRNA-this movement is called translocation.",
             "tags": ["translation", "protein-synthesis"]
           },
           {
@@ -2485,7 +2485,7 @@
             "difficulty": "hard",
             "marks": 5,
             "text": "What is waste management? Describe any two modern waste management techniques.",
-            "answer": "Waste management involves collection, treatment, and disposal of waste materials. Techniques include: 1. Composting—organic waste decomposed into manure. 2. Recycling—processing used materials into new products. 3. Vermiculture—using earthworms to convert waste into nutrient-rich compost.",
+            "answer": "Waste management involves collection, treatment, and disposal of waste materials. Techniques include: 1. Composting-organic waste decomposed into manure. 2. Recycling-processing used materials into new products. 3. Vermiculture-using earthworms to convert waste into nutrient-rich compost.",
             "tags": ["waste-management"]
           },
           {

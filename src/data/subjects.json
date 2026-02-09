@@ -1,0 +1,318 @@
+[
+  {
+    "id": "fy-bsc-botany",
+    "board": "university",
+    "medium": "english",
+    "classKey": "fy-bsc",
+    "subjectSlug": "botany",
+    "programOutcomes": [
+      "PO1: Demonstrate fundamental knowledge of plant diversity, structure, function and classification.",
+      "PO2: Apply botanical concepts to explain biological processes at cellular, organismal and ecosystem levels.",
+      "PO3: Develop scientific thinking, analytical ability and problem-solving skills in biological sciences.",
+      "PO4: Conduct basic laboratory techniques, experiments and field studies using standard botanical tools.",
+      "PO5: Interpret, analyze and present biological data using appropriate methods and scientific terminology.",
+      "PO6: Understand the role of plants and microorganisms in environment, agriculture, industry and human welfare.",
+      "PO7: Apply ethical principles, environmental awareness and sustainability concepts in biological practices.",
+      "PO8: Communicate scientific knowledge effectively through oral, written and visual formats.",
+      "PO9: Develop teamwork, leadership and lifelong learning skills relevant to biological sciences.",
+      "PO10: Prepare for higher education, research and careers in botany, biotechnology, agriculture and allied fields."
+    ],
+    "taxonomySet": [
+      {
+        "level": "BT1",
+        "name": "Remember",
+        "description": "Recall facts, basic concepts and definitions.",
+        "actionVerbs": [
+          "define",
+          "list",
+          "identify",
+          "name",
+          "state",
+          "recognize",
+          "label"
+        ]
+      },
+      {
+        "level": "BT2",
+        "name": "Understand",
+        "description": "Explain ideas or concepts in one’s own words.",
+        "actionVerbs": [
+          "explain",
+          "describe",
+          "summarize",
+          "classify",
+          "interpret",
+          "differentiate",
+          "outline"
+        ]
+      },
+      {
+        "level": "BT3",
+        "name": "Apply",
+        "description": "Use information in new or practical situations.",
+        "actionVerbs": [
+          "apply",
+          "demonstrate",
+          "illustrate",
+          "use",
+          "perform",
+          "solve",
+          "construct"
+        ]
+      },
+      {
+        "level": "BT4",
+        "name": "Analyze",
+        "description": "Break information into parts and examine relationships.",
+        "actionVerbs": [
+          "analyze",
+          "compare",
+          "distinguish",
+          "examine",
+          "categorize",
+          "infer",
+          "differentiate"
+        ]
+      },
+      {
+        "level": "BT5",
+        "name": "Evaluate",
+        "description": "Justify decisions or evaluate based on criteria.",
+        "actionVerbs": [
+          "evaluate",
+          "justify",
+          "assess",
+          "critique",
+          "defend",
+          "argue",
+          "validate"
+        ]
+      },
+      {
+        "level": "BT6",
+        "name": "Create",
+        "description": "Produce new or original work.",
+        "actionVerbs": [
+          "design",
+          "construct",
+          "formulate",
+          "develop",
+          "compose",
+          "plan",
+          "propose"
+        ]
+      }
+    ],
+    "chapters": [
+      {
+        "id": "fy-bot-ch1",
+        "chapterNumber": 1,
+        "title": "Diversity of Microbes",
+        "slug": "diversity-of-microbes",
+        "description": "Study of viruses, bacteria, cyanobacteria and their structure, reproduction and economic importance.",
+        "topics": [
+          "General characteristics of microorganisms",
+          "Viruses: structure and life cycle",
+          "Bacteria: structure, nutrition and reproduction",
+          "Cyanobacteria: features and importance",
+          "Economic importance of microorganisms"
+        ],
+        "learningObjectives": [
+          "Understand the basic structure of viruses and bacteria.",
+          "Differentiate between viruses and cellular organisms.",
+          "Explain modes of reproduction in bacteria.",
+          "Recognise the role of microbes in industry and environment."
+        ],
+        "courseOutcomes": [
+          "CO1: Understand the structural organization of viruses and microorganisms.",
+          "CO2: Explain modes of reproduction in bacteria and cyanobacteria.",
+          "CO3: Differentiate between viruses and cellular microorganisms.",
+          "CO4: Evaluate the economic and ecological importance of microbes."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch2",
+        "chapterNumber": 2,
+        "title": "Algae",
+        "slug": "algae",
+        "description": "Classification, structure, reproduction and economic importance of algae.",
+        "topics": [
+          "General characteristics of algae",
+          "Classification of algae",
+          "Chlorophyceae, Phaeophyceae and Rhodophyceae",
+          "Reproduction in algae",
+          "Economic importance of algae"
+        ],
+        "learningObjectives": [
+          "Classify algae based on pigments and reserve food.",
+          "Describe structure and reproduction in major algal groups.",
+          "Explain ecological and commercial importance of algae."
+        ],
+        "courseOutcomes": [
+          "CO1: Classify algae based on pigments, reserve food and habitat.",
+          "CO2: Describe structural organization of major algal groups.",
+          "CO3: Explain reproductive strategies in algae.",
+          "CO4: Assess the ecological and commercial importance of algae."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch3",
+        "chapterNumber": 3,
+        "title": "Fungi",
+        "slug": "fungi",
+        "description": "General features, classification, reproduction and importance of fungi.",
+        "topics": [
+          "General characteristics of fungi",
+          "Classification of fungi",
+          "Structure of fungal thallus",
+          "Asexual and sexual reproduction",
+          "Economic importance of fungi"
+        ],
+        "learningObjectives": [
+          "Understand the general structure of fungi.",
+          "Explain various modes of reproduction in fungi.",
+          "Describe beneficial and harmful roles of fungi."
+        ],
+        "courseOutcomes": [
+          "CO1: Identify general characteristics and classification of fungi.",
+          "CO2: Explain structure and reproduction in different fungal groups.",
+          "CO3: Differentiate beneficial and harmful fungi.",
+          "CO4: Apply knowledge of fungi in agriculture, medicine and industry."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch4",
+        "chapterNumber": 4,
+        "title": "Bryophytes",
+        "slug": "bryophytes",
+        "description": "Study of bryophytes with respect to structure, reproduction and life cycle.",
+        "topics": [
+          "General characteristics of bryophytes",
+          "Classification of bryophytes",
+          "Structure of Riccia, Marchantia and Funaria",
+          "Life cycle of bryophytes",
+          "Alternation of generations"
+        ],
+        "learningObjectives": [
+          "Explain the position of bryophytes in plant kingdom.",
+          "Describe life cycle and reproduction in bryophytes.",
+          "Understand the concept of alternation of generations."
+        ],
+        "courseOutcomes": [
+          "CO1: Explain the position of bryophytes in plant evolution.",
+          "CO2: Describe morphology and anatomy of representative bryophytes.",
+          "CO3: Explain life cycle and alternation of generations in bryophytes.",
+          "CO4: Recognize ecological importance of bryophytes."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch5",
+        "chapterNumber": 5,
+        "title": "Pteridophytes",
+        "slug": "pteridophytes",
+        "description": "Morphology, anatomy and reproduction of pteridophytes.",
+        "topics": [
+          "General characteristics of pteridophytes",
+          "Classification of pteridophytes",
+          "Structure of Lycopodium, Selaginella and Fern",
+          "Reproduction and life cycle",
+          "Heterospory and seed habit"
+        ],
+        "learningObjectives": [
+          "Understand the evolution of vascular tissues.",
+          "Explain reproduction and life cycle of pteridophytes.",
+          "Describe the significance of heterospory."
+        ],
+        "courseOutcomes": [
+          "CO1: Describe structural features of pteridophytes.",
+          "CO2: Explain reproduction and life cycle in pteridophytes.",
+          "CO3: Understand the concept of heterospory and seed habit.",
+          "CO4: Evaluate evolutionary significance of pteridophytes."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch6",
+        "chapterNumber": 6,
+        "title": "Gymnosperms",
+        "slug": "gymnosperms",
+        "description": "Study of gymnosperms with reference to structure, reproduction and economic importance.",
+        "topics": [
+          "General characteristics of gymnosperms",
+          "Classification of gymnosperms",
+          "Structure of Cycas and Pinus",
+          "Reproduction and life cycle",
+          "Economic importance of gymnosperms"
+        ],
+        "learningObjectives": [
+          "Differentiate gymnosperms from angiosperms.",
+          "Describe reproductive structures of gymnosperms.",
+          "Explain ecological and economic importance."
+        ],
+        "courseOutcomes": [
+          "CO1: Explain general characteristics and classification of gymnosperms.",
+          "CO2: Describe morphology and anatomy of Cycas and Pinus.",
+          "CO3: Explain reproductive processes in gymnosperms.",
+          "CO4: Assess ecological and economic importance of gymnosperms."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch7",
+        "chapterNumber": 7,
+        "title": "Angiosperms – Introduction and Classification",
+        "slug": "angiosperms-introduction",
+        "description": "Introduction to flowering plants and their classification.",
+        "topics": [
+          "General characteristics of angiosperms",
+          "Classification systems of angiosperms",
+          "Bentham and Hooker system",
+          "Introduction to monocots and dicots",
+          "Floral characters"
+        ],
+        "learningObjectives": [
+          "Understand basic features of angiosperms.",
+          "Explain the basis of classification systems.",
+          "Differentiate monocot and dicot plants."
+        ],
+        "courseOutcomes": [
+          "CO1: Explain basic characteristics of angiosperms.",
+          "CO2: Understand principles of angiosperm classification.",
+          "CO3: Differentiate monocotyledons and dicotyledons.",
+          "CO4: Interpret floral characters for plant identification."
+        ],
+        "questions": []
+      },
+      {
+        "id": "fy-bot-ch8",
+        "chapterNumber": 8,
+        "title": "Plant Cell Biology",
+        "slug": "plant-cell-biology",
+        "description": "Study of plant cell structure and cell organelles.",
+        "topics": [
+          "Plant cell structure",
+          "Cell wall and plasma membrane",
+          "Nucleus and chromosomes",
+          "Mitochondria and chloroplast",
+          "Endoplasmic reticulum, Golgi apparatus and ribosomes"
+        ],
+        "learningObjectives": [
+          "Describe structure and function of plant cell organelles.",
+          "Understand differences between plant and animal cells.",
+          "Explain role of cell organelles in metabolism."
+        ],
+        "courseOutcomes": [
+          "CO1: Describe ultra-structure of plant cells.",
+          "CO2: Explain functions of cell organelles.",
+          "CO3: Differentiate plant and animal cells.",
+          "CO4: Relate cellular organization with metabolic functions."
+        ],
+        "questions": []
+      }
+    ]
+  }
+]
