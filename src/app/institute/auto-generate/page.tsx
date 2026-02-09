@@ -1,25 +1,24 @@
 import { Suspense } from "react";
 import Sidebar from "@/components/Sidebar";
 import AutoGenerate from "@/components/auto-generate/AutoGenerate";
-import CreateQuestionBank from "@/components/CreateQuestionBank";
 
-const CreateQuestionBankPage = () => {
+const AutoGeneratePage = () => {
   return (
     <div className="flex place-content-start items-start bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-2 md:pl-[104px] relative min-h-screen w-auto font-poppins">
       <Sidebar />
 
-      <Suspense fallback={<CreateQuestionBankPageLoader />}>
-        <CreateQuestionBank />
+      <Suspense fallback={<AutoGeneratePageLoader />}>
+        <AutoGenerate />
       </Suspense>
     </div>
   );
 };
 
-export default CreateQuestionBankPage;
+export default AutoGeneratePage;
 
 /* ---------- Fallback UI ---------- */
 
-const CreateQuestionBankPageLoader = () => (
+const AutoGeneratePageLoader = () => (
   <div className="flex items-center justify-center h-screen w-full rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)]">
     <svg
       xmlns="http://www.w3.org/2000/svg"

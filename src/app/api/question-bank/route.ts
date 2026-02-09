@@ -127,7 +127,7 @@ export async function GET(req: Request) {
 }
 
 function filterQuestions(
-  questions: Question[],
+  questions: (Question | any)[],
   {
     source,
     type,
@@ -141,7 +141,7 @@ function filterQuestions(
     paperMode?: string | null;
     examSectionType?: string;
   },
-): Question[] {
+): (Question | any)[] {
   let filtered = questions;
 
   // ---------- SOURCE FILTER (always) ----------

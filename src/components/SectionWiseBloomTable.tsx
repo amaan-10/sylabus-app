@@ -86,7 +86,7 @@ export default function SectionWiseBloomTable({ sections }: Props) {
                   key={`${sectionIdx}-${qIdx}`}
                   className="border px-3 py-2 text-center font-medium"
                 >
-                  {BLOOM_LABELS[q.bloomsLevel]}.
+                  {BLOOM_LABELS[q.bloomsLevel]}
                 </th>
               )),
             )}

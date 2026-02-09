@@ -837,7 +837,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
         />
       )}
 
-      <LoaderWrapper isLoading={chaptersLoading}>
+      {/* <LoaderWrapper isLoading={chaptersLoading}>
         <SubjectWorkspace
           items={items}
           board={board}
@@ -853,10 +853,10 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
           questionTypes={questionTypes}
           handleOpenQuestionType={handleOpenQuestionType}
         />
-      </LoaderWrapper>
+      </LoaderWrapper> */}
 
       {/* ----------------- Slide-over QuestionTypePanel ----------------- */}
-      {openQuestionType && (
+      {/* {openQuestionType && (
         <QuestionTypePanel
           boardSlug={boardSlug}
           mediumSlug={mediumSlugForSubjects}
@@ -874,10 +874,10 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
           setSectionedSelected={setSectionedSelected}
           questionTypes={questionTypes}
         />
-      )}
+      )} */}
 
       {/* ----------------- Paper Builder Panel (Right dock) ----------------- */}
-      <PaperBuilder
+      {/* <PaperBuilder
         selected={selected}
         setSelected={setSelected}
         removeFromPaper={removeFromPaper}
@@ -893,7 +893,7 @@ const CustomPaperBuilder: React.FC<BuilderProps> = ({
         chapters={chapters}
         setExamPatternTotalMarks={setExamPatternTotalMarks}
         board={boardSlug}
-      />
+      /> */}
 
       <SchoolNameDialog
         open={schoolDialogOpen}

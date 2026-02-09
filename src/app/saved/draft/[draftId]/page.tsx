@@ -92,9 +92,11 @@ const SavedPage = () => {
     questionTypeLabel: string;
     marks: number;
     questionTypeSlug: string;
-    chapterSlug: string;
-    chapterTitle?: string;
-    chapterNumber?: number;
+
+    containerId: string; // replaces chapterSlug
+    containerTitle?: string; // chapter title OR section title
+    containerNumber?: number; // chapterNumber (undefined for sections)
+
     source: QuestionSource;
   } | null>(null);
   const [sectionedSelected, setSectionedSelected] =
@@ -237,17 +239,17 @@ const SavedPage = () => {
   const handleOpenQuestionType = (
     label: string,
     marks: number,
-    chapterSlug: string,
-    chapterTitle?: string,
-    chapterNumber?: number,
+    containerId: string,
+    containerTitle?: string,
+    containerNumber?: number,
   ) => {
     setOpenQuestionType({
       questionTypeLabel: label,
       marks,
       questionTypeSlug: questionTypeToSlug(label),
-      chapterSlug,
-      chapterTitle,
-      chapterNumber,
+      containerId,
+      containerTitle,
+      containerNumber,
       source: questionSource,
     });
   };
@@ -527,17 +529,17 @@ const SavedPage = () => {
           subject={subject}
           questionSource={questionSource}
           setQuestionSource={setQuestionSource}
-          chapters={chapters}
-          openChapterId={openChapterId}
-          chaptersLoading={chaptersLoading}
-          handleToggleChapter={handleToggleChapter}
+          activeContainers={chapters}
+          openContainerId={openChapterId}
+          loading={chaptersLoading}
+          handleToggleContainer={handleToggleChapter}
           questionTypes={questionTypes}
           handleOpenQuestionType={handleOpenQuestionType}
         />
       </LoaderWrapper>
 
       {/* ----------------- Slide-over QuestionTypePanel ----------------- */}
-      {savedPaperDraft && subject && openQuestionType && (
+      {/* {savedPaperDraft && subject && openQuestionType && (
         <QuestionTypePanel
           boardSlug={savedPaperDraft?.boardSlug}
           mediumSlug={savedPaperDraft?.mediumSlug}
@@ -545,7 +547,7 @@ const SavedPage = () => {
           subject={subject}
           paperMode={paperMode}
           sectionedSelected={sectionedSelected}
-          chapters={chapters}
+          activeContainers={chapters}
           openSpec={openQuestionType}
           onClose={() => setOpenQuestionType(null)}
           onAddToPaper={(qs) => addQuestionsToPaper(qs)}
@@ -555,10 +557,10 @@ const SavedPage = () => {
           setSectionedSelected={setSectionedSelected}
           questionTypes={questionTypes}
         />
-      )}
+      )} */}
 
       {/* ----------------- Paper Builder Panel (Right dock) ----------------- */}
-      {subject && savedPaperDraft && (
+      {/* {subject && savedPaperDraft && (
         <PaperBuilder
           selected={selected}
           setSelected={setSelected}
@@ -576,7 +578,7 @@ const SavedPage = () => {
           setExamPatternTotalMarks={setExamPatternTotalMarks}
           board={savedPaperDraft?.boardSlug}
         />
-      )}
+      )} */}
 
       <SchoolNameDialog
         open={schoolDialogOpen}

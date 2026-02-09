@@ -29,31 +29,26 @@ export async function GET(req: Request) {
 
     const types = new Set<string>();
 
-    for (const ch of subjectDoc.chapters) {
-      for (const q of ch.questions) {
-        // Must match question source (if defined)
+    for (const ch of subjectDoc.chapters ?? []) {
+      for (const q of ch.questions ?? []) {
         const qSources = extractSources(q);
+
         if (qSources.length > 0 && !qSources.includes(source.toLowerCase())) {
           continue;
         }
 
-        // 1️⃣ If question.type exists → use it directly
         if (typeof q.type === "string" && q.type.trim()) {
           types.add(formatType(q.type));
         }
 
-        // 2️⃣ If MCQ detected by options
         if (Array.isArray(q.options) && q.options.length > 0) {
           types.add("MCQ");
         }
 
-        // 3️⃣ Detect from tags
         if (Array.isArray(q.tags)) {
-          const labels = detectFromTags(q.tags);
-          labels.forEach((label) => types.add(label));
+          detectFromTags(q.tags).forEach((label) => types.add(label));
         }
 
-        // 4️⃣ Marks-based types (optional but helpful)
         if (q.marks === 1) types.add("1-mark");
         if (q.marks === 2) types.add("2-mark");
         if (q.marks === 3) types.add("3-mark");
@@ -73,7 +68,8 @@ function extractSources(q: any): string[] {
   const out: string[] = [];
   if (!q) return out;
   if (q.source) out.push(String(q.source).toLowerCase());
-  if (Array.isArray(q.sources)) out.push(...q.sources.map((x: any) => String(x).toLowerCase()));
+  if (Array.isArray(q.sources))
+    out.push(...q.sources.map((x: any) => String(x).toLowerCase()));
   if (q.metadata?.source) out.push(String(q.metadata.source).toLowerCase());
   return Array.from(new Set(out));
 }
@@ -98,12 +94,14 @@ function detectFromTags(tags: string[]): string[] {
 
   if (lowerTags.some((t) => t.includes("diagram"))) out.push("Diagram based");
   if (lowerTags.some((t) => t.includes("fill"))) out.push("Fill in the blanks");
-  if (lowerTags.some((t) => t.includes("true") || t.includes("false"))) out.push("True or False");
-  if (lowerTags.some((t) => t.includes("match"))) out.push("Match the following");
+  if (lowerTags.some((t) => t.includes("true") || t.includes("false")))
+    out.push("True or False");
+  if (lowerTags.some((t) => t.includes("match")))
+    out.push("Match the following");
   if (lowerTags.some((t) => t.includes("case"))) out.push("Case-study");
   if (lowerTags.some((t) => t.includes("word"))) out.push("Word problems");
-  if (lowerTags.some((t) => t.includes("activity"))) out.push("Activity based questions");
-
+  if (lowerTags.some((t) => t.includes("activity")))
+    out.push("Activity based questions");
 
   return out;
 }

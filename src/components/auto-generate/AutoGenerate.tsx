@@ -12,7 +12,9 @@ import {
   ChevronDown,
   NotepadText,
   Pencil,
+  Trash,
   Trash2,
+  Upload,
   X,
 } from "lucide-react";
 import Image from "next/image";
@@ -22,6 +24,7 @@ type QuestionRendererProps = {
   question: any;
   index: number;
   onUpdate: (updatedQuestion: any) => void;
+  onDelete: () => void;
 };
 
 /* ---------------------- Main Page Component ---------------------- */
@@ -33,6 +36,7 @@ const AutoGenerate: React.FC = () => {
   const semesterParam = searchParams.get("semester");
   const courseParam = searchParams.get("course");
   const paperSetsParam = searchParams.get("paperSets");
+  const examTitleParam = searchParams.get("examTitle");
   const blueprintParam = searchParams.get("blueprint");
 
   const isSelectionComplete =
@@ -40,6 +44,7 @@ const AutoGenerate: React.FC = () => {
     !!semesterParam &&
     !!courseParam &&
     !!paperSetsParam &&
+    !!examTitleParam &&
     !!blueprintParam;
 
   useEffect(() => {
@@ -60,6 +65,7 @@ const AutoGenerate: React.FC = () => {
       semesterParam={semesterParam}
       courseParam={courseParam}
       paperSetsParam={paperSetsParam}
+      examTitleParam={examTitleParam}
       blueprintParam={blueprintParam}
     />
   );
@@ -72,6 +78,7 @@ type BuilderProps = {
   semesterParam: string;
   courseParam: string;
   paperSetsParam: string;
+  examTitleParam: string;
   blueprintParam: string;
 };
 
@@ -80,6 +87,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
   semesterParam,
   courseParam,
   paperSetsParam,
+  examTitleParam,
   blueprintParam,
 }) => {
   const [loading, setLoading] = useState(true);
@@ -104,6 +112,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
             semester: semesterParam,
             course: courseParam,
             paperSets: paperSetsParam,
+            examTitle: examTitleParam,
             blueprint: blueprintParam,
           }),
         });
@@ -192,23 +201,18 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
   }
 
   async function downloadPaper(paperSet: any) {
-    // const blob = new Blob([JSON.stringify(paperSet, null, 2)], {
-    //   type: "application/json",
-    // });
-
-    // const url = URL.createObjectURL(blob);
-    // const a = document.createElement("a");
-    // a.href = url;
-    // a.download = `${paperSet.setName}.json`;
-    // a.click();
-    // URL.revokeObjectURL(url);
     try {
       const res = await fetch("/api/institute/export/pdf", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(paperSet),
+        body: JSON.stringify({
+          institute,
+          paperSetNo: currentSetIndex + 1,
+          courseMeta: paper.courseMeta,
+          paperSet,
+        }),
       });
 
       if (!res.ok) {
@@ -216,12 +220,12 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
       }
 
       const blob = await res.blob();
-
       const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
 
+      const a = document.createElement("a");
       a.href = url;
       a.download = `${paperSet.setName}.pdf`;
+
       document.body.appendChild(a);
       a.click();
 
@@ -259,9 +263,7 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
               </div>
 
               <p className="font-bold ">{institute.affiliation}</p>
-              <p className="font-bold ">
-                End Semester Examination {paper.courseMeta.paperTitle}
-              </p>
+              <p className="font-bold ">{paper.courseMeta.examTitle}</p>
 
               <div className="mt-2 font-cambria">
                 <p className="font-black text-xl">{paper.courseMeta.degree}</p>
@@ -300,14 +302,14 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
         </div>
 
         {/* Right action */}
-        {currentSetIndex < paperSets.length ? (
+        {currentSetIndex <= paperSets.length ? (
           <button
             onClick={async () => {
               // 1️⃣ Download current set
               await downloadPaper(currentPaperSet);
 
               // 2️⃣ Move to next set
-              // setCurrentSetIndex((i) => i + 1);
+              setCurrentSetIndex((i) => Math.min(i + 1, paperSets.length - 1));
             }}
             className="rounded-lg bg-slate-900 px-5 py-2 text-white hover:bg-slate-800 cursor-pointer"
           >
@@ -367,6 +369,23 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
                     return copy;
                   });
                 }}
+                onDelete={() => {
+                  const ok = window.confirm(
+                    "Delete this question?\nThis action cannot be undone.",
+                  );
+
+                  if (!ok) return;
+
+                  setPaper((prev: any) => {
+                    const copy = structuredClone(prev);
+
+                    copy.paperSets[currentSetIndex].sections[
+                      sectionIdx
+                    ].questions.splice(qIdx, 1);
+
+                    return copy;
+                  });
+                }}
               />
             ))}
           </div>
@@ -383,116 +402,413 @@ const QuestionRenderer = ({
   question,
   index,
   onUpdate,
+  onDelete,
 }: QuestionRendererProps) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [draft, setDraft] = useState(question.question);
 
-  const handleSave = () => {
-    if (!draft.trim()) return;
+  const tableData =
+    question.table?.data ??
+    Array.from({ length: question.table?.rows || 0 }, () =>
+      Array.from({ length: question.table?.cols || 0 }, () => ""),
+    );
 
-    onUpdate({
-      ...question,
-      question: draft.trim(),
+  useEffect(() => {
+    if (question.table && !question.table.data) {
+      resizeTable(question.table.rows, question.table.cols);
+    }
+  }, [question.table]);
+
+  const update = (patch: Partial<typeof question>) =>
+    onUpdate({ ...question, ...patch });
+
+  const addOption = () => {
+    update({
+      options: [...(question.options || []), ""],
     });
-
-    setIsEditing(false);
   };
 
-  const handleCancel = () => {
-    setDraft(question.question);
-    setIsEditing(false);
+  const updateOption = (idx: number, value: string) => {
+    const newOptions = [...(question.options || [])];
+    newOptions[idx] = value;
+    update({ options: newOptions });
   };
+
+  const deleteOption = (idx: number) => {
+    update({
+      options: question.options?.filter((_: any, i: any) => i !== idx),
+    });
+  };
+
+  /* ---------------- Sub Questions ---------------- */
+
+  const addSubQuestion = () => {
+    update({
+      subQuestions: [
+        ...(question.subQuestions || []),
+        {
+          id: crypto.randomUUID(),
+          label: "",
+          question: "",
+          marks: 2,
+        },
+      ],
+    });
+  };
+
+  const updateSub = (id: string, patch: any) => {
+    update({
+      subQuestions: question.subQuestions.map((sq: any) =>
+        sq.id === id ? { ...sq, ...patch } : sq,
+      ),
+    });
+  };
+
+  const deleteSub = (id: string) => {
+    update({
+      subQuestions: question.subQuestions.filter((sq: any) => sq.id !== id),
+    });
+  };
+
+  /* ---------------- Image ---------------- */
+
+  const addImage = () => update({ image: { required: true, description: "" } });
+
+  const removeImage = () => {
+    const q = { ...question };
+    delete q.image;
+    onUpdate(q);
+  };
+
+  /* ---------------- Table ---------------- */
+
+  const addTable = () => {
+    update({
+      table: {
+        rows: 3,
+        cols: 3,
+        data: Array.from({ length: 3 }, () =>
+          Array.from({ length: 3 }, () => ""),
+        ),
+      },
+    });
+  };
+
+  const removeTable = () => {
+    const q = { ...question };
+    delete q.table;
+    onUpdate(q);
+  };
+
+  const resizeTable = (rows: number, cols: number) => {
+    const oldData = question.table?.data || [];
+
+    const newData = Array.from({ length: rows }, (_, r) =>
+      Array.from({ length: cols }, (_, c) => oldData[r]?.[c] || ""),
+    );
+
+    update({
+      table: { rows, cols, data: newData },
+    });
+  };
+
+  const handleImageUpload = (file: File) => {
+    const url = URL.createObjectURL(file);
+
+    update({
+      image: {
+        file,
+        url,
+      },
+    });
+  };
+
+  /* ---------------- UI ---------------- */
 
   return (
-    <div className="space-y-2 rounded-lg p-2 mb-1 hover:bg-slate-50 transition">
-      {/* Question line */}
-      <div className="flex items-start gap-2 mr-5">
-        <span className="font-medium text-slate-900">
+    <div className="mb-4 rounded-md border border-slate-300 bg-white px-4 py-3">
+      {/* Header */}
+      <div className="flex items-start gap-3">
+        <span className="pt-1 text-sm font-medium text-slate-700">
           {String.fromCharCode(97 + index)}.
         </span>
 
         {!isEditing ? (
-          <>
-            <p className="flex-1 font-medium text-slate-900">
+          <div className="flex flex-col gap-1 w-full">
+            <p className="pt-1 flex-1 text-sm font-medium text-slate-900">
               {question.question}
             </p>
+            {/* MCQ Options (View Mode) */}
+            {question.questionType === "MCQ" &&
+              question.options?.length > 0 && (
+                <div className=" mt-2 space-y-1 text-sm text-slate-700">
+                  {question.options.map((opt: string, i: number) => (
+                    <div key={i}>
+                      ({toRoman(i + 1).toLowerCase()}) {opt}
+                    </div>
+                  ))}
+                </div>
+              )}
+          </div>
+        ) : (
+          <>
+            <input
+              value={question.question}
+              onChange={(e) => update({ question: e.target.value })}
+              className="flex-1 border-b border-slate-300 bg-transparent text-sm outline-none"
+              autoFocus
+            />
+            {/* MCQ Options (Edit Mode) */}
+            {question.questionType === "MCQ" && (
+              <div className="mt-3 ml-6 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-600">Options</span>
+                  <button
+                    onClick={addOption}
+                    className="text-xs text-slate-600 cursor-pointer"
+                  >
+                    + Add option
+                  </button>
+                </div>
 
+                {question.options?.map((opt: string, i: number) => (
+                  <div key={i} className="flex items-center gap-2 text-sm">
+                    <span className="w-5 text-slate-600">
+                      ({String.fromCharCode(97 + i)})
+                    </span>
+
+                    <input
+                      value={opt}
+                      placeholder={`Option ${i + 1}`}
+                      onChange={(e) => updateOption(i, e.target.value)}
+                      className="flex-1 border-b border-slate-300 bg-transparent outline-none"
+                    />
+
+                    <button
+                      onClick={() => deleteOption(i)}
+                      className="text-red-500 cursor-pointer"
+                    >
+                      <Trash size={14} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+
+        <div className="pt-1 flex gap-3">
+          {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
-              className="text-slate-400 hover:text-slate-600 cursor-pointer"
-              title="Edit question"
+              className="text-slate-500 cursor-pointer"
             >
               <Pencil size={16} />
             </button>
-          </>
-        ) : (
-          <div className="flex-1 space-y-2">
-            <input
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleSave();
-                if (e.key === "Escape") handleCancel();
-              }}
-              className="w-full rounded-md border px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300"
-              autoFocus
-            />
+          ) : (
+            <button
+              onClick={() => setIsEditing(false)}
+              className="text-emerald-500 cursor-pointer"
+            >
+              <Check size={20} />
+            </button>
+          )}
 
-            <div className="flex gap-2">
-              <button
-                onClick={handleSave}
-                className="inline-flex items-center gap-1 rounded-md bg-slate-900 px-3 py-1 text-xs text-white cursor-pointer"
-              >
-                <Check size={14} /> Save
-              </button>
-
-              <button
-                onClick={handleCancel}
-                className="inline-flex items-center gap-1 rounded-md border px-3 py-1 text-xs cursor-pointer"
-              >
-                <X size={14} /> Cancel
-              </button>
-            </div>
-          </div>
-        )}
+          <button onClick={onDelete} className="text-red-500 cursor-pointer">
+            <Trash size={16} />
+          </button>
+        </div>
       </div>
 
-      {/* Image */}
-      {question.image?.required && (
-        <div className="ml-5 rounded-lg border bg-slate-50 p-3 text-sm text-slate-600">
-          Diagram/Image required: {question.image.description}
-        </div>
-      )}
-
-      {/* MCQ */}
-      {question.questionType === "MCQ" && (
-        <ul className="ml-8 list-disc text-sm text-slate-700">
-          {question.options.map((opt: string, i: number) => (
-            <li key={i}>{opt}</li>
+      {/* ---------------- VIEW MODE ---------------- */}
+      {!isEditing && (
+        <div className="ml-6 mt-2 space-y-2 text-sm text-slate-700">
+          {question.subQuestions?.map((sq: any, i: number) => (
+            <div key={sq.id}>
+              {String.fromCharCode(97 + i)}. {sq.question} ({sq.marks})
+            </div>
           ))}
-        </ul>
-      )}
 
-      {/* Sub Questions */}
-      {question.subQuestions?.length > 0 && (
-        <div className="ml-8 space-y-1">
-          {question.subQuestions.map((sq: any, i: number) => (
-            <p key={i} className="text-sm text-slate-700">
-              {sq.label}. {sq.question} ({sq.marks})
-            </p>
-          ))}
+          {question.image && (
+            <div className="italic text-slate-600">
+              Diagram required: {question.image.description}
+            </div>
+          )}
+
+          {question.table && (
+            <div>
+              Table: {question.table.rows} × {question.table.cols}
+            </div>
+          )}
         </div>
       )}
 
-      {/* Internal Choice */}
-      {question.internalChoice?.question && (
-        <div className="ml-5 mt-3 rounded-lg border border-dashed p-3 text-sm">
-          <p className="font-medium">OR</p>
-          <p className="mt-1 text-slate-700">
-            {question.internalChoice.question} ({question.internalChoice.marks}{" "}
-            marks)
-          </p>
-        </div>
+      {/* ---------------- EDIT MODE ---------------- */}
+      {isEditing && (
+        <>
+          {/* Toolbar */}
+          <div className="mt-2 ml-6 flex gap-4 text-xs text-slate-600">
+            <button onClick={addSubQuestion} className="cursor-pointer">
+              + Sub-question
+            </button>
+            <button onClick={addImage} className="cursor-pointer">
+              + Image
+            </button>
+            <button onClick={addTable} className="cursor-pointer">
+              + Table
+            </button>
+          </div>
+
+          {/* Sub Questions */}
+          {question.subQuestions?.length > 0 && (
+            <div className="mt-3 ml-6 space-y-2">
+              {question.subQuestions.map((sq: any, i: number) => (
+                <div key={sq.id} className="flex items-center gap-2 text-sm">
+                  <span>{String.fromCharCode(97 + i)}.</span>
+                  <input
+                    value={sq.question}
+                    placeholder="Add Sub question"
+                    onChange={(e) =>
+                      updateSub(sq.id, { question: e.target.value })
+                    }
+                    className="flex-1 border-b border-slate-300 bg-transparent outline-none"
+                  />
+                  <input
+                    type="number"
+                    value={sq.marks}
+                    onChange={(e) =>
+                      updateSub(sq.id, { marks: +e.target.value || 0 })
+                    }
+                    className="w-14 border-b border-slate-300 bg-transparent text-right outline-none"
+                  />
+                  <span className="text-xs text-slate-600">marks</span>
+
+                  <button
+                    onClick={() => deleteSub(sq.id)}
+                    className="text-red-500 cursor-pointer"
+                  >
+                    <Trash size={14} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Image */}
+          {question.image && (
+            <div className="mt-3 ml-6 rounded border border-dashed border-slate-300 px-3 py-2 text-xs">
+              {!question.image.url ? (
+                <div className="flex justify-between">
+                  <label className="flex cursor-pointer items-center gap-2 text-slate-600">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) handleImageUpload(file);
+                      }}
+                    />
+
+                    <span className="underline flex gap-1">
+                      <Upload size={14} /> Upload image
+                    </span>
+                    <span className="text-slate-400">(diagram / graph)</span>
+                  </label>
+                  <button
+                    onClick={removeImage}
+                    className="text-red-500 cursor-pointer"
+                  >
+                    <Trash size={16} />
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-2 flex gap-2 items-start">
+                  <img
+                    src={question.image.url}
+                    alt="Question diagram"
+                    className="max-h-40 rounded border"
+                  />
+
+                  <button
+                    onClick={removeImage}
+                    className="text-red-500 cursor-pointer"
+                  >
+                    <Trash size={16} />
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Table */}
+          {question.table && (
+            <div className="mt-3 ml-6 rounded border border-dashed border-slate-300 px-3 py-2 text-xs">
+              {/* Controls */}
+              <div className="mb-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500">Table</span>
+                  <input
+                    type="number"
+                    min={1}
+                    value={question.table.rows}
+                    onChange={(e) =>
+                      resizeTable(+e.target.value || 1, question.table.cols)
+                    }
+                    className="w-12 border-b border-slate-300 bg-transparent text-center outline-none"
+                  />
+                  ×
+                  <input
+                    type="number"
+                    min={1}
+                    value={question.table.cols}
+                    onChange={(e) =>
+                      resizeTable(question.table.rows, +e.target.value || 1)
+                    }
+                    className="w-12 border-b border-slate-300 bg-transparent text-center outline-none"
+                  />
+                </div>
+
+                <button
+                  onClick={removeTable}
+                  className="text-red-500 cursor-pointer"
+                >
+                  <Trash size={14} />
+                </button>
+              </div>
+
+              {/* Table Editor */}
+              <div className="overflow-x-auto">
+                <table className="border-collapse border border-slate-400 text-xs">
+                  <tbody>
+                    {tableData.map((row: string[], r: number) => (
+                      <tr key={r}>
+                        {row.map((cell: string, c: number) => (
+                          <td key={c} className="border border-slate-300 p-0">
+                            <input
+                              value={cell}
+                              onChange={(e) => {
+                                const newData = structuredClone(tableData);
+                                newData[r][c] = e.target.value;
+
+                                update({
+                                  table: {
+                                    ...question.table,
+                                    data: newData,
+                                  },
+                                });
+                              }}
+                              className="w-24 bg-transparent px-2 py-1 text-xs outline-none"
+                            />
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
@@ -596,6 +912,7 @@ const SelectionGate = () => {
   const [user, setUser] = useState<any>(null);
   const [institute, setInstitute] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [examTitle, setExamTitle] = useState("");
 
   const [programQuery, setProgramQuery] = useState("");
   const [programResults, setProgramResults] = useState<any[]>([]);
@@ -814,7 +1131,7 @@ const SelectionGate = () => {
 
   const handleGeneratePaper = async () => {
     router.push(
-      `./auto-generate?program=${selectedCourse.programId}&semester=${selectedCourse.semester}&course=${selectedCourse.courseCode}&paperSets=${paperSets}&blueprint=${encodeURIComponent(JSON.stringify(blueprint))}`,
+      `./auto-generate?program=${selectedCourse.programId}&semester=${selectedCourse.semester}&course=${selectedCourse.courseCode}&paperSets=${paperSets}&examTitle=${examTitle}&blueprint=${encodeURIComponent(JSON.stringify(blueprint))}`,
     );
   };
 
@@ -978,31 +1295,64 @@ const SelectionGate = () => {
                     )}
 
                   {/* No. of Paper Sets to Generate */}
-                  <div className="relative mt-3">
-                    <label className="text-xs font-semibold uppercase text-slate-500 mb-1">
-                      No. of Paper Sets to Generate
-                    </label>
+                  <div className="flex mt-3 gap-4">
+                    <div className="relative w-full">
+                      <label className="text-xs font-semibold uppercase text-slate-500 mb-1">
+                        No. of Paper Sets to Generate
+                      </label>
 
-                    <div className="relative">
-                      <select
-                        value={paperSets}
-                        onChange={(e) => setPaperSets(Number(e.target.value))}
-                        className="mt-2 w-full h-11 rounded-xl border border-slate-300 px-4 pr-10 text-sm bg-white cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-black"
-                      >
-                        <option value="" disabled>
-                          Select No. of Sets
-                        </option>
-
-                        {[1, 2, 3].map((s) => (
-                          <option key={s} value={s}>
-                            Set {s}
+                      <div className="relative">
+                        <select
+                          value={paperSets}
+                          onChange={(e) => setPaperSets(Number(e.target.value))}
+                          className="mt-2 w-full h-11 rounded-xl border border-slate-300 px-4 pr-10 text-sm bg-white cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-black"
+                        >
+                          <option value="" disabled>
+                            Select No. of Sets
                           </option>
-                        ))}
-                      </select>
 
-                      <span className="pointer-events-none absolute inset-y-0 top-2 right-3 flex items-center">
-                        <ChevronDown size={16} className="text-slate-400" />
-                      </span>
+                          {[1, 2, 3].map((s) => (
+                            <option key={s} value={s}>
+                              Set {s}
+                            </option>
+                          ))}
+                        </select>
+
+                        <span className="pointer-events-none absolute inset-y-0 top-2 right-3 flex items-center">
+                          <ChevronDown size={16} className="text-slate-400" />
+                        </span>
+                      </div>
+                    </div>
+                    {/* Exam Title */}
+                    <div className="relative w-full">
+                      <label className="text-xs font-semibold uppercase text-slate-500 mb-1">
+                        Exam Title
+                      </label>
+
+                      <div className="relative">
+                        <select
+                          value={examTitle}
+                          onChange={(e) => setExamTitle(e.target.value)}
+                          className="mt-2 w-full h-11 rounded-xl border border-slate-300 px-4 pr-10 text-sm bg-white cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-black"
+                        >
+                          <option value="" disabled>
+                            Select Examination Title
+                          </option>
+
+                          {[
+                            "Mid Semester Examination",
+                            "End Semester Examination",
+                          ].map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
+
+                        <span className="pointer-events-none absolute inset-y-0 top-2 right-3 flex items-center">
+                          <ChevronDown size={16} className="text-slate-400" />
+                        </span>
+                      </div>
                     </div>
                   </div>
 
