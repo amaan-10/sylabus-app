@@ -200,6 +200,28 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
     return words[n] || n.toString();
   }
 
+  const getISTFormattedDate = (): string => {
+    const now = new Date();
+
+    // Convert to IST using locale
+    const istDate = new Date(
+      now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
+    );
+
+    const yyyy = istDate.getFullYear();
+    const mm = String(istDate.getMonth() + 1).padStart(2, "0");
+    const dd = String(istDate.getDate()).padStart(2, "0");
+
+    // Unix timestamp in seconds (IST-based moment)
+    const timestamp = Math.floor(istDate.getTime() / 1000);
+
+    return `${yyyy}-${mm}-${dd}-${timestamp}`;
+  };
+
+  console.log(getISTFormattedDate());
+
+  const ISTFormattedDate = getISTFormattedDate();
+
   async function downloadPaper(paperSet: any) {
     try {
       const res = await fetch("/api/institute/export/pdf", {
@@ -224,7 +246,7 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${paperSet.setName}.pdf`;
+      a.download = `${paper.courseMeta.courseCode}_${String(currentSetIndex + 1).padStart(2, "0")}_${ISTFormattedDate}.pdf`;
 
       document.body.appendChild(a);
       a.click();
@@ -405,6 +427,7 @@ const QuestionRenderer = ({
   onDelete,
 }: QuestionRendererProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [preview, setPreview] = useState<string | null>(null);
 
   const tableData =
     question.table?.data ??
@@ -511,15 +534,30 @@ const QuestionRenderer = ({
     });
   };
 
-  const handleImageUpload = (file: File) => {
+  const handleImageUpload = async (file: File) => {
+    // 1️⃣ Blob URL (for preview only)
     const url = URL.createObjectURL(file);
 
+    // 2️⃣ Convert file → base64 (for server / pdf-lib)
+    const base64 = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    // 3️⃣ Update question state
     update({
       image: {
-        file,
-        url,
+        file, // optional: for uploads
+        url, // blob URL → preview
+        base64, // ✅ server-safe
+        type: file.type, // image/png, image/jpeg
       },
     });
+
+    // 4️⃣ Local preview
+    setPreview(url);
   };
 
   /* ---------------- UI ---------------- */
@@ -624,19 +662,45 @@ const QuestionRenderer = ({
         <div className="ml-6 mt-2 space-y-2 text-sm text-slate-700">
           {question.subQuestions?.map((sq: any, i: number) => (
             <div key={sq.id}>
-              {String.fromCharCode(97 + i)}. {sq.question} ({sq.marks})
+              {toRoman(i + 1).toLowerCase()}) {sq.question} ({sq.marks})
             </div>
           ))}
 
           {question.image && (
             <div className="italic text-slate-600">
-              Diagram required: {question.image.description}
+              {preview && (
+                <Image
+                  src={preview}
+                  width={256}
+                  height={256}
+                  alt="Preview"
+                  className="mt-4 w-64 rounded"
+                />
+              )}
             </div>
           )}
 
           {question.table && (
             <div>
-              Table: {question.table.rows} × {question.table.cols}
+              {/* Table View */}
+              <div className="overflow-x-auto">
+                <table className="border-collapse border border-slate-400 text-xs">
+                  <tbody>
+                    {question.table.data.map((row: string[], r: number) => (
+                      <tr key={r}>
+                        {row.map((cell: string, c: number) => (
+                          <td
+                            key={c}
+                            className="min-w-24 border border-slate-300 px-2 py-1 text-center"
+                          >
+                            {cell || <span className="text-slate-300">—</span>}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </div>
@@ -663,7 +727,7 @@ const QuestionRenderer = ({
             <div className="mt-3 ml-6 space-y-2">
               {question.subQuestions.map((sq: any, i: number) => (
                 <div key={sq.id} className="flex items-center gap-2 text-sm">
-                  <span>{String.fromCharCode(97 + i)}.</span>
+                  <span>{toRoman(i + 1).toLowerCase()})</span>
                   <input
                     value={sq.question}
                     placeholder="Add Sub question"

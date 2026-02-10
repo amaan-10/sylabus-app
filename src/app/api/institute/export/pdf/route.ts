@@ -41,6 +41,17 @@ function numberToWords(n: number) {
   return words[n] || n.toString();
 }
 
+async function blobUrlToBase64(blobUrl: string): Promise<string> {
+  const res = await fetch(blobUrl);
+  const blob = await res.blob();
+
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.readAsDataURL(blob);
+  });
+}
+
 export async function POST(req: Request) {
   try {
     const { institute, courseMeta, paperSet, paperSetNo } = await req.json();
@@ -397,7 +408,7 @@ export async function POST(req: Request) {
 
     y -= 18;
 
-    paperSet.sections.forEach((section: any, sIdx: number) => {
+    paperSet.sections.forEach(async (section: any, sIdx: number) => {
       const marks = section.questions
         .map((q: any) => q.marks)
         .sort((a: number, b: number) => b - a)
@@ -419,26 +430,116 @@ export async function POST(req: Request) {
 
       y -= 22;
 
-      section.questions.forEach((q: any, qIdx: number) => {
+      for (let qIdx = 0; qIdx < section.questions.length; qIdx++) {
+        const q = section.questions[qIdx];
         const label = `${String.fromCharCode(97 + qIdx)})`;
 
-        // Draw main question
+        // 1️⃣ Main Question
         drawQuestionWithLabel(label, q.question, 12, 80, 12, TimesFont);
 
-        // Draw MCQ options (if any)
+        // 2️⃣ MCQ Options
         if (q.questionType === "MCQ" && q.options?.length > 0) {
-          y -= 4; // small gap before options
+          y -= 4;
 
           drawMCQOptions(
             q.options,
-            100, // indented more than question
+            100, // same indentation area
             12,
             TimesFont,
           );
         }
 
-        y -= 6; // space after each question block
-      });
+        // 3️⃣ Sub-questions (same area)
+        if (q.subQuestions?.length) {
+          y -= 4;
+
+          q.subQuestions.forEach((sq: any, i: number) => {
+            const text = `${toRoman(i + 1).toLowerCase()}) ${sq.question} (${sq.marks})`;
+
+            page.drawText(text, {
+              x: 100, // same indent as MCQ
+              y,
+              size: 10,
+              font: TimesFont,
+            });
+
+            y -= 14;
+          });
+        }
+
+        // 4️⃣ Image (same flow)
+        function base64ToBytes(base64: string): Uint8Array {
+          return Uint8Array.from(Buffer.from(base64.split(",")[1], "base64"));
+        }
+
+        if (q.image?.base64) {
+          const bytes = base64ToBytes(q.image.base64);
+
+          // 🧠 safer image type detection
+          const isJpeg =
+            q.image.type === "image/jpeg" ||
+            q.image.base64.startsWith("data:image/jpeg");
+
+          const img = isJpeg
+            ? await pdfDoc.embedJpg(bytes)
+            : await pdfDoc.embedPng(bytes);
+
+          const imgWidth = 100;
+          const imgHeight = (img.height / img.width) * imgWidth;
+
+          // ⚠️ page-break guard
+          // if (y - imgHeight < 50) {
+          //   page = pdfDoc.addPage();
+          //   y = page.getHeight() - 60;
+          // }
+
+          page.drawImage(img, {
+            x: 100,
+            y: y - imgHeight,
+            width: imgWidth,
+            height: imgHeight,
+          });
+
+          y -= imgHeight + 10;
+        }
+
+        // 5️⃣ Table (same flow, same area)
+        if (q.table) {
+          const cellWidth = 60;
+          const cellHeight = 18;
+          y -= 10;
+
+          q.table.data.forEach((row: string[], r: number) => {
+            row.forEach((cell: string, c: number) => {
+              const x = 100 + c * cellWidth;
+              const cellY = y - r * cellHeight;
+
+              // Border
+              page.drawRectangle({
+                x,
+                y: cellY,
+                width: cellWidth,
+                height: cellHeight,
+                borderWidth: 0.5,
+                borderColor: rgb(0.7, 0.7, 0.7),
+              });
+
+              // Text
+              page.drawText(cell || "—", {
+                x: x + 4,
+                y: cellY + 5,
+                size: 9,
+                font: TimesFont,
+              });
+            });
+          });
+
+          y -= q.table.data.length * cellHeight + 8;
+        }
+
+        // 6️⃣ Space after question block
+        y -= 6;
+      }
 
       y -= 8;
     });
