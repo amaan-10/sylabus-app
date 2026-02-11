@@ -18,6 +18,7 @@ export async function POST(req: Request) {
       try {
         sections = JSON.parse(blueprint);
       } catch {
+        console.error("Blueprint string is not valid JSON");
         return NextResponse.json(
           { error: "Blueprint string is not valid JSON" },
           { status: 400 },
@@ -28,6 +29,7 @@ export async function POST(req: Request) {
     }
 
     if (!Array.isArray(sections)) {
+      console.error("Invalid blueprint format. Expected array of sections.");
       return NextResponse.json(
         { error: "Invalid blueprint format. Expected array of sections." },
         { status: 400 },
@@ -39,6 +41,7 @@ export async function POST(req: Request) {
     console.log("sections.constructor:", sections?.constructor?.name);
 
     if (!paperSets || paperSets < 1) {
+      console.error("paperSets must be >= 1");
       return NextResponse.json(
         { error: "paperSets must be >= 1" },
         { status: 400 },
