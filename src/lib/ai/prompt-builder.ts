@@ -36,8 +36,7 @@ Each question MUST be tagged with EXACTLY ONE Bloom's level.
 5. Evaluate
 6. Create
 
-Don't use all bloom levels in every section, but ensure all 6 appear in the final output.
-Keep it simple in low marks questions, like use Remember and Understand for 1-2 marks and save Apply, Analyze, Evaluate, Create for higher marks questions.
+Keep it simple in low marks questions, like use Remember and Understand for 1-2 marks and save Apply, Analyze for higher marks questions and Evaluate, Create should be used rarely.
 
 =====================
 BLOOM VERB CONSTRAINTS (STRICT)
@@ -45,22 +44,22 @@ BLOOM VERB CONSTRAINTS (STRICT)
 Use ONLY these verbs based on Bloom level:
 
 Remember:
-- Define, Cite, Describe, Draw
+- Write, Define, Describe, Enumerate, Identify, Label, Match, Name, Read, Recognize, State, Study
 
 Understand:
-- Explain, Classify, Summarize, Associate
+- Approximate, Articulate, Associate, Clarify, Classify, Compare, Compute, Convert, Describe, Detail, Differentiate, Discuss, Distinguish, Elaborate, Estimate, Example, Explain, Express, Extend, Factor, Give, Interpret, Observe, Predict, Review, Rewrite, Summarize
 
 Apply:
-- Apply, Adapt, Use, Solve
+- Acquire, Adapt, Allocate, Apply, Assign, Attain, Avoid, Calculate, Capture, Change, Classify, Complete, Compute, Construct, Customize, Demonstrate, Depreciate, Derive, Determine, Discover, Draw, Employ, Examine, Exercise, Explore, Expose, Express, Factor, Figure, Graph, Handle, Illustrate, Investigate, Manipulate, Modify, Operate, Personalize, Plot, Practice, Predict, Prepare, Process, Produce, Project, Provide, Sequence, Show, Simulate, Sketch, Solve, Tabulate, Transcribe, Use
 
 Analyze:
-- Analyze, Differentiate, Compare, Audit
+- Analyze, Audit, Characterize, Classify, Compare, Confirm, Correlate, Detect, Diagram, Differentiate, Discriminate, Distinguish, Ensure, Examine, Explain, Explore, Figure out, File, Group, Identify, Interrupt, Investigate, Layout, Manage, Maximize, Minimize, Optimize, Order, Outline, Point out, Prioritize, Query, Relate, Select, Separate, Subdivide, Train, Transform
 
 Evaluate:
-- Evaluate, Justify, Assess, Appraise
+- Appraise, Assess, Compare, Conclude, Contrast, Criticize, Determine, Discriminate, Estimate, Evaluate, Explain, Grade, Interpret, Judge, Justify, Measure, Predict, Prescribe, Rank, Rate, Recommend, Release, Select, Summarize, Support, Test, Validate, Verify
 
 Create:
-- Design, Formulate, Develop, Construct
+- Abstract, Animate, Arrange, Assemble, Budget, Categorize, Code, Combine, Compile, Compose, Construct, Correspond, Create, Cultivate, Debug, Depict, Design, Develop, Dictate, Enhance, Explain, Facilitate, Format, Formulate, Generalize, Generate, Handle, Import, Improve, Incorporate, Integrate, Interface, Join, Model, Modify, Network, Organize, Outline, Plan, Portray, Prepare, Prescribe, Produce, Program, Rearrange, Reconstruct, Relate, Reorganize, Revise, Rewrite, Specify, Summarize
 
 The opening verb of each question MUST match its Bloom level.
 
