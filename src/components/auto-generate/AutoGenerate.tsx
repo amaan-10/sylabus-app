@@ -136,7 +136,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
 
   return (
     <LoaderWrapper isLoading={loading}>
-      <section className="md:border border-[rgba(0,0,0,0.08)] place-content-center items-center bg-white rounded-2xl flex flex-[1_0_0] flex-col gap-6 md:gap-14 h-min overflow-hidden p-[32px_8px_120px] md:py-16 md:px-8 md:pb-8 relative w-px">
+      <section className="md:border border-[rgba(0,0,0,0.08)] place-content-center items-center bg-white rounded-2xl flex flex-[1_0_0] flex-col gap-6 md:gap-14 h-min overflow-hidden p-[32px_8px_120px] md:py-10 md:px-8 md:pb-8 relative w-px">
         {error && (
           <div className="rounded-xl bg-red-50 border border-red-200 p-6 text-red-600">
             {error}
@@ -264,41 +264,72 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
       {/* Header */}
       <div className="rounded-2xl border border-slate-200 bg-white p-6">
         {institute && (
-          <div className="flex gap-4">
-            <Image
-              src={institute.logoUrl || "/institute-placeholder.png"}
-              alt="Institute Logo"
-              width={128}
-              height={128}
-              className="rounded-lg border border-slate-200 bg-white p-2 w-auto h-32 object-contain"
-            />
-            <div className="flex flex-col justify-center items-center font-georgia w-full text-center">
-              <div className="mb-1">
-                <p className="font-black leading-none">{institute.society}</p>
-                <h1 className="text-3xl text-slate-900  font-black ">
-                  {institute.name}
-                </h1>{" "}
-                <p className="font-black text-lg leading-none">
-                  {institute.description}{" "}
-                  {institute.autonomous ? "(Autonomous)" : ""}
-                </p>
+          <div>
+            <div className="flex gap-4">
+              <Image
+                src={institute.logoUrl || "/institute-placeholder.png"}
+                alt="Institute Logo"
+                width={128}
+                height={128}
+                className="w-auto h-40 object-contain"
+              />
+              <div className="flex flex-col justify-center items-center font-georgia w-full text-center">
+                <div className="mb-1">
+                  <p className="font-black leading-none text-sm">
+                    {institute.society}
+                  </p>
+                  <h1 className="text-2xl text-slate-900  font-black ">
+                    {institute.name}
+                  </h1>{" "}
+                  <p className="font-black text-base leading-none">
+                    {institute.description}{" "}
+                    {institute.autonomous ? "(Autonomous)" : ""}
+                  </p>
+                </div>
+
+                <p className="font-bold">{institute.affiliation}</p>
+                <p className="font-bold">{paper.courseMeta.examTitle}</p>
+
+                <div className="mt-2 font-cambria">
+                  <p className="font-black text-lg">
+                    {paper.courseMeta.degree}
+                  </p>
+                  <p className="font-bold text-base leading-none">
+                    {paper.courseMeta.pattern} Pattern{" "}
+                    {paper.courseMeta.semester
+                      ? `(Semester – ${toRoman(paper.courseMeta.semester)})`
+                      : ""}
+                  </p>
+                  <h1 className="mt-1 text-lg font-bold text-slate-900 leading-none">
+                    {paper.courseMeta.courseCode}:{" "}
+                    {paper.courseMeta.courseTitle} ({paper.courseMeta.credits}{" "}
+                    Credits)
+                  </h1>{" "}
+                </div>
               </div>
-
-              <p className="font-bold ">{institute.affiliation}</p>
-              <p className="font-bold ">{paper.courseMeta.examTitle}</p>
-
-              <div className="mt-2 font-cambria">
-                <p className="font-black text-xl">{paper.courseMeta.degree}</p>
-                <p className="font-bold text-lg leading-none">
-                  {paper.courseMeta.pattern} Pattern{" "}
-                  {paper.courseMeta.semester
-                    ? `(Semester – ${toRoman(paper.courseMeta.semester)})`
-                    : ""}
-                </p>
-                <h1 className="mt-1 text-xl font-bold text-slate-900 leading-none">
-                  {paper.courseMeta.courseCode}: {paper.courseMeta.courseTitle}{" "}
-                  ({paper.courseMeta.credits} Credits)
-                </h1>{" "}
+            </div>
+            <div className="mt-2 font-cambria mx-5">
+              <div className="flex justify-between">
+                <span className="font-bold text-base leading-none">
+                  Time: 2 Hours
+                </span>
+                <span className="font-bold text-base leading-none">
+                  Max. Marks: 30
+                </span>
+              </div>
+              <div className="ml-4 mt-2 font-bold text-base italic">
+                Instructions to the Candidates:
+                <ol className="ml-8">
+                  <li className="list-decimal">Question 1 is compulsory.</li>
+                  <li className="list-decimal">Attempt any FIVE from Q.2.</li>
+                  <li className="list-decimal">
+                    Figure to right indicate full marks.
+                  </li>
+                  <li className="list-decimal">
+                    Draw the neat sketches wherever necessary to illustrate the
+                    answer.
+                  </li>
+                </ol>
               </div>
             </div>
           </div>
