@@ -78,6 +78,15 @@ export async function generateCompletePaperSets({
         })),
       }),
     );
+    aiResponse.sectionPools.forEach(
+      (sectionPool: any, sectionIndex: number) => {
+        sectionPool.questionPool.forEach((question: any, qIndex: number) => {
+          const setIndex = qIndex % paperSets;
+
+          console.log(`sectionPool question ${sectionIndex}: `, question);
+        });
+      },
+    );
 
     // ✅ Distribute questions round-robin
     aiResponse.sectionPools.forEach(

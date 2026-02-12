@@ -596,74 +596,88 @@ const QuestionRenderer = ({
   return (
     <div className="mb-4 rounded-md border border-slate-300 bg-white px-4 py-3">
       {/* Header */}
-      <div className="flex items-start gap-3">
-        <span className="pt-1 text-sm font-medium text-slate-700">
-          {String.fromCharCode(97 + index)}.
-        </span>
+      <div className="flex items-start justify-between w-full">
+        <div className="flex items-start gap-3 w-full">
+          <span className="pt-1 text-sm font-medium text-slate-700">
+            {String.fromCharCode(97 + index)}.
+          </span>
 
-        {!isEditing ? (
-          <div className="flex flex-col gap-1 w-full">
-            <p className="pt-1 flex-1 text-sm font-medium text-slate-900">
-              {question.question}
-            </p>
-            {/* MCQ Options (View Mode) */}
-            {question.questionType === "MCQ" &&
-              question.options?.length > 0 && (
-                <div className=" mt-2 space-y-1 text-sm text-slate-700">
-                  {question.options.map((opt: string, i: number) => (
-                    <div key={i}>
-                      ({toRoman(i + 1).toLowerCase()}) {opt}
+          {!isEditing ? (
+            <div className="flex flex-col gap-1 w-auto">
+              <p className="pt-1 flex-1 text-sm font-medium text-slate-900">
+                {question.question}
+              </p>
+              {/* MCQ Options (View Mode) */}
+              {question.questionType === "MCQ" &&
+                question.options?.length > 0 && (
+                  <div className=" mt-2 space-y-1 text-sm text-slate-700">
+                    {question.options.map((opt: string, i: number) => (
+                      <div key={i}>
+                        ({toRoman(i + 1).toLowerCase()}) {opt}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              {/* internal choice */}
+
+              {question.internalChoice && (
+                <>
+                  <p className="flex-1 text-sm font-medium text-center text-slate-900">
+                    OR
+                  </p>
+                  <p className="pb-1 flex-1 text-sm font-medium text-slate-900">
+                    {question.internalChoice.question}
+                  </p>
+                </>
+              )}
+            </div>
+          ) : (
+            <>
+              <input
+                value={question.question}
+                onChange={(e) => update({ question: e.target.value })}
+                className="flex-1 border-b border-slate-300 bg-transparent text-sm outline-none"
+                autoFocus
+              />
+              {/* MCQ Options (Edit Mode) */}
+              {question.questionType === "MCQ" && (
+                <div className="mt-3 ml-6 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-slate-600">Options</span>
+                    <button
+                      onClick={addOption}
+                      className="text-xs text-slate-600 cursor-pointer"
+                    >
+                      + Add option
+                    </button>
+                  </div>
+
+                  {question.options?.map((opt: string, i: number) => (
+                    <div key={i} className="flex items-center gap-2 text-sm">
+                      <span className="w-5 text-slate-600">
+                        ({String.fromCharCode(97 + i)})
+                      </span>
+
+                      <input
+                        value={opt}
+                        placeholder={`Option ${i + 1}`}
+                        onChange={(e) => updateOption(i, e.target.value)}
+                        className="flex-1 border-b border-slate-300 bg-transparent outline-none"
+                      />
+
+                      <button
+                        onClick={() => deleteOption(i)}
+                        className="text-red-500 cursor-pointer"
+                      >
+                        <Trash size={14} />
+                      </button>
                     </div>
                   ))}
                 </div>
               )}
-          </div>
-        ) : (
-          <>
-            <input
-              value={question.question}
-              onChange={(e) => update({ question: e.target.value })}
-              className="flex-1 border-b border-slate-300 bg-transparent text-sm outline-none"
-              autoFocus
-            />
-            {/* MCQ Options (Edit Mode) */}
-            {question.questionType === "MCQ" && (
-              <div className="mt-3 ml-6 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-600">Options</span>
-                  <button
-                    onClick={addOption}
-                    className="text-xs text-slate-600 cursor-pointer"
-                  >
-                    + Add option
-                  </button>
-                </div>
-
-                {question.options?.map((opt: string, i: number) => (
-                  <div key={i} className="flex items-center gap-2 text-sm">
-                    <span className="w-5 text-slate-600">
-                      ({String.fromCharCode(97 + i)})
-                    </span>
-
-                    <input
-                      value={opt}
-                      placeholder={`Option ${i + 1}`}
-                      onChange={(e) => updateOption(i, e.target.value)}
-                      className="flex-1 border-b border-slate-300 bg-transparent outline-none"
-                    />
-
-                    <button
-                      onClick={() => deleteOption(i)}
-                      className="text-red-500 cursor-pointer"
-                    >
-                      <Trash size={14} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        )}
+            </>
+          )}
+        </div>
 
         <div className="pt-1 flex gap-3">
           {!isEditing ? (
@@ -1003,7 +1017,7 @@ const SelectionGate = () => {
   const [courseResults, setCourseResults] = useState<any[]>([]);
   const [selectedCourse, setSelectedCourse] = useState<any>(null);
   const [courseLoading, setCourseLoading] = useState(false);
-  const [paperSets, setPaperSets] = useState(0);
+  const [paperSets, setPaperSets] = useState(1);
   const [user, setUser] = useState<any>(null);
   const [institute, setInstitute] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);

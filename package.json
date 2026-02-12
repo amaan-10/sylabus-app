@@ -30,7 +30,7 @@
     "mongoose": "^9.0.1",
     "next": "^16.0.10",
     "pdf-lib": "^1.17.1",
-    "pdf-parse": "^1.1.1",
+    "pdf-parse-debugging-disabled": "^1.1.1",
     "pdfkit": "^0.17.2",
     "playwright": "^1.57.0",
     "react": "^19.2.3",

@@ -2,7 +2,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
-import pdfParse from "pdf-parse";
+import pdfParse from "pdf-parse-debugging-disabled";
 import PdfJob from "@/models/for-sylabus-institutes/PdfJob";
 import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
 
