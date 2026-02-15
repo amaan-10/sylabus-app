@@ -608,13 +608,18 @@ export async function POST(req: Request) {
     }
 
     // Flatten questions
-    const flatQuestions: { label: string; bloom: string }[] = [];
+    const flatQuestions: {
+      label: string;
+      bloom: string;
+      sectionIndex: number;
+    }[] = [];
 
     paperSet.sections.forEach((section: any, sIdx: number) => {
       section.questions.forEach((q: any, qIdx: number) => {
         flatQuestions.push({
           label: `Q${sIdx + 1}${String.fromCharCode(97 + qIdx)}`,
           bloom: BLOOM_LABELS[q.bloomsLevel] ?? q.bloomsLevel,
+          sectionIndex: sIdx,
         });
       });
     });
@@ -641,17 +646,33 @@ export async function POST(req: Request) {
 
       let x = MARGIN_LEFT;
 
-      // -------- Row 1: Questions / Q.x --------
+      const blockSections: Record<number, any[]> = {};
+
+      block.forEach((q) => {
+        if (!blockSections[q.sectionIndex]) {
+          blockSections[q.sectionIndex] = [];
+        }
+        blockSections[q.sectionIndex].push(q);
+      });
+
+      // -------- Row 1: Questions + Q.1 Q.2 Q.3 --------
+
       drawCell("Questions", x, y - rowHeight, colWidth * 3, rowHeight * 2, {
         fontSize: 10,
       });
       x += colWidth * 3;
 
-      sectionMeta.forEach((sec: any) => {
-        drawCell(sec.title, x, y, sec.count * colWidth, rowHeight, {
-          fontSize: 10,
-        });
-        x += sec.count * colWidth;
+      Object.entries(blockSections).forEach(([sectionIndex, questions]) => {
+        drawCell(
+          `Q.${Number(sectionIndex) + 1}.`,
+          x,
+          y,
+          questions.length * colWidth,
+          rowHeight,
+          { fontSize: 10 },
+        );
+
+        x += questions.length * colWidth;
       });
 
       // -------- Row 2: a b c --------
