@@ -24,6 +24,7 @@ type QuestionRendererProps = {
   question: any;
   index: number;
   onUpdate: (updatedQuestion: any) => void;
+  onUpdateInternalChoice: (updateInternalChoice: any) => void;
   onDelete: () => void;
 };
 
@@ -218,10 +219,6 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
     return `${yyyy}-${mm}-${dd}-${timestamp}`;
   };
 
-  console.log(getISTFormattedDate());
-
-  const ISTFormattedDate = getISTFormattedDate();
-
   async function downloadPaper(paperSet: any) {
     try {
       const res = await fetch("/api/institute/export/pdf", {
@@ -246,7 +243,7 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${paper.courseMeta.courseCode}_${String(currentSetIndex + 1).padStart(2, "0")}_${ISTFormattedDate}.pdf`;
+      a.download = `${paper.courseMeta.courseCode}_${String(currentSetIndex + 1).padStart(2, "0")}_${getISTFormattedDate()}.pdf`;
 
       document.body.appendChild(a);
       a.click();
@@ -405,8 +402,8 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
             </span>
           </div>
 
-          <div className="space-y-2 ml-8">
-            {section.questions.map((q: any, qIdx: number) => (
+          <div className="space-y-2 ml-10">
+            {section.questions?.map((q: any, qIdx: number) => (
               <QuestionRenderer
                 key={q.id || qIdx}
                 question={q}
@@ -414,32 +411,97 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
                 onUpdate={(updatedQuestion) => {
                   setPaper((prev: any) => {
                     const copy = structuredClone(prev);
-
                     copy.paperSets[currentSetIndex].sections[
                       sectionIdx
                     ].questions[qIdx] = updatedQuestion;
-
+                    return copy;
+                  });
+                }}
+                onUpdateInternalChoice={(updateInternalChoice) => {
+                  setPaper((prev: any) => {
+                    const copy = structuredClone(prev);
+                    copy.paperSets[currentSetIndex].sections[
+                      sectionIdx
+                    ].questions[qIdx].internalChoice = updateInternalChoice;
                     return copy;
                   });
                 }}
                 onDelete={() => {
-                  const ok = window.confirm(
-                    "Delete this question?\nThis action cannot be undone.",
-                  );
-
-                  if (!ok) return;
+                  if (
+                    !window.confirm(
+                      "Delete this question?\nThis action cannot be undone.",
+                    )
+                  )
+                    return;
 
                   setPaper((prev: any) => {
                     const copy = structuredClone(prev);
-
                     copy.paperSets[currentSetIndex].sections[
                       sectionIdx
                     ].questions.splice(qIdx, 1);
-
                     return copy;
                   });
                 }}
               />
+            ))}
+
+            {section.subQuestions?.map((group: any, groupIdx: number) => (
+              <div key={groupIdx} className="mb-6">
+                {/* Group Label */}
+                <h4 className="font-semibold mb-3">
+                  {String.fromCharCode(65 + groupIdx)}. {group.label}
+                </h4>
+
+                {/* Questions inside group */}
+                {group.questions?.map((q: any, qIdx: number) => (
+                  <QuestionRenderer
+                    key={q.id || qIdx}
+                    question={q}
+                    index={qIdx}
+                    onUpdate={(updatedQuestion) => {
+                      setPaper((prev: any) => {
+                        const copy = structuredClone(prev);
+
+                        copy.paperSets[currentSetIndex].sections[
+                          sectionIdx
+                        ].subQuestions[groupIdx].questions[qIdx] =
+                          updatedQuestion;
+
+                        return copy;
+                      });
+                    }}
+                    onUpdateInternalChoice={(updateInternalChoice) => {
+                      setPaper((prev: any) => {
+                        const copy = structuredClone(prev);
+                        copy.paperSets[currentSetIndex].sections[
+                          sectionIdx
+                        ].subQuestions[groupIdx].questions[
+                          qIdx
+                        ].internalChoice = updateInternalChoice;
+                        return copy;
+                      });
+                    }}
+                    onDelete={() => {
+                      if (
+                        !window.confirm(
+                          "Delete this question?\nThis action cannot be undone.",
+                        )
+                      )
+                        return;
+
+                      setPaper((prev: any) => {
+                        const copy = structuredClone(prev);
+
+                        copy.paperSets[currentSetIndex].sections[
+                          sectionIdx
+                        ].subQuestions[groupIdx].questions.splice(qIdx, 1);
+
+                        return copy;
+                      });
+                    }}
+                  />
+                ))}
+              </div>
             ))}
           </div>
         </div>
@@ -455,6 +517,7 @@ const QuestionRenderer = ({
   question,
   index,
   onUpdate,
+  onUpdateInternalChoice,
   onDelete,
 }: QuestionRendererProps) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -474,6 +537,15 @@ const QuestionRenderer = ({
 
   const update = (patch: Partial<typeof question>) =>
     onUpdate({ ...question, ...patch });
+
+  const updateInternalChoice = (
+    patch: Partial<typeof question.internalChoice>,
+  ) => {
+    onUpdateInternalChoice({
+      ...question.internalChoice,
+      ...patch, // ✅ spread patch correctly
+    });
+  };
 
   const addOption = () => {
     update({
@@ -599,46 +671,74 @@ const QuestionRenderer = ({
       <div className="flex items-start justify-between w-full">
         <div className="flex items-start gap-3 w-full">
           <span className="pt-1 text-sm font-medium text-slate-700">
-            {String.fromCharCode(97 + index)}.
+            {!question.internalChoice && `${String.fromCharCode(97 + index)}.`}
           </span>
 
           {!isEditing ? (
             <div className="flex flex-col gap-1 w-auto">
-              <p className="pt-1 flex-1 text-sm font-medium text-slate-900">
-                {question.question}
-              </p>
-              {/* MCQ Options (View Mode) */}
-              {question.questionType === "MCQ" &&
-                question.options?.length > 0 && (
-                  <div className=" mt-2 space-y-1 text-sm text-slate-700">
-                    {question.options.map((opt: string, i: number) => (
-                      <div key={i}>
-                        ({toRoman(i + 1).toLowerCase()}) {opt}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              {/* internal choice */}
-
-              {question.internalChoice && (
+              {!question.internalChoice ? (
                 <>
-                  <p className="flex-1 text-sm font-medium text-center text-slate-900">
-                    OR
+                  <p className="pt-1 flex-1 text-sm font-medium text-slate-900">
+                    {question.question}
                   </p>
-                  <p className="pb-1 flex-1 text-sm font-medium text-slate-900">
-                    {question.internalChoice.question}
+                  {/* MCQ Options (View Mode) */}
+                  {question.questionType === "MCQ" &&
+                    question.options?.length > 0 && (
+                      <div className=" mt-2 space-y-1 text-sm text-slate-700">
+                        {question.options.map((opt: string, i: number) => (
+                          <div key={i}>
+                            ({toRoman(i + 1).toLowerCase()}) {opt}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                </>
+              ) : (
+                <>
+                  {/* Main Question */}
+                  <p className="pt-1 flex-1 text-sm font-medium text-slate-900">
+                    {String.fromCharCode(97 + index * 2)}. {question.question}
                   </p>
+
+                  {question.internalChoice && (
+                    <>
+                      <p className="flex-1 text-sm font-medium text-center text-slate-900">
+                        OR
+                      </p>
+
+                      <p className="pb-1 flex-1 text-sm font-medium text-slate-900">
+                        {String.fromCharCode(97 + index * 2 + 1)}.{" "}
+                        {question.internalChoice.question}
+                      </p>
+                    </>
+                  )}
                 </>
               )}
             </div>
           ) : (
-            <>
+            <div className="flex flex-col gap-2 w-full">
               <input
                 value={question.question}
                 onChange={(e) => update({ question: e.target.value })}
                 className="flex-1 border-b border-slate-300 bg-transparent text-sm outline-none"
                 autoFocus
               />
+              {question.internalChoice && (
+                <div className="w-full">
+                  <p className="flex-1 text-sm font-medium text-center text-slate-900">
+                    OR
+                  </p>
+
+                  <input
+                    value={question.internalChoice.question}
+                    onChange={(e) =>
+                      updateInternalChoice({ question: e.target.value })
+                    }
+                    className="flex-1 border-b border-slate-300 bg-transparent text-sm outline-none w-full"
+                    autoFocus
+                  />
+                </div>
+              )}
               {/* MCQ Options (Edit Mode) */}
               {question.questionType === "MCQ" && (
                 <div className="mt-3 ml-6 space-y-2">
@@ -675,7 +775,7 @@ const QuestionRenderer = ({
                   ))}
                 </div>
               )}
-            </>
+            </div>
           )}
         </div>
 
@@ -1182,7 +1282,7 @@ const SelectionGate = () => {
     updateSection(sectionIndex, "subQuestions", [
       ...currentSubQuestions,
       {
-        label: nextLabel,
+        label: "",
         questionType: "",
         questionsToShow: 1,
         questionsToAttempt: 1,
@@ -1556,14 +1656,17 @@ const SelectionGate = () => {
                     </div>
 
                     {/* Section Title */}
-                    <input
-                      value={section.sectionTitle}
-                      onChange={(e) =>
-                        updateSection(index, "sectionTitle", e.target.value)
-                      }
-                      placeholder="Question Title"
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm"
-                    />
+                    {!section.hasSubQuestions &&
+                      section.subQuestions?.length === 0 && (
+                        <input
+                          value={section.sectionTitle}
+                          onChange={(e) =>
+                            updateSection(index, "sectionTitle", e.target.value)
+                          }
+                          placeholder="Question Title"
+                          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm"
+                        />
+                      )}
 
                     <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
                       <div>
@@ -1576,13 +1679,15 @@ const SelectionGate = () => {
                       </div>
 
                       <button
-                        onClick={() =>
+                        onClick={() => {
+                          section.subQuestions = [];
+                          section.sectionTitle = "";
                           updateSection(
                             index,
                             "hasSubQuestions",
                             !section.hasSubQuestions,
-                          )
-                        }
+                          );
+                        }}
                         className={`relative inline-flex h-6 w-11 items-center rounded-full transition cursor-pointer ${
                           section.hasSubQuestions ? "bg-black" : "bg-slate-300"
                         }`}
@@ -1609,9 +1714,9 @@ const SelectionGate = () => {
                             className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-4"
                           >
                             {/* Header */}
-                            <div className="flex items-center justify-between">
-                              <p className="text-sm font-semibold text-slate-800">
-                                {sub.label}.
+                            <div className="flex items-center justify-between gap-3">
+                              <p className="text-xs font-semibold uppercase text-slate-600">
+                                {String.fromCharCode(65 + subIndex)}.
                               </p>
 
                               <button
@@ -1623,6 +1728,20 @@ const SelectionGate = () => {
                                 <Trash2 size={14} />
                               </button>
                             </div>
+
+                            <input
+                              value={sub.label}
+                              onChange={(e) =>
+                                updateSubQuestion(
+                                  index,
+                                  subIndex,
+                                  "label",
+                                  e.target.value,
+                                )
+                              }
+                              placeholder="Question Title"
+                              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm"
+                            />
 
                             {/* Numbers */}
                             <div className="grid grid-cols-3 gap-3">
@@ -1667,25 +1786,97 @@ const SelectionGate = () => {
                             </div>
 
                             {/* Internal Choice */}
-                            <div className="flex items-center justify-between">
-                              <p className="text-sm text-slate-700">
-                                Internal Choice
-                              </p>
-                              <button
-                                onClick={() =>
-                                  updateSubQuestion(
-                                    index,
-                                    subIndex,
-                                    "hasInternalChoice",
-                                    !sub.hasInternalChoice,
-                                  )
-                                }
-                                className={`h-6 w-11 rounded-full ${
-                                  sub.hasInternalChoice
-                                    ? "bg-black"
-                                    : "bg-slate-300"
-                                }`}
-                              />
+                            <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-4">
+                              {/* Toggle Header */}
+                              <div className="flex items-center justify-between gap-2">
+                                <div>
+                                  <p className="text-sm font-medium text-slate-900">
+                                    'OR' Type Questions
+                                  </p>
+                                  <p className="text-xs text-slate-500">
+                                    Allow to choose alternate questions
+                                  </p>
+                                </div>
+
+                                {/* Toggle Switch */}
+                                <button
+                                  onClick={() =>
+                                    updateSubQuestion(
+                                      index,
+                                      subIndex,
+                                      "hasInternalChoice",
+                                      !sub.hasInternalChoice,
+                                    )
+                                  }
+                                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition cursor-pointer ${
+                                    sub.hasInternalChoice
+                                      ? "bg-black"
+                                      : "bg-slate-300"
+                                  }`}
+                                >
+                                  <span
+                                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
+                                      sub.hasInternalChoice
+                                        ? "translate-x-6"
+                                        : "translate-x-1"
+                                    }`}
+                                  />
+                                </button>
+                              </div>
+
+                              {/* Choice Type */}
+                              {sub.hasInternalChoice && (
+                                <div className="space-y-2">
+                                  <p className="text-xs font-semibold uppercase text-slate-500">
+                                    Choice Type
+                                  </p>
+
+                                  <div className="grid grid-cols-2 gap-2">
+                                    {[
+                                      {
+                                        label: "OR",
+                                        value: "or",
+                                        desc: "Show alternate question",
+                                      },
+                                      // {
+                                      //   label: "ANY",
+                                      //   value: "any",
+                                      //   desc: "Attempt any subset",
+                                      // },
+                                    ].map((opt) => (
+                                      <button
+                                        key={opt.value}
+                                        onClick={() =>
+                                          updateSubQuestion(
+                                            index,
+                                            subIndex,
+                                            "choiceType",
+                                            opt.value,
+                                          )
+                                        }
+                                        className={`rounded-xl border px-4 py-3 text-left transition cursor-pointer ${
+                                          sub.choiceType === opt.value
+                                            ? "border-black bg-black text-white"
+                                            : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+                                        }`}
+                                      >
+                                        <p className="text-sm font-semibold">
+                                          {opt.label}
+                                        </p>
+                                        <p
+                                          className={`text-xs mt-0.5 ${
+                                            sub.choiceType === opt.value
+                                              ? "text-white/70"
+                                              : "text-slate-500"
+                                          }`}
+                                        >
+                                          {opt.desc}
+                                        </p>
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
                             </div>
 
                             {/* Difficulty */}
@@ -1794,7 +1985,7 @@ const SelectionGate = () => {
                             <div className="flex items-center justify-between">
                               <div>
                                 <p className="text-sm font-medium text-slate-900">
-                                  Internal Choice
+                                  'OR' Type Questions
                                 </p>
                                 <p className="text-xs text-slate-500">
                                   Allow students to choose alternate questions
@@ -1840,11 +2031,11 @@ const SelectionGate = () => {
                                       value: "or",
                                       desc: "Show alternate question",
                                     },
-                                    {
-                                      label: "ANY",
-                                      value: "any",
-                                      desc: "Attempt any subset",
-                                    },
+                                    // {
+                                    //   label: "ANY",
+                                    //   value: "any",
+                                    //   desc: "Attempt any subset",
+                                    // },
                                   ].map((opt) => (
                                     <button
                                       key={opt.value}
