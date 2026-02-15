@@ -11,6 +11,7 @@ type GenerateArgs = {
 };
 
 export type PaperSection = {
+  subQuestions: SubQuestion[];
   sectionTitle: string;
   questions: Question[];
 };
@@ -33,6 +34,11 @@ export type Question = {
   };
 };
 
+export type SubQuestion = {
+  label: string;
+  questions: Question[];
+};
+
 export async function generateCompletePaperSets({
   course,
   sections,
@@ -40,6 +46,10 @@ export async function generateCompletePaperSets({
   paperSets,
 }: GenerateArgs) {
   console.log("sections: ", sections);
+  console.log(
+    "sections subquestion:",
+    sections.map((section) => section.subQuestions),
+  );
   // ✅ HARD INPUT VALIDATION
   if (!Array.isArray(sections)) {
     throw new Error("Blueprint sections must be an array");
@@ -70,39 +80,97 @@ export async function generateCompletePaperSets({
       { length: paperSets },
       (_, i) => ({
         setName: `Set ${String.fromCharCode(65 + i)}`,
-        sections: sections.map((section) => ({
-          sectionTitle: section.sectionTitle,
-          questions: [] as Question[], // ✅ key line
-          questionsToAttempt: section.questionsToAttempt,
-          expectedCount: section.expectedCount,
-        })),
+        sections: sections.map((section) => {
+          // CASE 1: Section has subQuestions in blueprint
+          if (Array.isArray(section.subQuestions)) {
+            return {
+              sectionTitle: section.sectionTitle,
+              questionsToAttempt: section.questionsToAttempt,
+              expectedCount: section.expectedCount,
+
+              // Initialize subQuestions properly
+              subQuestions: section.subQuestions.map((sub: any) => ({
+                label: sub.label,
+                questions: [] as Question[], // IMPORTANT
+              })),
+
+              // No flat questions here
+              questions: [],
+            };
+          }
+
+          // CASE 2: Flat section
+          return {
+            sectionTitle: section.sectionTitle,
+            questionsToAttempt: section.questionsToAttempt,
+            expectedCount: section.expectedCount,
+
+            questions: [] as Question[],
+            subQuestions: [],
+          };
+        }),
       }),
     );
-    aiResponse.sectionPools.forEach(
-      (sectionPool: any, sectionIndex: number) => {
-        sectionPool.questionPool.forEach((question: any, qIndex: number) => {
-          const setIndex = qIndex % paperSets;
 
-          console.log(`sectionPool question ${sectionIndex}: `, question);
-        });
-      },
+    console.log("aiResponse", aiResponse);
+    console.log(
+      "aiResponse.sectionPools[2].subQuestions",
+      aiResponse.sectionPools[2].subQuestions,
     );
 
     // ✅ Distribute questions round-robin
     aiResponse.sectionPools.forEach(
       (sectionPool: any, sectionIndex: number) => {
-        if (!Array.isArray(sectionPool.questionPool)) {
-          throw new Error(
-            `Invalid questionPool for section ${sectionPool.sectionTitle}`,
-          );
+        const targetSection = paperSetsResult[0].sections[sectionIndex];
+
+        // ------------------------------
+        // CASE 1: Section HAS subQuestions
+        // ------------------------------
+        if (Array.isArray(sectionPool.subQuestions)) {
+          sectionPool.subQuestions.forEach((subQ: any, subIndex: number) => {
+            if (!Array.isArray(subQ.questionPool)) {
+              throw new Error(
+                `Invalid questionPool for subQuestion ${subQ.label} in section ${sectionPool.sectionTitle}`,
+              );
+            }
+
+            subQ.questionPool.forEach((question: any, qIndex: number) => {
+              const setIndex = qIndex % paperSets;
+
+              console.log(
+                "subQuestions: ",
+                paperSetsResult[setIndex].sections[sectionIndex].subQuestions[
+                  subIndex
+                ].questions,
+              );
+
+              paperSetsResult[setIndex].sections[sectionIndex].subQuestions[
+                subIndex
+              ].questions.push(question);
+            });
+          });
         }
 
-        sectionPool.questionPool.forEach((question: any, qIndex: number) => {
-          const setIndex = qIndex % paperSets;
-          paperSetsResult[setIndex].sections[sectionIndex].questions.push(
-            question,
+        // ------------------------------
+        // CASE 2: Section WITHOUT subQuestions
+        // ------------------------------
+        else if (Array.isArray(sectionPool.questionPool)) {
+          sectionPool.questionPool.forEach((question: any, qIndex: number) => {
+            const setIndex = qIndex % paperSets;
+
+            console.log(
+              "questions: ",
+              paperSetsResult[setIndex].sections[sectionIndex].questions,
+            );
+            paperSetsResult[setIndex].sections[sectionIndex].questions.push(
+              question,
+            );
+          });
+        } else {
+          throw new Error(
+            `Invalid structure in section ${sectionPool.sectionTitle}`,
           );
-        });
+        }
       },
     );
 

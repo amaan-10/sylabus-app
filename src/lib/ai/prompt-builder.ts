@@ -59,7 +59,7 @@ Evaluate:
 - Appraise, Assess, Compare, Conclude, Contrast, Criticize, Determine, Discriminate, Estimate, Evaluate, Explain, Grade, Interpret, Judge, Justify, Measure, Predict, Prescribe, Rank, Rate, Recommend, Release, Select, Summarize, Support, Test, Validate, Verify
 
 Create:
-- Abstract, Animate, Arrange, Assemble, Budget, Categorize, Code, Combine, Compile, Compose, Construct, Correspond, Create, Cultivate, Debug, Depict, Design, Develop, Dictate, Enhance, Explain, Facilitate, Format, Formulate, Generalize, Generate, Handle, Import, Improve, Incorporate, Integrate, Interface, Join, Model, Modify, Network, Organize, Outline, Plan, Portray, Prepare, Prescribe, Produce, Program, Rearrange, Reconstruct, Relate, Reorganize, Revise, Rewrite, Specify, Summarize
+- Abstract, Animate, Arrange, Assemble, Budget, Categorize, Code, Combine, Compile, Compose, Construct, Correspond, Create, Cultivate, Debug, Depict, Design, Develop, Dictate, Enhance, Explain, Facilitate, Format, Formulate, Generalize, Handle, Import, Improve, Incorporate, Integrate, Interface, Join, Model, Modify, Network, Organize, Outline, Plan, Portray, Prepare, Prescribe, Produce, Program, Rearrange, Reconstruct, Relate, Reorganize, Revise, Rewrite, Specify, Summarize
 
 The opening verb of each question MUST match its Bloom level.
 
@@ -166,12 +166,42 @@ SECTION BLUEPRINT (SOURCE OF TRUTH)
 ${JSON.stringify(sections, null, 2)}
 
 =====================
+STRUCTURE ADAPTATION RULE (IMPORTANT)
+=====================
+
+The structure of the output MUST strictly follow the input blueprint.
+
+If a section contains:
+- subQuestions → generate subQuestions structure.
+- no subQuestions → generate flat section structure.
+
+DO NOT invent subquestions.
+DO NOT remove subquestions.
+DO NOT change structure.
+
+Mirror the blueprint exactly.
+
+
+=====================
 OUTPUT FORMAT (STRICT JSON ONLY)
 =====================
+
 Return ONLY valid JSON.
 No markdown.
 No comments.
 No extra text.
+
+If blueprint contains subQuestions:
+
+{
+  "mainQuestions": [...]
+}
+
+If blueprint does NOT contain subQuestions:
+
+{
+  "sectionPools": [...]
+}
 
 {
   "sectionPools": [
@@ -179,6 +209,31 @@ No extra text.
       "sectionTitle": "string",
       "expectedCount": number,
       "questionsToAttempt": questionsToAttempt, 
+
+      =====================If blueprint contains subQuestions: =====================
+
+      "subQuestions": [
+        { "label": "string", 
+          "questionPool": [
+            {
+              "question": "string",
+              "questionType": "string",
+              "marks": number,
+              "difficulty": "easy | medium | hard",
+              "bloomsLevel": "Remember | Understand | Apply | Analyze | Evaluate | Create",
+              "options": ["A", "B", "C", "D"],
+              "correctAnswer": "A",
+              "internalChoice": {
+                "question": "string",
+                "marks": number
+              }
+            }
+          ] 
+        }
+      ]
+
+      =====================If blueprint does NOT contain subQuestions:=====================
+
       "questionPool": [
         {
           "question": "string",
