@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { generateCourseJSON } from "@/lib/ai";
+import { generateCourseJSON } from "@/lib/ai/generate-course";
 import PdfJob from "@/models/for-sylabus-institutes/PdfJob";
 import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
 import { CourseSchema, CoursesResponseSchema } from "@/lib/scheme";

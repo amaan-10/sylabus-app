@@ -550,6 +550,43 @@ export async function POST(req: Request) {
       align?: "center" | "top";
     };
 
+    const wrapText = (
+      text: string,
+      maxWidth: number,
+      font: any,
+      fontSize: number,
+    ) => {
+      // First split manual newlines safely
+      const paragraphs = text.split("\n");
+
+      const lines: string[] = [];
+
+      paragraphs.forEach((para) => {
+        const words = para.split(" ");
+        let currentLine = "";
+
+        words.forEach((word) => {
+          const testLine = currentLine ? currentLine + " " + word : word;
+
+          // IMPORTANT: remove any accidental newline
+          const safeTestLine = testLine.replace(/\n/g, "");
+
+          const width = font.widthOfTextAtSize(safeTestLine, fontSize);
+
+          if (width < maxWidth - 6) {
+            currentLine = testLine;
+          } else {
+            if (currentLine) lines.push(currentLine);
+            currentLine = word;
+          }
+        });
+
+        if (currentLine) lines.push(currentLine);
+      });
+
+      return lines;
+    };
+
     const drawCell = (
       text: string,
       x: number,
@@ -570,7 +607,7 @@ export async function POST(req: Request) {
         borderColor: rgb(0, 0, 0),
       });
 
-      const lines = text.split("\n");
+      const lines = wrapText(text, width, TimesFont, fontSize);
       const lineHeight = fontSize + 1;
 
       let startY: number;
@@ -578,8 +615,10 @@ export async function POST(req: Request) {
       if (align === "top") {
         startY = y + height - fontSize - 4;
       } else {
-        const totalTextHeight = lines.length * fontSize;
-        startY = y + (height - totalTextHeight) / 2 + 2;
+        const totalTextHeight = (lines.length - 1) * lineHeight + fontSize;
+
+        startY =
+          y + (height - totalTextHeight) / 2 + totalTextHeight - fontSize;
       }
 
       lines.forEach((line) => {
@@ -615,13 +654,45 @@ export async function POST(req: Request) {
     }[] = [];
 
     paperSet.sections.forEach((section: any, sIdx: number) => {
-      section.questions.forEach((q: any, qIdx: number) => {
-        flatQuestions.push({
-          label: `Q${sIdx + 1}${String.fromCharCode(97 + qIdx)}`,
-          bloom: BLOOM_LABELS[q.bloomsLevel] ?? q.bloomsLevel,
-          sectionIndex: sIdx,
+      const hasSub = section.subQuestions?.length > 0;
+
+      if (hasSub) {
+        // 🔹 A., B., C.
+        section.subQuestions.forEach((sub: any, subIdx: number) => {
+          const bloomLevels = (sub.questions || [])
+            .map((q: any) => {
+              const bloom = BLOOM_LABELS[q.bloomsLevel];
+
+              if (q.internalChoice) {
+                return `${bloom}, ${bloom}`;
+              }
+
+              return bloom;
+            })
+            .join(", ");
+
+          flatQuestions.push({
+            label: String.fromCharCode(65 + subIdx), // A, B
+            bloom: bloomLevels,
+            sectionIndex: sIdx,
+          });
         });
-      });
+      } else {
+        // 🔹 a., b., c.
+        section.questions.forEach((q: any, qIdx: number) => {
+          let bloom = BLOOM_LABELS[q.bloomsLevel];
+
+          if (q.internalChoice) {
+            bloom = `${bloom}, ${bloom}`;
+          }
+
+          flatQuestions.push({
+            label: String.fromCharCode(97 + qIdx), // a, b
+            bloom,
+            sectionIndex: sIdx,
+          });
+        });
+      }
     });
 
     const TOTAL_COLUMNS = FIXED_COLUMNS + flatQuestions.length;
@@ -634,11 +705,6 @@ export async function POST(req: Request) {
     const maxDynamicCols = Math.floor(
       (AVAILABLE_WIDTH - FIXED_COLUMNS * colWidth) / colWidth,
     );
-
-    const sectionMeta = paperSet.sections.map((section: any, sIdx: number) => ({
-      title: `Q.${sIdx + 1}`,
-      count: section.questions.length,
-    }));
 
     // Split into blocks
     for (let i = 0; i < flatQuestions.length; i += maxDynamicCols) {
@@ -678,13 +744,7 @@ export async function POST(req: Request) {
       // -------- Row 2: a b c --------
       x = MARGIN_LEFT + colWidth * 3;
       block.forEach((q) => {
-        drawCell(
-          q.label.slice(-1) + ".",
-          x,
-          y - rowHeight,
-          colWidth,
-          rowHeight,
-        );
+        drawCell(q.label + ".", x, y - rowHeight, colWidth, rowHeight);
         x += colWidth;
       });
 
@@ -692,11 +752,23 @@ export async function POST(req: Request) {
       y -= rowHeight * 2;
       x = MARGIN_LEFT;
 
-      const bloomLabel = "Bloom’s\nTaxonomy level";
+      const bloomLabel = "Bloom's\nTaxonomy level";
       const fontSize = 9;
 
-      const bloomLines = bloomLabel.split("\n").length;
-      const BLOOM_CELL_HEIGHT = Math.max(rowHeight, bloomLines * fontSize + 10);
+      // First calculate max lines needed in this block
+      let maxLines = 1;
+
+      block.forEach((q) => {
+        const wrapped = wrapText(q.bloom, colWidth, TimesFont, fontSize);
+        if (wrapped.length > maxLines) {
+          maxLines = wrapped.length;
+        }
+      });
+
+      const BLOOM_CELL_HEIGHT = Math.max(
+        rowHeight,
+        maxLines * (fontSize + 2) + 8,
+      );
 
       // Amount by which height increased
       const heightDelta = BLOOM_CELL_HEIGHT - rowHeight;
@@ -707,15 +779,14 @@ export async function POST(req: Request) {
       x = MARGIN_LEFT;
 
       // Left label cell
-      drawCell(bloomLabel, x, y, colWidth * 3, BLOOM_CELL_HEIGHT, {
+      drawCell(bloomLabel, x, y - 10, colWidth * 3, BLOOM_CELL_HEIGHT + 10, {
         fontSize: fontSize,
-        align: "top",
       });
       x += colWidth * 3;
 
       // Bloom value cells
       block.forEach((q) => {
-        drawCell(q.bloom, x, y, colWidth, BLOOM_CELL_HEIGHT, {
+        drawCell(q.bloom, x, y - 10, colWidth, BLOOM_CELL_HEIGHT + 10, {
           fontSize: fontSize,
         });
         x += colWidth;
