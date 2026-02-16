@@ -91,6 +91,7 @@ export async function generateCompletePaperSets({
               // Initialize subQuestions properly
               subQuestions: section.subQuestions.map((sub: any) => ({
                 label: sub.label,
+                questionsToAttempt: sub.questionsToAttempt,
                 questions: [] as Question[], // IMPORTANT
               })),
 
