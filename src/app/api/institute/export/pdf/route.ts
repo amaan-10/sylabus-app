@@ -275,11 +275,25 @@ export async function POST(req: Request) {
     y -= 20;
 
     const calculateSectionMarks = (section: any) => {
-      return section.questions
-        .map((q: any) => q.marks)
+      // 🔹 If section has subQuestions
+      if (section.subQuestions?.length > 0) {
+        return section.subQuestions.reduce((subSum: number, sub: any) => {
+          const subTotal = (sub.questions || [])
+            .map((q: any) => q.marks || 0)
+            .sort((a: number, b: number) => b - a)
+            .slice(0, sub.questionsToAttempt || 0)
+            .reduce((sum: number, m: number) => sum + m, 0);
+
+          return subSum + subTotal;
+        }, 0);
+      }
+
+      // 🔹 Normal section
+      return (section.questions || [])
+        .map((q: any) => q.marks || 0)
         .sort((a: number, b: number) => b - a)
-        .slice(0, section.questionsToAttempt)
-        .reduce((a: number, b: number) => a + b, 0);
+        .slice(0, section.questionsToAttempt || 0)
+        .reduce((sum: number, m: number) => sum + m, 0);
     };
 
     const totalMaxMarks = paperSet.sections.reduce(
@@ -408,7 +422,8 @@ export async function POST(req: Request) {
 
     y -= 18;
 
-    paperSet.sections.forEach(async (section: any, sIdx: number) => {
+    for (let sIdx = 0; sIdx < paperSet.sections.length; sIdx++) {
+      const section = paperSet.sections[sIdx];
       const marks = section.questions
         .map((q: any) => q.marks)
         .sort((a: number, b: number) => b - a)
@@ -421,7 +436,7 @@ export async function POST(req: Request) {
             ? `(Attempt ANY ${numberToWords(section.questionsToAttempt).toUpperCase()})`
             : ``
         }`,
-        `[${marks}]`,
+        section.questions.length > 0 ? `[${marks}]` : ``,
         y,
         60,
         12,
@@ -430,36 +445,44 @@ export async function POST(req: Request) {
 
       y -= 22;
 
-      for (let qIdx = 0; qIdx < section.questions.length; qIdx++) {
-        const q = section.questions[qIdx];
-        const label = `${String.fromCharCode(97 + qIdx)})`;
+      const LABEL_X = 80;
+      const CONTENT_X = 100;
+      const QUESTION_WIDTH = 400; // adjust based on your layout
 
-        // 1️⃣ Main Question
-        drawQuestionWithLabel(label, q.question, 12, 80, 12, TimesFont);
+      const renderFullQuestion = async (
+        questionObj: any,
+        label: string,
+        x = 80,
+      ) => {
+        drawQuestionWithLabel(
+          label,
+          questionObj.question,
+          12,
+          x,
+          12,
+          TimesFont,
+        );
 
-        // 2️⃣ MCQ Options
-        if (q.questionType === "MCQ" && q.options?.length > 0) {
+        // MCQ
+        if (
+          questionObj.questionType === "MCQ" &&
+          questionObj.options?.length > 0
+        ) {
           y -= 4;
-
-          drawMCQOptions(
-            q.options,
-            100, // same indentation area
-            12,
-            TimesFont,
-          );
+          drawMCQOptions(questionObj.options, 100, 12, TimesFont);
         }
 
-        // 3️⃣ Sub-questions (same area)
-        if (q.subQuestions?.length) {
+        // SubQuestions
+        if (questionObj.subQuestions?.length) {
           y -= 4;
 
-          q.subQuestions.forEach((sq: any, i: number) => {
-            const text = `${toRoman(i + 1).toLowerCase()}) ${sq.question} (${sq.marks})`;
+          questionObj.subQuestions.forEach((sq: any, i: number) => {
+            const text = `${toRoman(i + 1).toLowerCase()}) ${sq.question}`;
 
             page.drawText(text, {
-              x: 100, // same indent as MCQ
+              x: 110,
               y,
-              size: 10,
+              size: 12,
               font: TimesFont,
             });
 
@@ -467,18 +490,15 @@ export async function POST(req: Request) {
           });
         }
 
-        // 4️⃣ Image (same flow)
-        function base64ToBytes(base64: string): Uint8Array {
-          return Uint8Array.from(Buffer.from(base64.split(",")[1], "base64"));
-        }
+        // Image
+        if (questionObj.image?.base64) {
+          const bytes = Uint8Array.from(
+            Buffer.from(questionObj.image.base64.split(",")[1], "base64"),
+          );
 
-        if (q.image?.base64) {
-          const bytes = base64ToBytes(q.image.base64);
-
-          // 🧠 safer image type detection
           const isJpeg =
-            q.image.type === "image/jpeg" ||
-            q.image.base64.startsWith("data:image/jpeg");
+            questionObj.image.type === "image/jpeg" ||
+            questionObj.image.base64.startsWith("data:image/jpeg");
 
           const img = isJpeg
             ? await pdfDoc.embedJpg(bytes)
@@ -486,12 +506,6 @@ export async function POST(req: Request) {
 
           const imgWidth = 100;
           const imgHeight = (img.height / img.width) * imgWidth;
-
-          // ⚠️ page-break guard
-          // if (y - imgHeight < 50) {
-          //   page = pdfDoc.addPage();
-          //   y = page.getHeight() - 60;
-          // }
 
           page.drawImage(img, {
             x: 100,
@@ -503,46 +517,142 @@ export async function POST(req: Request) {
           y -= imgHeight + 10;
         }
 
-        // 5️⃣ Table (same flow, same area)
-        if (q.table) {
+        // Table
+        if (questionObj.table) {
           const cellWidth = 60;
           const cellHeight = 18;
           y -= 10;
 
-          q.table.data.forEach((row: string[], r: number) => {
+          questionObj.table.data.forEach((row: string[], r: number) => {
             row.forEach((cell: string, c: number) => {
-              const x = 100 + c * cellWidth;
+              const x = 110 + c * cellWidth;
               const cellY = y - r * cellHeight;
 
-              // Border
               page.drawRectangle({
                 x,
                 y: cellY,
                 width: cellWidth,
                 height: cellHeight,
                 borderWidth: 0.5,
-                borderColor: rgb(0.7, 0.7, 0.7),
+                borderColor: rgb(0, 0, 0),
               });
 
-              // Text
               page.drawText(cell || "—", {
                 x: x + 4,
                 y: cellY + 5,
-                size: 9,
+                size: 12,
                 font: TimesFont,
               });
             });
           });
 
-          y -= q.table.data.length * cellHeight + 8;
+          y -= questionObj.table.data.length * cellHeight + 8;
         }
 
-        // 6️⃣ Space after question block
         y -= 6;
+      };
+
+      if (section.subQuestions?.length > 0) {
+        for (let subIdx = 0; subIdx < section.subQuestions.length; subIdx++) {
+          const sub = section.subQuestions[subIdx];
+
+          // SubQuestion Header Label (A., B., C.)
+          const subLabel = `${String.fromCharCode(65 + subIdx)}.`;
+
+          // Calculate marks for sub block
+          const subMarks = sub.questions
+            .map((q: any) => q.marks)
+            .sort((a: number, b: number) => b - a)
+            .slice(0, sub.questionsToAttempt)
+            .reduce((a: number, b: number) => a + b, 0);
+
+          // Draw SubQuestion Header Line
+          drawLR(
+            `${subLabel} ${sub.label}`,
+            `[${subMarks}]`,
+            y,
+            80,
+            12,
+            TimesBold,
+          );
+
+          y -= 18;
+
+          // Reset inner alphabet counter
+          let innerLetterIndex = 0;
+
+          for (let qIdx = 0; qIdx < sub.questions.length; qIdx++) {
+            const q = sub.questions[qIdx];
+
+            const mainLabel = `${String.fromCharCode(97 + innerLetterIndex)}.`;
+            innerLetterIndex++;
+
+            await renderFullQuestion(q, mainLabel, 90);
+
+            if (q.internalChoice) {
+              y += 4;
+              const orText = "OR";
+              const fontSize = 12;
+              const orWidth = TimesFont.widthOfTextAtSize(orText, fontSize);
+              const orX = CONTENT_X + (QUESTION_WIDTH - orWidth) / 2;
+
+              page.drawText(orText, {
+                x: orX,
+                y,
+                size: fontSize,
+                font: TimesFont,
+              });
+
+              y -= 16;
+
+              const internalLabel = `${String.fromCharCode(
+                97 + innerLetterIndex,
+              )}.`;
+              innerLetterIndex++;
+
+              await renderFullQuestion(q.internalChoice, internalLabel, 90);
+            }
+          }
+
+          y -= 10;
+        }
+      } else {
+        let letterIndex = 0;
+
+        for (let qIdx = 0; qIdx < section.questions.length; qIdx++) {
+          const q = section.questions[qIdx];
+
+          const mainLabel = `${String.fromCharCode(97 + letterIndex)}.`;
+          letterIndex++;
+
+          await renderFullQuestion(q, mainLabel);
+
+          if (q.internalChoice) {
+            y += 4;
+            const orText = "OR";
+            const fontSize = 12;
+            const orWidth = TimesFont.widthOfTextAtSize(orText, fontSize);
+            const orX = CONTENT_X + (QUESTION_WIDTH - orWidth) / 2;
+
+            page.drawText(orText, {
+              x: orX,
+              y,
+              size: fontSize,
+              font: TimesFont,
+            });
+
+            y -= 16;
+
+            const internalLabel = `${String.fromCharCode(97 + letterIndex)}.`;
+            letterIndex++;
+
+            await renderFullQuestion(q.internalChoice, internalLabel);
+          }
+        }
       }
 
       y -= 8;
-    });
+    }
 
     // ---------------- BLOOM TABLE (UNIVERSITY FORMAT) ----------------
     type CellOptions = {
