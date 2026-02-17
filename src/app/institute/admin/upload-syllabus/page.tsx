@@ -413,7 +413,7 @@ export default function UploadPdfPage() {
                         <p className="text-slate-600">Click to upload PDF</p>
                       )}
                       <p className="text-xs text-slate-500">
-                        PDF only • Max 2MB
+                        PDF only • Max 5MB
                       </p>
                     </div>
                   </div>
