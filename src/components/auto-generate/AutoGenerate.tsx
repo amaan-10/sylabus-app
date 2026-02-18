@@ -256,6 +256,36 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
     }
   }
 
+  const [totalMarks, setTotalMarks] = useState(0);
+  useEffect(() => {
+    let total = 0;
+
+    currentPaperSet.sections.forEach((section: any) => {
+      if (section.subQuestions?.length > 0) {
+        section.subQuestions.forEach((sub: any) => {
+          const subTotal = (sub.questions || [])
+            .map((q: any) => q.marks || 0)
+            .sort((a: number, b: number) => b - a)
+            .slice(0, sub.questionsToAttempt || 0)
+            .reduce((sum: number, m: number) => sum + m, 0);
+
+          total += subTotal;
+        });
+      } else {
+        const sectionTotal = (section.questions || [])
+          .map((q: any) => q.marks || 0)
+          .sort((a: number, b: number) => b - a)
+          .slice(0, section.questionsToAttempt || 0)
+          .reduce((sum: number, m: number) => sum + m, 0);
+
+        total += sectionTotal;
+      }
+    });
+
+    console.log("total:", total);
+    setTotalMarks(total);
+  }, [currentPaperSet]);
+
   return (
     <div className="w-full px-10 space-y-8">
       {/* Header */}
@@ -311,7 +341,7 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
                   Time: 2 Hours
                 </span>
                 <span className="font-bold text-base leading-none">
-                  Max. Marks: 30
+                  Max. Marks: {totalMarks}
                 </span>
               </div>
               <div className="ml-4 mt-2 font-bold text-base italic">
@@ -392,13 +422,17 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
               ) : null}
             </span>
             <span className="text-lg font-semibold text-slate-900 mb-2 mr-5">
-              [
-              {section.questions
-                .map((q: any) => q.marks)
-                .sort((a: any, b: any) => b - a)
-                .slice(0, section.questionsToAttempt)
-                .reduce((sum: any, m: any) => sum + m, 0)}
-              ]
+              {section.questions.length > 0 && (
+                <>
+                  [
+                  {section.questions
+                    .map((q: any) => q.marks)
+                    .sort((a: any, b: any) => b - a)
+                    .slice(0, section.questionsToAttempt)
+                    .reduce((sum: any, m: any) => sum + m, 0)}
+                  ]
+                </>
+              )}
             </span>
           </div>
 
@@ -448,9 +482,25 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
             {section.subQuestions?.map((group: any, groupIdx: number) => (
               <div key={groupIdx} className="mb-6">
                 {/* Group Label */}
-                <h4 className="font-semibold mb-3">
-                  {String.fromCharCode(65 + groupIdx)}. {group.label}
-                </h4>
+                <div className="flex justify-between gap-3">
+                  <h4 className="font-semibold mb-3">
+                    {String.fromCharCode(65 + groupIdx)}. {group.label}
+                  </h4>
+                  <span className="text-lg font-semibold text-slate-900 mb-2 mr-5">
+                    {section.subQuestions.length > 0 && (
+                      <>
+                        [
+                        {section.subQuestions
+                          ?.flatMap((sub: any) => sub.questions ?? [])
+                          ?.map((q: any) => q.marks ?? 0)
+                          ?.sort((a: number, b: number) => b - a)
+                          ?.slice(0, group.questionsToAttempt ?? 0)
+                          ?.reduce((sum: number, m: number) => sum + m, 0) ?? 0}
+                        ]
+                      </>
+                    )}
+                  </span>
+                </div>
 
                 {/* Questions inside group */}
                 {group.questions?.map((q: any, qIdx: number) => (

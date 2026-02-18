@@ -3,6 +3,7 @@ type Question = {
 };
 
 type Section = {
+  subQuestions: Question[];
   sectionTitle: string;
   questions: Question[];
 };
@@ -32,6 +33,18 @@ const BLOOM_LABELS: Record<string, string> = {
 export default function SectionWiseBloomTable({ sections }: Props) {
   console.log("sections: ", sections);
 
+  const hasSubQuestions = (section: any) => section.subQuestions?.length > 0;
+
+  const getBloomLabelWithInternal = (question: any) => {
+    const bloom = BLOOM_LABELS[question.bloomsLevel];
+
+    if (question.internalChoice) {
+      return `${bloom}, ${bloom}`;
+    }
+
+    return bloom;
+  };
+
   return (
     <div className="mt-8 overflow-x-auto overflow-y-hidden">
       <h3 className="text-lg font-semibold mb-4">
@@ -46,31 +59,46 @@ export default function SectionWiseBloomTable({ sections }: Props) {
               Questions
             </th>
 
-            {sections.map((section, sectionIdx) => (
-              <th
-                key={sectionIdx}
-                colSpan={section.questions.length}
-                className="border px-3 py-2 text-center"
-              >
-                Q. {sectionIdx + 1}.
-              </th>
-            ))}
+            {sections.map((section, sectionIdx) => {
+              const count = hasSubQuestions(section)
+                ? section.subQuestions.length
+                : section.questions.length;
+
+              return (
+                <th
+                  key={sectionIdx}
+                  colSpan={count}
+                  className="border px-3 py-2 text-center"
+                >
+                  Q. {sectionIdx + 1}.
+                </th>
+              );
+            })}
           </tr>
 
           {/* 🔹 Row 2: Sub-question numbers */}
           <tr>
-            {/* <th className="border px-3 py-2 text-center">Q.No.</th> */}
+            {sections.map((section, sectionIdx) => {
+              if (hasSubQuestions(section)) {
+                return section.subQuestions.map((_: any, subIdx: number) => (
+                  <th
+                    key={`${sectionIdx}-${subIdx}`}
+                    className="border px-3 py-2 text-center font-medium"
+                  >
+                    {String.fromCharCode(65 + subIdx)}.
+                  </th>
+                ));
+              }
 
-            {sections.map((section, sectionIdx) =>
-              section.questions.map((_, qIdx) => (
+              return section.questions.map((_: any, qIdx: number) => (
                 <th
                   key={`${sectionIdx}-${qIdx}`}
                   className="border px-3 py-2 text-center font-medium"
                 >
                   {String.fromCharCode(97 + qIdx)}.
                 </th>
-              )),
-            )}
+              ));
+            })}
           </tr>
         </thead>
 
@@ -80,16 +108,33 @@ export default function SectionWiseBloomTable({ sections }: Props) {
               Bloom's Taxonomy level
             </th>
 
-            {sections.map((section, sectionIdx) =>
-              section.questions.map((q, qIdx) => (
+            {sections.map((section, sectionIdx) => {
+              if (hasSubQuestions(section)) {
+                return section.subQuestions.map((sub: any, subIdx: number) => {
+                  const bloomLevels = (sub.questions || [])
+                    .map((q: any) => getBloomLabelWithInternal(q))
+                    .join(", ");
+
+                  return (
+                    <th
+                      key={`${sectionIdx}-${subIdx}`}
+                      className="border px-3 py-2 text-center font-medium"
+                    >
+                      {bloomLevels}
+                    </th>
+                  );
+                });
+              }
+
+              return section.questions.map((q: any, qIdx: number) => (
                 <th
                   key={`${sectionIdx}-${qIdx}`}
                   className="border px-3 py-2 text-center font-medium"
                 >
-                  {BLOOM_LABELS[q.bloomsLevel]}
+                  {getBloomLabelWithInternal(q)}
                 </th>
-              )),
-            )}
+              ));
+            })}
           </tr>
         </tbody>
       </table>
