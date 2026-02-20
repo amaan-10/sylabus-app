@@ -8,6 +8,15 @@ import {
   NotepadText,
   Sparkle,
   Sparkles,
+  TrendingUp,
+  FileText,
+  PlusCircle,
+  Brain,
+  BarChart3,
+  Clock,
+  GraduationCap,
+  School,
+  Globe,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,6 +30,47 @@ import {
   MediumSlug,
 } from "@/lib/subjects";
 import LoaderWrapper from "./PageLoader";
+import { motion } from "framer-motion";
+
+/* ---------------- MOCK TEACHER DATA ---------------- */
+
+const teacher = {
+  name: "Amaan Shaikh",
+  board: "CBSE",
+  medium: "English",
+  classes: ["9", "10"],
+  userTier: "Pro",
+  joined: "Jan 2025",
+  email: "amaan@school.com",
+};
+
+/* ---------------- STATS ---------------- */
+const stats = [
+  {
+    title: "Total Papers",
+    value: "124",
+    icon: FileText,
+    gradient: "from-indigo-500 to-purple-500",
+  },
+  {
+    title: "Drafts",
+    value: "8",
+    icon: Clock,
+    gradient: "from-orange-500 to-pink-500",
+  },
+  {
+    title: "Assigned Subjects",
+    value: "5",
+    icon: BarChart3,
+    gradient: "from-emerald-500 to-teal-500",
+  },
+  {
+    title: "AI Suggestions Used",
+    value: "63%",
+    icon: Brain,
+    gradient: "from-cyan-500 to-blue-500",
+  },
+];
 
 type UserData = {
   firebaseUid: string;
@@ -263,7 +313,7 @@ const Dashboard = () => {
   const subjects = getSubjectsFor(
     formattedBoard as BoardSlug,
     formattedMedium as MediumSlug,
-    formattedClassLevel as ClassKey
+    formattedClassLevel as ClassKey,
   );
 
   const SUBJECT_IMAGE_MAP: Record<string, string> = {
@@ -312,12 +362,12 @@ const Dashboard = () => {
       const entries = await Promise.all(
         subjects.map(async (s) => {
           const res = await fetch(
-            `/api/subject-stats?board=${formattedBoard}&medium=${formattedMedium}&classKey=${formattedClassLevel}&subjectSlug=${s.slug}`
+            `/api/subject-stats?board=${formattedBoard}&medium=${formattedMedium}&classKey=${formattedClassLevel}&subjectSlug=${s.slug}`,
           );
 
           const stats = await res.json();
           return [s.slug, stats];
-        })
+        }),
       );
 
       setSubjectStats(Object.fromEntries(entries));
@@ -337,7 +387,7 @@ const Dashboard = () => {
       id:
         `${formattedBoard?.slice(0, 2)}-${formattedMedium?.slice(
           0,
-          3
+          3,
         )}-${classToSlug(userData?.classLevel)}-${subject.code}` || "",
 
       imgSrc: SUBJECT_IMAGE_MAP[subject.code] ?? DEFAULT_SUBJECT_IMAGE,
@@ -345,8 +395,8 @@ const Dashboard = () => {
       imgAlt: subject.code ?? "subject",
 
       title: FULL_NAME_SUBJECTS.includes(subject.shortName ?? "")
-        ? subject.name ?? subject.shortName ?? "Unknown Subject"
-        : subject.shortName ?? subject.name ?? "Unknown Subject",
+        ? (subject.name ?? subject.shortName ?? "Unknown Subject")
+        : (subject.shortName ?? subject.name ?? "Unknown Subject"),
 
       board: userData?.board?.toUpperCase() ?? "",
 
@@ -419,7 +469,7 @@ const Dashboard = () => {
 
     const loadSaved = async () => {
       const res = await fetch(
-        `/api/saved-subjects?userId=${userData.firebaseUid}`
+        `/api/saved-subjects?userId=${userData.firebaseUid}`,
       );
 
       const saved = await res.json();
@@ -438,7 +488,7 @@ const Dashboard = () => {
 
     // ✅ Optimistic UI update
     setSavedSubjectIds((prev) =>
-      isSaved ? prev.filter((id) => id !== subject.id) : [...prev, subject.id]
+      isSaved ? prev.filter((id) => id !== subject.id) : [...prev, subject.id],
     );
 
     try {
@@ -454,7 +504,9 @@ const Dashboard = () => {
     } catch (err) {
       // rollback
       setSavedSubjectIds((prev) =>
-        isSaved ? [...prev, subject.id] : prev.filter((id) => id !== subject.id)
+        isSaved
+          ? [...prev, subject.id]
+          : prev.filter((id) => id !== subject.id),
       );
     }
   };
@@ -800,6 +852,213 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+        <div className="min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-100 text-gray-900 p-6">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold">Teacher Dashboard</h1>
+            <button className="flex items-center gap-2 bg-linear-to-r from-indigo-500 to-purple-500 text-white px-5 py-2 rounded-xl shadow-md hover:scale-105 transition">
+              <PlusCircle size={18} />
+              Generate New Paper
+            </button>
+          </div>
+
+          {/* ================= PROFILE CARD ================= */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-10"
+          >
+            <div className="flex flex-col md:flex-row justify-between gap-6">
+              {/* Left Section */}
+              <div className="flex items-start gap-5">
+                <div className="w-16 h-16 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl font-bold">
+                  {teacher.name.charAt(0)}
+                </div>
+
+                <div>
+                  <h2 className="text-xl font-semibold">{teacher.name}</h2>
+                  <p className="text-gray-500 text-sm">{teacher.email}</p>
+
+                  <div className="flex flex-wrap gap-3 mt-3 text-sm text-gray-700">
+                    <div className="flex items-center gap-2">
+                      <School size={16} className="text-indigo-500" />
+                      {teacher.board}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Globe size={16} className="text-green-500" />
+                      {teacher.medium}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <GraduationCap size={16} className="text-orange-500" />
+                      Class {teacher.classes.join(", ")}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Section */}
+              <div className="flex flex-col items-start md:items-end justify-between gap-4">
+                <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-100 text-yellow-700 text-sm font-medium">
+                  <Crown size={14} />
+                  {teacher.userTier} Plan
+                </div>
+
+                <div className="text-sm text-gray-500">
+                  Member since {teacher.joined}
+                </div>
+
+                <div className="w-full md:w-64">
+                  <p className="text-xs text-gray-500 mb-1">
+                    Monthly Usage (63%)
+                  </p>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-indigo-500 h-2 rounded-full w-[63%]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ================= STATS ================= */}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.03 }}
+                  className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition relative overflow-hidden"
+                >
+                  <div
+                    className={`absolute top-0 right-0 w-32 h-32 bg-linear-to-br ${stat.gradient} opacity-10 rounded-full blur-2xl`}
+                  />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-gray-500 text-sm">{stat.title}</p>
+                      <h2 className="text-2xl font-bold mt-2">{stat.value}</h2>
+                    </div>
+                    <div
+                      className={`p-3 rounded-xl bg-linear-to-br ${stat.gradient} text-white`}
+                    >
+                      <Icon size={20} />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Layout */}
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            {/* Left */}
+            <div className="xl:col-span-2 space-y-8">
+              {/* Recent Papers */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <h2 className="text-xl font-semibold mb-6">Recent Papers</h2>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-sm">
+                    <thead>
+                      <tr className="text-gray-500 border-b border-gray-200">
+                        <th className="pb-3">Paper</th>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {["Mid Term", "Unit Test 1", "Prelims"].map(
+                        (paper, index) => (
+                          <tr
+                            key={index}
+                            className="border-b border-gray-100 hover:bg-gray-50 transition"
+                          >
+                            <td className="py-4 font-medium">{paper}</td>
+                            <td>Mathematics</td>
+                            <td>80</td>
+                            <td>
+                              <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-xs font-medium">
+                                Final
+                              </span>
+                            </td>
+                            <td>18 Feb 2026</td>
+                          </tr>
+                        ),
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Smart Insights */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <h2 className="text-xl font-semibold mb-6">Smart Insights</h2>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <InsightCard
+                    title="Syllabus Coverage"
+                    value="82%"
+                    color="text-indigo-600"
+                  />
+                  <InsightCard
+                    title="Difficulty Balance"
+                    value="Well Balanced"
+                    color="text-emerald-600"
+                  />
+                  <InsightCard
+                    title="Underused Chapters"
+                    value="2 Chapters"
+                    color="text-orange-600"
+                  />
+                  <InsightCard
+                    title="Predicted Difficulty"
+                    value="Medium-Hard"
+                    color="text-cyan-600"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right */}
+            <div className="space-y-8">
+              {/* AI Recommendation */}
+              <div className="bg-linear-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="text-indigo-600" size={20} />
+                  <h2 className="text-lg font-semibold text-indigo-700">
+                    AI Recommendation
+                  </h2>
+                </div>
+                <p className="text-gray-700 text-sm">
+                  Chapter 3 is underrepresented. Consider adding 2 medium-level
+                  questions to maintain syllabus balance.
+                </p>
+                <button className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white transition rounded-lg py-2 text-sm shadow-sm">
+                  Apply Suggestion
+                </button>
+              </div>
+
+              {/* Activity Panel */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <h2 className="text-lg font-semibold mb-4">
+                  Activity Overview
+                </h2>
+
+                <div className="space-y-4 text-sm text-gray-700">
+                  <ActivityItem text="Generated Mid Term Paper" />
+                  <ActivityItem text="Edited Draft - Unit Test 1" />
+                  <ActivityItem text="Added 5 New Questions" />
+                  <ActivityItem text="Downloaded Final Paper PDF" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="flex-none h-auto relative w-full">
           <div className="flex place-content-center items-center flex-col gap-2.5 h-min overflow-hidden p-0 relative w-full">
             <div className="flex place-content-center justify-between items-center flex-none flex-row h-min max-w-[1200px] overflow-visible p-0 relative w-full">
@@ -980,3 +1239,34 @@ const classToSlug = (value?: string): string => {
   // plain classes (8, 9, 10)
   return cls;
 };
+
+/* Sub Components */
+
+function InsightCard({
+  title,
+  value,
+  color,
+}: {
+  title: string;
+  value: string;
+  color: string;
+}) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      className="bg-gray-50 border border-gray-200 p-5 rounded-xl"
+    >
+      <p className="text-gray-500 text-sm">{title}</p>
+      <h3 className={`mt-2 text-lg font-semibold ${color}`}>{value}</h3>
+    </motion.div>
+  );
+}
+
+function ActivityItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-center gap-3 hover:text-black transition">
+      <TrendingUp size={16} className="text-gray-500" />
+      {text}
+    </div>
+  );
+}
