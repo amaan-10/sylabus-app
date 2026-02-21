@@ -36,14 +36,6 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("RAW sections:", sections);
-    console.log(
-      "RAW sections subQuestions:",
-      sections.find((section: any) => section.subQuestions)?.subQuestions,
-    );
-    console.log("Array.isArray(sections):", Array.isArray(sections));
-    console.log("sections.constructor:", sections?.constructor?.name);
-
     if (!paperSets || paperSets < 1) {
       console.error("paperSets must be >= 1");
       return NextResponse.json(

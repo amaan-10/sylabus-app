@@ -7,7 +7,6 @@ export async function POST(req: Request) {
   try {
     await connectToInstituteDB();
     const { name, email, password, instituteId } = await req.json();
-    console.log("form data: ", name, email, password, instituteId);
 
     if (!name || !email || !password || !instituteId) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
@@ -22,8 +21,6 @@ export async function POST(req: Request) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    console.log("hashedPassword", hashedPassword);
 
     const user = await InstituteUser.create({
       name,

@@ -12,14 +12,12 @@ export async function GET(req: Request) {
     if (!query) {
       return NextResponse.json([]);
     }
-    console.log("query", query);
 
     const institutes = await Institute.find({
       name: { $regex: query, $options: "i" },
     })
       .select("_id name abbreviation location logoUrl")
       .limit(10);
-    console.log("institutes", institutes);
 
     return NextResponse.json(institutes);
   } catch (error) {
