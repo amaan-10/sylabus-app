@@ -254,7 +254,6 @@ export const SchoolNameDialog: React.FC<Props> = ({
               <button
                 onClick={async () => {
                   const imageUrl = await uploadImage();
-                  console.log("imageUrl", imageUrl);
                   onSave({
                     ...data,
                     logo: imageUrl,

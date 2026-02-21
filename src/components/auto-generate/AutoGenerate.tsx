@@ -123,7 +123,6 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
         }
 
         const data = await res.json();
-        console.log("Generated Paper:", data);
         setPaper(data);
       } catch (err: any) {
         setError(err.message || "Something went wrong");
@@ -282,7 +281,6 @@ const GeneratedPaperView = ({ initialPaper }: { initialPaper: any }) => {
       }
     });
 
-    console.log("total:", total);
     setTotalMarks(total);
   }, [currentPaperSet]);
 
@@ -1393,8 +1391,6 @@ const SelectionGate = () => {
       `./auto-generate?program=${selectedCourse.programId}&semester=${selectedCourse.semester}&course=${selectedCourse.courseCode}&paperSets=${paperSets}&examTitle=${examTitle}&blueprint=${encodeURIComponent(JSON.stringify(blueprint))}`,
     );
   };
-
-  console.log(selectedCourse);
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-100 flex items-center justify-center p-4 font-poppins">

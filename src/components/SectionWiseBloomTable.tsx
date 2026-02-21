@@ -31,8 +31,6 @@ const BLOOM_LABELS: Record<string, string> = {
 };
 
 export default function SectionWiseBloomTable({ sections }: Props) {
-  console.log("sections: ", sections);
-
   const hasSubQuestions = (section: any) => section.subQuestions?.length > 0;
 
   const getBloomLabelWithInternal = (question: any) => {

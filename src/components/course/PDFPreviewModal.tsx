@@ -200,8 +200,6 @@ export const PDFPreviewModal = ({
 
   const resolvedPattern = EXAM_PATTERN_12_SCIENCE[examKey as ScienceSubjectKey];
 
-  console.log("resolvedPattern", resolvedPattern);
-
   /* ---------------- PAYLOAD ---------------- */
   const pdfPayload = useMemo(
     () => ({
@@ -242,7 +240,6 @@ export const PDFPreviewModal = ({
           ? examPatternTotalMarks
           : selectedForPDF.reduce((s: number, q: any) => s + q.marks, 0),
     };
-    console.log(payload);
 
     const res = await fetch("/api/question-papers", {
       method: "POST",
