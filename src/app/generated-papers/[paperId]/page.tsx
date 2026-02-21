@@ -93,8 +93,6 @@ const SavedPaperDetailPage = () => {
   const selectedForPDF =
     paperMode === "exam" ? Object.values(sectionedSelected).flat() : selected;
 
-  console.log(previewOpen);
-
   return (
     <div className="flex place-content-start items-start bg-white flex-row gap-2 h-min overflow-hidden py-2 px-2 pl-[104px] relative min-h-screen w-auto font-poppins">
       <Sidebar />

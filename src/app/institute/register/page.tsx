@@ -29,7 +29,6 @@ export default function RegisterPage() {
     const timeout = setTimeout(async () => {
       const res = await fetch(`/api/institute/search/institute?q=${query}`);
       const data = await res.json();
-      console.log("data", data);
       setResults(data);
     }, 300);
 
@@ -44,7 +43,6 @@ export default function RegisterPage() {
       alert("Please select an institute from the dropdown");
       return;
     }
-    console.log("form", form);
     const res = await fetch("/api/institute/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
