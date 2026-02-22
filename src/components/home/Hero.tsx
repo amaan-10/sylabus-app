@@ -4,20 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { fadeUp, fadeUpFromBottom, parentStagger } from "../animations";
 import { motion } from "framer-motion";
+import { Download, FileText, LogIn, SlidersHorizontal } from "lucide-react";
 
 const Hero = ({ hasSession }: { hasSession: boolean }) => {
   const steps = [
     {
-      title: "Log In to Dashboard",
+      title: "Log In to Your Dashboard",
       description: "Access your dashboard and start creating papers instantly.",
       imageSrc: "/step1.png",
       imageAlt: "dashboard preview",
+      icon: LogIn,
     },
     {
       title: "Choose Paper Requirements",
       description: "Select class, chapters, marks, and difficulty settings.",
       imageSrc: "/step2.png",
       imageAlt: "paper requirements",
+      icon: SlidersHorizontal,
     },
     {
       title: "Generate Question Paper",
@@ -25,13 +28,14 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
         "Prepares a clean, structured, syllabus-aligned paper quickly.",
       imageSrc: "/step3.png",
       imageAlt: "generated questions",
+      icon: FileText,
     },
     {
       title: "Download & Print Instantly",
-      description:
-        "Get your paper in PDF format for easy printing and distribution.",
+      description: "Get your paper in PDF for easy printing and distribution.",
       imageSrc: "/step4.png",
       imageAlt: "download instantly",
+      icon: Download,
     },
   ];
   return (
@@ -151,69 +155,48 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid flex-none gap-5 auto-rows-fr h-min justify-center overflow-visible p-0 relative w-full
-             grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+        className="flex md:grid md:flex-none gap-6 auto-rows-fr grid-cols-2 grid-rows-2 h-min justify-center md:max-w-[900px] flex-col md:flex-row items-center content-center max-w-[400px] overflow-visible p-0 relative w-full"
       >
-        {steps.map((step, key) => (
-          <motion.div
-            key={key}
-            variants={fadeUpFromBottom}
-            className="relative w-full h-full"
-          >
-            <div
-              className="flex flex-col items-start justify-start cursor-default gap-5 w-full rounded-[30px] h-min p-2.5 pb-[30px] relative"
-              style={{
-                backgroundColor: "#f0f4f3",
-                boxShadow:
-                  "rgba(0,0,0,0.05) 0px 1px 2px, rgba(0,0,0,0.04) 0px 3px 6px", // Light soft shadow
-              }}
-            >
-              <div
-                className="flex items-center justify-center flex-row flex-nowrap gap-2.5 h-[290px] overflow-hidden p-0 relative w-full rounded-t-[25px] rounded-b-[40px]"
-                style={{
-                  backgroundColor: "#d7dddc",
-                }}
-              >
-                <div className="flex-[1_0_0px] h-[290px] overflow-visible relative w-px z-0 rounded-[20px]">
-                  <div className="absolute inset-0 rounded-[inherit]">
-                    <Image
-                      decoding="async"
-                      loading="lazy"
-                      width={1920}
-                      height={1920}
-                      sizes="(max-width: 1024px) 100vw, 25vw"
-                      src={step.imageSrc}
-                      alt={step.imageAlt}
-                      className="block w-full h-full rounded-[inherit] object-center object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
+        {steps.map((step, key) => {
+          const Icon = step.icon;
 
-              {/* STEP LABEL */}
-              <div className="flex flex-col gap-5 w-full px-2.5">
-                <div className="flex flex-row items-center gap-2.5">
-                  <div className="flex-none">
-                    <div className="flex items-center gap-2 px-2.5 py-[5px] bg-[#e8ffe3] rounded-[10px] shadow-[rgba(0,0,0,0.04)_0px_1px_2px]">
-                      <div className="h-[5px] w-[5px] bg-[#6cd840] rounded-full shadow-[rgba(0,0,0,0.07)_0px_1px_2px]" />
-                      <p className="text-base font-medium text-[#3b4a3e]">
-                        Step {key + 1}
-                      </p>
+          return (
+            <motion.div
+              key={key}
+              variants={fadeUpFromBottom}
+              className="place-self-start flex-none h-[250px] relative w-full"
+            >
+              <div className="relative flex flex-col justify-between items-start bg-[#f0f4f3] h-full rounded-[20px] overflow-hidden p-6">
+                <Icon
+                  className="absolute -right-10 top-1/2 -translate-y-1/2 w-52 h-52 text-[#193625]/10 blur-[1px] pointer-events-none"
+                  strokeWidth={1.5}
+                />
+
+                {/* Top Row */}
+                <div className="relative z-10 flex flex-row justify-between items-start w-full">
+                  <div className="flex justify-center items-center flex-none p-2 bg-white rounded-full shadow-[rgba(0,0,0,0.14)_0px_0.8px_1px_-0.5px,rgba(0,0,0,0.1)_0px_8px_20px_-3px]">
+                    <div className="flex justify-center items-center h-8 w-8">
+                      <span className="text-2xl font-medium text-[#193625] leading-none">
+                        {key + 1}
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* HEADING */}
-                <h4 className="text-2xl font-semibold text-[#193625] leading-[1.1]">
-                  {step.title}
-                </h4>
+                {/* Text Content */}
+                <div className="relative z-10 flex flex-col gap-2 max-w-lg w-full">
+                  <h3 className="text-2xl md:text-[28px] text-[#193625] leading-[1.2em] tracking-tight">
+                    {step.title}
+                  </h3>
 
-                {/* DESCRIPTION */}
-                <p className="text-base text-[#516359]">{step.description}</p>
+                  <p className="text-[16px] text-[#5e6b64] leading-[1.5em]">
+                    {step.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </motion.div>
     </section>
   );
