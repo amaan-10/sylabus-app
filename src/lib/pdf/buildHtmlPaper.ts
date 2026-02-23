@@ -144,7 +144,6 @@ export function buildHtmlPaper({
   let questionCounter = 1;
 
   const isExam = paperMode === "exam" && Array.isArray(pattern?.sections);
-  console.log("paperInfo", paperInfo);
 
   const formatTime = (minutes: number) => {
     const hrs = Math.floor(minutes / 60);
@@ -615,7 +614,6 @@ ${
             `;
 
             qs.forEach((q: any, i: number) => {
-              console.log("qs", qs);
               html += `
                 <div class="question">
                   <div class="q-no">(${toRoman(i)})</div>

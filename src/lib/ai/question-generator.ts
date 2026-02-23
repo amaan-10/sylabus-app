@@ -45,11 +45,6 @@ export async function generateCompletePaperSets({
   topics,
   paperSets,
 }: GenerateArgs) {
-  console.log("sections: ", sections);
-  console.log(
-    "sections subquestion:",
-    sections.map((section) => section.subQuestions),
-  );
   // ✅ HARD INPUT VALIDATION
   if (!Array.isArray(sections)) {
     throw new Error("Blueprint sections must be an array");
@@ -113,12 +108,6 @@ export async function generateCompletePaperSets({
       }),
     );
 
-    console.log("aiResponse", aiResponse);
-    console.log(
-      "aiResponse.sectionPools[2].subQuestions",
-      aiResponse.sectionPools[2].subQuestions,
-    );
-
     // ✅ Distribute questions round-robin
     aiResponse.sectionPools.forEach(
       (sectionPool: any, sectionIndex: number) => {
@@ -138,13 +127,6 @@ export async function generateCompletePaperSets({
             subQ.questionPool.forEach((question: any, qIndex: number) => {
               const setIndex = qIndex % paperSets;
 
-              console.log(
-                "subQuestions: ",
-                paperSetsResult[setIndex].sections[sectionIndex].subQuestions[
-                  subIndex
-                ].questions,
-              );
-
               paperSetsResult[setIndex].sections[sectionIndex].subQuestions[
                 subIndex
               ].questions.push(question);
@@ -159,10 +141,6 @@ export async function generateCompletePaperSets({
           sectionPool.questionPool.forEach((question: any, qIndex: number) => {
             const setIndex = qIndex % paperSets;
 
-            console.log(
-              "questions: ",
-              paperSetsResult[setIndex].sections[sectionIndex].questions,
-            );
             paperSetsResult[setIndex].sections[sectionIndex].questions.push(
               question,
             );
