@@ -87,24 +87,110 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap flex-none place-content-center items-center gap-4 w-full h-min p-0 relative overflow-visible">
-            <motion.div
-              variants={fadeUp}
-              className="flex-none w-auto h-auto relative"
-            >
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none font-urbanist"
+          >
+            <div className="relative group">
               <Link
-                className="cursor-pointer flex flex-row place-content-center items-center gap-0 h-min px-6 py-4 no-underline relative overflow-visible bg-[#13261b] hover:bg-[#a85613] transition-colors duration-300 rounded-[37px] shadow-xl shadow-[rgba(19,38,27,0.4)] hover:shadow-[rgb(168,86,19,0.4)] opacity-100 group"
-                href={hasSession ? "/dashboard" : "/signin"}
+                className="flex flex-row flex-nowrap items-center justify-center content-center gap-2.5 px-7 py-[13px] h-min w-min relative overflow-visible cursor-pointer no-underline border-[0.5px] border-solid rounded-[18px] bg-[#111111] opacity-100"
+                data-border="true"
+                style={{
+                  backgroundColor:
+                    "var(--token-6b7284e5-c42c-4865-a174-119a0270b93c, rgb(17, 17, 17))",
+                  boxShadow: `rgba(0, 0, 0, 0.1) 0px 0.48175px 1.25255px -1.16667px, rgba(0, 0, 0, 0.09) 0px 1.83083px 4.76015px -2.33333px, rgba(0, 0, 0, 0.043) 0px 8px 20.8px -3.5px, rgba(255, 255, 255, 0.49) 0px -2px 9px 0px inset, rgba(0, 0, 0, 0.2) 0px 0px 0px 2px`,
+                }}
+                href="/institute/login"
               >
-                <div className="h-min flex flex-row flex-none place-content-center items-center gap-2.5 pr-2 pl-0 py-0 relative overflow-visible">
-                  <div className="flex-none w-auto h-auto relative">
-                    <p className="text-base text-white font-semibold">
-                      Experience It Yourself
-                    </p>
-                  </div>
+                <div
+                  className="flex-none h-auto relative whitespace-pre w-auto"
+                  style={
+                    {
+                      outline: "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-start",
+                      flexShrink: 0,
+                      transform: "none",
+                      opacity: 1,
+                    } as React.CSSProperties
+                  }
+                >
+                  <p className=" font-medium text-[#FAFAF7]">For Institutes</p>
                 </div>
                 <div
-                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min min-h-5 min-w-5 overflow-hidden mr-[3px] relative -rotate-45"
+                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative"
+                  style={{ opacity: 1 }}
+                >
+                  <div className="absolute transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--token-21001bb2-95fc-4899-93cf-7cca6736a1a2, rgb(250, 250, 247))"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ width: "100%", height: "100%" }}
+                    >
+                      <line x1="7" y1="7" x2="17" y2="17"></line>
+                      <polyline points="17 7 17 17 7 17"></polyline>
+                    </svg>
+                  </div>
+
+                  <div className="absolute top-[-21px] left-[-21px] w-5 h-5 transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--token-21001bb2-95fc-4899-93cf-7cca6736a1a2, rgb(250, 250, 247))"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ width: "100%", height: "100%" }}
+                    >
+                      <line x1="7" y1="7" x2="17" y2="17"></line>
+                      <polyline points="17 7 17 17 7 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            <div className=" relative group">
+              <a
+                className="flex flex-row  flex-nowrap  items-center  justify-center  cursor-pointer  gap-2.5  h-min  w-min  overflow-visible  p-[13px_28px]  relative  no-underline border-[0.5px] border-[#f0ece7] border-solid rounded-[18px] opacity-100"
+                data-border="true"
+                style={{
+                  backgroundColor:
+                    "var(--token-f395e90f-e08f-456b-b155-0974850affb9, rgb(255, 255, 255))",
+                  boxShadow: `0px 0px 0px -2.5px rgba(0, 0, 0, 0.13189), 0px 0px 0px -5px rgba(0, 0, 0, 0), inset 0px -1px 4px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 2px var(--token-caa7547d-cf57-44d3-92c2-01fcbf1068be, rgb(243, 243, 241))`,
+                }}
+                href={hasSession ? "/dashboard" : "/signin"}
+                data-framer-name="Button Light Icon Up"
+              >
+                <div
+                  className="flex-none h-auto relative whitespace-pre w-auto"
+                  style={
+                    {
+                      outline: "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-start",
+                      flexShrink: 0,
+                      transform: "none",
+                      opacity: 1,
+                    } as React.CSSProperties
+                  }
+                >
+                  <p className="font-medium text-black">For Individuals</p>
+                </div>
+                <div
+                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative -rotate-90"
                   style={{ opacity: 1 }}
                 >
                   <div className="absolute transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
@@ -119,7 +205,6 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       style={{ width: "100%", height: "100%" }}
-                      className="stroke-white transition-colors duration-300"
                     >
                       <line x1="7" y1="7" x2="17" y2="17"></line>
                       <polyline points="17 7 17 17 7 17"></polyline>
@@ -138,16 +223,15 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       style={{ width: "100%", height: "100%" }}
-                      className=" stroke-white transition-colors duration-300"
                     >
                       <line x1="7" y1="7" x2="17" y2="17"></line>
                       <polyline points="17 7 17 17 7 17"></polyline>
                     </svg>
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          </div>
+              </a>
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
       <motion.div
@@ -174,9 +258,15 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
 
                 {/* Top Row */}
                 <div className="relative z-10 flex flex-row justify-between items-start w-full">
-                  <div className="flex justify-center items-center flex-none p-2 bg-white rounded-full shadow-[rgba(0,0,0,0.14)_0px_0.8px_1px_-0.5px,rgba(0,0,0,0.1)_0px_8px_20px_-3px]">
+                  <div
+                    className="flex justify-center items-center flex-none p-2 bg-white rounded-full"
+                    style={{
+                      boxShadow:
+                        "rgba(0, 0, 0, 0.14) 0px 0.78363px 0.78363px -0.5px, rgba(0, 0, 0, 0.14) 0px 1.91965px 1.91965px -1px, rgba(0, 0, 0, 0.13) 0px 3.63745px 3.63745px -1.5px, rgba(0, 0, 0, 0.13) 0px 6.35004px 6.35004px -2px, rgba(0, 0, 0, 0.12) 0px 11.0519px 11.0519px -2.5px, rgba(0, 0, 0, 0.1) 0px 20.2428px 20.2428px -3px, rgba(0, 0, 0, 0.06) 0px 40px 40px -3.5px",
+                    }}
+                  >
                     <div className="flex justify-center items-center h-8 w-8">
-                      <span className="text-2xl font-medium text-[#193625] leading-none">
+                      <span className="text-[26px] font-semibold text-[#193625] leading-none">
                         {key + 1}
                       </span>
                     </div>
