@@ -241,7 +241,7 @@ export default function RegisterPage() {
                 <div className="relative w-auto h-auto text-[#ffffff] flex flex-col gap-1">
                   <p className="text-[#ffffff] text-4xl">Sylabus</p>
                   <Image
-                    src="/icon/logo-new.png"
+                    src="/icon/for-institutes.png"
                     alt="for-institutes"
                     width={115}
                     height={115}

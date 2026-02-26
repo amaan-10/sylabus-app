@@ -116,10 +116,17 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                     } as React.CSSProperties
                   }
                 >
-                  <p className=" font-medium text-[#FAFAF7]">For Institutes</p>
+                  {/* <p className="font-medium text-[#FAFAF7]">For Institutes</p> */}
+                  <Image
+                    src="/icon/for-institutes.png"
+                    alt="for-institutes"
+                    width={115}
+                    height={115}
+                    className="self-end max-w-fit"
+                  />
                 </div>
                 <div
-                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative"
+                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative -rotate-90"
                   style={{ opacity: 1 }}
                 >
                   <div className="absolute transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
@@ -161,7 +168,7 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
               </Link>
             </div>
 
-            <div className=" relative group">
+            <div className="relative group">
               <a
                 className="flex flex-row  flex-nowrap  items-center  justify-center  cursor-pointer  gap-2.5  h-min  w-min  overflow-visible  p-[13px_28px]  relative  no-underline border-[0.5px] border-[#f0ece7] border-solid rounded-[18px] opacity-100"
                 data-border="true"
@@ -187,10 +194,10 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                     } as React.CSSProperties
                   }
                 >
-                  <p className="font-medium text-black">For Individuals</p>
+                  <p className="font-medium text-black">for Individuals</p>
                 </div>
                 <div
-                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative -rotate-90"
+                  className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative"
                   style={{ opacity: 1 }}
                 >
                   <div className="absolute transition-all duration-300 ease-in-out group-hover:translate-x-[21px] group-hover:translate-y-[21px]">
