@@ -98,3 +98,66 @@
   word-break: break-word;
   margin-bottom: 8px;
 }
+
+/* shimmer gradient text */
+
+.ai-text-loader {
+  background: linear-gradient(
+    90deg,
+    #193625 0%,
+    #5e6b64 40%,
+    #ffffff 50%,
+    #5e6b64 60%,
+    #193625 100%
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shimmerAI 3s linear infinite;
+}
+
+/* shimmer animation */
+
+@keyframes shimmerAI {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* fade + slide up */
+
+@keyframes aiFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-aiFadeUp {
+  animation: aiFadeUp 0.6s ease forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% center;
+  }
+  100% {
+    background-position: 150% center;
+  }
+}
