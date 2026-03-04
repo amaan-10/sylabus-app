@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toRoman } from "@/lib/utility/helper";
 import { easeIn, easeOut, Variants } from "framer-motion";
-import LoaderWrapper from "@/components/PageLoader";
+import AITextLoadingFX from "@/components/AITextLoadingFX";
 import {
   Book,
   Check,
@@ -135,7 +135,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
   }, []);
 
   return (
-    <LoaderWrapper isLoading={loading}>
+    <AITextLoadingFX isLoading={loading}>
       <section className="md:border border-[rgba(0,0,0,0.08)] place-content-center items-center bg-white rounded-2xl flex flex-[1_0_0] flex-col gap-6 md:gap-14 h-min overflow-hidden p-[32px_8px_120px] md:py-10 md:px-8 md:pb-8 relative w-px">
         {error && (
           <div className="rounded-xl bg-red-50 border border-red-200 p-6 text-red-600">
@@ -145,7 +145,7 @@ const AutoGenerateBuilder: React.FC<BuilderProps> = ({
 
         {!loading && paper && <GeneratedPaperView initialPaper={paper} />}
       </section>
-    </LoaderWrapper>
+    </AITextLoadingFX>
   );
 };
 
