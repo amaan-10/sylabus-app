@@ -1,12 +1,22 @@
-// models/for-sylabus-institutes/Program.ts
-import { Schema, model, models } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
 
-const ProgramSchema = new Schema(
+export interface IProgram extends Document {
+  instituteId: Schema.Types.ObjectId;
+  academicLevel: "UG" | "PG";
+  stream: string;
+  degree: string;
+  program: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const ProgramSchema = new Schema<IProgram>(
   {
     instituteId: {
       type: Schema.Types.ObjectId,
       ref: "Institute",
       required: true,
+      index: true,
     },
 
     academicLevel: {
@@ -33,4 +43,10 @@ const ProgramSchema = new Schema(
   { timestamps: true },
 );
 
-export default models.Program || model("Program", ProgramSchema);
+/* optional but recommended */
+ProgramSchema.index({ instituteId: 1, academicLevel: 1 });
+
+/* connection-based model */
+export const getProgramModel = (conn: Connection): Model<IProgram> => {
+  return conn.models.Program || conn.model<IProgram>("Program", ProgramSchema);
+};

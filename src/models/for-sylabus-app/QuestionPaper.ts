@@ -1,5 +1,40 @@
-// models/QuestionPaper.ts
-import mongoose, { Schema, Types } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
+
+export interface IQuestionPaper extends Document {
+  userId?: string;
+
+  meta: {
+    board?: string;
+    medium?: string;
+    classKey?: string;
+    subjectSlug?: string;
+    subjectName?: string;
+  };
+
+  schoolName?: string;
+
+  paperInfo: {
+    schoolName?: string;
+    className?: string;
+    subjectName?: string;
+    testName?: string;
+    examDate?: string;
+    time?: number;
+    includeInstructions?: boolean;
+    logo?: string;
+    watermark?: string;
+  };
+
+  paperMode: "exam" | "custom";
+
+  questions: any[];
+
+  examSections?: any;
+
+  totalMarks?: number;
+
+  createdAt?: Date;
+}
 
 const QuestionSchema = new Schema(
   {
@@ -16,10 +51,9 @@ const QuestionSchema = new Schema(
   { _id: false },
 );
 
-const QuestionPaperSchema = new Schema(
+const QuestionPaperSchema = new Schema<IQuestionPaper>(
   {
-    // ownership (optional but future-proof)
-    userId: { type: String, index: true }, // Firebase UID / Clerk / Auth ID
+    userId: { type: String, index: true },
 
     meta: {
       board: String,
@@ -51,14 +85,19 @@ const QuestionPaperSchema = new Schema(
 
     questions: [QuestionSchema],
 
-    examSections: Schema.Types.Mixed, // sectionedSelected (for exam mode)
+    examSections: Schema.Types.Mixed,
 
     totalMarks: Number,
-
-    createdAt: { type: Date, default: Date.now },
   },
   { timestamps: true },
 );
 
-export default mongoose.models.QuestionPaper ||
-  mongoose.model("QuestionPaper", QuestionPaperSchema);
+/* ✅ connection-based model */
+export const getQuestionPaperModel = (
+  conn: Connection,
+): Model<IQuestionPaper> => {
+  return (
+    conn.models.QuestionPaper ||
+    conn.model<IQuestionPaper>("QuestionPaper", QuestionPaperSchema)
+  );
+};

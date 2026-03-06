@@ -1,7 +1,25 @@
-// models/SavedSubject.ts
-import mongoose, { Schema } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
 
-const SavedSubjectSchema = new Schema(
+export interface ISavedSubject extends Document {
+  userId: string;
+  subjectId: string;
+  subjectData: {
+    id: string;
+    title: string;
+    imgSrc: string;
+    imgAlt: string;
+    board: string;
+    medium: string;
+    classLevel: string;
+    chapterCount: number;
+    questionCount: number;
+    link: string;
+  };
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const SavedSubjectSchema = new Schema<ISavedSubject>(
   {
     userId: { type: String, required: true, index: true },
 
@@ -23,11 +41,18 @@ const SavedSubjectSchema = new Schema(
       link: String,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-// Prevent duplicates
+// prevent duplicates
 SavedSubjectSchema.index({ userId: 1, subjectId: 1 }, { unique: true });
 
-export default mongoose.models.SavedSubject ||
-  mongoose.model("SavedSubject", SavedSubjectSchema);
+/* ✅ connection-based model */
+export const getSavedSubjectModel = (
+  conn: Connection,
+): Model<ISavedSubject> => {
+  return (
+    conn.models.SavedSubject ||
+    conn.model<ISavedSubject>("SavedSubject", SavedSubjectSchema)
+  );
+};

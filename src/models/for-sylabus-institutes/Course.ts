@@ -1,5 +1,34 @@
-// models/for-sylabus-institutes/Course.ts
-import { Schema, model, models } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
+
+export interface ICourse extends Document {
+  programId: Schema.Types.ObjectId;
+  instituteId: Schema.Types.ObjectId;
+  semester: number;
+
+  courseCode?: string;
+  courseTitle?: string;
+  courseType?: string;
+  degree?: string;
+  pattern?: string;
+
+  credits?: number;
+  teachingHours?: number;
+
+  courseOutcome?: string[];
+
+  units?: {
+    unit: string;
+    lectures: number;
+    topics: string[];
+  }[];
+
+  practicals?: {
+    title: string;
+    hours: string;
+  }[];
+
+  readings?: string[];
+}
 
 const UnitSchema = new Schema(
   {
@@ -18,18 +47,20 @@ const PracticalSchema = new Schema(
   { _id: false },
 );
 
-const CourseSchema = new Schema(
+const CourseSchema = new Schema<ICourse>(
   {
     programId: {
       type: Schema.Types.ObjectId,
       ref: "Program",
       required: true,
+      index: true,
     },
 
     instituteId: {
       type: Schema.Types.ObjectId,
       ref: "Institute",
       required: true,
+      index: true,
     },
 
     semester: {
@@ -42,6 +73,7 @@ const CourseSchema = new Schema(
     courseType: String,
     degree: String,
     pattern: String,
+
     credits: Number,
     teachingHours: Number,
 
@@ -54,7 +86,12 @@ const CourseSchema = new Schema(
   { timestamps: true },
 );
 
+/* useful indexes */
 CourseSchema.index({ programId: 1, semester: 1 });
+CourseSchema.index({ instituteId: 1, semester: 1 });
 CourseSchema.index({ "units.unit": 1 });
 
-export default models.Course || model("Course", CourseSchema);
+/* connection-based model */
+export const getCourseModel = (conn: Connection): Model<ICourse> => {
+  return conn.models.Course || conn.model<ICourse>("Course", CourseSchema);
+};

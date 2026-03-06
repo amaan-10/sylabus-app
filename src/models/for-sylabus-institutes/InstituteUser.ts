@@ -1,6 +1,20 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
 
-const InstituteUserSchema = new Schema(
+export interface IInstituteUser extends Document {
+  name: string;
+  email: string;
+  password?: string;
+  role: "ADMIN" | "TEACHER";
+  instituteId: Schema.Types.ObjectId;
+  programIds: Schema.Types.ObjectId[];
+  authProvider: "CREDENTIALS" | "GOOGLE";
+  authProviderId?: string;
+  isActive: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const InstituteUserSchema = new Schema<IInstituteUser>(
   {
     name: {
       type: String,
@@ -32,6 +46,7 @@ const InstituteUserSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Institute",
       required: true,
+      index: true,
     },
 
     programIds: [
@@ -57,5 +72,16 @@ const InstituteUserSchema = new Schema(
   { timestamps: true },
 );
 
-export default models.InstituteUser ||
-  model("InstituteUser", InstituteUserSchema);
+/* helpful indexes */
+InstituteUserSchema.index({ instituteId: 1 });
+InstituteUserSchema.index({ instituteId: 1, role: 1 });
+
+/* connection-based model */
+export const getInstituteUserModel = (
+  conn: Connection,
+): Model<IInstituteUser> => {
+  return (
+    conn.models.InstituteUser ||
+    conn.model<IInstituteUser>("InstituteUser", InstituteUserSchema)
+  );
+};

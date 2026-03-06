@@ -1,7 +1,20 @@
-// models/for-sylabus-institutes/Institute.ts
-import { Schema, model, models } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
 
-const InstituteSchema = new Schema(
+export interface IInstitute extends Document {
+  name: string;
+  description?: string;
+  logoUrl?: string;
+  abbreviation: string;
+  society?: string;
+  affiliation?: string;
+  autonomous?: boolean;
+  naac?: string;
+  location?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const InstituteSchema = new Schema<IInstitute>(
   {
     name: { type: String, required: true },
     description: { type: String },
@@ -16,4 +29,14 @@ const InstituteSchema = new Schema(
   { timestamps: true },
 );
 
-export default models.Institute || model("Institute", InstituteSchema);
+/* helpful indexes */
+InstituteSchema.index({ abbreviation: 1 }, { unique: true });
+InstituteSchema.index({ name: 1 });
+
+/* connection-based model */
+export const getInstituteModel = (conn: Connection): Model<IInstitute> => {
+  return (
+    conn.models.Institute ||
+    conn.model<IInstitute>("Institute", InstituteSchema)
+  );
+};

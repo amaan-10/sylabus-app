@@ -1,6 +1,6 @@
-import mongoose, { Schema, models, Model } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
 
-interface Subject {
+interface Subject extends Document {
   id: string;
   board: string;
   medium: string;
@@ -30,7 +30,7 @@ const QuestionSchema = new Schema(
     createdBy: String,
     author: String,
   },
-  { _id: false }
+  { _id: false },
 );
 
 const ChapterSchema = new Schema(
@@ -42,18 +42,21 @@ const ChapterSchema = new Schema(
     description: String,
     topics: [String],
     learningObjectives: [String],
-    courseOutcomes: [String], // CO1, CO2...
+    courseOutcomes: [String],
     questions: [QuestionSchema],
   },
-  { _id: false }
+  { _id: false },
 );
 
-const taxonomySchema = new Schema({
-  level: String,
-  name: String,
-  description: String,
-  actionVerbs: [String],
-});
+const taxonomySchema = new Schema(
+  {
+    level: String,
+    name: String,
+    description: String,
+    actionVerbs: [String],
+  },
+  { _id: false },
+);
 
 const SubjectSchema = new Schema<Subject>(
   {
@@ -63,12 +66,13 @@ const SubjectSchema = new Schema<Subject>(
     classKey: String,
     subjectSlug: String,
     programOutcomes: [String],
-    taxonomySet: [taxonomySchema], // Remember, Apply...
+    taxonomySet: [taxonomySchema],
     chapters: [ChapterSchema],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-const Subject = models.Subject || mongoose.model("Subject", SubjectSchema);
-
-export default Subject;
+/* ✅ connection-based model */
+export const getSubjectModel = (conn: Connection): Model<Subject> => {
+  return conn.models.Subject || conn.model<Subject>("Subject", SubjectSchema);
+};

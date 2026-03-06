@@ -1,6 +1,20 @@
-import mongoose, { Schema, models } from "mongoose";
+import { Schema, Connection, Model, Document } from "mongoose";
 
-const PaperDraftSchema = new Schema(
+export interface IPaperDraft extends Document {
+  userId: string;
+  draftName: string;
+  boardSlug: string;
+  mediumSlug: string;
+  classKey: string;
+  subjectSlug: string;
+  paperMode: "exam" | "custom";
+  draft: any;
+  lastUpdated?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const PaperDraftSchema = new Schema<IPaperDraft>(
   {
     userId: {
       type: String,
@@ -50,11 +64,17 @@ const PaperDraftSchema = new Schema(
       default: Date.now,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-// one draft per user per subject
-// PaperDraftSchema.index({ userId: 1, subjectSlug: 1 }, { unique: true });
+/* recommended indexes */
+PaperDraftSchema.index({ userId: 1 });
+PaperDraftSchema.index({ userId: 1, subjectSlug: 1 });
 
-export default models.PaperDraft ||
-  mongoose.model("PaperDraft", PaperDraftSchema);
+/* connection-based model */
+export const getPaperDraftModel = (conn: Connection): Model<IPaperDraft> => {
+  return (
+    conn.models.PaperDraft ||
+    conn.model<IPaperDraft>("PaperDraft", PaperDraftSchema)
+  );
+};

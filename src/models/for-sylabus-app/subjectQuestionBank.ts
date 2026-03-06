@@ -1,5 +1,4 @@
-// models/subjectQuestionBank.ts
-import mongoose, { Schema, Document, Model } from "mongoose";
+import { Schema, Document, Model, Connection } from "mongoose";
 
 export type QuestionType =
   | "mcq"
@@ -29,7 +28,7 @@ export interface Question {
   subQuestions?: Question[];
   answer?: string;
   source?: QuestionSource;
-  options?: string[]; // only for MCQ
+  options?: string[];
   columnA?: any;
   columnB?: any;
   tags: string[];
@@ -53,7 +52,6 @@ export interface SectionQuestion {
   examSectionType: string;
   passageText?: string;
   marks: number;
-
   difficulty: Difficulty;
   question?: string;
   answer?: string;
@@ -62,7 +60,6 @@ export interface SectionQuestion {
   columnA?: any;
   columnB?: any;
   imageUrl?: string;
-
   subQuestions?: Question[];
   tags: string[];
 }
@@ -79,29 +76,22 @@ export interface Section {
 
 export interface SubjectQuestionBank extends Document {
   id: string;
-  board: string; // "msbshse"
-  medium: string; // "english"
-  classKey: string; // "10"
-  subjectSlug: string; // "science-technology-1"
-
+  board: string;
+  medium: string;
+  classKey: string;
+  subjectSlug: string;
   subjectType: "language" | "academic";
-
-  chapters?: Chapter[]; // science, maths, etc.
-  sections?: Section[]; // english, hindi, marathi
+  chapters?: Chapter[];
+  sections?: Section[];
 }
 
-// ---------------- SCHEMAS ----------------
-export const QuestionSchema = new Schema<Question>(
+/* ---------------- SCHEMAS ---------------- */
+
+const QuestionSchema = new Schema<Question>(
   {
     id: { type: String, required: true },
-    type: {
-      type: String,
-      enum: ["mcq", "short", "long", "numerical"],
-      required: true,
-    },
-    examSectionType: {
-      type: String,
-    },
+    type: { type: String, required: true },
+    examSectionType: { type: String },
     difficulty: {
       type: String,
       enum: ["easy", "medium", "hard"],
@@ -109,8 +99,8 @@ export const QuestionSchema = new Schema<Question>(
     },
     marks: { type: Number, required: true },
     text: { type: String, required: true },
-    answer: { type: String },
-    imageUrl: { type: String },
+    answer: String,
+    imageUrl: String,
     source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
     columnA: { type: Object },
@@ -120,11 +110,9 @@ export const QuestionSchema = new Schema<Question>(
   { _id: false },
 );
 
-/* 🔑 Add recursive field AFTER schema creation */
 QuestionSchema.add({
   subQuestions: {
     type: [QuestionSchema],
-    required: false,
     default: undefined,
   },
 });
@@ -146,28 +134,20 @@ const ChapterSchema = new Schema<Chapter>(
 const SectionQuestionSchema = new Schema<SectionQuestion>(
   {
     id: { type: String, required: true },
-    type: {
-      type: String,
-      enum: ["mcq", "short", "long", "numerical"],
-      required: true,
-    },
-    examSectionType: {
-      type: String,
-    },
-    passageText: {
-      type: String,
-    },
+    type: { type: String, required: true },
+    examSectionType: String,
+    passageText: String,
     difficulty: {
       type: String,
       enum: ["easy", "medium", "hard"],
       required: true,
     },
     marks: { type: Number, required: true },
-    question: { type: String },
-    answer: { type: String },
-    columnA: { type: Object },
-    columnB: { type: Object },
-    imageUrl: { type: String },
+    question: String,
+    answer: String,
+    columnA: Object,
+    columnB: Object,
+    imageUrl: String,
     source: { type: String, default: "balbharati" },
     options: { type: [String], default: undefined },
     subQuestions: { type: [QuestionSchema] },
@@ -179,13 +159,10 @@ const SectionQuestionSchema = new Schema<SectionQuestion>(
 const SectionSchema = new Schema<Section>(
   {
     id: { type: String, required: true },
-    sectionType: {
-      type: String,
-      required: true,
-    },
+    sectionType: { type: String, required: true },
     title: { type: String, required: true },
     slug: { type: String, required: true },
-    description: { type: String },
+    description: String,
     questions: { type: [SectionQuestionSchema], default: [] },
     tags: { type: [String], default: [] },
   },
@@ -212,10 +189,15 @@ const SubjectQuestionBankSchema = new Schema<SubjectQuestionBank>(
   { timestamps: true },
 );
 
-// avoid OverwriteModelError in Next.js
-export const SubjectQuestionBankModel: Model<SubjectQuestionBank> =
-  mongoose.models.SubjectQuestionBank ||
-  mongoose.model<SubjectQuestionBank>(
-    "SubjectQuestionBank",
-    SubjectQuestionBankSchema,
+/* ✅ connection-based model */
+export const getSubjectQuestionBankModel = (
+  conn: Connection,
+): Model<SubjectQuestionBank> => {
+  return (
+    conn.models.SubjectQuestionBank ||
+    conn.model<SubjectQuestionBank>(
+      "SubjectQuestionBank",
+      SubjectQuestionBankSchema,
+    )
   );
+};
