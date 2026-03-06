@@ -1,11 +1,11 @@
 // lib/questionBank.ts
-import { connectToDatabase } from "./db-connect/sylabus-db";
-import { SubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
+import { getSubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
 import type {
   SubjectQuestionBank,
   Chapter,
   Question,
 } from "@/models/for-sylabus-app/subjectQuestionBank";
+import { connectToDatabase } from "./db";
 
 type SubjectKey = {
   board: string;
@@ -18,11 +18,14 @@ type SubjectKey = {
 export async function getSubjectQuestionBank(
   key: SubjectKey,
 ): Promise<SubjectQuestionBank | null> {
-  await connectToDatabase();
+  const conn = await connectToDatabase("sylabus-db");
 
-  const subject = await SubjectQuestionBankModel.findOne(
+  const SubjectQuestionBank = getSubjectQuestionBankModel(conn);
+
+  const subject = await SubjectQuestionBank.findOne(
     key,
   ).lean<SubjectQuestionBank | null>();
+
   return subject;
 }
 
