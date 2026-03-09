@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import Institute from "@/models/for-sylabus-institutes/Institute";
-import Program from "@/models/for-sylabus-institutes/Program";
+import { connectToDatabase } from "@/lib/db";
+import { getInstituteModel } from "@/models/for-sylabus-institutes/Institute";
+import { getProgramModel } from "@/models/for-sylabus-institutes/Program";
 
 export async function POST(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+
+    const Institute = getInstituteModel(conn);
+    const Program = getProgramModel(conn);
 
     const { institutes } = await req.json();
 
@@ -42,7 +45,7 @@ export async function POST(req: Request) {
       for (const prog of inst.programs || []) {
         const program = await Program.findOneAndUpdate(
           {
-            instituteId: institute._id,
+            instituteId: institute._id as any,
             academicLevel: prog.academicLevel,
             stream: prog.stream,
             degree: prog.degree,
@@ -74,11 +77,10 @@ export async function POST(req: Request) {
     });
   } catch (err: any) {
     console.error("Seed error:", err);
+
     return NextResponse.json(
       { error: err.message || "Seeding failed" },
       { status: 500 },
     );
   }
 }
-
-// curl -X POST http://localhost:3000/api/institute/admin/seed -H "Content-Type: application/json" --data-binary "@scripts/aisc.json"

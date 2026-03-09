@@ -2,21 +2,24 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
-import "@/models/for-sylabus-institutes/register";
-
-import InstituteUser from "@/models/for-sylabus-institutes/InstituteUser";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
+import { connectToDatabase } from "@/lib/db";
+import { getInstituteUserModel } from "@/models/for-sylabus-institutes/InstituteUser";
+import { getInstituteModel } from "@/models/for-sylabus-institutes/Institute";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
 export async function GET() {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+
+    const InstituteUser = getInstituteUserModel(conn);
+
+    // ✅ register Institute schema for populate
+    getInstituteModel(conn);
 
     const token = (await cookies()).get("token")?.value;
 
     if (!token) {
-      console.error("No token found in cookies");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -31,7 +34,8 @@ export async function GET() {
         path: "instituteId",
         select:
           "name abbreviation location logoUrl affiliation autonomous naac society description",
-      });
+      })
+      .lean();
 
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -40,6 +44,7 @@ export async function GET() {
     return NextResponse.json({ user });
   } catch (err) {
     console.error("ME API error:", err);
+
     return NextResponse.json(
       { error: "Invalid or expired token" },
       { status: 401 },

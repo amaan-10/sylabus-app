@@ -1,14 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/seed/route.ts
+
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import { SubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
+import { connectToDatabase } from "@/lib/db";
+import { getSubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
+
 // import subjects from "@/data/msbshse-10.json";
 import subjects from "@/data/msbshse-12-science.json";
 
 export async function POST() {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+
+    const SubjectQuestionBank = getSubjectQuestionBankModel(conn);
 
     if (!Array.isArray(subjects)) {
       return NextResponse.json(
@@ -20,7 +24,7 @@ export async function POST() {
     const results = [];
 
     for (const subject of subjects) {
-      const updated = await SubjectQuestionBankModel.findOneAndUpdate(
+      const updated = await SubjectQuestionBank.findOneAndUpdate(
         {
           id: subject.id,
           board: subject.board,
@@ -53,4 +57,5 @@ export async function POST() {
     );
   }
 }
+
 // curl -X POST http://localhost:3000/api/seed

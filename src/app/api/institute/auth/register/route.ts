@@ -1,18 +1,21 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import InstituteUser from "@/models/for-sylabus-institutes/InstituteUser";
+import { connectToDatabase } from "@/lib/db";
+import { getInstituteUserModel } from "@/models/for-sylabus-institutes/InstituteUser";
 
 export async function POST(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const InstituteUser = getInstituteUserModel(conn);
+
     const { name, email, password, instituteId } = await req.json();
 
     if (!name || !email || !password || !instituteId) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    const exists = await InstituteUser.findOne({ email });
+    const exists = await InstituteUser.findOne({ email }).lean();
+
     if (exists) {
       return NextResponse.json(
         { error: "Email already registered" },
@@ -32,6 +35,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, userId: user._id });
   } catch (err: any) {
     console.error("Registration error:", err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+
+    return NextResponse.json(
+      { error: err.message || "Registration failed" },
+      { status: 500 },
+    );
   }
 }

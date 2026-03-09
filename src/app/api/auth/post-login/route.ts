@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import { User } from "@/models/for-sylabus-app/User";
+import { connectToDatabase } from "@/lib/db";
+import { getUserModel } from "@/models/for-sylabus-app/User";
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -10,12 +10,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid data" }, { status: 400 });
   }
 
-  await connectToDatabase();
+  // connect to correct DB
+  const conn = await connectToDatabase("sylabus-db");
+
+  // get model attached to this connection
+  const User = getUserModel(conn);
 
   let user = await User.findOne({ firebaseUid });
 
   if (!user) {
-    user = await User.create({
+    await User.create({
       firebaseUid,
       phone,
     });

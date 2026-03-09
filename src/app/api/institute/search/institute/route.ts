@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import Institute from "@/models/for-sylabus-institutes/Institute";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
+import { connectToDatabase } from "@/lib/db";
+import { getInstituteModel } from "@/models/for-sylabus-institutes/Institute";
 
 export async function GET(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const Institute = getInstituteModel(conn);
 
     const { searchParams } = new URL(req.url);
     const query = searchParams.get("q") || "";
@@ -17,7 +18,8 @@ export async function GET(req: Request) {
       name: { $regex: query, $options: "i" },
     })
       .select("_id name abbreviation location logoUrl")
-      .limit(10);
+      .limit(10)
+      .lean();
 
     return NextResponse.json(institutes);
   } catch (error) {

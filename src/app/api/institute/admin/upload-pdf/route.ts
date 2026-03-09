@@ -3,12 +3,14 @@ export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import pdfParse from "pdf-parse-debugging-disabled";
-import PdfJob from "@/models/for-sylabus-institutes/PdfJob";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
+
+import { connectToDatabase } from "@/lib/db";
+import { getPdfJobModel } from "@/models/for-sylabus-institutes/PdfJob";
 
 export async function POST(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const PdfJob = getPdfJobModel(conn);
 
     const formData = await req.formData();
     const file = formData.get("file") as File;
@@ -17,7 +19,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    // ✅ EXACT SAME BUFFER LOGIC AS WORKING PROJECT
+    // same buffer logic
     const buffer = Buffer.from(await file.arrayBuffer());
 
     const parsed = await pdfParse(buffer);
@@ -38,6 +40,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ jobId: job._id });
   } catch (err: any) {
     console.error("❌ PDF upload error:", err);
+
     return NextResponse.json(
       { error: err.message || "PDF parsing failed" },
       { status: 500 },

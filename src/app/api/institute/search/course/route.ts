@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import "@/models/for-sylabus-institutes/register";
-
-import Course from "@/models/for-sylabus-institutes/Course";
+import { connectToDatabase } from "@/lib/db";
+import { getCourseModel } from "@/models/for-sylabus-institutes/Course";
 
 export async function GET(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const Course = getCourseModel(conn);
 
     const { searchParams } = new URL(req.url);
 
@@ -23,14 +22,15 @@ export async function GET(req: Request) {
     }
 
     const courses = await Course.find({
-      instituteId: new mongoose.Types.ObjectId(instituteId),
+      instituteId: instituteId as any,
       courseCode: { $regex: `^${query}`, $options: "i" }, // prefix search
     })
       .select(
         "courseCode courseTitle courseType degree programId semester credits",
       )
       .limit(10)
-      .sort({ courseCode: 1 });
+      .sort({ courseCode: 1 })
+      .lean();
 
     return NextResponse.json(courses);
   } catch (err) {

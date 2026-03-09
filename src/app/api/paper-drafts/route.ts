@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import PaperDraft from "@/models/for-sylabus-app/PaperDraft";
+import { connectToDatabase } from "@/lib/db";
+import { getPaperDraftModel } from "@/models/for-sylabus-app/PaperDraft";
 
 /* -------------------------------- POST -------------------------------- */
 /* Create new draft every time */
 export async function POST(req: NextRequest) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const PaperDraft = getPaperDraftModel(conn);
 
     const { userId, draft, draftName } = await req.json();
 
@@ -30,11 +31,11 @@ export async function POST(req: NextRequest) {
     const saved = await PaperDraft.create({
       userId,
       draftName,
-      boardSlug: draft.boardSlug,
-      mediumSlug: draft.mediumSlug,
-      classKey: draft.classKey,
-      subjectSlug: draft.subjectSlug,
-      paperMode: draft.paperMode,
+      boardSlug,
+      mediumSlug,
+      classKey,
+      subjectSlug,
+      paperMode,
       draft: cleanDraft,
       lastUpdated: new Date(),
     });
@@ -53,7 +54,8 @@ export async function POST(req: NextRequest) {
 /* Get all drafts OR single draft */
 export async function GET(req: NextRequest) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const PaperDraft = getPaperDraftModel(conn);
 
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId");
@@ -66,7 +68,6 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Fetch single draft by ID (secured by userId)
     if (draftId) {
       const draft = await PaperDraft.findOne({
         _id: draftId,
@@ -80,7 +81,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ draft });
     }
 
-    // Fetch all drafts for user
     const drafts = await PaperDraft.find({ userId }).sort({
       lastUpdated: -1,
     });
@@ -99,7 +99,8 @@ export async function GET(req: NextRequest) {
 /* Update draft explicitly */
 export async function PUT(req: NextRequest) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const PaperDraft = getPaperDraftModel(conn);
 
     const { userId, draft, draftId, draftName } = await req.json();
 
@@ -125,11 +126,11 @@ export async function PUT(req: NextRequest) {
       {
         userId,
         draftName,
-        boardSlug: draft.boardSlug,
-        mediumSlug: draft.mediumSlug,
-        classKey: draft.classKey,
-        subjectSlug: draft.subjectSlug,
-        paperMode: draft.paperMode,
+        boardSlug,
+        mediumSlug,
+        classKey,
+        subjectSlug,
+        paperMode,
         draft: cleanDraft,
         lastUpdated: new Date(),
       },
@@ -150,7 +151,8 @@ export async function PUT(req: NextRequest) {
 /* Delete single or all drafts */
 export async function DELETE(req: NextRequest) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const PaperDraft = getPaperDraftModel(conn);
 
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId");

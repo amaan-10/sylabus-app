@@ -1,17 +1,30 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import InstituteUser from "@/models/for-sylabus-institutes/InstituteUser";
+
+import { connectToDatabase } from "@/lib/db";
+import { getInstituteUserModel } from "@/models/for-sylabus-institutes/InstituteUser";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
 export async function POST(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const InstituteUser = getInstituteUserModel(conn);
+
     const { email, password } = await req.json();
 
-    const user = await InstituteUser.findOne({ email }).select("+password");
+    if (!email || !password) {
+      return NextResponse.json(
+        { error: "Email and password required" },
+        { status: 400 },
+      );
+    }
+
+    const user = await InstituteUser.findOne({ email })
+      .select("+password")
+      .lean();
+
     if (!user) {
       return NextResponse.json(
         { error: "Invalid credentials" },
@@ -19,7 +32,8 @@ export async function POST(req: Request) {
       );
     }
 
-    const valid = await bcrypt.compare(password, user.password);
+    const valid = await bcrypt.compare(password, user.password as string);
+
     if (!valid) {
       return NextResponse.json(
         { error: "Invalid credentials" },
@@ -38,11 +52,16 @@ export async function POST(req: Request) {
       sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
       path: "/",
+      maxAge: 60 * 60 * 24 * 7, // 7 days
     });
 
     return res;
   } catch (err: any) {
-    console.error("Login error: ", err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    console.error("Login error:", err);
+
+    return NextResponse.json(
+      { error: err.message || "Login failed" },
+      { status: 500 },
+    );
   }
 }

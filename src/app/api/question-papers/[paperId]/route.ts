@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import QuestionPaper from "@/models/for-sylabus-app/QuestionPaper";
+import { connectToDatabase } from "@/lib/db";
+import { getQuestionPaperModel } from "@/models/for-sylabus-app/QuestionPaper";
 
 export async function GET(
   req: Request,
   context: { params: Promise<{ paperId: string }> },
 ) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const QuestionPaper = getQuestionPaperModel(conn);
 
     const { paperId } = await context.params;
 

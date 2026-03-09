@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import Subject from "@/models/for-sylabus-app/Subject";
 import fs from "fs";
 import path from "path";
+import { connectToDatabase } from "@/lib/db";
+import { getSubjectModel } from "@/models/for-sylabus-app/Subject";
 
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const Subject = getSubjectModel(conn);
 
     const { subjectSlug, chapterId, question } = await req.json();
 
@@ -73,7 +74,8 @@ export async function POST(req: Request) {
 
 export async function GET(req: Request) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const Subject = getSubjectModel(conn);
 
     const { searchParams } = new URL(req.url);
     const subjectSlug = searchParams.get("subjectSlug");
@@ -96,7 +98,8 @@ export async function GET(req: Request) {
 
 export async function DELETE(req: Request) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const Subject = getSubjectModel(conn);
 
     const { subjectSlug, chapterId, questionId } = await req.json();
 
@@ -104,7 +107,7 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ message: "Invalid payload" }, { status: 400 });
     }
 
-    /* 1️⃣ Find the question (to get imageUrl) */
+    /* 1️⃣ Find the question */
     const subject = await Subject.findOne(
       {
         subjectSlug,
@@ -126,7 +129,7 @@ export async function DELETE(req: Request) {
     const chapter = subject.chapters[0];
     const question = chapter.questions.find((q: any) => q.id === questionId);
 
-    /* 2️⃣ Delete image if exists */
+    /* 2️⃣ Delete image */
     if (question?.imageUrl?.startsWith("/uploads/")) {
       const filePath = path.join(process.cwd(), "public", question.imageUrl);
 
@@ -135,7 +138,7 @@ export async function DELETE(req: Request) {
       }
     }
 
-    /* 3️⃣ Delete question from DB */
+    /* 3️⃣ Remove question */
     const result = await Subject.updateOne(
       {
         subjectSlug,

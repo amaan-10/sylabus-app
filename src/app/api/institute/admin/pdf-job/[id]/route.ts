@@ -1,17 +1,18 @@
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import PdfJob from "@/models/for-sylabus-institutes/PdfJob";
+import { connectToDatabase } from "@/lib/db";
+import { getPdfJobModel } from "@/models/for-sylabus-institutes/PdfJob";
 import { NextResponse } from "next/server";
 
 export async function GET(
   _req: Request,
   context: { params: Promise<{ id: string }> },
 ) {
-  await connectToInstituteDB();
+  const conn = await connectToDatabase("sylabus-db-institutes");
+  const PdfJob = getPdfJobModel(conn);
 
-  // ✅ UNWRAP params
   const { id } = await context.params;
 
-  const job = await PdfJob.findById(id);
+  const job = await PdfJob.findById(id).lean();
+
   if (!job) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }

@@ -1,11 +1,12 @@
-// app/api/user/route.ts
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import InstituteUser from "@/models/for-sylabus-institutes/InstituteUser";
+import { connectToDatabase } from "@/lib/db";
+import { getInstituteUserModel } from "@/models/for-sylabus-institutes/InstituteUser";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const InstituteUser = getInstituteUserModel(conn);
+
     const body = await req.json();
 
     const user = await InstituteUser.create(body);
@@ -20,7 +21,8 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  await connectToInstituteDB();
+  const conn = await connectToDatabase("sylabus-db-institutes");
+  const InstituteUser = getInstituteUserModel(conn);
 
   const { searchParams } = new URL(req.url);
   const role = searchParams.get("role");

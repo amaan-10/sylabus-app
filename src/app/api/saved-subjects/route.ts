@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import SavedSubject from "@/models/for-sylabus-app/SavedSubject";
+import { connectToDatabase } from "@/lib/db";
+import { getSavedSubjectModel } from "@/models/for-sylabus-app/SavedSubject";
 
 export async function POST(req: Request) {
   try {
@@ -13,7 +13,8 @@ export async function POST(req: Request) {
       );
     }
 
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const SavedSubject = getSavedSubjectModel(conn);
 
     const saved = await SavedSubject.create({
       userId,
@@ -23,7 +24,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json(saved, { status: 201 });
   } catch (err: any) {
-    // Duplicate save
     if (err.code === 11000) {
       return NextResponse.json({ message: "Already saved" }, { status: 200 });
     }
@@ -44,7 +44,8 @@ export async function GET(req: Request) {
       );
     }
 
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const SavedSubject = getSavedSubjectModel(conn);
 
     const savedSubjects = await SavedSubject.find({ userId })
       .sort({ createdAt: -1 })
@@ -67,7 +68,8 @@ export async function DELETE(req: Request) {
       );
     }
 
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const SavedSubject = getSavedSubjectModel(conn);
 
     await SavedSubject.deleteOne({ userId, subjectId });
 

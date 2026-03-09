@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import Program from "@/models/for-sylabus-institutes/Program";
+import { connectToDatabase } from "@/lib/db";
+import { getProgramModel } from "@/models/for-sylabus-institutes/Program";
 
 export async function GET(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+    const Program = getProgramModel(conn);
 
     const { searchParams } = new URL(req.url);
 
@@ -21,7 +22,7 @@ export async function GET(req: Request) {
     }
 
     const programs = await Program.find({
-      instituteId,
+      instituteId: instituteId as any,
       $or: [
         { program: { $regex: query, $options: "i" } },
         { degree: { $regex: query, $options: "i" } },
@@ -30,7 +31,8 @@ export async function GET(req: Request) {
     })
       .select("program degree stream academicLevel")
       .limit(10)
-      .sort({ program: 1 });
+      .sort({ program: 1 })
+      .lean();
 
     return NextResponse.json(programs);
   } catch (err) {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import { SubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
+import { connectToDatabase } from "@/lib/db";
+import { getSubjectQuestionBankModel } from "@/models/for-sylabus-app/subjectQuestionBank";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -14,9 +14,11 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Missing params" }, { status: 400 });
   }
 
-  await connectToDatabase();
+  const conn = await connectToDatabase("sylabus-db");
 
-  const result = await SubjectQuestionBankModel.aggregate([
+  const SubjectQuestionBank = getSubjectQuestionBankModel(conn);
+
+  const result = await SubjectQuestionBank.aggregate([
     {
       $match: { board, medium, classKey, subjectSlug },
     },

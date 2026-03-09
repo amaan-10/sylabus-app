@@ -1,10 +1,10 @@
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import { User } from "@/models/for-sylabus-app/User";
 import { cookies } from "next/headers";
 import { adminAuth } from "@/lib/firebase-admin";
+import { connectToDatabase } from "@/lib/db";
+import { getUserModel } from "@/models/for-sylabus-app/User";
 
 export async function GET(req: Request) {
   try {
@@ -15,10 +15,13 @@ export async function GET(req: Request) {
     }
 
     const decoded = await adminAuth.verifySessionCookie(session, true);
-
     const firebaseUid = decoded.uid;
 
-    await connectToDatabase();
+    // connect to correct DB
+    const conn = await connectToDatabase("sylabus-db");
+
+    // get model attached to connection
+    const User = getUserModel(conn);
 
     const user = await User.findOne({ firebaseUid }).lean();
 

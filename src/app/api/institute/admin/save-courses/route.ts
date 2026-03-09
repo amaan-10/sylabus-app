@@ -1,12 +1,16 @@
 import { NextResponse } from "next/server";
-import { connectToInstituteDB } from "@/lib/db-connect/sylabus-db-institutes";
-import PdfJob from "@/models/for-sylabus-institutes/PdfJob";
-import Course from "@/models/for-sylabus-institutes/Course";
 import mongoose from "mongoose";
+
+import { connectToDatabase } from "@/lib/db";
+import { getPdfJobModel } from "@/models/for-sylabus-institutes/PdfJob";
+import { getCourseModel } from "@/models/for-sylabus-institutes/Course";
 
 export async function POST(req: Request) {
   try {
-    await connectToInstituteDB();
+    const conn = await connectToDatabase("sylabus-db-institutes");
+
+    const PdfJob = getPdfJobModel(conn);
+    const Course = getCourseModel(conn);
 
     const { jobId, instituteId, programId, pattern, semester } =
       await req.json();
@@ -26,6 +30,7 @@ export async function POST(req: Request) {
     }
 
     const job = await PdfJob.findById(jobId);
+
     if (!job || !job.aiJson?.courses) {
       return NextResponse.json(
         { error: "AI data not found for this job" },
@@ -52,10 +57,10 @@ export async function POST(req: Request) {
       readings: course.readings ?? [],
     }));
 
-    // 🔁 OPTIONAL: remove existing courses for same program+semester
+    /* remove existing courses for same program+semester */
     await Course.deleteMany({ programId, semester });
 
-    // ✅ Insert all courses at once
+    /* insert all courses */
     const insertedCourses = await Course.insertMany(coursesToInsert);
 
     job.status = "SAVED";
@@ -68,6 +73,10 @@ export async function POST(req: Request) {
     });
   } catch (err: any) {
     console.error("Save courses error:", err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+
+    return NextResponse.json(
+      { error: err.message || "Course save failed" },
+      { status: 500 },
+    );
   }
 }

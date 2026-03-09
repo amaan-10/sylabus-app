@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db-connect/sylabus-db";
-import QuestionPaper from "@/models/for-sylabus-app/QuestionPaper";
+import { connectToDatabase } from "@/lib/db";
+import { getQuestionPaperModel } from "@/models/for-sylabus-app/QuestionPaper";
 
 /* ---------------- POST: saved papers ---------------- */
 export async function POST(req: Request) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const QuestionPaper = getQuestionPaperModel(conn);
 
     const body = await req.json();
 
@@ -49,7 +50,8 @@ export async function POST(req: Request) {
 /* ---------------- GET: List saved papers ---------------- */
 export async function GET(req: Request) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const QuestionPaper = getQuestionPaperModel(conn);
 
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId") || "guest";
@@ -72,7 +74,9 @@ export async function GET(req: Request) {
 /* ---------------- DELETE: Remove paper ---------------- */
 export async function DELETE(req: Request) {
   try {
-    await connectToDatabase();
+    const conn = await connectToDatabase("sylabus-db");
+    const QuestionPaper = getQuestionPaperModel(conn);
+
     const { paperId } = await req.json();
 
     if (!paperId) {
