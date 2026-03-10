@@ -117,7 +117,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Book.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -130,7 +130,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Brain.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -143,7 +143,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Certificate.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -156,7 +156,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Teacher.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -169,7 +169,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Laptop.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -182,7 +182,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Flask.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -199,7 +199,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/WhiteBoard.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -212,7 +212,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Graduation Cap.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -225,7 +225,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Trophy.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
@@ -238,7 +238,7 @@ const CTA = () => {
                           width="992"
                           height="1200"
                           sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/p1.png"
+                          src="/cta/Question Paper.png"
                           alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />

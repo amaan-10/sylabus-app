@@ -149,8 +149,8 @@ const Footer = () => {
           <div className="z-1 flex flex-row flex-wrap flex-none place-content-center items-center gap-5 w-full h-min p-0 relative overflow-visible">
             {[
               { label: "Get Started", href: "/signin" },
-              { label: "Dashboard", href: "/dashboard" },
               { label: "Contact", href: "/contact" },
+              { label: "Feedback", href: "/feedback" },
             ].map((item) => (
               <div
                 key={item.label}
