@@ -1,10 +1,14 @@
 import About from "@/components/home/About";
 import Benefits from "@/components/home/Benefits";
-import Footer from "@/components/Footer";
+import Footer from "@/components/home/Footer";
 import Hero from "@/components/home/Hero";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/home/Services";
 import { cookies } from "next/headers";
+import CTA from "@/components/home/CTA";
+import FAQ from "@/components/home/FAQ";
+import Testimonials from "@/components/home/Testimonials";
+import Pricing from "@/components/home/Pricing";
 
 export default async function Home() {
   const hasSession = Boolean((await cookies()).get("session"));
@@ -15,6 +19,10 @@ export default async function Home() {
       <About />
       <Services />
       <Benefits />
+      <Pricing />
+      <Testimonials />
+      <FAQ />
+      <CTA />
       <Footer />
     </div>
   );

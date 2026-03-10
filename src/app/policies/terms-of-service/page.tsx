@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { cookies } from "next/headers";
-import Footer from "@/components/Footer";
+import Footer from "@/components/home/Footer";
 import TermsOfService from "@/components/policies/TermsOfService";
 
 const TermsOfServicePage = async () => {

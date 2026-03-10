@@ -155,7 +155,12 @@ export default function RegisterPage() {
         </div>
         <div className="hidden lg:flex flex-none flex-col flex-nowrap content-start items-start h-full justify-between overflow-hidden min-h-screen px-12 py-[62px] relative w-1/2 bg-[#13261b]">
           <div className="flex-none h-auto w-auto relative">
-            <div className="content-center items-center cursor-pointer flex flex-row flex-nowrap gap-2 h-min justify-center overflow-hidden p-0 relative w-min">
+            <Link
+              href="/"
+              target="_self"
+              aria-label="Back Home"
+              className="content-center items-center cursor-pointer flex flex-row flex-nowrap gap-2 h-min justify-center overflow-hidden p-0 relative w-min"
+            >
               <div className="flex h-5 w-5 relative">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -175,10 +180,7 @@ export default function RegisterPage() {
                 </svg>
               </div>
               <div className="flex-none h-auto w-auto relative">
-                <Link
-                  href="/"
-                  target="_self"
-                  aria-label="Back Home"
+                <div
                   className="inline-block cursor-pointer relative text-left whitespace-nowrap text-[16px] font-normal leading-[1em] no-underline"
                   style={{
                     color:
@@ -201,9 +203,9 @@ export default function RegisterPage() {
                       transition: "transform 0.46s",
                     }}
                   ></span>
-                </Link>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="flex flex-col gap-14">
             <div className="flex-none h-auto w-auto relative">
