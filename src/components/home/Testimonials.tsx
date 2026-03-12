@@ -151,7 +151,7 @@ const Testimonials = () => {
         }}
       >
         {/* Arrows */}
-        <div className="absolute flex flex-row justify-between items-center gap-0 opacity-100 inset-8 top-8 left-5 right-5 bottom-8">
+        <div className="absolute flex flex-row justify-between items-center gap-0 opacity-100 inset-8 top-8 left-2.5 right-2.5 bottom-8">
           <button
             onClick={() => scroll("left")}
             className="border-0 block place-content-center place-items-center overflow-hidden bg-transparent cursor-pointer m-0 p-0 w-10 h-10 rounded-none pointer-events-auto transform-none"

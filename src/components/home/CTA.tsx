@@ -108,142 +108,97 @@ const CTA = () => {
               <div className="z-2 hidden md:block flex-none h-12 absolute top-0 -left-12 -right-12 overflow-visible backdrop-blur-md [mask:linear-gradient(0deg,rgba(0,0,0,0)_0%,rgb(0,0,0)_100%)] opacity-100"></div>
 
               <div className="flex flex-row flex-none content-start justify-center items-start gap-2 md:gap-4 w-full h-full p-0 relative overflow-visible">
-                <div className="will-change-transform flex-[1_0_0] w-px h-full relative overflow-hidden rounded-[20px] opacity-100">
-                  <div className="z-1 flex flex-col flex-none place-content-center items-center gap-2 md:gap-4 w-full h-min p-0 absolute -top-36 left-1/2 -translate-x-1/2 overflow-visible will-change-transform opacity-100">
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
+                <div className="flex-[1_0_0] w-px h-full relative overflow-hidden rounded-[20px]">
+                  <div className="absolute left-1/2 -translate-x-1/2 flex flex-col gap-2 md:gap-4 animate-scroll-up w-full">
+                    {[
+                      { src: "/cta/Book.png", alt: "Book" },
+                      { src: "/cta/Brain.png", alt: "Brain" },
+                      { src: "/cta/Certificate.png", alt: "Certificate" },
+                      { src: "/cta/Teacher.png", alt: "Teacher" },
+                      { src: "/cta/Laptop.png", alt: "Laptop" },
+                      { src: "/cta/Flask.png", alt: "Flask" },
+                    ].map((img, i) => (
+                      <div
+                        key={i}
+                        className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] relative overflow-hidden rounded-[20px]"
+                      >
                         <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Book.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
+                          width={992}
+                          height={1200}
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+
+                    {[
+                      { src: "/cta/Book.png", alt: "Book" },
+                      { src: "/cta/Brain.png", alt: "Brain" },
+                      { src: "/cta/Certificate.png", alt: "Certificate" },
+                      { src: "/cta/Teacher.png", alt: "Teacher" },
+                      { src: "/cta/Laptop.png", alt: "Laptop" },
+                      { src: "/cta/Flask.png", alt: "Flask" },
+                    ].map((img, i) => (
+                      <div
+                        key={`dup-${i}`}
+                        className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] relative overflow-hidden rounded-[20px]"
+                      >
+                        <Image
+                          width={992}
+                          height={1200}
+                          src={img.src}
+                          alt={img.alt}
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
                       </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Brain.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Certificate.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Teacher.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Laptop.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Flask.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
-                <div className="will-change-transform flex-[1_0_0] w-px h-full relative overflow-hidden rounded-[20px] opacity-100">
-                  <div className="flex flex-col flex-none place-content-center items-center gap-4 w-full h-min p-0 absolute -top-[62px] left-1/2 -translate-x-1/2 overflow-visible will-change-transform opacity-100">
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
+
+                <div className="flex-[1_0_0] w-px h-full relative overflow-hidden rounded-[20px]">
+                  <div className="absolute left-1/2 -translate-x-1/2 flex flex-col gap-2 md:gap-4 animate-scroll-down w-full">
+                    {[
+                      { src: "/cta/WhiteBoard.png", alt: "WhiteBoard" },
+                      { src: "/cta/Graduation Cap.png", alt: "Graduation Cap" },
+                      { src: "/cta/Certificate.png", alt: "Certificate" },
+                      { src: "/cta/Trophy.png", alt: "Trophy" },
+                      { src: "/cta/Question Paper.png", alt: "Question Paper" },
+                    ].map((img, i) => (
+                      <div
+                        key={i}
+                        className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] relative overflow-hidden rounded-[20px]"
+                      >
                         <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/WhiteBoard.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
+                          width={992}
+                          height={1200}
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+
+                    {[
+                      { src: "/cta/WhiteBoard.png", alt: "WhiteBoard" },
+                      { src: "/cta/Graduation Cap.png", alt: "Graduation Cap" },
+                      { src: "/cta/Certificate.png", alt: "Certificate" },
+                      { src: "/cta/Trophy.png", alt: "Trophy" },
+                      { src: "/cta/Question Paper.png", alt: "Question Paper" },
+                    ].map((img, i) => (
+                      <div
+                        key={`dup-${i}`}
+                        className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] relative overflow-hidden rounded-[20px]"
+                      >
+                        <Image
+                          width={992}
+                          height={1200}
+                          src={img.src}
+                          alt={img.alt}
                           className="block w-full h-full rounded-[inherit] object-center object-cover"
                         />
                       </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Graduation Cap.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Trophy.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="aspect-[0.75] h-[229px] md:h-[156px] lg:h-[221px] will-change-transform flex-none w-full relative overflow-hidden rounded-[20px] opacity-100">
-                      <div className="absolute rounded-inherit inset-0">
-                        <Image
-                          decoding="auto"
-                          width="992"
-                          height="1200"
-                          sizes="calc(max((max((max(min(100vw - 96px, 1280px), 1px) - 160px) / 3, 1px) - 16px) / 2, 1px) * 1.003)"
-                          src="/cta/Question Paper.png"
-                          alt="Close-up of a dark green leaf showing its textured surface and central vein against a muted background."
-                          className="block w-full h-full rounded-[inherit] object-center object-cover"
-                        />
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
