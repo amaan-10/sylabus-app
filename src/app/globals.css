@@ -161,3 +161,37 @@
     background-position: 150% center;
   }
 }
+
+@keyframes scrollUpLoop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-up {
+  animation: scrollUpLoop 30s linear infinite;
+}
+
+.animate-scroll-down:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollDownLoop {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-scroll-down {
+  animation: scrollDownLoop 30s linear infinite;
+}
+
+.animate-scroll-down:hover {
+  animation-play-state: paused;
+}
