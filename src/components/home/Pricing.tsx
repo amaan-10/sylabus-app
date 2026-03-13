@@ -11,8 +11,8 @@ const Pricing = () => {
       ai: false,
       link: "/signin?plan=plus",
       icon: "M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z",
-      priceSemester: 1499,
-      priceAnnual: 1199,
+      priceSemester: 1699,
+      priceAnnual: 2999,
       description:
         "Best for individual teachers creating syllabus-aligned question papers.",
       button: "Choose this plan",
@@ -33,7 +33,7 @@ const Pricing = () => {
       icon: "M239.75,90.81c0,.11,0,.21-.07.32L217,195a16,16,0,0,1-15.72,13H54.71A16,16,0,0,1,39,195L16.32,91.13c0-.11-.05-.21-.07-.32A16,16,0,0,1,44,77.39l33.67,36.29,35.8-80.29a1,1,0,0,0,0-.1,16,16,0,0,1,29.06,0,1,1,0,0,0,0,.1l35.8,80.29L212,77.39a16,16,0,0,1,27.71,13.42Z",
       popular: true,
       priceSemester: 2999,
-      priceAnnual: 2399,
+      priceAnnual: 5499,
       description:
         "Advanced AI powered paper generation for faster exam preparation.",
       button: "Choose this plan",
@@ -115,7 +115,7 @@ const Pricing = () => {
             </button>
 
             <p className="text-[#5e6b64] text-sm">
-              Annual <span className="text-[#193625]">(Save 20%)</span>
+              Annual <span className="text-[#193625]">(Save more)</span>
             </p>
           </div>
 
@@ -229,12 +229,12 @@ const Pricing = () => {
                       ) : (
                         <>
                           <span className="text-2xl">₹</span>
-                          {price}
+                          {price?.toLocaleString("en-IN")}
                         </>
                       )}
                       {!plan.custom && (
                         <span className="text-base ml-1 opacity-70">
-                          /subject
+                          /subject{annual ? " /year" : " /semester"}
                         </span>
                       )}
                     </div>
