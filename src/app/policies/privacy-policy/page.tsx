@@ -1,5 +1,5 @@
 import Footer from "@/components/home/Footer";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/home/Navbar";
 import { cookies } from "next/headers";
 import PrivacyPolicy from "@/components/policies/PrivacyPolicy";
 

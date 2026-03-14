@@ -2,7 +2,7 @@ import About from "@/components/home/About";
 import Benefits from "@/components/home/Benefits";
 import Footer from "@/components/home/Footer";
 import Hero from "@/components/home/Hero";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/home/Navbar";
 import Services from "@/components/home/Services";
 import { cookies } from "next/headers";
 import CTA from "@/components/home/CTA";
