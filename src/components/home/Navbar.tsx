@@ -122,16 +122,22 @@ const Navbar: React.FC<{ hasSession: boolean }> = ({ hasSession }) => {
               </div>
 
               <div className="flex flex-row flex-none place-content-center items-center gap-6 w-min h-[41px] p-0 relative overflow-hidden">
-                {["Home", "Services", "About", "Benefits"].map((label) => (
-                  <div key={label} className="relative w-auto h-auto">
+                {[
+                  { label: "Home", href: "/#home" },
+                  { label: "About", href: "/about" },
+                  { label: "Services", href: "/#services" },
+                  { label: "Pricing", href: "/#pricing" },
+                  { label: "FAQ", href: "/#faq" },
+                ].map((item) => (
+                  <div key={item.label} className="relative w-auto h-auto">
                     <a
-                      href={`/#${label.toLowerCase()}`}
+                      href={item.href}
                       className="group cursor-pointer flex flex-col place-content-start items-center gap-2.5 w-min h-min p-0 no-underline relative overflow-hidden rounded-sm"
-                      aria-label={label}
+                      aria-label={item.label}
                     >
                       <div className="relative w-auto h-auto">
                         <span className="text-base text-[#5e6b64] transition-colors duration-200 motion-safe:transition-transform motion-safe:duration-300 group-hover:text-[#13261b] group-hover:-translate-y-0.5 motion-safe:group-hover:-translate-y-0.5 inline-block">
-                          {label}
+                          {item.label}
                         </span>
 
                         <span
@@ -366,14 +372,20 @@ function MobileNavbar({
             className="fixed inset-0 bg-white pt-24 px-4 -z-1"
           >
             <nav className="flex flex-col gap-6">
-              {["Home", "Services", "About", "Benefits"].map((item) => (
+              {[
+                { label: "Home", href: "/#home" },
+                { label: "About", href: "/about" },
+                { label: "Services", href: "/#services" },
+                { label: "Pricing", href: "/#pricing" },
+                { label: "FAQ", href: "/#faq" },
+              ].map((item) => (
                 <Link
-                  key={item}
-                  href={`/#${item.toLowerCase()}`}
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setOpen(false)}
                   className="text-2xl text-[#193625] transition"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
 

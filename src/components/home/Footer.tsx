@@ -121,7 +121,7 @@ const Footer = () => {
         <div className="flex flex-col flex-wrap flex-none place-content-center items-center gap-8 w-full h-min p-0 relative overflow-hidden">
           <div className="z-1 flex flex-row flex-wrap flex-none place-content-center items-center gap-5 w-full h-min p-0 relative overflow-visible">
             {[
-              { label: "Home", href: "/home" },
+              { label: "Home", href: "/#home" },
               { label: "About", href: "/about" },
               { label: "Services", href: "/#services" },
               { label: "Benefits", href: "/#benefits" },
