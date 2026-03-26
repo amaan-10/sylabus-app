@@ -100,7 +100,7 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                     "var(--token-6b7284e5-c42c-4865-a174-119a0270b93c, rgb(17, 17, 17))",
                   boxShadow: `rgba(0, 0, 0, 0.1) 0px 0.48175px 1.25255px -1.16667px, rgba(0, 0, 0, 0.09) 0px 1.83083px 4.76015px -2.33333px, rgba(0, 0, 0, 0.043) 0px 8px 20.8px -3.5px, rgba(255, 255, 255, 0.49) 0px -2px 9px 0px inset, rgba(0, 0, 0, 0.2) 0px 0px 0px 2px`,
                 }}
-                href="/institute/login"
+                href={hasSession ? "/dashboard" : "/signin"}
               >
                 <div
                   className="flex-none h-auto relative whitespace-pre w-auto"
@@ -116,14 +116,14 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                     } as React.CSSProperties
                   }
                 >
-                  {/* <p className="font-medium text-[#FAFAF7]">For Institutes</p> */}
-                  <Image
+                  <p className="font-medium text-[#FAFAF7]">Get Started</p>
+                  {/* <Image
                     src="/icon/for-institutes.png"
                     alt="for-institutes"
                     width={115}
                     height={115}
                     className="self-end max-w-fit"
-                  />
+                  /> */}
                 </div>
                 <div
                   className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative -rotate-90"
@@ -177,7 +177,7 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                     "var(--token-f395e90f-e08f-456b-b155-0974850affb9, rgb(255, 255, 255))",
                   boxShadow: `0px 0px 0px -2.5px rgba(0, 0, 0, 0.13189), 0px 0px 0px -5px rgba(0, 0, 0, 0), inset 0px -1px 4px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 2px var(--token-caa7547d-cf57-44d3-92c2-01fcbf1068be, rgb(243, 243, 241))`,
                 }}
-                href={hasSession ? "/dashboard" : "/signin"}
+                href="#about"
                 data-framer-name="Button Light Icon Up"
               >
                 <div
@@ -194,7 +194,7 @@ const Hero = ({ hasSession }: { hasSession: boolean }) => {
                     } as React.CSSProperties
                   }
                 >
-                  <p className="font-medium text-black">for Individuals</p>
+                  <p className="font-medium text-black">Learn more</p>
                 </div>
                 <div
                   className="flex items-center justify-center flex-row flex-nowrap gap-2.5 flex-none h-min w-min min-h-5 min-w-5 overflow-hidden p-0 relative"
