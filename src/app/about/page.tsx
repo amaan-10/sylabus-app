@@ -272,485 +272,149 @@ const AboutPage = () => {
         </motion.div>
       </section>
 
-      {/* <section class="framer-1x5ez5g" data-framer-name="Team">
-        <div class="framer-1r6ujhl" data-framer-name="Container">
-          <div class="framer-1wr3f61" data-framer-name="Heading">
-            <div class="framer-1jrh5w6-container">
-              <div
-                class="framer-UaM98 framer-FZIVT framer-st3bo7 framer-v-st3bo7"
-                data-framer-name="Default"
-                style="--10ocmuz: 6px 16px 6px 16px; backdrop-filter: none; background-color: var(--token-67d4c3b0-366f-4285-aac0-3c847074502f, rgb(240, 244, 243)); border-radius: 32px; opacity: 1;"
-              >
-                <div
-                  class="framer-l3eoxm"
-                  data-framer-component-type="RichTextContainer"
-                  style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                >
-                  <p
-                    class="framer-text framer-styles-preset-10181gm"
-                    data-styles-preset="Y8JjgkGIV"
-                  >
-                    Team
-                  </p>
+      <section className="flex flex-col items-center justify-center w-full px-12 relative overflow-visible h-min gap-0 flex-none">
+        <div className="flex flex-col items-center justify-center w-full max-w-7xl gap-24 h-min relative overflow-visible flex-none p-0">
+          <div className="flex flex-col flex-none place-content-center items-center gap-6 w-full max-w-[568px] md:max-w-[600px] h-min p-0 relative overflow-hidden">
+            <div className="flex-none w-auto h-auto relative">
+              <div className="h-min w-auto flex flex-row place-content-center items-center gap-1.5 px-4 py-1.5 relative overflow-hidden rounded-4xl opacity-100 bg-[#f0f4f3]">
+                <div className="flex-none w-auto h-auto relative">
+                  <p className="text-sm text-[#5e6b64]">Team</p>
                 </div>
               </div>
             </div>
-            <div
-              class="framer-m5oss"
-              data-framer-component-type="RichTextContainer"
-              style="transform: none;"
-            >
-              <h2
-                class="framer-text framer-styles-preset-xaq1zr"
-                data-styles-preset="fjL73p9pc"
-                style="--framer-text-alignment: center;"
-              >
-                Meet our founders
-              </h2>
+            <div className="flex-none w-full h-auto relative">
+              <h1 className="text-[34px] md:text-[40px] lg:text-5xl text-[#193625] tracking-tighter text-center">
+                Meet the founders
+              </h1>
             </div>
           </div>
-          <div class="framer-1bk2nil" data-framer-name="Content">
-            <div class="framer-teuvwu-container">
-              <div
-                class="framer-hEsC3 framer-b4zYV framer-ehpIa framer-IEy3N framer-og3rn8 framer-v-1de4a32"
-                data-framer-name="Reversed"
-                style="width: 100%; border-radius: 20px; opacity: 1;"
-              >
-                <div
-                  class="framer-14r8i7n"
-                  data-framer-name="Content"
-                  style="will-change: transform; opacity: 1; transform: none;"
-                >
-                  <div
-                    class="framer-1r1t622"
-                    data-framer-name="Text"
-                    style="opacity: 1;"
-                  >
-                    <div
-                      class="framer-l8t37a"
-                      data-framer-name="Name and Role"
-                      style="opacity: 1;"
-                    >
-                      <div
-                        class="framer-1oztw7f"
-                        data-framer-component-type="RichTextContainer"
-                        style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                      >
-                        <h3
-                          class="framer-text framer-styles-preset-11qpdnt"
-                          data-styles-preset="B3TBq1tCI"
-                        >
-                          John Nichols
-                        </h3>
-                      </div>
-                      <div
-                        class="framer-kumx0c"
-                        data-framer-component-type="RichTextContainer"
-                        style="--extracted-1eung3n: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                      >
-                        <h4
-                          class="framer-text framer-styles-preset-fo8yz6"
-                          data-styles-preset="RjH199IR2"
-                          style="--framer-text-color: var(--extracted-1eung3n, var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)));"
-                        >
-                          Co-founder &amp; lead strategist
-                        </h4>
-                      </div>
-                    </div>
-                    <div
-                      class="framer-277i4r"
-                      data-framer-component-type="RichTextContainer"
-                      style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                    >
-                      <p
-                        class="framer-text framer-styles-preset-xqj5vo"
-                        data-styles-preset="ynn6MjRHb"
-                      >
-                        John has over 5 years’ experience in sustainability and
-                        strategy. He’s helped companies from tech to
-                        manufacturing create actionable net-zero plans. John
-                        focuses on making climate strategy clear and empowering
-                        SMEs to lead with confidence.
-                      </p>
-                    </div>
+          <div className="flex flex-col items-center justify-center w-full gap-12 h-min relative overflow-visible flex-none p-0">
+            <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-12 md:gap-16 w-full max-w-7xl md:h-min p-0 relative overflow-visible">
+              <div className="z-1 flex flex-col flex-[1_0_0] place-content-start items-center md:items-start gap-6 h-min w-full md:w-px p-0 top-[100px] overflow-visible">
+                <div className="flex flex-col items-center justify-center w-full gap-3 h-min relative overflow-visible flex-none p-0">
+                  <div className="w-full h-auto relative flex-none whitespace-pre-wrap wrap-break-word">
+                    <h3 className="text-[#193625] text-2xl md:text-[28px] lg:text-[32px] leading-[1.2em] tracking-tight">
+                      Amaan Shaikh
+                    </h3>
                   </div>
-                  <div
-                    class="framer-1h5qjks"
-                    data-framer-name="Socials"
-                    style="opacity: 1;"
-                  >
-                    <div class="framer-qi3c5-container" style="opacity: 1;">
-                      <a
-                        class="framer-KZvG7 framer-x2erqo framer-v-mhxm8p framer-g4ow2q"
-                        data-framer-name="Small"
-                        href="https://x.com/home"
-                        target="_blank"
-                        rel="noopener"
-                        style="opacity: 1;"
-                      >
-                        <div
-                          class="framer-1rhz2cm"
-                          data-framer-name="Slider"
-                          style="opacity: 1;"
-                        >
-                          <div
-                            class="framer-1xsmuy-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); color: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                  weight="regular"
-                                >
-                                  <path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div
-                            class="framer-bvqlw0-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); color: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                  weight="regular"
-                                >
-                                  <path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="framer-16lmppu-container" style="opacity: 1;">
-                      <a
-                        class="framer-KZvG7 framer-x2erqo framer-v-mhxm8p framer-g4ow2q"
-                        data-framer-name="Small"
-                        href="https://www.linkedin.com/"
-                        target="_blank"
-                        rel="noopener"
-                        style="opacity: 1;"
-                      >
-                        <div
-                          class="framer-1rhz2cm"
-                          data-framer-name="Slider"
-                          style="opacity: 1;"
-                        >
-                          <div
-                            class="framer-1xsmuy-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); color: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                  weight="regular"
-                                >
-                                  <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div
-                            class="framer-bvqlw0-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); color: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                  weight="regular"
-                                >
-                                  <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
+                  <div className="w-full h-auto relative flex-none whitespace-pre-wrap wrap-break-word">
+                    <h4 className="text-[#5e6b64] text-[22px] lg:text-[24px] leading-[1.2em] tracking-tight">
+                      Founder & CEO
+                    </h4>
                   </div>
                 </div>
-                <div
-                  class="framer-xcqk29"
-                  data-framer-name="Visual"
-                  style="will-change: transform; border-radius: 20px; opacity: 1; transform: none;"
-                >
-                  <div
-                    class="framer-9sgvzw"
-                    data-framer-name="Image"
-                    style="will-change: transform; border-radius: 20px; opacity: 1; transform: none;"
-                  >
-                    <div
-                      data-framer-background-image-wrapper="true"
-                      style="position: absolute; border-radius: inherit; corner-shape: inherit; inset: 0px;"
+                <div className="flex-none w-full max-w-[620px] h-auto relative">
+                  <p className="text-[#5e6b64] text-center md:text-left">
+                    Amaan is an AI & Data Science graduate with a passion for
+                    transforming education. With expertise in machine learning
+                    and a deep understanding of educators' needs, he leads
+                    Sylabus's vision to revolutionize question paper creation
+                    and empower teachers worldwide.
+                  </p>
+                </div>
+
+                <div className="flex flex-row items-center justify-start content-center w-full gap-4 h-min relative overflow-visible flex-none p-0 z-2">
+                  <div className="flex-none h-auto w-auto relative">
+                    <a
+                      href="https://www.linkedin.com/"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex flex-row items-center justify-center w-min h-min gap-2.5 p-0 relative overflow-hidden cursor-pointer no-underline"
                     >
-                      <Image
-                        decoding="auto"
-                        loading="lazy"
-                        width="1024"
-                        height="1024"
-                        sizes="max((min(100vw - 136px, 1280px) - 48px) / 2, 1px)"
-                        srcset="https://framerusercontent.com/images/8RwmIoskSEGpLXital4xtnDNL8.png?scale-down-to=512&amp;width=1024&amp;height=1024 512w,https://framerusercontent.com/images/8RwmIoskSEGpLXital4xtnDNL8.png?width=1024&amp;height=1024 1024w"
-                        src="https://framerusercontent.com/images/8RwmIoskSEGpLXital4xtnDNL8.png?width=1024&amp;height=1024"
-                        alt=""
-                        style="display: block; width: 100%; height: 100%; border-radius: inherit; corner-shape: inherit; object-position: center center; object-fit: cover;"
-                      />
-                    </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"
+                        className="h-7 w-7 text-[#5e6b64] fill-current"
+                      >
+                        <path d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z" />
+                      </svg>
+                    </a>
+                  </div>
+                  <div className="flex-none h-auto w-auto relative">
+                    <a
+                      href="https://www.github.com"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex flex-row items-center justify-center w-min h-min gap-2.5 p-0 relative overflow-hidden cursor-pointer no-underline"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"
+                        className="h-7 w-7 text-[#5e6b64] fill-current"
+                      >
+                        <path d="M544 160C544 124.7 515.3 96 480 96L160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160zM361.8 471.7C361.8 469.9 361.8 465.7 361.9 460.1C362 448.7 362 431.3 362 416.4C362 400.8 356.8 390.9 350.7 385.7C387.7 381.6 426.7 376.5 426.7 312.6C426.7 294.4 420.2 285.3 409.6 273.6C411.3 269.3 417 251.6 407.9 228.6C394 224.3 362.2 246.5 362.2 246.5C335.6 239 305.6 239 279 246.5C279 246.5 247.2 224.3 233.3 228.6C224.2 251.5 229.8 269.2 231.6 273.6C221 285.3 216 294.4 216 312.6C216 376.2 253.3 381.6 290.3 385.7C285.5 390 281.2 397.4 279.7 408C270.2 412.3 245.9 419.7 231.4 394.1C222.3 378.3 205.9 377 205.9 377C189.7 376.8 204.8 387.2 204.8 387.2C215.6 392.2 223.2 411.4 223.2 411.4C232.9 441.1 279.3 431.1 279.3 431.1C279.3 440.1 279.4 452.8 279.4 461.7C279.4 466.5 279.5 470.3 279.5 471.7C279.5 476 276.5 481.2 268 479.7C202 457.6 155.8 394.8 155.8 321.4C155.8 229.6 226 159.9 317.8 159.9C409.6 159.9 484 229.6 484 321.4C484.1 394.8 439.3 457.7 373.3 479.7C364.9 481.2 361.8 476 361.8 471.7zM271.3 416.9C271.1 415.4 272.4 414.1 274.3 413.7C276.2 413.5 278 414.3 278.2 415.6C278.5 416.9 277.2 418.2 275.2 418.6C273.3 419 271.5 418.2 271.3 416.9zM262.2 420.1C260 420.3 258.5 419.2 258.5 417.7C258.5 416.4 260 415.3 262 415.3C263.9 415.1 265.7 416.2 265.7 417.7C265.7 419 264.2 420.1 262.2 420.1zM247.9 417.9C246 417.5 244.7 416 245.1 414.7C245.5 413.4 247.5 412.8 249.2 413.2C251.2 413.8 252.5 415.3 252 416.6C251.6 417.9 249.6 418.5 247.9 417.9zM235.4 410.6C233.9 409.3 233.5 407.4 234.5 406.5C235.4 405.4 237.3 405.6 238.8 407.1C240.1 408.4 240.6 410.4 239.7 411.2C238.8 412.3 236.9 412.1 235.4 410.6zM226.9 400.6C225.8 399.1 225.8 397.4 226.9 396.7C228 395.8 229.7 396.5 230.6 398C231.7 399.5 231.7 401.3 230.6 402.1C229.7 402.7 228 402.1 226.9 400.6zM220.6 391.8C219.5 390.5 219.3 389 220.2 388.3C221.1 387.4 222.6 387.9 223.7 388.9C224.8 390.2 225 391.7 224.1 392.4C223.2 393.3 221.7 392.8 220.6 391.8zM214.6 385.4C213.3 384.8 212.7 383.7 213.1 382.8C213.5 382.2 214.6 381.9 215.9 382.4C217.2 383.1 217.8 384.2 217.4 385C217 385.9 215.7 386.1 214.6 385.4z" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="framer-1jep0jp-container">
-              <div
-                class="framer-hEsC3 framer-b4zYV framer-ehpIa framer-IEy3N framer-og3rn8 framer-v-og3rn8"
-                data-framer-name="Default"
-                style="width: 100%; border-radius: 20px; opacity: 1;"
+              <div className="aspect-square will-change-transform rounded-[20px] flex-none md:flex-[1_0_0] w-full relative overflow-hidden">
+                <div className="will-change-transform rounded-[20px] flex-none absolute inset-0 overflow-hidden">
+                  <div className="absolute inset-0 rounded-inherit">
+                    <Image
+                      decoding="auto"
+                      width="1024"
+                      height="1024"
+                      sizes="max((min(100vw - 136px, 1280px) - 64px) / 2, 1px)"
+                      src="/sylabus.png"
+                      alt="Sylabus"
+                      className="block w-full h-full object-center object-cover rounded-[inherit]"
+                    />
+                  </div>
+                  {/* <div
+                class="framer-87ma7d-container"
+                style="will-change: transform; opacity: 1; transform: translateY(20px);"
               >
                 <div
-                  class="framer-14r8i7n"
-                  data-framer-name="Content"
-                  style="will-change: transform; opacity: 1; transform: none;"
+                  class="framer-UaM98 framer-FZIVT framer-st3bo7 framer-v-h0fucf"
+                  data-framer-name="Blur"
+                  style="--10ocmuz: 6px 16px 6px 16px; backdrop-filter: blur(10px); background-color: rgba(209, 209, 209, 0.25); border-radius: 32px; opacity: 1;"
                 >
                   <div
-                    class="framer-1r1t622"
-                    data-framer-name="Text"
-                    style="opacity: 1;"
+                    class="framer-l3eoxm"
+                    data-framer-component-type="RichTextContainer"
+                    style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; --extracted-r6o4lv: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); transform: none; opacity: 1;"
                   >
-                    <div
-                      class="framer-l8t37a"
-                      data-framer-name="Name and Role"
-                      style="opacity: 1;"
+                    <p
+                      class="framer-text framer-styles-preset-10181gm"
+                      data-styles-preset="Y8JjgkGIV"
+                      style="--framer-text-color: var(--extracted-r6o4lv, var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)));"
                     >
-                      <div
-                        class="framer-1oztw7f"
-                        data-framer-component-type="RichTextContainer"
-                        style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                      >
-                        <h3
-                          class="framer-text framer-styles-preset-11qpdnt"
-                          data-styles-preset="B3TBq1tCI"
-                        >
-                          Laura Hall
-                        </h3>
-                      </div>
-                      <div
-                        class="framer-kumx0c"
-                        data-framer-component-type="RichTextContainer"
-                        style="--extracted-1eung3n: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); --framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                      >
-                        <h4
-                          class="framer-text framer-styles-preset-fo8yz6"
-                          data-styles-preset="RjH199IR2"
-                          style="--framer-text-color: var(--extracted-1eung3n, var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)));"
-                        >
-                          Co-founder &amp; technical director
-                        </h4>
-                      </div>
-                    </div>
-                    <div
-                      class="framer-277i4r"
-                      data-framer-component-type="RichTextContainer"
-                      style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; transform: none; opacity: 1;"
-                    >
-                      <p
-                        class="framer-text framer-styles-preset-xqj5vo"
-                        data-styles-preset="ynn6MjRHb"
-                      >
-                        Laura is a carbon accounting expert with a background in
-                        environmental science. She’s supported global clients
-                        with emissions reporting and compliance. At GreenLeaf,
-                        she ensures all work is technically sound, transparent,
-                        and results-driven.
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    class="framer-1h5qjks"
-                    data-framer-name="Socials"
-                    style="opacity: 1;"
-                  >
-                    <div class="framer-qi3c5-container" style="opacity: 1;">
-                      <a
-                        class="framer-KZvG7 framer-x2erqo framer-v-mhxm8p framer-g4ow2q"
-                        data-framer-name="Small"
-                        href="https://x.com/home"
-                        target="_blank"
-                        rel="noopener"
-                        style="opacity: 1;"
-                      >
-                        <div
-                          class="framer-1rhz2cm"
-                          data-framer-name="Slider"
-                          style="opacity: 1;"
-                        >
-                          <div
-                            class="framer-1xsmuy-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); color: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                  weight="regular"
-                                >
-                                  <path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div
-                            class="framer-bvqlw0-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); color: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                  weight="regular"
-                                >
-                                  <path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="framer-16lmppu-container" style="opacity: 1;">
-                      <a
-                        class="framer-KZvG7 framer-x2erqo framer-v-mhxm8p framer-g4ow2q"
-                        data-framer-name="Small"
-                        href="https://www.linkedin.com"
-                        target="_blank"
-                        rel="noopener"
-                        style="opacity: 1;"
-                      >
-                        <div
-                          class="framer-1rhz2cm"
-                          data-framer-name="Slider"
-                          style="opacity: 1;"
-                        >
-                          <div
-                            class="framer-1xsmuy-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); color: var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-1766e044-1394-4246-a609-d6d0b6a8c40c, rgb(94, 107, 100))"
-                                  weight="regular"
-                                >
-                                  <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div
-                            class="framer-bvqlw0-container"
-                            style="opacity: 1;"
-                          >
-                            <div style="display: contents;">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 256 256"
-                                focusable="false"
-                                color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); color: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); flex-shrink: 0;"
-                              >
-                                <g
-                                  color="var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255))"
-                                  weight="regular"
-                                >
-                                  <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
+                      Carbon experts
+                    </p>
                   </div>
                 </div>
+              </div> */}
+                  {/* <div
+                class="framer-5n3kq-container"
+                style="will-change: transform; opacity: 1; transform: translateY(-20px);"
+              >
                 <div
-                  class="framer-xcqk29"
-                  data-framer-name="Visual"
-                  style="will-change: transform; border-radius: 20px; opacity: 1; transform: none;"
+                  class="framer-UaM98 framer-FZIVT framer-st3bo7 framer-v-h0fucf"
+                  data-framer-name="Blur"
+                  style="--10ocmuz: 6px 16px 6px 16px; backdrop-filter: blur(10px); background-color: rgba(209, 209, 209, 0.25); border-radius: 32px; opacity: 1;"
                 >
                   <div
-                    class="framer-9sgvzw"
-                    data-framer-name="Image"
-                    style="will-change: transform; border-radius: 20px; opacity: 1; transform: none;"
+                    class="framer-l3eoxm"
+                    data-framer-component-type="RichTextContainer"
+                    style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; --extracted-r6o4lv: var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)); transform: none; opacity: 1;"
                   >
-                    <div
-                      data-framer-background-image-wrapper="true"
-                      style="position: absolute; border-radius: inherit; corner-shape: inherit; inset: 0px;"
+                    <p
+                      class="framer-text framer-styles-preset-10181gm"
+                      data-styles-preset="Y8JjgkGIV"
+                      style="--framer-text-color: var(--extracted-r6o4lv, var(--token-a889bef8-b27f-49ca-abb1-f59cd0820711, rgb(255, 255, 255)));"
                     >
-                      <Image
-                        decoding="auto"
-                        loading="lazy"
-                        width="1024"
-                        height="1024"
-                        sizes="max((min(100vw - 136px, 1280px) - 48px) / 2, 1px)"
-                        srcset="https://framerusercontent.com/images/obPaWlDXq1AYDBfPNR56fMcg4.png?scale-down-to=512&amp;width=1024&amp;height=1024 512w,https://framerusercontent.com/images/obPaWlDXq1AYDBfPNR56fMcg4.png?width=1024&amp;height=1024 1024w"
-                        src="https://framerusercontent.com/images/obPaWlDXq1AYDBfPNR56fMcg4.png?width=1024&amp;height=1024"
-                        alt=""
-                        style="display: block; width: 100%; height: 100%; border-radius: inherit; corner-shape: inherit; object-position: center center; object-fit: cover;"
-                      />
-                    </div>
+                      Impact-obsessed
+                    </p>
                   </div>
+                </div>
+              </div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* <section class="framer-278uyh" data-framer-name="Testimonial">
         <div class="framer-jf1qld" data-framer-name="Container">
