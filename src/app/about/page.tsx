@@ -416,225 +416,80 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* <section class="framer-278uyh" data-framer-name="Testimonial">
-        <div class="framer-jf1qld" data-framer-name="Container">
-          <div class="framer-hlna7v-container">
-            <div
-              class="framer-MhSr7 framer-IEy3N framer-ehpIa framer-FZIVT framer-f9k5j0 framer-v-1nfrjz7"
-              data-framer-name="Singular"
-              style="background-color: rgba(0, 0, 0, 0); max-width: 100%; width: 100%; border-radius: 12px; opacity: 1;"
-            >
-              <div
-                class="framer-4zvsw9"
-                data-framer-name="Content"
-                style="opacity: 1;"
-              >
-                <div
-                  class="framer-h2522y-container"
-                  style="will-change: transform; opacity: 1; transform: none;"
-                >
-                  <div
-                    class="framer-7b3jf framer-8rqd0a framer-v-8rqd0a"
-                    data-framer-name="5"
-                    style="opacity: 1;"
-                  >
-                    <div class="framer-1cnyw2h-container" style="opacity: 1;">
-                      <div style="display: contents;">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 256 256"
-                          focusable="false"
-                          color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                          style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); color: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); flex-shrink: 0;"
-                        >
-                          <g
-                            color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                            weight="fill"
-                          >
-                            <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="framer-1hdspir-container" style="opacity: 1;">
-                      <div style="display: contents;">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 256 256"
-                          focusable="false"
-                          color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                          style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); color: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); flex-shrink: 0;"
-                        >
-                          <g
-                            color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                            weight="fill"
-                          >
-                            <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="framer-m70w6c-container" style="opacity: 1;">
-                      <div style="display: contents;">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 256 256"
-                          focusable="false"
-                          color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                          style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); color: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); flex-shrink: 0;"
-                        >
-                          <g
-                            color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                            weight="fill"
-                          >
-                            <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="framer-1ig20f1-container" style="opacity: 1;">
-                      <div style="display: contents;">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 256 256"
-                          focusable="false"
-                          color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                          style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); color: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); flex-shrink: 0;"
-                        >
-                          <g
-                            color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                            weight="fill"
-                          >
-                            <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="framer-v9uzz7-container" style="opacity: 1;">
-                      <div style="display: contents;">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 256 256"
-                          focusable="false"
-                          color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                          style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); color: var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27)); flex-shrink: 0;"
-                        >
-                          <g
-                            color="var(--token-b853b0e1-8e9d-431d-b182-a32c05b25cd4, rgb(19, 38, 27))"
-                            weight="fill"
-                          >
-                            <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
+      <section className="flex flex-col items-center justify-center w-full px-12 gap-0 h-min relative overflow-visible flex-none">
+        <div className="flex flex-row items-center justify-center w-full max-w-7xl gap-20 h-min relative overflow-visible flex-none p-0">
+          <div className="flex-1 basis-0 w-px max-w-[620px] h-auto relative">
+            <div className="flex flex-col items-center w-full max-w-full gap-8 h-min overflow-visible rounded-xl bg-transparent opacity-100 relative p-6">
+              <div className="flex flex-col items-center justify-start content-center w-full gap-8 h-min relative overflow-visible flex-none p-0">
+                <div className="flex gap-1">
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg
+                        key={i}
+                        viewBox="0 0 256 256"
+                        className="w-5 h-5 fill-[#13261b]"
+                      >
+                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z" />
+                      </svg>
+                    ))}
                   </div>
                 </div>
-                <div
-                  class="framer-1t4sx69"
-                  data-framer-component-type="RichTextContainer"
-                  style="--framer-paragraph-spacing: 0px; will-change: transform; opacity: 1; transform: none;"
-                >
-                  <p
-                    class="framer-text framer-styles-preset-xqj5vo"
-                    data-styles-preset="ynn6MjRHb"
-                    style="--framer-text-alignment: center;"
-                  >
-                    “GreenLeaf helped us not just meet reporting
-                    requirements—but actually use our carbon data to drive
-                    change. We now have a strategy that excites our board and
-                    resonates with customers.”
+                <div className="flex-none w-full h-auto relative overflow-visible">
+                  <p className="text-base text-[#5e6b64] text-center leading-[1.5em] tracking-[0em]">
+                    “Sylabus has been a game-changer for our school. It saves us
+                    hours of work each week and helps us create better question
+                    papers for our students. Highly recommended!”
                   </p>
                 </div>
               </div>
-              <div
-                class="framer-f1egfp"
-                data-framer-name="Profile"
-                style="will-change: transform; opacity: 1; transform: none;"
-              >
-                <div class="framer-10erngw-container" style="opacity: 1;">
-                  <div
-                    class="framer-SO6ZJ framer-1lwd9rw framer-v-1lwd9rw"
-                    data-framer-name="Variant 1"
-                    style="opacity: 1;"
-                  >
+              <div className="flex flex-row items-center justify-start content-center w-min h-min gap-3.5 p-0 relative overflow-visible flex-none">
+                <div className="flex-none w-auto h-auto relative">
+                  <div className="flex flex-col items-start justify-start w-min h-min gap-0 p-0 relative overflow-visible">
                     <div
-                      class="framer-iavwsg"
-                      data-border="true"
-                      data-framer-name="Image"
-                      style="--border-bottom-width: 2px; --border-color: rgb(255, 255, 255); --border-left-width: 2px; --border-right-width: 2px; --border-style: solid; --border-top-width: 2px; border-radius: 32px; box-shadow: rgba(0, 0, 0, 0.14) 0px 0.78363px 0.78363px -0.5px, rgba(0, 0, 0, 0.14) 0px 1.91965px 1.91965px -1px, rgba(0, 0, 0, 0.13) 0px 3.63745px 3.63745px -1.5px, rgba(0, 0, 0, 0.13) 0px 6.35004px 6.35004px -2px, rgba(0, 0, 0, 0.12) 0px 11.0519px 11.0519px -2.5px, rgba(0, 0, 0, 0.1) 0px 20.2428px 20.2428px -3px, rgba(0, 0, 0, 0.06) 0px 40px 40px -3.5px; opacity: 1;"
+                      className="w-11 h-11 flex-none relative overflow-visible rounded-4xl border-2 border-white opacity-100"
+                      style={{
+                        boxShadow:
+                          "rgba(0, 0, 0, 0.14) 0px 0.78363px 0.78363px -0.5px, rgba(0, 0, 0, 0.14) 0px 1.91965px 1.91965px -1px, rgba(0, 0, 0, 0.13) 0px 3.63745px 3.63745px -1.5px, rgba(0, 0, 0, 0.13) 0px 6.35004px 6.35004px -2px, rgba(0, 0, 0, 0.12) 0px 11.0519px 11.0519px -2.5px, rgba(0, 0, 0, 0.1) 0px 20.2428px 20.2428px -3px, rgba(0, 0, 0, 0.06) 0px 40px 40px -3.5px",
+                      }}
                     >
-                      <div
-                        data-framer-background-image-wrapper="true"
-                        style="position: absolute; border-radius: inherit; corner-shape: inherit; inset: 0px;"
-                      >
+                      <div className="absolute inset-0 rounded-[inherit]">
                         <Image
                           decoding="auto"
                           loading="lazy"
                           width="992"
                           height="1200"
                           sizes="44px"
-                          srcset="https://framerusercontent.com/images/CpTmY4j1mcVXCAjN4B2LwSmMm1Q.png?scale-down-to=1024 846w,https://framerusercontent.com/images/CpTmY4j1mcVXCAjN4B2LwSmMm1Q.png 992w"
-                          src="https://framerusercontent.com/images/CpTmY4j1mcVXCAjN4B2LwSmMm1Q.png?scale-down-to=512"
+                          src="/p1.png"
                           alt=""
-                          style="display: block; width: 100%; height: 100%; border-radius: inherit; corner-shape: inherit; object-position: center center; object-fit: cover;"
+                          className="block w-full h-full object-center object-cover rounded-[inherit]"
                         />
                       </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  class="framer-1mptq11"
-                  data-framer-name="Text Wrapper"
-                  style="opacity: 1;"
-                >
-                  <div
-                    class="framer-1hhtyyt"
-                    data-framer-component-type="RichTextContainer"
-                    style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; --framer-paragraph-spacing: 0px; transform: none; opacity: 1;"
-                  >
-                    <h4
-                      class="framer-text framer-styles-preset-fo8yz6"
-                      data-styles-preset="RjH199IR2"
-                    >
-                      Hannah Reid
+                <div className="flex flex-col items-start justify-start content-center w-min h-min gap-0 p-0 relative overflow-hidden flex-none">
+                  <div className="flex-none w-auto h-auto relative overflow-visible whitespace-pre">
+                    <h4 className="text-2xl text-[#13261b] leading-[1.2em] tracking-[-0.02em]">
+                      Jane Cooper
                     </h4>
                   </div>
-                  <div
-                    class="framer-gx1oa5"
-                    data-framer-component-type="RichTextContainer"
-                    style="--framer-link-text-color: rgb(0, 153, 255); --framer-link-text-decoration: underline; --framer-paragraph-spacing: 0px; transform: none; opacity: 1;"
-                  >
-                    <p
-                      class="framer-text framer-styles-preset-10181gm"
-                      data-styles-preset="Y8JjgkGIV"
-                    >
+                  <div className="flex flex-col justify-start flex-none shrink-0 w-auto h-auto relative overflow-visible whitespace-pre outline-none">
+                    <p className="text-sm text-[#5e6b64] leading-[1.5em]">
                       Capsule
                     </p>
                   </div>
                 </div>
-                <div
-                  class="framer-1vdi0m3"
-                  data-framer-name="Divider"
-                  style="background-color: var(--token-112245ea-c4a4-4dd8-b7f3-5c5ae3f046d2, rgb(150, 150, 150)); border-radius: 1px; opacity: 1;"
-                ></div>
-                <div
-                  class="framer-idokjz"
-                  data-framer-name="Logo"
-                  style="opacity: 1;"
-                >
-                  <div
-                    data-framer-background-image-wrapper="true"
-                    style="position: absolute; border-radius: inherit; corner-shape: inherit; inset: 0px;"
-                  >
+                <div className="w-0.5 h-12 flex-none relative overflow-hidden bg-[rgb(150,150,150)] rounded-[1px] opacity-100"></div>
+                <div className="w-[105px] h-[34px] aspect-[3.1] flex-none relative overflow-hidden">
+                  <div className="absolute inset-0 rounded-[inherit]">
                     <Image
                       decoding="auto"
                       loading="lazy"
                       width="149"
                       height="48"
-                      src="https://framerusercontent.com/images/7tR2Zy7xnJcOtxNq60NmsX5lHY.svg"
+                      src="/institutes/logo/aisc.png"
                       alt=""
-                      style="display: block; width: 100%; height: 100%; border-radius: inherit; corner-shape: inherit; object-position: center center; object-fit: cover;"
+                      className="block w-full h-full object-center object-cover rounded-[inherit]"
                     />
                   </div>
                 </div>
@@ -642,7 +497,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       <CTA />
       <Footer />
