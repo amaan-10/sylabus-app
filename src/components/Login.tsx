@@ -665,6 +665,16 @@ const Login = () => {
               </div>
             </div>
 
+            <p className="text-center text-sm text-slate-500 w-full">
+              Login for an institute?{" "}
+              <Link
+                href="/institute/login"
+                className="text-black font-medium hover:underline"
+              >
+                Click here
+              </Link>
+            </p>
+
             <div className="p-2 text-center flex w-full justify-center items-center">
               {error && <p className="text-red-500">{error}</p>}
               {success && <p className="text-green-500">{success}</p>}
